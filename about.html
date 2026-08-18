@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Franchise 101 — India's Curated Food Franchise Platform</title>
+<meta name="description" content="Learn about Franchise 101's mission to democratize ethical, profitable food entrepreneurship across India with audited unit economics and zero investor brokerage." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+/* Custom About Page Styles */
+.about-hero-grid {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: center;
+}
+@media (max-width: 860px) { .about-hero-grid { grid-template-columns: 1fr; } }
+
+.story-card {
+  background: var(--paper-card); border: 1px solid var(--line); border-radius: var(--r);
+  padding: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 20px;
+}
+
+.mission-vision-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: clamp(32px, 4vw, 48px);
+}
+@media (max-width: 760px) { .mission-vision-grid { grid-template-columns: 1fr; } }
+
+.mv-card {
+  background: var(--jamun); color: var(--malai); border-radius: var(--r);
+  padding: 36px 32px; display: flex; flex-direction: column; gap: 16px; position: relative; overflow: hidden;
+}
+.mv-card.gold-card { background: var(--jamun-soft); border: 1px solid rgba(255, 176, 32, 0.3); }
+.mv-card h3 { color: var(--kesar); }
+.mv-card p { color: rgba(255, 243, 222, 0.85); font-size: 16px; line-height: 1.6; }
+
+.diff-table-wrap {
+  overflow-x: auto; background: var(--paper-card); border: 1px solid var(--line); border-radius: var(--r);
+  margin-top: 32px; box-shadow: 0 12px 30px -15px rgba(26,20,32,0.06);
+}
+.diff-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 15px; }
+.diff-table th, .diff-table td { padding: 18px 24px; border-bottom: 1px solid var(--line); }
+.diff-table th { background: rgba(26,20,32,0.03); font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-60); }
+.diff-table tr:last-child td { border-bottom: none; }
+.diff-table td strong { font-weight: 700; color: var(--ink); }
+.diff-badge-good { color: #2D6A12; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
+.diff-badge-bad { color: #A92A14; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 36px; }
+@media (max-width: 860px) { .team-grid { grid-template-columns: 1fr; } }
+.team-card {
+  background: var(--paper-card); border: 1px solid var(--line); border-radius: var(--r);
+  overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.team-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px -12px rgba(26,20,32,0.12); }
+.team-img { aspect-ratio: 1/1; overflow: hidden; background: var(--jamun-soft); }
+.team-img img { width: 100%; height: 100%; object-fit: cover; }
+.team-info { padding: 24px; display: flex; flex-direction: column; gap: 8px; }
+.team-info strong { font-family: var(--font-display); font-size: 20px; color: var(--ink); }
+.team-info small { font-family: var(--font-mono); font-size: 12px; color: var(--kesar-hot); text-transform: uppercase; font-weight: 600; }
+.team-info p { font-size: 14px; color: var(--ink-60); line-height: 1.55; margin-top: 6px; }
+</style>
+</head>
+<body>
+
+<div class="top-progress" id="topProgress"></div>
+
+<!-- ============ FLOATING PILL CAPSULE NAV ============ -->
+<nav class="nav" id="nav">
+  <a class="logo" href="index.html" aria-label="Franchise 101 Home">FRANCHISE 101<span class="dot"></span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="franchises.html">Franchises</a>
+    <a href="develop-brand.html">Develop Brand</a>
+    <a href="develop-scale.html">Develop &amp; Scale</a>
+    <a href="franchise-marketing.html">Marketing</a>
+    <a href="find-franchise.html">Find Match</a>
+    <a href="book-consultation.html">Contact</a>
+  </div>
+  <div class="nav-cta-wrap">
+    <a class="btn btn--kesar" href="book-consultation.html">Book a Consultation <span class="arw">&rarr;</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+  <div class="mobile-drawer-content">
+    <div class="logo">FRANCHISE 101<span class="dot"></span></div>
+    <nav>
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link active">About Franchise 101</a>
+      <a href="franchises.html" class="mobile-nav-link">Franchise Opportunities</a>
+      <a href="develop-brand.html" class="mobile-nav-link">Develop Your Own Brand</a>
+      <a href="develop-scale.html" class="mobile-nav-link">Develop &amp; Scale</a>
+      <a href="franchise-marketing.html" class="mobile-nav-link">Franchise Marketing</a>
+      <a href="find-franchise.html" class="mobile-nav-link">Find The Right Franchise</a>
+      <a href="book-consultation.html" class="mobile-nav-link">Book a Consultation</a>
+    </nav>
+    <div style="margin-top:auto;display:flex;flex-direction:column;gap:12px">
+      <a class="btn btn--kesar" href="book-consultation.html" style="width:100%;text-align:center">Book a Consultation &rarr;</a>
+      <p style="font-family:var(--font-mono);font-size:12px;color:rgba(255,243,222,.6);text-align:center">Zero fee &middot; Direct brand connect</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PAGE HERO ============ -->
+<header class="page-hero on-dark">
+  <div class="wrap">
+    <div class="about-hero-grid">
+      <div>
+        <p class="eyebrow on-dark">Company Introduction &middot; Since 2019</p>
+        <h1>The transparent food franchise platform India deserved.</h1>
+        <p class="page-hero-sub">We founded Franchise 101 with one conviction: prospective food franchisees deserve audited unit economics, realistic payback models, and zero broker markup before risking their hard-earned capital.</p>
+        <div class="page-hero-meta">
+          <span class="tag green">41 Audited Brands</span>
+          <span class="tag gold">1,860+ Outlets Running</span>
+          <span class="tag">214 Cities Across India</span>
+        </div>
+      </div>
+      <div style="border-radius:24px;overflow:hidden;box-shadow:0 24px 50px rgba(0,0,0,.4)">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=600&fit=crop" alt="Franchise 101 Advisory Session" />
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ OUR STORY ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Our Brand Story</p>
+      <h2>Why Franchise 101 Was Started</h2>
+    </div>
+    
+    <div class="story-card rv">
+      <p style="font-size:18px;line-height:1.7;color:var(--ink)">
+        For decades, India's franchise brokerage industry was broken. Legacy portals acted as paid banner directories, promoting any brand willing to pay listing fees without auditing store-level P&amp;L, verifying chef-less SOPs, or checking whether early franchisees actually made money.
+      </p>
+      <p style="font-size:16px;line-height:1.7;color:var(--ink-60)">
+        We created <strong>Franchise 101</strong> to fix this information asymmetry. We operate as an institutional verification layer. Every food franchise listed on our platform undergoes rigorous scrutiny: 35%+ minimum gross margin verification, supplier invoice audits, 500m radius territorial exclusivity, and 100% turnkey operational training.
+      </p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:12px">
+        <a class="btn btn--kesar" href="franchises.html">Explore 5 Curated Brands &rarr;</a>
+        <a class="btn btn--ghost" href="find-franchise.html">Take Matching Questionnaire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MISSION & VISION ============ -->
+<section class="sec tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Our North Star</p>
+      <h2>Mission &amp; Vision</h2>
+    </div>
+
+    <div class="mission-vision-grid rv">
+      <div class="mv-card">
+        <span class="tag gold" style="width:fit-content">Our Mission</span>
+        <h3>Democratize Profitable Food Entrepreneurship</h3>
+        <p>To eliminate opaque marketing claims in the Indian F&amp;B franchise sector by connecting serious investors directly with proven, chef-independent food brands that deliver verifiable cash flow.</p>
+      </div>
+
+      <div class="mv-card gold-card">
+        <span class="tag green" style="width:fit-content">Our 2030 Vision</span>
+        <h3>5,000 Thriving Outlets Across 500 Cities</h3>
+        <p>To become South Asia's most trusted food venture acceleration network &mdash; powering sustainable local entrepreneurship, creating 40,000+ culinary jobs, and standardizing regional recipes nationwide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY FRANCHISE 101 VS TRADITIONAL ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head wide">
+      <p class="eyebrow">The Differentiator</p>
+      <h2>How Franchise 101 Compares to Traditional Consultants</h2>
+      <p class="sec-note">We don't take money from investors to recommend brands. Here is why our curation model protects your investment.</p>
+    </div>
+
+    <div class="diff-table-wrap rv">
+      <table class="diff-table">
+        <thead>
+          <tr>
+            <th>Evaluation Feature</th>
+            <th>Traditional Franchise Portals</th>
+            <th>Franchise 101 Verification</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Franchisee Fee</strong></td>
+            <td><span class="diff-badge-bad">&#10007; Charges registration fee</span></td>
+            <td><span class="diff-badge-good">&#10003; 100% Free to Investors</span></td>
+          </tr>
+          <tr>
+            <td><strong>Unit Economics Auditing</strong></td>
+            <td><span class="diff-badge-bad">&#10007; Unverified promotional slides</span></td>
+            <td><span class="diff-badge-good">&#10003; Actual Store POS &amp; P&amp;L Audited</span></td>
+          </tr>
+          <tr>
+            <td><strong>Chef Independence</strong></td>
+            <td><span class="diff-badge-bad">&#10007; High risk of master chef exit</span></td>
+            <td><span class="diff-badge-good">&#10003; 100% Central Base &amp; Pre-mix SOPs</span></td>
+          </tr>
+          <tr>
+            <td><strong>Territory Protection</strong></td>
+            <td><span class="diff-badge-bad">&#10007; Cannibalization risks</span></td>
+            <td><span class="diff-badge-good">&#10003; 500m+ Guaranteed Radius Exclusivity</span></td>
+          </tr>
+          <tr>
+            <td><strong>Post-Signing Support</strong></td>
+            <td><span class="diff-badge-bad">&#10007; Hands-off after referral fee</span></td>
+            <td><span class="diff-badge-good">&#10003; 9-Week Launch &amp; Trial Day Support</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEADERSHIP TEAM ============ -->
+<section class="sec tight" id="team">
+  <div class="wrap">
+    <div class="sec-head wide">
+      <p class="eyebrow">Leadership &amp; Advisory</p>
+      <h2>Decades of F&amp;B scaling, culinary ops &amp; legal expertise.</h2>
+      <p class="sec-note">Our leadership team brings experience from India's largest restaurant chains, Big-4 advisory firms, and top commercial law practices.</p>
+    </div>
+
+    <div class="team-grid rv">
+      <div class="team-card">
+        <div class="team-img">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=600&fit=crop" alt="Priya Sengupta" />
+        </div>
+        <div class="team-info">
+          <strong>Priya Sengupta</strong>
+          <small>Managing Partner &middot; Brand Strategy</small>
+          <p>14+ years scaling national QSR brands. Led multi-city expansion across 180+ beverage &amp; snack counters in Western and Southern India.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-img">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop" alt="Vikram Malhotra" />
+        </div>
+        <div class="team-info">
+          <strong>Vikram Malhotra</strong>
+          <small>Partner &middot; Unit Economics &amp; Auditing</small>
+          <p>Ex-KPMG F&amp;B Advisory. Audited over ₹400Cr in franchise capital expenditures, store breakeven metrics, and vendor supply contracts.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-img">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&h=600&fit=crop" alt="Arjun Dave" />
+        </div>
+        <div class="team-info">
+          <strong>Arjun Dave</strong>
+          <small>Head of Legal &amp; Territory Allotment</small>
+          <p>Specialist in Indian commercial franchise agreements, FOFO/FOCO covenants, FSSAI statutory compliance, and investor rights.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot on-dark">
+  <div class="wrap">
+    <div class="foot-banner">
+      <div class="foot-banner-text">
+        <h3>Ready to partner with Franchise 101?</h3>
+        <p>Book a confidential strategy session with our senior franchise advisors today.</p>
+      </div>
+      <div class="foot-banner-actions">
+        <a class="btn btn--kesar" href="book-consultation.html">Book a Consultation <span class="arw">&rarr;</span></a>
+        <a class="btn btn--ghost" href="https://wa.me/912240008899" target="_blank">Chat on WhatsApp 💬</a>
+      </div>
+    </div>
+
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index.html">FRANCHISE 101<span class="dot"></span></a>
+        <p>India's curated food franchise discovery and investment platform. We verify real unit economics, secure territorial exclusivity, and guide investors from application to grand opening.</p>
+        <div class="foot-contacts">
+          <div><span>Direct Desk:</span> <a href="mailto:partners@franchise101.in">partners@franchise101.in</a></div>
+          <div><span>Investor Helpline:</span> <a href="tel:+912240008899">+91 22 4000 8899</a></div>
+          <div><span>HQ:</span> BKC, Mumbai &middot; Pune &middot; Bengaluru &middot; Delhi NCR</div>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h4>Franchise Formats</h4>
+        <ul>
+          <li><a href="franchises.html#chai-katta">Chai &amp; Beverages <small>₹6L–11L</small></a></li>
+          <li><a href="franchises.html#kulfi-club">Matka Kulfi &amp; Desserts <small>₹14L–22L</small></a></li>
+          <li><a href="franchises.html#momo-mafia">QSR &amp; Fast Food <small>₹12L–24L</small></a></li>
+          <li><a href="franchises.html#biryani-bay">Delivery Cloud Kitchens <small>₹8L–13L</small></a></li>
+          <li><a href="franchises.html#tandoor-tribe">Casual Dining (FOCO) <small>₹40L–65L</small></a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Investor Tools</h4>
+        <ul>
+          <li><a href="find-franchise.html">Franchise Matcher Quiz</a></li>
+          <li><a href="index.html#calculator">ROI &amp; Payback Simulator</a></li>
+          <li><a href="index.html#city-sec">Territory Availability Finder</a></li>
+          <li><a href="about.html">Why Franchise 101</a></li>
+          <li><a href="index.html#faq">Investor FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>For Brands &amp; Legal</h4>
+        <ul>
+          <li><a href="develop-brand.html">Develop Your Own Brand</a></li>
+          <li><a href="develop-scale.html">Develop &amp; Scale Network</a></li>
+          <li><a href="franchise-marketing.html">Franchise Marketing &amp; Leads</a></li>
+          <li><a href="book-consultation.html">Schedule Strategy Call</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-base">
+      <span>&copy; 2026 Franchise 101 Ventures Pvt Ltd &middot; All Rights Reserved</span>
+      <div class="foot-status">
+        <span class="dot-pulse"></span>
+        <span>41 Verified Brands Live &middot; 214 Cities Covered</span>
+      </div>
+      <div class="foot-base-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="book-consultation.html">Privacy &amp; Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="floating-up" id="btnBackToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+
+<script>
+// Auto-hide navigation on scroll
+const nav = document.getElementById('nav');
+const topProgress = document.getElementById('topProgress');
+const btnBackToTop = document.getElementById('btnBackToTop');
+const navToggle = document.getElementById('navToggle');
+const mobileDrawer = document.getElementById('mobileDrawer');
+
+let lastScrollY = window.scrollY;
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  if (topProgress) topProgress.style.width = ((scrolled / maxScroll) * 100) + '%';
+  if (btnBackToTop) btnBackToTop.classList.toggle('show', scrolled > 400);
+
+  if (nav) {
+    nav.classList.toggle('stuck', scrolled > 20);
+    const isDrawerOpen = mobileDrawer && mobileDrawer.classList.contains('open');
+    if (!isDrawerOpen) {
+      if (scrolled <= 30) {
+        nav.classList.remove('nav--hidden');
+      } else if (scrolled > lastScrollY + 8 && scrolled > 80) {
+        nav.classList.add('nav--hidden');
+      } else if (scrolled < lastScrollY - 8) {
+        nav.classList.remove('nav--hidden');
+      }
+    }
+  }
+  lastScrollY = Math.max(scrolled, 0);
+}, { passive: true });
+
+function toggleMobileNav() {
+  const isOpen = mobileDrawer.classList.contains('open');
+  mobileDrawer.classList.toggle('open', !isOpen);
+  navToggle.classList.toggle('open', !isOpen);
+  document.body.style.overflow = !isOpen ? 'hidden' : '';
+}
+
+if (navToggle && mobileDrawer) {
+  navToggle.addEventListener('click', toggleMobileNav);
+  mobileDrawer.addEventListener('click', e => { if (e.target === mobileDrawer) toggleMobileNav(); });
+}
+
+// Reveal on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

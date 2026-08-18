@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Develop & Scale Multi-City Franchise Network — Franchise 101</title>
+<meta name="description" content="Scale your operating food brand from 3 outlets to 50+ nationwide units with master territory syndication, cluster zoning, and institutional auditing." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+/* Develop & Scale Page Styles */
+.scale-metric-strip {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line);
+  border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; margin-top: clamp(32px, 4vw, 48px);
+}
+@media (max-width: 820px) { .scale-metric-strip { grid-template-columns: 1fr 1fr; } }
+.scale-stat { background: var(--paper-card); padding: 26px 22px; display: flex; flex-direction: column; gap: 6px; }
+.scale-stat b { font-family: var(--font-display); font-size: clamp(30px, 3.5vw, 44px); color: var(--ink); line-height: 1; }
+.scale-stat span { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--ink-60); letter-spacing: 0.1em; }
+
+.scale-grid-3 {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px;
+}
+@media (max-width: 860px) { .scale-grid-3 { grid-template-columns: 1fr; } }
+.scale-card {
+  background: var(--paper-card); border: 1px solid var(--line); border-radius: var(--r);
+  padding: 28px 24px; display: flex; flex-direction: column; gap: 12px;
+}
+.scale-card h4 { font-size: 19px; color: var(--ink); margin: 0; }
+.scale-card p { font-size: 14.5px; color: var(--ink-60); line-height: 1.55; margin: 0; }
+
+.case-study-box {
+  background: var(--jamun-deep); color: var(--malai); border-radius: var(--r);
+  padding: clamp(32px, 4vw, 48px); margin-top: clamp(40px, 6vw, 60px);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center;
+}
+@media (max-width: 820px) { .case-study-box { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="top-progress" id="topProgress"></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a class="logo" href="index.html" aria-label="Franchise 101 Home">FRANCHISE 101<span class="dot"></span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="franchises.html">Franchises</a>
+    <a href="develop-brand.html">Develop Brand</a>
+    <a href="develop-scale.html" class="active">Develop &amp; Scale</a>
+    <a href="franchise-marketing.html">Marketing</a>
+    <a href="find-franchise.html">Find Match</a>
+    <a href="book-consultation.html">Contact</a>
+  </div>
+  <div class="nav-cta-wrap">
+    <a class="btn btn--kesar" href="book-consultation.html">Book a Consultation <span class="arw">&rarr;</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+  <div class="mobile-drawer-content">
+    <div class="logo">FRANCHISE 101<span class="dot"></span></div>
+    <nav>
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About Franchise 101</a>
+      <a href="franchises.html" class="mobile-nav-link">Franchise Opportunities</a>
+      <a href="develop-brand.html" class="mobile-nav-link">Develop Your Own Brand</a>
+      <a href="develop-scale.html" class="mobile-nav-link active">Develop &amp; Scale</a>
+      <a href="franchise-marketing.html" class="mobile-nav-link">Franchise Marketing</a>
+      <a href="find-franchise.html" class="mobile-nav-link">Find The Right Franchise</a>
+      <a href="book-consultation.html" class="mobile-nav-link">Book a Consultation</a>
+    </nav>
+    <div style="margin-top:auto;display:flex;flex-direction:column;gap:12px">
+      <a class="btn btn--kesar" href="book-consultation.html" style="width:100%;text-align:center">Book a Consultation &rarr;</a>
+      <p style="font-family:var(--font-mono);font-size:12px;color:rgba(255,243,222,.6);text-align:center">Zero fee &middot; Direct brand connect</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PAGE HERO ============ -->
+<header class="page-hero on-dark">
+  <div class="wrap">
+    <p class="eyebrow on-dark">Enterprise Brand Expansion &middot; 3 to 50+ Units</p>
+    <h1>Develop &amp; Scale Your Regional Food Brand Nationwide</h1>
+    <p class="page-hero-sub">You have proven local product-market fit with 2–10 operating outlets. Franchise 101 provides demographic cluster zoning, master territory syndication, and investor screening to expand your chain across 214+ Indian cities.</p>
+    <div class="page-hero-meta">
+      <span class="tag green">Master Territory Syndication</span>
+      <span class="tag gold">Audited Unit Economics</span>
+      <span class="tag">87% Year-3 Survival</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ SCALING METRICS ============ -->
+<section class="sec tight" style="margin-top:-30px;position:relative;z-index:2">
+  <div class="wrap">
+    <div class="scale-metric-strip rv">
+      <div class="scale-stat"><b>15&ndash;40</b><span>Annual Unit Openings</span></div>
+      <div class="scale-stat"><b>214+</b><span>Cities Ready for Rollout</span></div>
+      <div class="scale-stat"><b>87%</b><span>3-Year Franchise Survival</span></div>
+      <div class="scale-stat"><b>₹400Cr+</b><span>Capex Syndicated</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES & CAPABILITIES ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head wide">
+      <p class="eyebrow">Enterprise Expansion Suite</p>
+      <h2>Systematic scaling protocols for high-growth food chains.</h2>
+      <p class="sec-note">We eliminate regional bottlenecks by matching your brand with qualified multi-unit operators capable of opening 3 to 5 outlets in their target city.</p>
+    </div>
+
+    <div class="scale-grid-3 rv">
+      <div class="scale-card">
+        <span class="tag gold" style="width:fit-content">Strategy 01</span>
+        <h4>City Catchment &amp; Cluster Mapping</h4>
+        <p>We analyze smartphone footfall density, student population concentrations, and delivery heatmaps across 214+ cities to locate optimal 500m catchment zones.</p>
+      </div>
+
+      <div class="scale-card">
+        <span class="tag gold" style="width:fit-content">Strategy 02</span>
+        <h4>Master Territory Syndication</h4>
+        <p>We syndicate multi-unit area developer agreements with vetted High Net-Worth Individuals (HNIs) who commit capital for 3 to 5 outlets over a 24-month horizon.</p>
+      </div>
+
+      <div class="scale-card">
+        <span class="tag gold" style="width:fit-content">Strategy 03</span>
+        <h4>Institutional Unit Economics Audits</h4>
+        <p>We audit store-level P&amp;Ls, supplier costs, and average ticket sizes to produce institutional investment teasers that build immediate investor trust.</p>
+      </div>
+
+      <div class="scale-card">
+        <span class="tag gold" style="width:fit-content">Strategy 04</span>
+        <h4>Quality Assurance &amp; Mystery Audits</h4>
+        <p>We institute automated POS data tracking, surprise mystery audits, and customer feedback monitoring so your brand standard remains immaculate as you scale.</p>
+      </div>
+
+      <div class="scale-card">
+        <span class="tag gold" style="width:fit-content">Strategy 05</span>
+        <h4>Supply Chain Network Expansion</h4>
+        <p>We connect your central manufacturing base with regional 3PL cold-storage hubs, ensuring 48-hour ingredient replenishment across all Indian states.</p>
+      </div>
+
+      <div class="scale-card">
+        <span class="tag gold" style="width:fit-content">Strategy 06</span>
+        <h4>Turnkey Discovery Days &amp; Closings</h4>
+        <p>We organize private tasting sessions and direct founder-investor roundtables that achieve a 3.8x higher close rate than traditional cold sales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASE STUDY ============ -->
+<section class="sec tight">
+  <div class="wrap">
+    <div class="case-study-box rv">
+      <div>
+        <span class="tag green" style="margin-bottom:12px">Multi-City Expansion Case Study</span>
+        <h3 style="color:var(--malai);font-size:clamp(24px,2.8vw,34px);margin-bottom:12px">How Momo Mafia Scaled to 38 Outlets Across 14 Cities</h3>
+        <p style="color:rgba(255,243,222,.8);font-size:15px;line-height:1.6">
+          Operating just 3 outlets in Delhi NCR, Momo Mafia faced challenges expanding to western and southern India. Franchise 101 syndicated 6 multi-unit master territory agreements in Mumbai, Pune, Bengaluru, and Hyderabad &mdash; opening 35 new outlets in 14 months with zero chef dependency.
+        </p>
+        <div style="display:flex;gap:20px;margin-top:20px">
+          <div><b style="font-size:26px;color:var(--kesar);display:block">38</b><small style="font-family:var(--font-mono);font-size:11px;color:rgba(255,243,222,.7)">Total Outlets</small></div>
+          <div><b style="font-size:26px;color:var(--pista);display:block">14</b><small style="font-family:var(--font-mono);font-size:11px;color:rgba(255,243,222,.7)">Metro Cities</small></div>
+          <div><b style="font-size:26px;color:var(--malai);display:block">65%</b><small style="font-family:var(--font-mono);font-size:11px;color:rgba(255,243,222,.7)">Avg Gross Margin</small></div>
+        </div>
+      </div>
+      <div style="border-radius:18px;overflow:hidden;background:#000">
+        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800&fit=crop" alt="Momo Mafia Outlets Nationwide" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot on-dark">
+  <div class="wrap">
+    <div class="foot-banner">
+      <div class="foot-banner-text">
+        <h3>Ready to scale your restaurant chain nationwide?</h3>
+        <p>Book a confidential expansion blueprint session with our enterprise growth team.</p>
+      </div>
+      <div class="foot-banner-actions">
+        <a class="btn btn--kesar" href="book-consultation.html">Schedule Expansion Call <span class="arw">&rarr;</span></a>
+        <a class="btn btn--ghost" href="https://wa.me/912240008899?text=Hi%20Franchise%20101,%20we%20want%20to%20scale%20our%20food%20brand%20nationwide" target="_blank">Chat on WhatsApp 💬</a>
+      </div>
+    </div>
+
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index.html">FRANCHISE 101<span class="dot"></span></a>
+        <p>India's curated food franchise discovery and investment platform. We verify real unit economics, secure territorial exclusivity, and guide investors from application to grand opening.</p>
+        <div class="foot-contacts">
+          <div><span>Direct Desk:</span> <a href="mailto:partners@franchise101.in">partners@franchise101.in</a></div>
+          <div><span>Investor Helpline:</span> <a href="tel:+912240008899">+91 22 4000 8899</a></div>
+          <div><span>HQ:</span> BKC, Mumbai &middot; Pune &middot; Bengaluru &middot; Delhi NCR</div>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h4>Franchise Formats</h4>
+        <ul>
+          <li><a href="franchises.html#chai-katta">Chai &amp; Beverages <small>₹6L–11L</small></a></li>
+          <li><a href="franchises.html#kulfi-club">Matka Kulfi &amp; Desserts <small>₹14L–22L</small></a></li>
+          <li><a href="franchises.html#momo-mafia">QSR &amp; Fast Food <small>₹12L–24L</small></a></li>
+          <li><a href="franchises.html#biryani-bay">Delivery Cloud Kitchens <small>₹8L–13L</small></a></li>
+          <li><a href="franchises.html#tandoor-tribe">Casual Dining (FOCO) <small>₹40L–65L</small></a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Investor Tools</h4>
+        <ul>
+          <li><a href="find-franchise.html">Franchise Matcher Quiz</a></li>
+          <li><a href="index.html#calculator">ROI &amp; Payback Simulator</a></li>
+          <li><a href="index.html#city-sec">Territory Availability Finder</a></li>
+          <li><a href="about.html">Why Franchise 101</a></li>
+          <li><a href="index.html#faq">Investor FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>For Brands &amp; Legal</h4>
+        <ul>
+          <li><a href="develop-brand.html">Develop Your Own Brand</a></li>
+          <li><a href="develop-scale.html">Develop &amp; Scale Network</a></li>
+          <li><a href="franchise-marketing.html">Franchise Marketing &amp; Leads</a></li>
+          <li><a href="book-consultation.html">Schedule Strategy Call</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-base">
+      <span>&copy; 2026 Franchise 101 Ventures Pvt Ltd &middot; All Rights Reserved</span>
+      <div class="foot-status">
+        <span class="dot-pulse"></span>
+        <span>41 Verified Brands Live &middot; 214 Cities Covered</span>
+      </div>
+      <div class="foot-base-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="book-consultation.html">Privacy &amp; Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="floating-up" id="btnBackToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+
+<script>
+// Auto-hide navigation on scroll
+const nav = document.getElementById('nav');
+const topProgress = document.getElementById('topProgress');
+const btnBackToTop = document.getElementById('btnBackToTop');
+const navToggle = document.getElementById('navToggle');
+const mobileDrawer = document.getElementById('mobileDrawer');
+
+let lastScrollY = window.scrollY;
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  if (topProgress) topProgress.style.width = ((scrolled / maxScroll) * 100) + '%';
+  if (btnBackToTop) btnBackToTop.classList.toggle('show', scrolled > 400);
+
+  if (nav) {
+    nav.classList.toggle('stuck', scrolled > 20);
+    const isDrawerOpen = mobileDrawer && mobileDrawer.classList.contains('open');
+    if (!isDrawerOpen) {
+      if (scrolled <= 30) {
+        nav.classList.remove('nav--hidden');
+      } else if (scrolled > lastScrollY + 8 && scrolled > 80) {
+        nav.classList.add('nav--hidden');
+      } else if (scrolled < lastScrollY - 8) {
+        nav.classList.remove('nav--hidden');
+      }
+    }
+  }
+  lastScrollY = Math.max(scrolled, 0);
+}, { passive: true });
+
+function toggleMobileNav() {
+  const isOpen = mobileDrawer.classList.contains('open');
+  mobileDrawer.classList.toggle('open', !isOpen);
+  navToggle.classList.toggle('open', !isOpen);
+  document.body.style.overflow = !isOpen ? 'hidden' : '';
+}
+
+if (navToggle && mobileDrawer) {
+  navToggle.addEventListener('click', toggleMobileNav);
+  mobileDrawer.addEventListener('click', e => { if (e.target === mobileDrawer) toggleMobileNav(); });
+}
+
+// Reveal on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Find The Right Franchise — Interactive Matcher — Franchise 101</title>
+<meta name="description" content="Take our 5-step interactive food franchise questionnaire to get matched in real-time with verified brands fitting your capital, location, and operating model." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+/* Find Franchise Quiz Page Styles */
+.quiz-wrapper {
+  background: var(--paper-card); border: 1px solid var(--line); border-radius: clamp(24px, 4vw, 36px);
+  padding: clamp(28px, 4.5vw, 54px); box-shadow: 0 20px 50px -20px rgba(26,20,32,0.1);
+  margin-top: -40px; position: relative; z-index: 2;
+}
+
+.quiz-progress-bar {
+  height: 6px; background: rgba(26,20,32,0.08); border-radius: 999px; overflow: hidden; margin-bottom: 20px;
+}
+.quiz-progress-fill {
+  height: 100%; width: 20%; background: linear-gradient(90deg, var(--kesar), var(--kesar-hot));
+  transition: width 0.4s var(--ease);
+}
+
+.quiz-step-pane { display: none; }
+.quiz-step-pane.active { display: block; animation: fadeIn 0.35s var(--ease); }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+.quiz-step-title { font-size: clamp(22px, 2.6vw, 30px); margin-bottom: 6px; color: var(--ink); }
+.quiz-step-sub { color: var(--ink-60); font-size: 15px; margin-bottom: 24px; }
+
+.quiz-options {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 32px;
+}
+@media (max-width: 680px) { .quiz-options { grid-template-columns: 1fr; } }
+
+.quiz-opt-btn {
+  background: var(--paper); border: 1.5px solid var(--line); border-radius: 16px;
+  padding: 18px 20px; text-align: left; cursor: pointer; display: flex; flex-direction: column; gap: 4px;
+  transition: all 0.2s var(--ease);
+}
+.quiz-opt-btn:hover { border-color: var(--kesar); background: rgba(255,176,32,0.06); }
+.quiz-opt-btn.selected {
+  border-color: var(--kesar-hot); background: rgba(255,176,32,0.14);
+  box-shadow: 0 6px 18px -6px rgba(255,122,24,0.4);
+}
+.quiz-opt-btn strong { font-size: 16px; color: var(--ink); display: flex; justify-content: space-between; align-items: center; }
+.quiz-opt-btn span { font-size: 13.5px; color: var(--ink-60); }
+
+.quiz-actions { display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+
+.quiz-result-card {
+  background: var(--jamun-deep); color: var(--malai); border-radius: 20px;
+  padding: clamp(24px, 3.5vw, 36px); display: grid; grid-template-columns: 1fr 1.3fr; gap: 28px; align-items: center;
+}
+@media (max-width: 800px) { .quiz-result-card { grid-template-columns: 1fr; } }
+.quiz-result-img { border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: #000; }
+.quiz-result-img img { width: 100%; height: 100%; object-fit: cover; }
+</style>
+</head>
+<body>
+
+<div class="top-progress" id="topProgress"></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a class="logo" href="index.html" aria-label="Franchise 101 Home">FRANCHISE 101<span class="dot"></span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="franchises.html">Franchises</a>
+    <a href="develop-brand.html">Develop Brand</a>
+    <a href="develop-scale.html">Develop &amp; Scale</a>
+    <a href="franchise-marketing.html">Marketing</a>
+    <a href="find-franchise.html" class="active">Find Match</a>
+    <a href="book-consultation.html">Contact</a>
+  </div>
+  <div class="nav-cta-wrap">
+    <a class="btn btn--kesar" href="book-consultation.html">Book a Consultation <span class="arw">&rarr;</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+  <div class="mobile-drawer-content">
+    <div class="logo">FRANCHISE 101<span class="dot"></span></div>
+    <nav>
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About Franchise 101</a>
+      <a href="franchises.html" class="mobile-nav-link">Franchise Opportunities</a>
+      <a href="develop-brand.html" class="mobile-nav-link">Develop Your Own Brand</a>
+      <a href="develop-scale.html" class="mobile-nav-link">Develop &amp; Scale</a>
+      <a href="franchise-marketing.html" class="mobile-nav-link">Franchise Marketing</a>
+      <a href="find-franchise.html" class="mobile-nav-link active">Find The Right Franchise</a>
+      <a href="book-consultation.html" class="mobile-nav-link">Book a Consultation</a>
+    </nav>
+    <div style="margin-top:auto;display:flex;flex-direction:column;gap:12px">
+      <a class="btn btn--kesar" href="book-consultation.html" style="width:100%;text-align:center">Book a Consultation &rarr;</a>
+      <p style="font-family:var(--font-mono);font-size:12px;color:rgba(255,243,222,.6);text-align:center">Zero fee &middot; Direct brand connect</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PAGE HERO ============ -->
+<header class="page-hero on-dark">
+  <div class="wrap">
+    <p class="eyebrow on-dark">Interactive Investor Qualifier &middot; 5 Questions</p>
+    <h1>Find The Right Food Franchise For You</h1>
+    <p class="page-hero-sub">Answer 5 quick questions about your capital budget, preferred cuisine category, target city, and operational involvement. Get matched in real-time with verified F&amp;B brands.</p>
+  </div>
+</header>
+
+<!-- ============ QUIZ CONTAINER ============ -->
+<section class="sec tight">
+  <div class="wrap">
+    <div class="quiz-wrapper rv">
+      <!-- Progress Bar -->
+      <div class="quiz-progress-bar">
+        <div class="quiz-progress-fill" id="quizProgressFill"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;font-family:var(--font-mono);font-size:12.5px;color:var(--ink-60)">
+        <span id="quizStepBadge">Step 1 of 5</span>
+        <span>Real-Time Matching Algorithm</span>
+      </div>
+
+      <!-- Step 1: Budget -->
+      <div class="quiz-step-pane active" id="quizStep1">
+        <h3 class="quiz-step-title">1. What is your available capital investment?</h3>
+        <p class="quiz-step-sub">Select the budget range you can fund comfortably without emergency borrowing.</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn selected" onclick="selectQuizOpt(1, 'budget', '6-15', this)">
+            <strong>&#8377;6 &ndash; 15 Lakh <span>&rarr;</span></strong>
+            <span>Kiosk &amp; Beverage / Chai Katta</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(1, 'budget', '15-30', this)">
+            <strong>&#8377;15 &ndash; 30 Lakh <span>&rarr;</span></strong>
+            <span>QSR Express / Momo Mafia / Desserts</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(1, 'budget', '30-60', this)">
+            <strong>&#8377;30 &ndash; 60 Lakh <span>&rarr;</span></strong>
+            <span>Casual Dining / FOCO Restaurant</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(1, 'budget', '60plus', this)">
+            <strong>&#8377;60 Lakh+ <span>&rarr;</span></strong>
+            <span>Master / Multi-Unit City Territory</span>
+          </button>
+        </div>
+        <div class="quiz-actions">
+          <span></span>
+          <button type="button" class="btn btn--kesar" onclick="nextQuizStep(2)">Next: Food Category &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Category -->
+      <div class="quiz-step-pane" id="quizStep2">
+        <h3 class="quiz-step-title">2. Which food category excites you most?</h3>
+        <p class="quiz-step-sub">Choose the concept that fits your local catchment and customer demographic.</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn selected" onclick="selectQuizOpt(2, 'category', 'chai', this)">
+            <strong>Chai &amp; Beverages <span>&rarr;</span></strong>
+            <span>High-frequency daily footfall (68% margin)</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(2, 'category', 'dessert', this)">
+            <strong>Kulfi &amp; Desserts <span>&rarr;</span></strong>
+            <span>Low operational hassle, high evening pull</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(2, 'category', 'qsr', this)">
+            <strong>Himalayan Momos &amp; QSR <span>&rarr;</span></strong>
+            <span>Rapid table turnover &amp; youth appeal</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(2, 'category', 'cloud', this)">
+            <strong>Cloud Kitchen &amp; Biryani <span>&rarr;</span></strong>
+            <span>Swiggy/Zomato delivery-first model</span>
+          </button>
+        </div>
+        <div class="quiz-actions">
+          <button type="button" class="btn btn--ghost btn--sm" onclick="prevQuizStep(1)">&larr; Back</button>
+          <button type="button" class="btn btn--kesar" onclick="nextQuizStep(3)">Next: Location &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Location -->
+      <div class="quiz-step-pane" id="quizStep3">
+        <h3 class="quiz-step-title">3. Where do you plan to open?</h3>
+        <p class="quiz-step-sub">We verify territory exclusivity so no rival outlet opens within 500 meters.</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn selected" onclick="selectQuizOpt(3, 'location', 'mumbai', this)">
+            <strong>Mumbai / Pune (MMR / PCMC) <span>&rarr;</span></strong>
+            <span>High transit hubs &amp; suburban catchments</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(3, 'location', 'bangalore', this)">
+            <strong>Bengaluru / Hyderabad <span>&rarr;</span></strong>
+            <span>Tech park corridors &amp; high streets</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(3, 'location', 'delhi', this)">
+            <strong>Delhi NCR (Gurgaon / Noida) <span>&rarr;</span></strong>
+            <span>Mall food courts &amp; commercial markets</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(3, 'location', 'tier2', this)">
+            <strong>Tier 2 / 3 Growth Cities <span>&rarr;</span></strong>
+            <span>Low rental cost, booming aspirational demand</span>
+          </button>
+        </div>
+        <div class="quiz-actions">
+          <button type="button" class="btn btn--ghost btn--sm" onclick="prevQuizStep(2)">&larr; Back</button>
+          <button type="button" class="btn btn--kesar" onclick="nextQuizStep(4)">Next: Operating Model &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Operating Model -->
+      <div class="quiz-step-pane" id="quizStep4">
+        <h3 class="quiz-step-title">4. What is your preferred operational involvement?</h3>
+        <p class="quiz-step-sub">Do you wish to manage the daily billing and staff, or prefer the company to run it?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn selected" onclick="selectQuizOpt(4, 'model', 'fofo', this)">
+            <strong>FOFO (Franchise Operated) <span>&rarr;</span></strong>
+            <span>You manage day-to-day &amp; retain maximum net profit</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(4, 'model', 'semipassive', this)">
+            <strong>Semi-Passive with Shift Manager <span>&rarr;</span></strong>
+            <span>Run via trusted manager after your day job</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(4, 'model', 'foco', this)">
+            <strong>FOCO (Company Operated) <span>&rarr;</span></strong>
+            <span>Brand handles staff, chefs &amp; operations (Passive ROI)</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(4, 'model', 'multiunit', this)">
+            <strong>Multi-Unit Area Developer <span>&rarr;</span></strong>
+            <span>Scale 3&ndash;5 outlets across an entire city territory</span>
+          </button>
+        </div>
+        <div class="quiz-actions">
+          <button type="button" class="btn btn--ghost btn--sm" onclick="prevQuizStep(3)">&larr; Back</button>
+          <button type="button" class="btn btn--kesar" onclick="nextQuizStep(5)">Next: Launch Timeline &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Step 5: Timeline -->
+      <div class="quiz-step-pane" id="quizStep5">
+        <h3 class="quiz-step-title">5. When are you looking to sign and launch?</h3>
+        <p class="quiz-step-sub">This helps us allocate territory slots that match your readiness window.</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn selected" onclick="selectQuizOpt(5, 'timeline', 'immediate', this)">
+            <strong>Immediate (0 &ndash; 30 Days) <span>&rarr;</span></strong>
+            <span>Capital ready, actively evaluating locations</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(5, 'timeline', '1to3mo', this)">
+            <strong>1 to 3 Months <span>&rarr;</span></strong>
+            <span>Finalizing city choice and partner alignment</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(5, 'timeline', '3to6mo', this)">
+            <strong>3 to 6 Months <span>&rarr;</span></strong>
+            <span>Researching unit economics &amp; brand comparisons</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(5, 'timeline', 'exploring', this)">
+            <strong>Initial Research / Exploring <span>&rarr;</span></strong>
+            <span>Looking for information on F&amp;B viability</span>
+          </button>
+        </div>
+        <div class="quiz-actions">
+          <button type="button" class="btn btn--ghost btn--sm" onclick="prevQuizStep(4)">&larr; Back</button>
+          <button type="button" class="btn btn--kesar" onclick="calculateQuizResult()">See Matched Opportunity &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Match Result Pane -->
+      <div class="quiz-step-pane" id="quizResultPane">
+        <div class="quiz-result-card">
+          <div class="quiz-result-img">
+            <img id="quizMatchImg" src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800" alt="Matched Brand" />
+          </div>
+          <div>
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
+              <span class="tag green" style="background:var(--pista);color:var(--jamun-deep);font-weight:700">98% Match Score</span>
+              <span class="tag" id="quizMatchCat">Beverage</span>
+            </div>
+            <h3 style="font-size:clamp(24px,3vw,34px);color:var(--malai);margin-bottom:6px" id="quizMatchTitle">Chai Katta</h3>
+            <p style="font-size:14.5px;color:rgba(255,243,222,.8);line-height:1.5;margin-bottom:16px" id="quizMatchDesc">Compact 80-160 sqft kiosk format with high gross margins (68%) and fast payback. Perfect match for your selected budget and location.</p>
+            
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;background:rgba(255,243,222,.06);padding:12px;border-radius:12px">
+              <div><small style="font-family:var(--font-mono);font-size:10.5px;color:rgba(255,243,222,.6)">INVESTMENT</small><strong style="display:block;font-size:16px;color:var(--kesar)" id="quizMatchCapex">&#8377;6&ndash;11L</strong></div>
+              <div><small style="font-family:var(--font-mono);font-size:10.5px;color:rgba(255,243,222,.6)">EST. PAYBACK</small><strong style="display:block;font-size:16px;color:var(--malai)" id="quizMatchPayback">11&ndash;14 mo</strong></div>
+              <div><small style="font-family:var(--font-mono);font-size:10.5px;color:rgba(255,243,222,.6)">MODEL</small><strong style="display:block;font-size:16px;color:var(--pista)" id="quizMatchModel">FOFO</strong></div>
+            </div>
+
+            <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+              <a class="btn btn--kesar" id="quizApplyBtn" href="book-consultation.html?brand=Chai+Katta">Apply for this Matched Brand &rarr;</a>
+              <button type="button" class="btn btn--ghost btn--sm" onclick="restartQuiz()">Retake Quiz &#8634;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot on-dark">
+  <div class="wrap">
+    <div class="foot-banner">
+      <div class="foot-banner-text">
+        <h3>Prefer speaking directly with an advisor?</h3>
+        <p>Book a confidential 1-on-1 strategy call with our senior franchise specialists.</p>
+      </div>
+      <div class="foot-banner-actions">
+        <a class="btn btn--kesar" href="book-consultation.html">Book a Consultation <span class="arw">&rarr;</span></a>
+        <a class="btn btn--ghost" href="https://wa.me/912240008899" target="_blank">Chat on WhatsApp 💬</a>
+      </div>
+    </div>
+
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index.html">FRANCHISE 101<span class="dot"></span></a>
+        <p>India's curated food franchise discovery and investment platform. We verify real unit economics, secure territorial exclusivity, and guide investors from application to grand opening.</p>
+        <div class="foot-contacts">
+          <div><span>Direct Desk:</span> <a href="mailto:partners@franchise101.in">partners@franchise101.in</a></div>
+          <div><span>Investor Helpline:</span> <a href="tel:+912240008899">+91 22 4000 8899</a></div>
+          <div><span>HQ:</span> BKC, Mumbai &middot; Pune &middot; Bengaluru &middot; Delhi NCR</div>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h4>Franchise Formats</h4>
+        <ul>
+          <li><a href="franchises.html#chai-katta">Chai &amp; Beverages <small>₹6L–11L</small></a></li>
+          <li><a href="franchises.html#kulfi-club">Matka Kulfi &amp; Desserts <small>₹14L–22L</small></a></li>
+          <li><a href="franchises.html#momo-mafia">QSR &amp; Fast Food <small>₹12L–24L</small></a></li>
+          <li><a href="franchises.html#biryani-bay">Delivery Cloud Kitchens <small>₹8L–13L</small></a></li>
+          <li><a href="franchises.html#tandoor-tribe">Casual Dining (FOCO) <small>₹40L–65L</small></a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Investor Tools</h4>
+        <ul>
+          <li><a href="find-franchise.html">Franchise Matcher Quiz</a></li>
+          <li><a href="index.html#calculator">ROI &amp; Payback Simulator</a></li>
+          <li><a href="index.html#city-sec">Territory Availability Finder</a></li>
+          <li><a href="about.html">Why Franchise 101</a></li>
+          <li><a href="index.html#faq">Investor FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>For Brands &amp; Legal</h4>
+        <ul>
+          <li><a href="develop-brand.html">Develop Your Own Brand</a></li>
+          <li><a href="develop-scale.html">Develop &amp; Scale Network</a></li>
+          <li><a href="franchise-marketing.html">Franchise Marketing &amp; Leads</a></li>
+          <li><a href="book-consultation.html">Schedule Strategy Call</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-base">
+      <span>&copy; 2026 Franchise 101 Ventures Pvt Ltd &middot; All Rights Reserved</span>
+      <div class="foot-status">
+        <span class="dot-pulse"></span>
+        <span>41 Verified Brands Live &middot; 214 Cities Covered</span>
+      </div>
+      <div class="foot-base-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="book-consultation.html">Privacy &amp; Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="floating-up" id="btnBackToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+
+<script>
+/* ============ INTERACTIVE QUIZ ENGINE ============ */
+let currentQuizStep = 1;
+const quizState = {
+  budget: '6-15',
+  category: 'chai',
+  location: 'mumbai',
+  model: 'fofo',
+  timeline: 'immediate'
+};
+
+function selectQuizOpt(step, key, val, elem) {
+  quizState[key] = val;
+  const pane = document.getElementById(`quizStep${step}`);
+  if (pane) {
+    pane.querySelectorAll('.quiz-opt-btn').forEach(btn => btn.classList.remove('selected'));
+  }
+  if (elem) elem.classList.add('selected');
+}
+
+function nextQuizStep(step) {
+  currentQuizStep = step;
+  for (let i = 1; i <= 5; i++) {
+    const p = document.getElementById(`quizStep${i}`);
+    if (p) p.classList.remove('active');
+  }
+  const resultPane = document.getElementById('quizResultPane');
+  if (resultPane) resultPane.classList.remove('active');
+
+  const nextPane = document.getElementById(`quizStep${step}`);
+  if (nextPane) nextPane.classList.add('active');
+
+  const progressFill = document.getElementById('quizProgressFill');
+  if (progressFill) progressFill.style.width = (step * 20) + '%';
+
+  const badge = document.getElementById('quizStepBadge');
+  if (badge) badge.textContent = `Step ${step} of 5`;
+}
+
+function prevQuizStep(step) {
+  nextQuizStep(step);
+}
+
+function calculateQuizResult() {
+  currentQuizStep = 6;
+  for (let i = 1; i <= 5; i++) {
+    const p = document.getElementById(`quizStep${i}`);
+    if (p) p.classList.remove('active');
+  }
+  const resultPane = document.getElementById('quizResultPane');
+  if (resultPane) resultPane.classList.add('active');
+
+  const progressFill = document.getElementById('quizProgressFill');
+  if (progressFill) progressFill.style.width = '100%';
+
+  const badge = document.getElementById('quizStepBadge');
+  if (badge) badge.textContent = 'Match Result Complete';
+
+  let matchedBrand = 'Chai Katta';
+  let matchCat = 'Beverage';
+  let matchCapex = '₹6–11L';
+  let matchPayback = '11–14 mo';
+  let matchModel = 'FOFO';
+  let matchDesc = 'Compact 80-160 sqft kiosk format with high gross margins (68%) and fast payback. Perfect match for your selected budget and location.';
+  let matchImg = 'https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800';
+
+  if (quizState.budget === '30-60' || quizState.model === 'foco' || quizState.category === 'dining') {
+    matchedBrand = 'Tandoor Tribe';
+    matchCat = 'Casual Dining';
+    matchCapex = '₹40–65L';
+    matchPayback = '24–30 mo';
+    matchModel = 'FOCO / FOFO';
+    matchDesc = '70-cover North Indian casual dining & tandoor restaurant. Complete brand-managed culinary operations with high average bill values.';
+    matchImg = 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800';
+  } else if (quizState.category === 'qsr' || (quizState.budget === '15-30' && quizState.category !== 'dessert')) {
+    matchedBrand = 'Momo Mafia';
+    matchCat = 'QSR Express';
+    matchCapex = '₹12–18L';
+    matchPayback = '12–16 mo';
+    matchModel = 'FOFO';
+    matchDesc = 'Steamed, pan-fried & kurkure Himalayan momo express counter. Fast table turnover and massive youth and college campus footfall.';
+    matchImg = 'https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800';
+  } else if (quizState.category === 'dessert') {
+    matchedBrand = 'Kulfi Club';
+    matchCat = 'Dessert Kiosk';
+    matchCapex = '₹14–22L';
+    matchPayback = '14–18 mo';
+    matchModel = 'FOFO';
+    matchDesc = 'Artisanal matka kulfi and falooda dessert counter. 100% pre-packaged central supply allows a smooth 2-person shift with zero kitchen prep.';
+    matchImg = 'https://images.unsplash.com/photo-1534706936160-d5ee67737249?w=800';
+  } else if (quizState.category === 'cloud') {
+    matchedBrand = 'Biryani Bay';
+    matchCat = 'Cloud Kitchen';
+    matchCapex = '₹8–13L';
+    matchPayback = '12–15 mo';
+    matchModel = 'FOFO';
+    matchDesc = 'Delivery-only authentic dum biryani kitchen. Operates from low-rent secondary streets with direct Swiggy/Zomato high-velocity routing.';
+    matchImg = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800';
+  }
+
+  document.getElementById('quizMatchTitle').textContent = matchedBrand;
+  document.getElementById('quizMatchCat').textContent = matchCat;
+  document.getElementById('quizMatchCapex').innerHTML = matchCapex;
+  document.getElementById('quizMatchPayback').textContent = matchPayback;
+  document.getElementById('quizMatchModel').textContent = matchModel;
+  document.getElementById('quizMatchDesc').textContent = matchDesc;
+  document.getElementById('quizMatchImg').src = matchImg;
+
+  const applyBtn = document.getElementById('quizApplyBtn');
+  if (applyBtn) {
+    applyBtn.href = `book-consultation.html?brand=${encodeURIComponent(matchedBrand)}`;
+  }
+}
+
+function restartQuiz() {
+  nextQuizStep(1);
+}
+
+// Auto-hide navigation on scroll
+const nav = document.getElementById('nav');
+const topProgress = document.getElementById('topProgress');
+const btnBackToTop = document.getElementById('btnBackToTop');
+const navToggle = document.getElementById('navToggle');
+const mobileDrawer = document.getElementById('mobileDrawer');
+
+let lastScrollY = window.scrollY;
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  if (topProgress) topProgress.style.width = ((scrolled / maxScroll) * 100) + '%';
+  if (btnBackToTop) btnBackToTop.classList.toggle('show', scrolled > 400);
+
+  if (nav) {
+    nav.classList.toggle('stuck', scrolled > 20);
+    const isDrawerOpen = mobileDrawer && mobileDrawer.classList.contains('open');
+    if (!isDrawerOpen) {
+      if (scrolled <= 30) {
+        nav.classList.remove('nav--hidden');
+      } else if (scrolled > lastScrollY + 8 && scrolled > 80) {
+        nav.classList.add('nav--hidden');
+      } else if (scrolled < lastScrollY - 8) {
+        nav.classList.remove('nav--hidden');
+      }
+    }
+  }
+  lastScrollY = Math.max(scrolled, 0);
+}, { passive: true });
+
+function toggleMobileNav() {
+  const isOpen = mobileDrawer.classList.contains('open');
+  mobileDrawer.classList.toggle('open', !isOpen);
+  navToggle.classList.toggle('open', !isOpen);
+  document.body.style.overflow = !isOpen ? 'hidden' : '';
+}
+
+if (navToggle && mobileDrawer) {
+  navToggle.addEventListener('click', toggleMobileNav);
+  mobileDrawer.addEventListener('click', e => { if (e.target === mobileDrawer) toggleMobileNav(); });
+}
+
+// Reveal on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,2987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Franchise 101 — India's Food Franchise Marketplace & Investment Platform</title>
+<meta name="description" content="Find, compare and apply for verified food franchise opportunities across India. Investment from ₹6 lakh. Real unit economics, verified brands, ROI calculator, and one application." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============
+   Warm, Authentic Indian Culinary Palette & Human Typography
+   ================================= */
+:root{
+  --jamun:#241133;
+  --jamun-deep:#160822;
+  --jamun-soft:#381D4E;
+  --kesar:#E26A1B;
+  --kesar-hot:#E26A1B;
+  --saffron-warm:#F48C2E;
+  --kesar-gold:#E5A118;
+  --pista:#2E6B1B;
+  --pista-light:#EAF4E4;
+  --malai:#FFFBF2;
+  --paper:#FAF5EE;
+  --paper-card:#FFFFFF;
+  --ink:#1D1524;
+  --ink-80:#382F42;
+  --ink-60:#655B70;
+  --ink-30:rgba(29,21,36,.2);
+  --line:rgba(29,21,36,.1);
+  --line-dark:rgba(255,251,242,.14);
+
+  --display:"Fraunces",Georgia,serif;
+  --body:"Plus Jakarta Sans",-apple-system,sans-serif;
+  --mono:"Plus Jakarta Sans",-apple-system,sans-serif;
+
+  --pad:clamp(20px,5vw,72px);
+  --gutter:max(var(--pad),calc((100% - 1240px)/2 + var(--pad)));
+  --r:18px;
+  --ease:cubic-bezier(.25,1,.35,1);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:17px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+:focus-visible{outline:3px solid var(--kesar-hot);outline-offset:3px;border-radius:6px}
+
+h1,h2,h3,h4{font-family:var(--display);font-weight:800;line-height:.96;letter-spacing:-.03em;margin:0}
+h1{font-size:clamp(40px,7.5vw,108px)}
+h2{font-size:clamp(30px,4.8vw,64px)}
+h3{font-size:clamp(20px,2vw,26px);line-height:1.1;letter-spacing:-.02em}
+h4{font-size:clamp(16px,1.4vw,20px);line-height:1.2}
+p{margin:0}
+
+.wrap{width:min(1240px,100%);margin-inline:auto;padding-inline:var(--pad)}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-60);display:flex;align-items:center;gap:10px;margin:0;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--kesar-hot);flex:none}
+.on-dark .eyebrow, .eyebrow.on-dark, .calc-section .eyebrow, .hero .eyebrow, .apply .eyebrow, .brackets .eyebrow{
+  color:rgba(255,243,222,.85);
+}
+
+/* ============ PROGRESS BAR TOP ============ */
+.top-progress{
+  position:fixed;top:0;left:0;height:3px;width:0%;
+  background:linear-gradient(90deg,var(--kesar),var(--kesar-hot));
+  z-index:100;transition:width .1s ease-out;
+}
+
+/* ============ IMAGE SHELL ============ */
+.shot{position:relative;overflow:hidden;border-radius:14px;background:var(--jamun-soft);flex:none}
+.shot img{width:100%;height:100%;object-fit:cover}
+.shot::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(26,20,32,.07);border-radius:inherit;pointer-events:none}
+
+/* ============ BUTTONS ============ */
+.btn{
+  --bg:var(--ink);--fg:var(--malai);
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--bg);color:var(--fg);
+  padding:14px 26px;border:0;border-radius:999px;cursor:pointer;
+  font-weight:600;font-size:15.5px;letter-spacing:-.01em;line-height:1;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s,color .25s;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px -12px rgba(26,20,32,.55)}
+.btn:active{transform:translateY(-1px)}
+.btn--kesar{--bg:var(--kesar);--fg:var(--ink)}
+.btn--kesar:hover{--bg:#ffba36;box-shadow:0 12px 24px -10px rgba(255,122,24,.6)}
+.btn--pista{--bg:var(--pista);--fg:var(--jamun-deep)}
+.btn--ghost{--bg:transparent;--fg:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn--ghost:hover{background:rgba(26,20,32,.05)}
+.on-dark .btn--ghost{--fg:var(--malai);box-shadow:inset 0 0 0 1.5px var(--line-dark)}
+.on-dark .btn--ghost:hover{background:rgba(255,243,222,.08)}
+.btn--sm{padding:10px 18px;font-size:14px}
+.btn .arw{transition:transform .3s var(--ease)}
+.btn:hover .arw{transform:translateX(4px)}
+
+/* ============ NAV (FLOATING PILL CAPSULE) ============ */
+.nav{
+  position:fixed;top:16px;left:50%;z-index:80;
+  width:min(1220px,calc(100% - 32px));
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:10px 14px 10px 24px;
+  background:rgba(30,14,48,.86);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,243,222,.16);
+  border-radius:999px;
+  box-shadow:0 20px 40px -15px rgba(10,3,18,.6),0 0 0 1px rgba(255,255,255,.05);
+  transform:translate(-50%,0);
+  transition:transform .36s var(--ease),background .3s,border-color .3s,box-shadow .3s;
+  will-change:transform;
+}
+.nav.stuck{
+  background:rgba(24,8,37,.94);
+  border-color:rgba(255,243,222,.22);
+  box-shadow:0 20px 40px -12px rgba(0,0,0,.7),0 0 0 1px rgba(255,176,32,.2);
+}
+.nav.nav--hidden{
+  transform:translate(-50%,-150%);
+  box-shadow:none;
+}
+.logo{
+  font-family:var(--display);font-weight:800;font-size:20.5px;letter-spacing:-.04em;
+  display:inline-flex;align-items:center;gap:7px;line-height:1;color:var(--malai);
+}
+.logo .dot{width:8px;height:8px;border-radius:50%;background:var(--kesar-hot);display:block;box-shadow:0 0 10px var(--kesar)}
+.nav-links{display:flex;gap:26px;font-size:14.5px;font-weight:500;align-items:center}
+.nav-links a{position:relative;padding:6px 0;color:rgba(255,243,222,.8);transition:color .2s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2.5px;width:0;background:var(--kesar);border-radius:2px;transition:width .28s var(--ease)}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{width:100%}
+.nav-cta-wrap{display:flex;align-items:center;gap:10px}
+.nav .btn--kesar{
+  padding:10px 22px;font-size:14px;border-radius:999px;font-weight:700;
+  box-shadow:0 8px 18px -6px rgba(255,176,32,.5);
+}
+
+/* Mobile Hamburger Toggle */
+.nav-toggle{
+  display:none;width:38px;height:38px;border-radius:50%;
+  border:1px solid rgba(255,243,222,.2);background:rgba(255,243,222,.08);
+  flex-direction:column;justify-content:center;align-items:center;gap:5px;
+  cursor:pointer;padding:0;z-index:90;
+}
+.nav-toggle span{display:block;width:18px;height:2px;background:var(--malai);border-radius:2px;transition:transform .3s var(--ease),opacity .3s}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Mobile Drawer */
+.mobile-drawer{
+  position:fixed;inset:0;background:rgba(24,8,37,.6);backdrop-filter:blur(8px);
+  z-index:85;opacity:0;pointer-events:none;transition:opacity .35s var(--ease);
+}
+.mobile-drawer.open{opacity:1;pointer-events:auto}
+.mobile-drawer-content{
+  position:absolute;top:0;right:0;bottom:0;width:min(340px,85vw);
+  background:var(--jamun-deep);color:var(--malai);padding:80px 28px 40px;
+  display:flex;flex-direction:column;gap:26px;transform:translateX(100%);
+  transition:transform .35s var(--ease);box-shadow:-20px 0 50px rgba(0,0,0,.5);
+}
+.mobile-drawer.open .mobile-drawer-content{transform:translateX(0)}
+.mobile-drawer nav{display:flex;flex-direction:column;gap:18px}
+.mobile-drawer nav a{
+  font-family:var(--display);font-size:22px;font-weight:700;color:rgba(255,243,222,.85);
+  padding:8px 0;border-bottom:1px solid var(--line-dark);transition:color .2s,padding-left .2s;
+}
+.mobile-drawer nav a:hover{color:var(--kesar);padding-left:6px}
+
+@media(max-width:940px){
+  .nav{width:calc(100% - 24px);top:12px;padding:8px 12px 8px 18px}
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;background:var(--jamun);color:var(--malai);
+  padding:clamp(110px,14vh,152px) 0 0;overflow:clip;
+  border-radius:0 0 clamp(24px,4vw,44px) clamp(24px,4vw,44px);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(58% 46% at 50% 2%,rgba(255,176,32,.24),transparent 68%);
+  pointer-events:none;
+}
+.hero-grid{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px}
+.hero h1{color:var(--malai);max-width:14ch}
+.hero h1 em{font-style:normal;color:var(--kesar);position:relative;display:inline-block}
+.hero h1 .strike{
+  position:absolute;left:-2%;right:-2%;bottom:.14em;height:.09em;background:var(--pista);
+  transform:scaleX(0);transform-origin:left;border-radius:99px;
+  animation:swipe 1s var(--ease) .85s forwards;
+}
+@keyframes swipe{to{transform:scaleX(1)}}
+.hero-sub{max-width:54ch;color:rgba(255,243,222,.78);font-size:clamp(16px,1.6vw,19px)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+
+.badge-trust{
+  display:inline-flex;align-items:center;gap:8px;padding:6px 14px;
+  background:rgba(255,243,222,.08);border:1px solid var(--line-dark);
+  border-radius:999px;font-family:var(--mono);font-size:11.5px;color:rgba(255,243,222,.8);
+}
+.badge-trust .pulse{width:7px;height:7px;border-radius:50%;background:var(--pista);box-shadow:0 0 8px var(--pista)}
+
+.rise{opacity:0;transform:translateY(26px);animation:rise .85s var(--ease) forwards}
+.rise:nth-child(1){animation-delay:.05s}
+.rise:nth-child(2){animation-delay:.15s}
+.rise:nth-child(3){animation-delay:.25s}
+.rise:nth-child(4){animation-delay:.35s}
+.rise:nth-child(5){animation-delay:.45s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* ---- SIGNATURE: 3D brand carousel ---- */
+.stage{
+  width:100%;height:clamp(470px,60vh,570px);margin-top:clamp(24px,3.5vw,42px);margin-bottom:0;
+  perspective:1300px;perspective-origin:50% 46%;
+  position:relative;cursor:grab;touch-action:pan-y;
+}
+.stage:active{cursor:grabbing}
+.stage::after{
+  content:"";position:absolute;left:50%;bottom:38px;transform:translateX(-50%);
+  width:min(700px,80%);height:60px;border-radius:50%;
+  background:radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,.6),transparent 70%);
+  filter:blur(10px);pointer-events:none;
+}
+.ring{
+  position:absolute;inset:0;transform-style:preserve-3d;
+  transform:translateY(-30px) rotateX(-5deg) rotateY(var(--spin,0deg));
+  will-change:transform;
+}
+.tile{
+  position:absolute;top:50%;left:50%;width:200px;height:270px;margin:-135px 0 0 -100px;
+  border-radius:16px;overflow:hidden;cursor:pointer;
+  box-shadow:0 24px 46px -18px rgba(0,0,0,.75);
+  border:1px solid rgba(255,255,255,.2);
+  backface-visibility:hidden;
+  transition:border-color .2s,box-shadow .2s;
+}
+.tile:hover{border-color:var(--kesar);box-shadow:0 0 25px rgba(255,176,32,.5)}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(178deg,rgba(24,8,37,.15) 22%,rgba(24,8,37,.92) 92%)}
+.tile-in{
+  position:absolute;inset:0;z-index:2;padding:15px;
+  display:flex;flex-direction:column;justify-content:space-between;color:var(--malai);text-align:left;
+}
+.tile-mark{font-family:var(--display);font-weight:800;font-size:31px;letter-spacing:-.05em;line-height:.9}
+.tile-cat{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--jamun-deep);background:var(--kesar);padding:5px 8px;border-radius:99px;align-self:flex-start;font-weight:700;
+}
+.tile-num{font-family:var(--mono);font-size:13px;font-weight:700;margin-top:8px}
+.tile-num span{display:block;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,243,222,.6);font-weight:400}
+
+.drag-hint-wrap{
+  display:flex;justify-content:center;align-items:center;
+  margin-top:14px;margin-bottom:28px;position:relative;z-index:5;
+}
+.drag-hint{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,243,222,.85);display:inline-flex;align-items:center;gap:10px;
+  background:rgba(24,8,37,.7);padding:8px 20px;border-radius:999px;
+  border:1px solid rgba(255,243,222,.15);backdrop-filter:blur(8px);
+  box-shadow:0 6px 20px rgba(0,0,0,.35);white-space:nowrap;
+}
+.drag-hint::before,.drag-hint::after{content:"↔";color:var(--kesar)}
+
+/* ---- ticker ---- */
+.ticker{
+  margin-top:0;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);
+  overflow:hidden;background:rgba(0,0,0,.25);padding-block:2px;
+}
+.ticker-row{display:flex;width:max-content;animation:slide 34s linear infinite}
+.ticker:hover .ticker-row{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{
+  display:flex;align-items:center;gap:10px;padding:13px 24px;
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,243,222,.75);white-space:nowrap;
+}
+.ticker-item b{color:var(--kesar);font-weight:700}
+.ticker-item .sep{color:rgba(255,243,222,.25)}
+
+/* ============ SECTION SHELL ============ */
+section{position:relative}
+section[id],header[id]{scroll-margin-top:92px}
+.sec{padding:clamp(68px,9vw,120px) 0}
+.sec.tight{padding-top:0}
+.sec-head{display:flex;flex-direction:column;gap:14px;max-width:none}
+.sec-head h2{max-width:15ch}
+.sec-head.wide h2{max-width:20ch}
+.sec-top{
+  display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,60px);
+  align-items:end;margin-bottom:clamp(32px,4.6vw,56px);
+}
+.sec-note{color:var(--ink-60);font-size:16.5px;max-width:44ch}
+.on-dark .sec-note, .sec-note.on-dark, .calc-section .sec-note, .hero .sec-note, .apply .sec-note, .brackets .sec-note{
+  color:rgba(255,243,222,.85);
+}
+@media(max-width:820px){.sec-top{grid-template-columns:1fr;align-items:start}}
+
+.rv{opacity:0;transform:translateY(30px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* ============ STEPS ============ */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.step{background:var(--paper);padding:28px 24px 32px;display:flex;flex-direction:column;gap:12px;transition:background .3s}
+.step:hover{background:var(--malai)}
+.step-n{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--kesar-hot);font-weight:700}
+.step p{color:var(--ink-60);font-size:15.5px}
+@media(max-width:880px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* ============ PHOTO BAND ============ */
+.band{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:14px;margin-top:clamp(28px,4vw,44px)}
+.band .shot{aspect-ratio:4/3}
+.band .shot:first-child{aspect-ratio:16/11}
+.band img{transition:transform .8s var(--ease)}
+.band .shot:hover img{transform:scale(1.05)}
+.band .cap{
+  position:absolute;left:12px;bottom:12px;z-index:2;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  background:rgba(24,8,37,.76);color:var(--malai);padding:7px 12px;border-radius:99px;backdrop-filter:blur(6px);
+}
+@media(max-width:760px){.band{grid-template-columns:1fr 1fr}.band .shot:first-child{grid-column:1/-1}}
+
+/* ============ BRAND FILTER & SEARCH BAR ============ */
+.marketplace-controls{
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:20px 24px;margin-bottom:28px;display:flex;flex-direction:column;gap:16px;
+  box-shadow:0 10px 25px -15px rgba(26,20,32,.06);
+}
+.filter-row-top{
+  display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:14px;
+}
+@media(max-width:820px){.filter-row-top{grid-template-columns:1fr}}
+
+.search-box{
+  position:relative;display:flex;align-items:center;
+}
+.search-box input{
+  width:100%;font:inherit;font-size:15px;padding:12px 14px 12px 42px;
+  border-radius:12px;border:1px solid var(--line);background:var(--paper);
+  transition:border-color .2s,background .2s;
+}
+.search-box input:focus{outline:none;border-color:var(--kesar-hot);background:#fff}
+.search-icon{position:absolute;left:14px;font-size:16px;color:var(--ink-60);pointer-events:none}
+
+.filter-select select{
+  width:100%;font:inherit;font-size:15px;padding:12px 14px;
+  border-radius:12px;border:1px solid var(--line);background:var(--paper);
+  cursor:pointer;transition:border-color .2s;
+}
+.filter-select select:focus{outline:none;border-color:var(--kesar-hot)}
+
+.filter-pills{
+  display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding-top:4px;
+}
+.pill-btn{
+  font-family:var(--mono);font-size:12px;letter-spacing:.06em;
+  padding:8px 14px;border-radius:999px;border:1px solid var(--line);
+  background:var(--paper);color:var(--ink-60);cursor:pointer;
+  transition:all .2s var(--ease);white-space:nowrap;
+}
+.pill-btn:hover{color:var(--ink);border-color:var(--ink-30)}
+.pill-btn.active{background:var(--jamun);color:var(--malai);border-color:var(--jamun);font-weight:700}
+
+.filter-status-bar{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-60);padding-top:4px;
+  border-top:1px solid rgba(26,20,32,.06);
+}
+.btn-reset-filters{
+  background:none;border:0;color:var(--kesar-hot);cursor:pointer;
+  font-weight:700;font-family:var(--mono);font-size:12px;padding:0;
+  text-decoration:underline;text-underline-offset:3px;
+}
+
+/* ============ BRAND CARDS ============ */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+@media(max-width:1040px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.cards{grid-template-columns:1fr}}
+
+.card{
+  position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:14px 14px 20px;display:flex;flex-direction:column;gap:16px;
+  transform-style:preserve-3d;transition:box-shadow .3s var(--ease),border-color .3s,transform .3s var(--ease);
+  will-change:transform;
+}
+.card:hover{box-shadow:0 26px 50px -24px rgba(37,16,60,.35);border-color:rgba(37,16,60,.25)}
+.card .shot{aspect-ratio:16/10}
+.card .shot img{transition:transform .7s var(--ease)}
+.card:hover .shot img{transform:scale(1.05)}
+.card-body{display:flex;flex-direction:column;gap:14px;flex:1;padding-inline:6px}
+.card-head{display:flex;gap:13px;align-items:flex-start}
+.card-mark{
+  width:48px;height:48px;border-radius:13px;display:grid;place-items:center;
+  font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.05em;
+  background:var(--jamun);color:var(--malai);flex:none;
+}
+.card-titles{display:flex;flex-direction:column;gap:5px;min-width:0}
+.tag{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  padding:5px 10px;border-radius:999px;background:var(--malai);color:var(--ink-60);white-space:nowrap;
+  align-self:flex-start;line-height:1.4;font-weight:600;
+}
+.tag.hot{background:var(--kesar);color:var(--ink)}
+.tag.green{background:var(--pista);color:var(--jamun-deep)}
+.tag.float{position:absolute;top:14px;right:14px;z-index:2;box-shadow:0 6px 16px -8px rgba(0,0,0,.6)}
+.card-desc{color:var(--ink-60);font-size:15px;line-height:1.45}
+.specs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1px;background:var(--line);border-radius:12px;overflow:hidden;margin-top:auto}
+.spec{background:#fff;padding:10px 12px;margin:0}
+.spec dt{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-30);margin:0}
+.spec dd{margin:3px 0 0;font-family:var(--mono);font-size:14px;font-weight:700;overflow-wrap:anywhere;color:var(--ink)}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:4px}
+.btn-view-details{
+  font-family:var(--body);font-size:13.5px;font-weight:600;
+  background:var(--paper);border:1px solid var(--line);color:var(--ink);
+  padding:8px 14px;border-radius:999px;cursor:pointer;
+  transition:all .2s;
+}
+.btn-view-details:hover{background:var(--malai);border-color:var(--ink-30)}
+.card-link{font-weight:700;font-size:14.5px;display:inline-flex;gap:6px;align-items:center;white-space:nowrap;color:var(--kesar-hot)}
+.card-link .arw{transition:transform .3s var(--ease)}
+.card:hover .card-link .arw{transform:translateX(4px)}
+
+.no-results-box{
+  grid-column:1/-1;background:#fff;border:1px dashed var(--line);border-radius:var(--r);
+  padding:50px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;
+}
+
+/* ============ INTERACTIVE ROI CALCULATOR ============ */
+.calc-section{
+  background:var(--jamun-soft);color:var(--malai);border-radius:clamp(24px,4vw,44px);
+  padding:clamp(32px,5vw,68px) clamp(20px,4vw,56px);margin-block:clamp(30px,5vw,60px);
+}
+.calc-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(28px,4vw,60px);align-items:center}
+@media(max-width:920px){.calc-grid{grid-template-columns:1fr}}
+
+.calc-card{
+  background:rgba(255,243,222,.06);border:1px solid var(--line-dark);
+  border-radius:var(--r);padding:24px 28px;display:flex;flex-direction:column;gap:20px;
+}
+.calc-group{display:flex;flex-direction:column;gap:8px}
+.calc-label-row{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:13px;color:var(--malai);font-weight:600}
+.calc-val-badge{color:var(--kesar);font-weight:700;font-size:15px}
+.calc-slider{
+  -webkit-appearance:none;width:100%;height:6px;border-radius:6px;
+  background:rgba(255,243,222,.2);outline:none;cursor:pointer;
+}
+.calc-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;width:20px;height:20px;border-radius:50%;
+  background:var(--kesar);box-shadow:0 0 10px rgba(255,176,32,.7);cursor:pointer;
+}
+.calc-formats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:540px){.calc-formats{grid-template-columns:repeat(2,1fr)}}
+.fmt-btn{
+  background:rgba(255,243,222,.08);border:1px solid var(--line-dark);
+  color:rgba(255,243,222,.85);padding:10px 8px;border-radius:10px;
+  font-family:var(--mono);font-size:11.5px;cursor:pointer;text-align:center;
+  transition:all .2s;
+}
+.fmt-btn.active{background:var(--kesar);color:var(--jamun-deep);border-color:var(--kesar);font-weight:700}
+
+.calc-results-board{
+  background:var(--jamun-deep);border:1px solid rgba(255,176,32,.3);
+  border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:20px;
+  box-shadow:0 20px 40px -15px rgba(0,0,0,.6);
+}
+.calc-metric-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.calc-metric-item{background:rgba(255,243,222,.04);border-radius:12px;padding:14px}
+.calc-metric-item small{display:block;font-family:var(--mono);font-size:11px;color:rgba(255,243,222,.75);text-transform:uppercase;letter-spacing:.1em}
+.calc-metric-item strong{display:block;font-family:var(--display);font-size:24px;font-weight:800;color:var(--kesar);margin-top:4px}
+.calc-highlight-box{
+  background:rgba(169,232,107,.12);border:1px solid rgba(169,232,107,.35);
+  border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;
+}
+.calc-highlight-box div small{display:block;font-family:var(--mono);font-size:11px;color:rgba(255,243,222,.85);text-transform:uppercase}
+.calc-highlight-box div b{font-family:var(--display);font-size:28px;color:var(--pista)}
+
+/* ============ CITY AVAILABILITY CHECKER ============ */
+.city-checker{
+  background:var(--paper-card);border:1px solid var(--line);border-radius:var(--r);
+  padding:28px;margin-top:clamp(30px,4vw,50px);box-shadow:0 12px 30px -15px rgba(26,20,32,.08);
+}
+.city-checker-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:24px;align-items:center}
+@media(max-width:760px){.city-checker-grid{grid-template-columns:1fr}}
+.city-result-chip{
+  background:var(--malai);border:1px solid rgba(26,20,32,.1);border-radius:12px;
+  padding:14px 18px;display:flex;flex-direction:column;gap:6px;
+}
+.city-result-chip .tag-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+
+/* ============ STICKY BRACKETS (scroll-driven horizontal) ============ */
+.brackets{background:var(--jamun);color:var(--malai);border-radius:clamp(24px,4vw,44px)}
+.rail-outer{height:230vh;position:relative}
+.rail-sticky{position:sticky;top:0;height:100vh;padding-top:64px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.rail-head{padding-inline:var(--gutter);margin-bottom:clamp(24px,3vw,36px)}
+.rail-head .sec-top{margin-bottom:0}
+.rail{display:flex;gap:18px;padding-inline:var(--gutter);will-change:transform}
+.slab{
+  flex:none;width:min(390px,78vw);border-radius:var(--r);padding:18px;
+  background:linear-gradient(170deg,rgba(255,243,222,.1),rgba(255,243,222,.03));
+  border:1px solid var(--line-dark);display:flex;flex-direction:column;gap:14px;
+}
+.slab .shot{aspect-ratio:16/8}
+.slab-amt{font-family:var(--display);font-weight:800;font-size:clamp(30px,4vw,46px);letter-spacing:-.04em;line-height:.9;color:var(--kesar);padding-inline:6px}
+.slab p{color:rgba(255,243,222,.75);font-size:15px;padding-inline:6px}
+.slab ul{list-style:none;margin:auto 0 0;padding:0 6px;display:flex;flex-direction:column;gap:8px}
+.slab li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:rgba(255,243,222,.86)}
+.slab li::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--pista);margin-top:7px;flex:none}
+.progress{height:3px;background:var(--line-dark);margin:clamp(24px,3vw,36px) var(--gutter) 0;border-radius:99px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:var(--kesar-hot);border-radius:99px}
+@media(max-width:760px){
+  .rail-outer{height:auto}
+  .rail-sticky{position:static;height:auto;padding:clamp(68px,9vw,120px) 0}
+  .rail{flex-direction:column;transform:none!important}
+  .slab{width:auto}
+  .progress{display:none}
+}
+
+/* ============ METRICS ============ */
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.metric{background:var(--paper);padding:30px 24px}
+.metric b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(36px,4.6vw,60px);letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums}
+.metric span{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-60)}
+@media(max-width:820px){.metrics{grid-template-columns:1fr 1fr}}
+
+/* ============ VOICES ============ */
+.voices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media(max-width:900px){.voices{grid-template-columns:1fr}}
+.voice{background:var(--malai);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:18px}
+.voice q{font-family:var(--display);font-weight:600;font-size:clamp(19px,1.9vw,22px);line-height:1.24;letter-spacing:-.02em;quotes:"\201C" "\201D"}
+.voice-who{display:flex;align-items:center;gap:12px;margin-top:auto}
+.avatar{width:40px;height:40px;border-radius:50%;background:var(--jamun);color:var(--malai);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:15px;flex:none;line-height:1}
+.voice-who small{display:block;color:var(--ink-60);font-size:13.5px}
+.voice-who strong{font-size:15px;font-weight:600}
+
+/* ============ FAQ ============ */
+.faq-filter-pills{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.faq{border-top:1px solid var(--line)}
+.q{border-bottom:1px solid var(--line)}
+.q button{
+  width:100%;background:none;border:0;cursor:pointer;text-align:left;
+  padding:22px 0;display:flex;gap:24px;align-items:center;justify-content:space-between;
+  font-family:var(--display);font-weight:600;font-size:clamp(18px,1.9vw,23px);letter-spacing:-.02em;color:var(--ink);line-height:1.2;
+}
+.q .sign{flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-family:var(--body);font-size:18px;line-height:1;transition:transform .35s var(--ease),background .3s,border-color .3s}
+.q[data-open="true"] .sign{transform:rotate(45deg);background:var(--kesar);border-color:var(--kesar)}
+.q .panel{height:0;overflow:hidden;transition:height .4s var(--ease)}
+.q .panel p{padding:0 0 24px;max-width:62ch;color:var(--ink-60);line-height:1.6}
+
+/* ============ INTERACTIVE QUIZ MATCHER ============ */
+.quiz-section{
+  background:var(--paper-card);border:1px solid var(--line);border-radius:clamp(24px,4vw,40px);
+  padding:clamp(28px,5vw,56px);margin-block:clamp(30px,5vw,60px);
+  box-shadow:0 15px 35px -15px rgba(26,20,32,.08);
+}
+.quiz-progress-bar{height:6px;background:var(--line);border-radius:99px;margin-bottom:28px;overflow:hidden}
+.quiz-progress-fill{height:100%;background:linear-gradient(90deg,var(--kesar),var(--kesar-hot));width:20%;transition:width .35s var(--ease)}
+.quiz-step-pane{display:none;flex-direction:column;gap:18px}
+.quiz-step-pane.active{display:flex}
+.quiz-step-title{font-family:var(--display);font-size:clamp(22px,2.6vw,30px);font-weight:700;margin-bottom:4px}
+.quiz-step-sub{color:var(--ink-60);font-size:15px;margin-bottom:18px}
+.quiz-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.quiz-opt-btn{
+  background:var(--paper);border:1.5px solid var(--line);border-radius:14px;
+  padding:16px 18px;text-align:left;cursor:pointer;font-family:inherit;
+  display:flex;flex-direction:column;gap:6px;transition:all .25s var(--ease);
+}
+.quiz-opt-btn:hover{border-color:var(--kesar);background:var(--malai);transform:translateY(-2px)}
+.quiz-opt-btn.selected{border-color:var(--kesar-hot);background:rgba(255,176,32,.12);box-shadow:0 0 0 1px var(--kesar-hot)}
+.quiz-opt-btn strong{font-size:16px;color:var(--ink);display:flex;align-items:center;justify-content:space-between}
+.quiz-opt-btn span{font-size:13px;color:var(--ink-60);font-family:var(--mono)}
+.quiz-actions{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
+
+.quiz-result-card{
+  background:var(--jamun-deep);color:var(--malai);border-radius:20px;
+  padding:28px;display:grid;grid-template-columns:1fr 1.4fr;gap:24px;align-items:center;
+}
+@media(max-width:760px){.quiz-result-card{grid-template-columns:1fr}}
+.quiz-result-img{border-radius:14px;overflow:hidden;aspect-ratio:4/3}
+.quiz-result-img img{width:100%;height:100%;object-fit:cover}
+
+/* ============ BRAND SERVICES HUB (DEVELOP & SCALE) ============ */
+.services-hub{
+  background:var(--jamun);color:var(--malai);border-radius:clamp(24px,4vw,44px);
+  padding:clamp(32px,5vw,68px) clamp(20px,4vw,56px);margin-block:clamp(30px,5vw,60px);
+}
+.service-nav-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;border-bottom:1px solid var(--line-dark);padding-bottom:16px}
+.srv-tab-btn{
+  background:rgba(255,243,222,.06);border:1px solid var(--line-dark);
+  color:rgba(255,243,222,.8);padding:12px 22px;border-radius:999px;
+  font-family:var(--mono);font-size:13px;cursor:pointer;transition:all .25s;
+}
+.srv-tab-btn.active{background:var(--kesar);color:var(--jamun-deep);border-color:var(--kesar);font-weight:700}
+.service-pane{display:none;animation:fadeIn .3s var(--ease)}
+.service-pane.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.service-content-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(28px,4vw,48px);align-items:start}
+@media(max-width:880px){.service-content-grid{grid-template-columns:1fr}}
+.service-feature-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:540px){.service-feature-list{grid-template-columns:1fr}}
+.service-feat-card{
+  background:rgba(255,243,222,.05);border:1px solid var(--line-dark);
+  border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px;
+}
+.service-feat-card h5{font-family:var(--display);font-size:16px;color:var(--malai);margin:0}
+.service-feat-card p{font-size:13.5px;color:rgba(255,243,222,.7);margin:0;line-height:1.5}
+.service-outcome-box{
+  background:var(--jamun-deep);border:1px solid rgba(255,176,32,.3);
+  border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:18px;
+}
+
+/* ============ ABOUT & LEADERSHIP ============ */
+.about-pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:clamp(24px,3vw,36px)}
+@media(max-width:920px){.about-pillars{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.about-pillars{grid-template-columns:1fr}}
+.pillar-card{
+  background:var(--paper-card);border:1px solid var(--line);border-radius:var(--r);
+  padding:24px 20px;display:flex;flex-direction:column;gap:10px;
+}
+.pillar-card .p-num{font-family:var(--mono);font-size:12px;color:var(--kesar-hot);font-weight:700}
+.pillar-card h4{font-size:18px;color:var(--ink)}
+.pillar-card p{font-size:14px;color:var(--ink-60);line-height:1.5}
+
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:clamp(28px,3vw,40px)}
+@media(max-width:880px){.team-grid{grid-template-columns:1fr}}
+.team-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;display:flex;flex-direction:column;transition:transform .3s var(--ease);
+}
+.team-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px -12px rgba(26,20,32,.1)}
+.team-img{aspect-ratio:1/1;overflow:hidden;background:var(--jamun-soft)}
+.team-img img{width:100%;height:100%;object-fit:cover}
+.team-info{padding:20px;display:flex;flex-direction:column;gap:6px}
+.team-info strong{font-family:var(--display);font-size:19px;color:var(--ink)}
+.team-info small{font-family:var(--mono);font-size:12px;color:var(--kesar-hot);text-transform:uppercase}
+.team-info p{font-size:13.5px;color:var(--ink-60);line-height:1.5;margin-top:6px}
+
+/* ============ APPLY ============ */
+.apply{background:var(--jamun-deep);color:var(--malai);border-radius:clamp(24px,4vw,44px);overflow:hidden;padding:clamp(28px,4.4vw,58px)}
+.apply-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,4.6vw,64px);align-items:start}
+@media(max-width:900px){.apply-grid{grid-template-columns:1fr}}
+.apply h2{color:var(--malai)}
+.apply .sec-head{max-width:none;gap:16px}
+.apply .shot{aspect-ratio:16/10;margin-top:6px}
+.contact{font-family:var(--mono);font-size:13px;color:rgba(255,243,222,.65);line-height:1.9}
+
+.form{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+@media(max-width:520px){.form{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,243,222,.7)}
+.field input,.field select,.field textarea{
+  font:inherit;font-size:16px;color:var(--malai);
+  background:rgba(255,243,222,.07);border:1px solid var(--line-dark);border-radius:12px;
+  padding:14px 15px;transition:border-color .25s,background .25s;width:100%;
+}
+.field textarea{resize:vertical;min-height:88px}
+.field select option{color:#111;background:#fff}
+.field input:hover,.field select:hover,.field textarea:hover{background:rgba(255,243,222,.12)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--kesar);background:rgba(255,243,222,.14)}
+.field .err{font-size:12.5px;color:#FF9C7A;min-height:17px;line-height:17px}
+
+.brand-selected-badge{
+  grid-column:1/-1;display:none;align-items:center;justify-content:space-between;
+  background:rgba(255,176,32,.14);border:1px solid var(--kesar);border-radius:12px;
+  padding:10px 14px;font-family:var(--mono);font-size:13px;color:var(--malai);
+}
+.brand-selected-badge.show{display:flex}
+.brand-selected-badge button{background:none;border:0;color:var(--kesar);cursor:pointer;font-weight:700}
+
+.form-foot{grid-column:1/-1;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.form-foot small{color:rgba(255,243,222,.55);font-size:13px;max-width:34ch}
+.sent{
+  grid-column:1/-1;display:none;flex-direction:column;gap:14px;
+  background:rgba(169,232,107,.14);border:1px solid rgba(169,232,107,.5);border-radius:16px;padding:24px}
+.sent.show{display:flex}
+.sent b{font-family:var(--display);font-size:22px;color:var(--pista)}
+
+/* ============ BRAND DETAIL MODAL ============ */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(15,5,25,.75);backdrop-filter:blur(10px);
+  z-index:95;opacity:0;pointer-events:none;transition:opacity .3s var(--ease);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+}
+.modal-overlay.open{opacity:1;pointer-events:auto}
+.modal-card{
+  background:var(--paper);color:var(--ink);width:min(720px,100%);max-height:90vh;
+  border-radius:24px;overflow-y:auto;box-shadow:0 30px 70px rgba(0,0,0,.6);
+  display:flex;flex-direction:column;position:relative;transform:translateY(20px);
+  transition:transform .3s var(--ease);border:1px solid var(--line);
+}
+.modal-overlay.open .modal-card{transform:translateY(0)}
+.modal-close{
+  position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;
+  background:rgba(26,20,32,.08);border:0;font-size:20px;cursor:pointer;
+  display:grid;place-items:center;transition:background .2s;z-index:10;
+}
+.modal-close:hover{background:rgba(26,20,32,.18)}
+.modal-header-banner{position:relative;height:180px;background:var(--jamun);overflow:hidden}
+.modal-header-banner img{width:100%;height:100%;object-fit:cover;opacity:.4}
+.modal-banner-content{position:absolute;bottom:16px;left:24px;right:24px;color:var(--malai)}
+.modal-body{padding:24px;display:flex;flex-direction:column;gap:20px}
+.modal-table{width:100%;border-collapse:collapse;font-size:14.5px}
+.modal-table th,.modal-table td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left}
+.modal-table th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-60)}
+.modal-table td:last-child{text-align:right;font-family:var(--mono);font-weight:700}
+
+/* ============ FLOATING ACTIONS ============ */
+.floating-up{
+  position:fixed;bottom:24px;right:24px;width:46px;height:46px;border-radius:50%;
+  background:var(--kesar);color:var(--ink);border:1px solid rgba(255,255,255,.25);
+  display:grid;place-items:center;font-size:20px;cursor:pointer;z-index:75;
+  box-shadow:0 10px 24px -6px rgba(255,176,32,.5);opacity:0;pointer-events:none;
+  transition:opacity .3s,transform .3s,background .2s;font-weight:800;
+}
+.floating-up.show{opacity:1;pointer-events:auto}
+.floating-up:hover{transform:translateY(-3px);background:#ffba36}
+
+/* ============ FOOTER (PREMIUM DARK ANCHOR) ============ */
+.foot{
+  background:var(--jamun-deep);color:var(--malai);
+  border-radius:clamp(32px,5vw,56px) clamp(32px,5vw,56px) 0 0;
+  padding:clamp(60px,8vw,90px) 0 36px;
+  margin-top:clamp(60px,8vw,100px);
+  position:relative;overflow:hidden;
+  border-top:1px solid var(--line-dark);
+  box-shadow:0 -20px 60px rgba(0,0,0,.4);
+}
+.foot::before{
+  content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:min(900px,90%);height:180px;
+  background:radial-gradient(50% 100% at 50% 0%,rgba(255,176,32,.12),transparent 70%);
+  pointer-events:none;
+}
+.foot-banner{
+  background:rgba(255,243,222,.05);border:1px solid var(--line-dark);border-radius:20px;
+  padding:28px 32px;margin-bottom:clamp(40px,6vw,60px);
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.foot-banner-text h3{font-size:clamp(20px,2.4vw,28px);color:var(--malai);letter-spacing:-.02em}
+.foot-banner-text p{color:rgba(255,243,222,.75);font-size:15px;margin-top:6px}
+.foot-banner-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(28px,4vw,48px)}
+@media(max-width:960px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.foot-grid{grid-template-columns:1fr}}
+
+.foot-brand{display:flex;flex-direction:column;gap:16px}
+.foot-brand .logo{font-size:24px;color:var(--malai)}
+.foot-brand p{color:rgba(255,243,222,.72);font-size:14.5px;line-height:1.6}
+.foot-contacts{display:flex;flex-direction:column;gap:8px;margin-top:6px;font-family:var(--mono);font-size:13px;color:rgba(255,243,222,.8)}
+.foot-contacts a{color:var(--kesar);text-decoration:none}
+.foot-contacts a:hover{text-decoration:underline}
+
+.foot-col h4{
+  font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--kesar);margin:0 0 16px;font-weight:700;display:flex;align-items:center;gap:8px;
+}
+.foot-col h4::before{content:"";width:12px;height:2px;background:var(--kesar-hot);flex:none}
+.foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+.foot-col li a{
+  font-size:14.5px;color:rgba(255,243,222,.75);transition:color .2s,padding-left .2s;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.foot-col li a:hover{color:var(--malai);padding-left:4px}
+.foot-col li a small{font-family:var(--mono);font-size:11px;color:var(--kesar);opacity:.85}
+
+.foot-base{
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+  border-top:1px solid var(--line-dark);margin-top:clamp(40px,5vw,60px);padding-top:24px;
+  font-size:13px;color:rgba(255,243,222,.6);font-family:var(--mono);
+}
+.foot-base-links{display:flex;gap:18px;flex-wrap:wrap}
+.foot-base-links a{color:rgba(255,243,222,.65);transition:color .2s}
+.foot-base-links a:hover{color:var(--kesar)}
+.foot-status{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(169,232,107,.1);border:1px solid rgba(169,232,107,.3);
+  padding:4px 12px;border-radius:999px;color:var(--pista);font-size:12px;
+}
+.foot-status .dot-pulse{width:6px;height:6px;border-radius:50%;background:var(--pista);box-shadow:0 0 8px var(--pista)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+  .hero h1 .strike{transform:scaleX(1)}
+}
+</style>
+</head>
+<body>
+
+<div class="top-progress" id="topProgress"></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a class="logo" href="index.html" aria-label="Franchise 101 Home">FRANCHISE 101<span class="dot"></span></a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="franchises.html">Franchises</a>
+    <a href="develop-brand.html">Develop Brand</a>
+    <a href="develop-scale.html">Develop &amp; Scale</a>
+    <a href="franchise-marketing.html">Marketing</a>
+    <a href="find-franchise.html">Find Match</a>
+    <a href="book-consultation.html">Contact</a>
+  </div>
+  <div class="nav-cta-wrap">
+    <a class="btn btn--kesar" href="book-consultation.html">Book a Consultation <span class="arw">&rarr;</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+  <div class="mobile-drawer-content">
+    <div class="logo">FRANCHISE 101<span class="dot"></span></div>
+    <nav>
+      <a href="index.html" class="mobile-nav-link active">Home</a>
+      <a href="about.html" class="mobile-nav-link">About Franchise 101</a>
+      <a href="franchises.html" class="mobile-nav-link">Franchise Opportunities</a>
+      <a href="develop-brand.html" class="mobile-nav-link">Develop Your Own Brand</a>
+      <a href="develop-scale.html" class="mobile-nav-link">Develop &amp; Scale</a>
+      <a href="franchise-marketing.html" class="mobile-nav-link">Franchise Marketing</a>
+      <a href="find-franchise.html" class="mobile-nav-link">Find The Right Franchise</a>
+      <a href="book-consultation.html" class="mobile-nav-link">Book a Consultation</a>
+    </nav>
+    <div style="margin-top:auto;display:flex;flex-direction:column;gap:12px">
+      <a class="btn btn--kesar" href="book-consultation.html" style="width:100%;text-align:center">Book a Consultation &rarr;</a>
+      <p style="font-family:var(--mono);font-size:12px;color:rgba(255,243,222,.6);text-align:center">Zero fee &middot; Direct brand connect</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero on-dark" id="top">
+  <div class="wrap hero-grid">
+    <div class="badge-trust rise">
+      <span class="pulse"></span> Q1 2026 Batch: 41 Verified Food Brands Open
+    </div>
+    <h1 class="rise">Own the counter people already <em>queue<span class="strike"></span></em> for.</h1>
+    <p class="hero-sub rise">Forty-one vetted food brands, real unit economics, and one single application form. Tell Franchise 101 your city and your budget &mdash; we shortlist the brands that actually fit, then put you on a direct call with brand directors.</p>
+    <div class="hero-cta rise">
+      <a class="btn btn--kesar" href="#apply">Get my shortlist <span class="arw">&rarr;</span></a>
+      <a class="btn btn--ghost" href="#brands">Browse 41 brands</a>
+      <a class="btn btn--ghost" href="#calculator">Calculate ROI</a>
+    </div>
+  </div>
+
+  <!-- SIGNATURE: draggable, scroll-driven 3D brand carousel -->
+  <div class="stage" id="stage" aria-label="Featured franchise brands">
+    <div class="ring" id="ring">
+      <div class="tile" data-brand="kulfi-club"><img src="https://images.unsplash.com/photo-1534706936160-d5ee67737249?w=520&h=700&fit=crop" alt="Pistachio ice cream in a cup" /><div class="tile-in"><span class="tile-cat">Dessert</span><div><div class="tile-mark">Kulfi<br>Club</div><div class="tile-num">&#8377;14&ndash;22L<span>Investment</span></div></div></div></div>
+      <div class="tile" data-brand="chai-katta"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=520&h=700&fit=crop" alt="Milk poured into a cup" /><div class="tile-in"><span class="tile-cat">Beverage</span><div><div class="tile-mark">Chai<br>Katta</div><div class="tile-num">&#8377;6&ndash;11L<span>Investment</span></div></div></div></div>
+      <div class="tile" data-brand="momo-mafia"><img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=520&h=700&fit=crop" alt="Plated hot food" /><div class="tile-in"><span class="tile-cat">QSR</span><div><div class="tile-mark">Momo<br>Mafia</div><div class="tile-num">&#8377;12&ndash;18L<span>Investment</span></div></div></div></div>
+      <div class="tile" data-brand="bun-maska"><img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=520&h=700&fit=crop" alt="Bakery counter with breads" /><div class="tile-in"><span class="tile-cat">Bakery</span><div><div class="tile-mark">Bun<br>Maska</div><div class="tile-num">&#8377;9&ndash;15L<span>Investment</span></div></div></div></div>
+      <div class="tile" data-brand="tandoor-tribe"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=520&h=700&fit=crop" alt="Shared table of dishes" /><div class="tile-in"><span class="tile-cat">Casual dining</span><div><div class="tile-mark">Tandoor<br>Tribe</div><div class="tile-num">&#8377;40&ndash;65L<span>Investment</span></div></div></div></div>
+      <div class="tile" data-brand="frost-co"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=520&h=700&fit=crop" alt="Ice cream sundae with sauce" /><div class="tile-in"><span class="tile-cat">Ice cream</span><div><div class="tile-mark">Frost<br>&amp; Co.</div><div class="tile-num">&#8377;18&ndash;26L<span>Investment</span></div></div></div></div>
+      <div class="tile" data-brand="biryani-bay"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800" alt="Rice bowl with toppings" /><div class="tile-in"><span class="tile-cat">Cloud kitchen</span><div><div class="tile-mark">Biryani<br>Bay</div><div class="tile-num">&#8377;8&ndash;13L<span>Investment</span></div></div></div></div>
+      <div class="tile" data-brand="waffle-theory"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=680&h=425&fit=crop" alt="Chocolate waffles" /><div class="tile-in"><span class="tile-cat">Waffles</span><div><div class="tile-mark">Waffle<br>Theory</div><div class="tile-num">&#8377;11&ndash;16L<span>Investment</span></div></div></div></div>
+    </div>
+  </div>
+
+  <div class="drag-hint-wrap">
+    <span class="drag-hint">Drag to spin &middot; Click card for unit economics</span>
+  </div>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-row" id="tickerRow">
+      <span class="ticker-item"><b>41</b> brands live</span>
+      <span class="ticker-item"><span class="sep">&bull;</span> <b>1,860</b> outlets running</span>
+      <span class="ticker-item"><span class="sep">&bull;</span> <b>214</b> cities</span>
+      <span class="ticker-item"><span class="sep">&bull;</span> <b>&#8377;6L</b> lowest entry</span>
+      <span class="ticker-item"><span class="sep">&bull;</span> <b>18 mo</b> median payback</span>
+      <span class="ticker-item"><span class="sep">&bull;</span> <b>FOFO</b> &amp; FOCO models</span>
+      <span class="ticker-item"><span class="sep">&bull;</span> <b>Zero</b> brokerage from investors</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <div class="sec-head">
+        <p class="eyebrow">The route</p>
+        <h2>Enquiry to first order in about nine weeks.</h2>
+      </div>
+      <p class="sec-note">Nothing here is a formality. Every step exists because a franchisee somewhere lost money skipping it.</p>
+    </div>
+    <div class="steps rv">
+      <article class="step">
+        <span class="step-n">Step 01 &middot; Day 1</span>
+        <h3>Tell us the numbers</h3>
+        <p>Budget, city, whether you'll run it yourself, and how much space you already have. Five fields, zero spam calls.</p>
+      </article>
+      <article class="step">
+        <span class="step-n">Step 02 &middot; Day 3</span>
+        <h3>Get a shortlist</h3>
+        <p>Three to five brands that match your bracket, with their real cost sheet, royalty and payback range attached.</p>
+      </article>
+      <article class="step">
+        <span class="step-n">Step 03 &middot; Week 2&ndash;4</span>
+        <h3>Meet the brand</h3>
+        <p>Direct call with the franchise head. Visit a running outlet, talk to the operator, read the agreement before you sign.</p>
+      </article>
+      <article class="step">
+        <span class="step-n">Step 04 &middot; Week 5&ndash;9</span>
+        <h3>Sign, fit out, open</h3>
+        <p>Site approval, agreement, kitchen build, staff training, launch marketing. Franchise 101 stays on the thread until day one.</p>
+      </article>
+    </div>
+
+    <div class="band rv">
+      <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&h=620&fit=crop" alt="Dish being served in a restaurant" /><span class="cap">Site visit &middot; before you sign</span></div>
+      <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&h=525&fit=crop" alt="Cafe window at dusk" /><span class="cap">Fit-out</span></div>
+      <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=700&h=525&fit=crop" alt="Street-side cafe seating" /><span class="cap">Launch day</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRANDS MARKETPLACE ============ -->
+<section class="sec tight" id="brands">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <div class="sec-head wide">
+        <p class="eyebrow">Open for franchise</p>
+        <h2>Verified brands taking partners this quarter.</h2>
+      </div>
+      <p class="sec-note">Investment ranges include brand fee, equipment and fit-out. Filter by category, budget bracket, and operational model.</p>
+    </div>
+
+    <!-- Live Controls: Search + Categories + Budget Dropdown -->
+    <div class="marketplace-controls rv">
+      <div class="filter-row-top">
+        <div class="search-box">
+          <span class="search-icon">&#128269;</span>
+          <input type="text" id="brandSearch" placeholder="Search brand name, food type, or format (e.g. Chai, Momo, Ice cream)..." />
+        </div>
+        <div class="filter-select">
+          <select id="budgetFilter">
+            <option value="all">All Budget Brackets</option>
+            <option value="under15">Under &#8377;15 Lakh (Kiosk / Express)</option>
+            <option value="15to30">&#8377;15L &ndash; &#8377;30 Lakh (QSR / Parlour)</option>
+            <option value="30to60">&#8377;30L &ndash; &#8377;60 Lakh (Cafe / Dining)</option>
+            <option value="above60">&#8377;60L+ (Master Franchise)</option>
+          </select>
+        </div>
+        <div class="filter-select">
+          <select id="modelFilter">
+            <option value="all">All Models (FOFO &amp; FOCO)</option>
+            <option value="FOFO">FOFO (You own &amp; operate)</option>
+            <option value="FOCO">FOCO (Brand operates for you)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filter-pills" id="categoryPills">
+        <button class="pill-btn active" data-cat="all">All Brands (9)</button>
+        <button class="pill-btn" data-cat="Beverage">Chai &amp; Beverages</button>
+        <button class="pill-btn" data-cat="Dessert">Desserts &amp; Ice Cream</button>
+        <button class="pill-btn" data-cat="QSR">QSR &amp; Street Food</button>
+        <button class="pill-btn" data-cat="Cloud kitchen">Cloud Kitchens</button>
+        <button class="pill-btn" data-cat="Casual dining">Casual Dining</button>
+        <button class="pill-btn" data-cat="Bakery">Bakery &amp; Cafe</button>
+      </div>
+
+      <div class="filter-status-bar">
+        <span id="resultCount">Showing 9 verified franchise opportunities</span>
+        <button class="btn-reset-filters" id="resetFilters">Reset Filters</button>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="cards" id="brandCardsGrid">
+      
+      <!-- Brand 1: Chai Katta -->
+      <article class="card rv tilt" data-id="chai-katta" data-category="Beverage" data-budget="under15" data-model="FOFO" data-name="Chai Katta">
+        <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=680&h=425&fit=crop" alt="Milk being poured into a cup" /><span class="tag green float">Lowest entry</span></div>
+        <div class="card-body">
+          <div class="card-head"><div class="card-mark">CK</div><div class="card-titles"><h3>Chai Katta</h3><span class="tag">Beverage</span></div></div>
+          <p class="card-desc">Kiosk-format cutting chai and bun maska. Fits a 90 sqft shutter near colleges, stations, and IT parks with low staff dependency.</p>
+          <dl class="specs">
+            <div class="spec"><dt>Investment</dt><dd>&#8377;6&ndash;11L</dd></div>
+            <div class="spec"><dt>Area</dt><dd>90&ndash;160 sqft</dd></div>
+            <div class="spec"><dt>Payback</dt><dd>11&ndash;15 mo</dd></div>
+            <div class="spec"><dt>Model</dt><dd>FOFO</dd></div>
+          </dl>
+          <div class="card-foot">
+            <button class="btn-view-details" onclick="openBrandModal('chai-katta')">View Capex</button>
+            <a class="card-link" href="#apply" onclick="prefillBrand('Chai Katta', '&#8377;6–15 lakh')">Apply now <span class="arw">&rarr;</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Brand 2: Kulfi Club -->
+      <article class="card rv tilt" data-id="kulfi-club" data-category="Dessert" data-budget="under15" data-model="FOFO" data-name="Kulfi Club">
+        <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1534706936160-d5ee67737249?w=680&h=425&fit=crop" alt="Pistachio ice cream in a cup" /><span class="tag hot float">12 cities open</span></div>
+        <div class="card-body">
+          <div class="card-head"><div class="card-mark">KC</div><div class="card-titles"><h3>Kulfi Club</h3><span class="tag">Dessert</span></div></div>
+          <p class="card-desc">Matka kulfi and falooda counters built for high-footfall malls and market streets. Runs on a two-person shift with no chef dependency.</p>
+          <dl class="specs">
+            <div class="spec"><dt>Investment</dt><dd>&#8377;14&ndash;22L</dd></div>
+            <div class="spec"><dt>Area</dt><dd>180&ndash;300 sqft</dd></div>
+            <div class="spec"><dt>Payback</dt><dd>16&ndash;20 mo</dd></div>
+            <div class="spec"><dt>Model</dt><dd>FOFO</dd></div>
+          </dl>
+          <div class="card-foot">
+            <button class="btn-view-details" onclick="openBrandModal('kulfi-club')">View Capex</button>
+            <a class="card-link" href="#apply" onclick="prefillBrand('Kulfi Club', '&#8377;6–15 lakh')">Apply now <span class="arw">&rarr;</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Brand 3: Momo Mafia -->
+      <article class="card rv tilt" data-id="momo-mafia" data-category="QSR" data-budget="under15" data-model="FOFO" data-name="Momo Mafia">
+        <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=680&h=425&fit=crop" alt="Hot plated food" /><span class="tag hot float">Metro hot</span></div>
+        <div class="card-body">
+          <div class="card-head"><div class="card-mark">MM</div><div class="card-titles"><h3>Momo Mafia</h3><span class="tag">QSR</span></div></div>
+          <p class="card-desc">Steamed, fried and tandoori momos on a fixed 22-item menu. Central sauce &amp; filling supply keeps kitchen skill low and gross margins at 68%.</p>
+          <dl class="specs">
+            <div class="spec"><dt>Investment</dt><dd>&#8377;12&ndash;18L</dd></div>
+            <div class="spec"><dt>Area</dt><dd>200&ndash;350 sqft</dd></div>
+            <div class="spec"><dt>Payback</dt><dd>14&ndash;18 mo</dd></div>
+            <div class="spec"><dt>Model</dt><dd>FOFO</dd></div>
+          </dl>
+          <div class="card-foot">
+            <button class="btn-view-details" onclick="openBrandModal('momo-mafia')">View Capex</button>
+            <a class="card-link" href="#apply" onclick="prefillBrand('Momo Mafia', '&#8377;6–15 lakh')">Apply now <span class="arw">&rarr;</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Brand 4: Biryani Bay -->
+      <article class="card rv tilt" data-id="biryani-bay" data-category="Cloud kitchen" data-budget="under15" data-model="FOFO" data-name="Biryani Bay">
+        <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800" alt="Rice bowl with toppings" /><span class="tag green float">No storefront</span></div>
+        <div class="card-body">
+          <div class="card-head"><div class="card-mark">BB</div><div class="card-titles"><h3>Biryani Bay</h3><span class="tag">Cloud kitchen</span></div></div>
+          <p class="card-desc">Delivery-only authentic dum biryani out of a shared or low-rent back-lane kitchen. Aggregator onboarding handled entirely by brand.</p>
+          <dl class="specs">
+            <div class="spec"><dt>Investment</dt><dd>&#8377;8&ndash;13L</dd></div>
+            <div class="spec"><dt>Area</dt><dd>250&ndash;400 sqft</dd></div>
+            <div class="spec"><dt>Payback</dt><dd>12&ndash;16 mo</dd></div>
+            <div class="spec"><dt>Model</dt><dd>FOFO</dd></div>
+          </dl>
+          <div class="card-foot">
+            <button class="btn-view-details" onclick="openBrandModal('biryani-bay')">View Capex</button>
+            <a class="card-link" href="#apply" onclick="prefillBrand('Biryani Bay', '&#8377;6–15 lakh')">Apply now <span class="arw">&rarr;</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Brand 5: Waffle Theory -->
+      <article class="card rv tilt" data-id="waffle-theory" data-category="Dessert" data-budget="15to30" data-model="FOFO" data-name="Waffle Theory">
+        <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=680&h=425&fit=crop" alt="Chocolate waffles" /><span class="tag float">High margin</span></div>
+        <div class="card-body">
+          <div class="card-head"><div class="card-mark">WT</div><div class="card-titles"><h3>Waffle Theory</h3><span class="tag">Dessert</span></div></div>
+          <p class="card-desc">Belgian waffles, waffle cakes, and bubble shakes. Compact setup with standardized pre-mixes. High evening &amp; late-night impulse orders.</p>
+          <dl class="specs">
+            <div class="spec"><dt>Investment</dt><dd>&#8377;11&ndash;16L</dd></div>
+            <div class="spec"><dt>Area</dt><dd>120&ndash;220 sqft</dd></div>
+            <div class="spec"><dt>Payback</dt><dd>13&ndash;17 mo</dd></div>
+            <div class="spec"><dt>Model</dt><dd>FOFO</dd></div>
+          </dl>
+          <div class="card-foot">
+            <button class="btn-view-details" onclick="openBrandModal('waffle-theory')">View Capex</button>
+            <a class="card-link" href="#apply" onclick="prefillBrand('Waffle Theory', '&#8377;6–15 lakh')">Apply now <span class="arw">&rarr;</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Brand 6: Frost & Co. -->
+      <article class="card rv tilt" data-id="frost-co" data-category="Dessert" data-budget="15to30" data-model="FOFO" data-name="Frost & Co.">
+        <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=680&h=425&fit=crop" alt="Ice cream sundae with sauce" /><span class="tag float">Tier-2 push</span></div>
+        <div class="card-body">
+          <div class="card-head"><div class="card-mark">FC</div><div class="card-titles"><h3>Frost &amp; Co.</h3><span class="tag">Ice cream</span></div></div>
+          <p class="card-desc">Live cold-stone ice cream, rolled gelato and premium sundaes. High visual theater draws family and couple footfall on high streets.</p>
+          <dl class="specs">
+            <div class="spec"><dt>Investment</dt><dd>&#8377;18&ndash;26L</dd></div>
+            <div class="spec"><dt>Area</dt><dd>300&ndash;500 sqft</dd></div>
+            <div class="spec"><dt>Payback</dt><dd>18&ndash;24 mo</dd></div>
+            <div class="spec"><dt>Model</dt><dd>FOFO</dd></div>
+          </dl>
+          <div class="card-foot">
+            <button class="btn-view-details" onclick="openBrandModal('frost-co')">View Capex</button>
+            <a class="card-link" href="#apply" onclick="prefillBrand('Frost & Co.', '&#8377;15–30 lakh')">Apply now <span class="arw">&rarr;</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Brand 7: Bun Maska Co. -->
+      <article class="card rv tilt" data-id="bun-maska" data-category="Bakery" data-budget="under15" data-model="FOFO" data-name="Bun Maska Co.">
+        <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=800" alt="Bakery counter" /><span class="tag float">All-day sales</span></div>
+        <div class="card-body">
+          <div class="card-head"><div class="card-mark">BM</div><div class="card-titles"><h3>Bun Maska Co.</h3><span class="tag">Bakery</span></div></div>
+          <p class="card-desc">Irani chai, fresh pavs, cookies and savoury baked puffs. Centralized bakery distribution ensures consistent taste across all units.</p>
+          <dl class="specs">
+            <div class="spec"><dt>Investment</dt><dd>&#8377;9&ndash;15L</dd></div>
+            <div class="spec"><dt>Area</dt><dd>150&ndash;250 sqft</dd></div>
+            <div class="spec"><dt>Payback</dt><dd>12&ndash;16 mo</dd></div>
+            <div class="spec"><dt>Model</dt><dd>FOFO</dd></div>
+          </dl>
+          <div class="card-foot">
+            <button class="btn-view-details" onclick="openBrandModal('bun-maska')">View Capex</button>
+            <a class="card-link" href="#apply" onclick="prefillBrand('Bun Maska Co.', '&#8377;6–15 lakh')">Apply now <span class="arw">&rarr;</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Brand 8: Dosa Dastarkhan -->
+      <article class="card rv tilt" data-id="dosa-dastarkhan" data-category="QSR" data-budget="15to30" data-model="FOFO" data-name="Dosa Dastarkhan">
+        <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=800" alt="Crispy Dosa" /><span class="tag hot float">Fast turnaround</span></div>
+        <div class="card-body">
+          <div class="card-head"><div class="card-mark">DD</div><div class="card-titles"><h3>Dosa Dastarkhan</h3><span class="tag">QSR</span></div></div>
+          <p class="card-desc">99-variety fusion dosas and filter coffee in a modern, hygienic express counter. High table turnover and strong breakfast/snack pull.</p>
+          <dl class="specs">
+            <div class="spec"><dt>Investment</dt><dd>&#8377;15&ndash;24L</dd></div>
+            <div class="spec"><dt>Area</dt><dd>300&ndash;550 sqft</dd></div>
+            <div class="spec"><dt>Payback</dt><dd>15&ndash;20 mo</dd></div>
+            <div class="spec"><dt>Model</dt><dd>FOFO</dd></div>
+          </dl>
+          <div class="card-foot">
+            <button class="btn-view-details" onclick="openBrandModal('dosa-dastarkhan')">View Capex</button>
+            <a class="card-link" href="#apply" onclick="prefillBrand('Dosa Dastarkhan', '&#8377;15–30 lakh')">Apply now <span class="arw">&rarr;</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Brand 9: Tandoor Tribe -->
+      <article class="card rv tilt" data-id="tandoor-tribe" data-category="Casual dining" data-budget="30to60" data-model="FOCO" data-name="Tandoor Tribe">
+        <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800" alt="Table of shared dishes" /><span class="tag float">FOCO Model</span></div>
+        <div class="card-body">
+          <div class="card-head"><div class="card-mark">TT</div><div class="card-titles"><h3>Tandoor Tribe</h3><span class="tag">Casual dining</span></div></div>
+          <p class="card-desc">Seventy-cover casual dining with North Indian core menu, live grill stations, and bar option where licensing permits. Brand manages full ops.</p>
+          <dl class="specs">
+            <div class="spec"><dt>Investment</dt><dd>&#8377;40&ndash;65L</dd></div>
+            <div class="spec"><dt>Area</dt><dd>1,600&ndash;2,400 sqft</dd></div>
+            <div class="spec"><dt>Payback</dt><dd>24&ndash;32 mo</dd></div>
+            <div class="spec"><dt>Model</dt><dd>FOCO</dd></div>
+          </dl>
+          <div class="card-foot">
+            <button class="btn-view-details" onclick="openBrandModal('tandoor-tribe')">View Capex</button>
+            <a class="card-link" href="#apply" onclick="prefillBrand('Tandoor Tribe', '&#8377;30–60 lakh')">Apply now <span class="arw">&rarr;</span></a>
+          </div>
+        </div>
+      </article>
+
+      <div class="no-results-box" id="noResults" style="display:none">
+        <p style="font-family:var(--display);font-size:22px;font-weight:700">No brands found matching your criteria</p>
+        <p style="color:var(--ink-60);font-size:15px;max-width:40ch">Try broadening your budget range or clearing search keywords to view all 41 opportunities.</p>
+        <button class="btn btn--kesar btn--sm" onclick="resetAllFilters()">Show All 41 Brands</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTERACTIVE ROI CALCULATOR ============ -->
+<section class="wrap" id="calculator">
+  <div class="calc-section rv on-dark">
+    <div class="sec-head on-dark" style="margin-bottom:28px">
+      <p class="eyebrow on-dark">Unit Economics Simulator</p>
+      <h2 style="color:var(--malai)">Calculate your monthly profit &amp; payback.</h2>
+      <p class="sec-note on-dark">Adjust format, investment, and customer volume to see realistic gross margin, operational costs, and estimated breakeven period.</p>
+    </div>
+
+    <div class="calc-grid">
+      <!-- Sliders / Controls -->
+      <div class="calc-card">
+        <div class="calc-group">
+          <label style="font-family:var(--mono);font-size:11.5px;color:rgba(255,243,222,.7);text-transform:uppercase">1. Outlet Format</label>
+          <div class="calc-formats">
+            <button class="fmt-btn active" data-fmt="kiosk" onclick="setCalcFormat('kiosk')">Kiosk (&#8377;8L)</button>
+            <button class="fmt-btn" data-fmt="qsr" onclick="setCalcFormat('qsr')">QSR (&#8377;16L)</button>
+            <button class="fmt-btn" data-fmt="cloud" onclick="setCalcFormat('cloud')">Cloud (&#8377;10L)</button>
+            <button class="fmt-btn" data-fmt="dine" onclick="setCalcFormat('dine')">Dine-in (&#8377;50L)</button>
+          </div>
+        </div>
+
+        <div class="calc-group">
+          <div class="calc-label-row">
+            <span>Total Capital Investment</span>
+            <span class="calc-val-badge" id="valInvestment">&#8377;8 Lakh</span>
+          </div>
+          <input type="range" class="calc-slider" id="sliderInvestment" min="6" max="70" step="1" value="8" oninput="updateCalculator()" />
+        </div>
+
+        <div class="calc-group">
+          <div class="calc-label-row">
+            <span>Daily Customer Orders</span>
+            <span class="calc-val-badge" id="valOrders">160 bills / day</span>
+          </div>
+          <input type="range" class="calc-slider" id="sliderOrders" min="40" max="450" step="5" value="160" oninput="updateCalculator()" />
+        </div>
+
+        <div class="calc-group">
+          <div class="calc-label-row">
+            <span>Average Order Value (AOV)</span>
+            <span class="calc-val-badge" id="valAOV">&#8377;120 / bill</span>
+          </div>
+          <input type="range" class="calc-slider" id="sliderAOV" min="50" max="650" step="10" value="120" oninput="updateCalculator()" />
+        </div>
+      </div>
+
+      <!-- Live Calculation Results -->
+      <div class="calc-results-board">
+        <div class="calc-metric-row">
+          <div class="calc-metric-item">
+            <small>Est. Monthly Revenue</small>
+            <strong id="resRevenue">&#8377;5,76,000</strong>
+          </div>
+          <div class="calc-metric-item">
+            <small>Raw Food Cost (~34%)</small>
+            <strong id="resFoodCost" style="color:rgba(255,243,222,.85)">&#8377;1,95,840</strong>
+          </div>
+        </div>
+
+        <div class="calc-metric-row">
+          <div class="calc-metric-item">
+            <small>Staff &amp; Rent Overhead</small>
+            <strong id="resOpex" style="color:rgba(255,243,222,.85)">&#8377;1,45,000</strong>
+          </div>
+          <div class="calc-metric-item">
+            <small>Brand Royalty (5-8%)</small>
+            <strong id="resRoyalty" style="color:rgba(255,243,222,.85)">&#8377;34,560</strong>
+          </div>
+        </div>
+
+        <div class="calc-highlight-box">
+          <div>
+            <small>Est. Net Profit / Month</small>
+            <b id="resNetProfit">&#8377;2,00,600</b>
+          </div>
+          <div style="text-align:right">
+            <small>Est. Payback Period</small>
+            <b id="resPayback" style="color:var(--kesar)">4.0 Months</b>
+          </div>
+        </div>
+
+        <button class="btn btn--kesar" style="width:100%" onclick="applyForCalculatedBudget()">Apply For Brands in This Bracket &rarr;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CITY AVAILABILITY CHECKER ============ -->
+<section class="sec tight" id="city-sec">
+  <div class="wrap">
+    <div class="city-checker rv">
+      <div class="city-checker-grid">
+        <div>
+          <p class="eyebrow" style="margin-bottom:8px">Territory Finder</p>
+          <h3 style="font-size:24px">Check territory openings in your city</h3>
+          <p style="color:var(--ink-60);font-size:15px;margin-top:8px">We maintain exclusivity zones so your outlet doesn't compete with another franchisee 500m away.</p>
+          <div style="margin-top:16px">
+            <select id="citySelect" onchange="checkCityAvailability()" style="font:inherit;font-size:15px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--paper);width:100%">
+              <option value="mumbai">Mumbai &amp; MMR</option>
+              <option value="pune">Pune &amp; PCMC</option>
+              <option value="bangalore">Bengaluru</option>
+              <option value="delhi">Delhi NCR (Gurugram, Noida)</option>
+              <option value="hyderabad">Hyderabad</option>
+              <option value="ahmedabad">Ahmedabad &amp; Surat</option>
+              <option value="chennai">Chennai</option>
+              <option value="kolkata">Kolkata</option>
+              <option value="jaipur">Jaipur &amp; Rajasthan</option>
+              <option value="lucknow">Lucknow &amp; Kanpur</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="city-result-chip" id="cityResultBox">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <strong style="font-size:17px" id="cityResultName">Mumbai &amp; MMR</strong>
+            <span class="tag green" id="citySlotCount">18 Brand Slots Available</span>
+          </div>
+          <p style="font-size:14.5px;color:var(--ink-60);margin-top:4px" id="cityResultDesc">High-demand catchments open in Thane, Navi Mumbai, Andheri East, and Powai. Average kiosk footfall 1,400+ per day.</p>
+          <div class="tag-row" id="cityTagRow">
+            <span class="tag">Chai Katta (4 slots)</span>
+            <span class="tag">Kulfi Club (3 slots)</span>
+            <span class="tag">Momo Mafia (5 slots)</span>
+            <span class="tag">Biryani Bay (6 slots)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTERACTIVE 5-STEP MATCHER ============ -->
+<section class="wrap sec tight" id="quiz">
+  <div class="quiz-section rv">
+    <div class="sec-head" style="margin-bottom:20px">
+      <p class="eyebrow">Find The Right Franchise</p>
+      <h2>Answer 5 quick questions. Get matched in real-time.</h2>
+      <p class="sec-note">Discover the food franchise tailored to your capital, city zone, operational involvement, and target launch timeline.</p>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="quiz-progress-bar">
+      <div class="quiz-progress-fill" id="quizProgressFill"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;font-family:var(--mono);font-size:12.5px;color:var(--ink-60)">
+      <span id="quizStepBadge">Step 1 of 5</span>
+      <span>Interactive Investor Qualifier</span>
+    </div>
+
+    <!-- Step 1: Budget -->
+    <div class="quiz-step-pane active" id="quizStep1">
+      <h3 class="quiz-step-title">1. What is your available capital investment?</h3>
+      <p class="quiz-step-sub">Select the budget range you can fund comfortably without emergency borrowing.</p>
+      <div class="quiz-options">
+        <button type="button" class="quiz-opt-btn selected" onclick="selectQuizOpt(1, 'budget', '6-15', this)">
+          <strong>&#8377;6 &ndash; 15 Lakh <span>&rarr;</span></strong>
+          <span>Kiosk &amp; Beverage / Chai Katta</span>
+        </button>
+        <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(1, 'budget', '15-30', this)">
+          <strong>&#8377;15 &ndash; 30 Lakh <span>&rarr;</span></strong>
+          <span>QSR Express / Momo Mafia / Desserts</span>
+        </button>
+        <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(1, 'budget', '30-60', this)">
+          <strong>&#8377;30 &ndash; 60 Lakh <span>&rarr;</span></strong>
+          <span>Casual Dining / FOCO Restaurant</span>
+        </button>
+        <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(1, 'budget', '60plus', this)">
+          <strong>&#8377;60 Lakh+ <span>&rarr;</span></strong>
+          <span>Master / Multi-Unit City Territory</span>
+        </button>
+      </div>
+      <div class="quiz-actions">
+        <span></span>
+        <button type="button" class="btn btn--kesar" onclick="nextQuizStep(2)">Next: Food Category &rarr;</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Category -->
+    <div class="quiz-step-pane" id="quizStep2">
+      <h3 class="quiz-step-title">2. Which food category excites you most?</h3>
+      <p class="quiz-step-sub">Choose the concept that fits your local catchment and customer demographic.</p>
+      <div class="quiz-options">
+        <button type="button" class="quiz-opt-btn selected" onclick="selectQuizOpt(2, 'category', 'chai', this)">
+          <strong>Chai &amp; Beverages <span>&rarr;</span></strong>
+          <span>High-frequency daily footfall (68% margin)</span>
+        </button>
+        <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(2, 'category', 'dessert', this)">
+          <strong>Kulfi &amp; Desserts <span>&rarr;</span></strong>
+          <span>Low operational hassle, high evening pull</span>
+        </button>
+        <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(2, 'category', 'qsr', this)">
+          <strong>Himalayan Momos &amp; QSR <span>&rarr;</span></strong>
+          <span>Rapid table turnover &amp; youth appeal</span>
+        </button>
+        <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(2, 'category', 'cloud', this)">
+          <strong>Cloud Kitchen &amp; Biryani <span>&rarr;</span></strong>
+          <span>Swiggy/Zomato delivery-first model</span>
+        </button>
+      </div>
+      <div class="quiz-actions">
+        <button type="button" class="btn btn--ghost btn--sm" onclick="prevQuizStep(1)">&larr; Back</button>
+        <button type="button" class="btn btn--kesar" onclick="nextQuizStep(3)">Next: Location &rarr;</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Location -->
+    <div class="quiz-step-pane" id="quizStep3">
+      <h3 class="quiz-step-title">3. Where do you plan to open?</h3>
+      <p class="quiz-step-sub">We verify territory exclusivity so no rival outlet opens within 500 meters.</p>
+      <div class="quiz-options">
+        <button type="button" class="quiz-opt-btn selected" onclick="selectQuizOpt(3, 'location', 'mumbai', this)">
+          <strong>Mumbai / Pune (MMR / PCMC) <span>&rarr;</span></strong>
+          <span>High transit hubs &amp; suburban catchments</span>
+        </button>
+        <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(3, 'location', 'bangalore', this)">
+          <strong>Bengaluru / Hyderabad <span>&rarr;</span></strong>
+          <span>Tech park corridors &amp; high streets</span>
+        </button>
+        <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(3, 'location', 'delhi', this)">
+          <strong>Delhi NCR (Gurgaon / Noida) <span>&rarr;</span></strong>
+          <span>Mall food courts &amp; commercial markets</span>
+        </button>
+        <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(3, 'location', 'tier2', this)">
+          <strong>Tier 2 / 3 Growth Cities <span>&rarr;</span></strong>
+          <span>Low rental cost, booming aspirational demand</span>
+        </button>
+      </div>
+      <div class="quiz-actions">
+        <button type="button" class="btn btn--ghost btn--sm" onclick="prevQuizStep(2)">&larr; Back</button>
+        <button type="button" class="btn btn--kesar" onclick="nextQuizStep(4)">Next: Operating Model &rarr;</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Operating Model -->
+    <div class="quiz-step-pane" id="quizStep4">
+      <h3 class="quiz-step-title">4. What is your preferred operational involvement?</h3>
+      <p class="quiz-step-sub">Do you wish to manage the daily billing and staff, or prefer the company to run it?</p>
+      <div class="quiz-options">
+        <button type="button" class="quiz-opt-btn selected" onclick="selectQuizOpt(4, 'model', 'fofo', this)">
+          <strong>FOFO (Franchise Operated) <span>&rarr;</span></strong>
+          <span>You manage day-to-day &amp; retain maximum net profit</span>
+        </button>
+        <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(4, 'model', 'semipassive', this)">
+          <strong>Semi-Passive with Shift Manager <span>&rarr;</span></strong>
+          <span>Run via trusted manager after your day job</span>
+        </button>
+        <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(4, 'model', 'foco', this)">
+          <strong>FOCO (Company Operated) <span>&rarr;</span></strong>
+          <span>Brand handles staff, chefs &amp; operations (Passive ROI)</span>
+        </button>
+        <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(4, 'model', 'multiunit', this)">
+          <strong>Multi-Unit Area Developer <span>&rarr;</span></strong>
+          <span>Scale 3&ndash;5 outlets across an entire city territory</span>
+        </button>
+      </div>
+      <div class="quiz-actions">
+        <button type="button" class="btn btn--ghost btn--sm" onclick="prevQuizStep(3)">&larr; Back</button>
+        <button type="button" class="btn btn--kesar" onclick="nextQuizStep(5)">Next: Launch Timeline &rarr;</button>
+      </div>
+    </div>
+
+    <!-- Step 5: Timeline -->
+    <div class="quiz-step-pane" id="quizStep5">
+      <h3 class="quiz-step-title">5. When are you looking to sign and launch?</h3>
+      <p class="quiz-step-sub">This helps us allocate territory slots that match your readiness window.</p>
+      <div class="quiz-options">
+        <button type="button" class="quiz-opt-btn selected" onclick="selectQuizOpt(5, 'timeline', 'immediate', this)">
+          <strong>Immediate (0 &ndash; 30 Days) <span>&rarr;</span></strong>
+          <span>Capital ready, actively evaluating locations</span>
+        </button>
+        <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(5, 'timeline', '1to3mo', this)">
+          <strong>1 to 3 Months <span>&rarr;</span></strong>
+          <span>Finalizing city choice and partner alignment</span>
+        </button>
+        <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(5, 'timeline', '3to6mo', this)">
+          <strong>3 to 6 Months <span>&rarr;</span></strong>
+          <span>Researching unit economics &amp; brand comparisons</span>
+        </button>
+        <button type="button" class="quiz-opt-btn" onclick="selectQuizOpt(5, 'timeline', 'exploring', this)">
+          <strong>Initial Research / Exploring <span>&rarr;</span></strong>
+          <span>Looking for information on F&amp;B viability</span>
+        </button>
+      </div>
+      <div class="quiz-actions">
+        <button type="button" class="btn btn--ghost btn--sm" onclick="prevQuizStep(4)">&larr; Back</button>
+        <button type="button" class="btn btn--kesar" onclick="calculateQuizResult()">See Matched Opportunity &rarr;</button>
+      </div>
+    </div>
+
+    <!-- Match Result Card -->
+    <div class="quiz-step-pane" id="quizResultPane">
+      <div class="quiz-result-card">
+        <div class="quiz-result-img">
+          <img id="quizMatchImg" src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800" alt="Matched Brand" />
+        </div>
+        <div>
+          <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
+            <span class="tag green" style="background:var(--pista);color:var(--jamun-deep);font-weight:700">98% Match Score</span>
+            <span class="tag" id="quizMatchCat">Beverage</span>
+          </div>
+          <h3 style="font-size:clamp(24px,3vw,34px);color:var(--malai);margin-bottom:6px" id="quizMatchTitle">Chai Katta</h3>
+          <p style="font-size:14.5px;color:rgba(255,243,222,.8);line-height:1.5;margin-bottom:16px" id="quizMatchDesc">Compact 80-160 sqft kiosk format with high gross margins (68%) and fast payback. Perfect match for your selected budget and location.</p>
+          
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;background:rgba(255,243,222,.06);padding:12px;border-radius:12px">
+            <div><small style="font-family:var(--mono);font-size:10.5px;color:rgba(255,243,222,.6)">INVESTMENT</small><strong style="display:block;font-size:16px;color:var(--kesar)" id="quizMatchCapex">&#8377;6&ndash;11L</strong></div>
+            <div><small style="font-family:var(--mono);font-size:10.5px;color:rgba(255,243,222,.6)">EST. PAYBACK</small><strong style="display:block;font-size:16px;color:var(--malai)" id="quizMatchPayback">11&ndash;14 mo</strong></div>
+            <div><small style="font-family:var(--mono);font-size:10.5px;color:rgba(255,243,222,.6)">MODEL</small><strong style="display:block;font-size:16px;color:var(--pista)" id="quizMatchModel">FOFO</strong></div>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+            <button type="button" class="btn btn--kesar" id="quizApplyBtn" onclick="applyFromQuiz()">Apply for this Matched Brand &rarr;</button>
+            <button type="button" class="btn btn--ghost btn--sm" onclick="restartQuiz()">Retake Quiz &#8634;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ BUDGET RAIL ============ -->
+<section class="brackets" id="budget">
+  <div class="rail-outer" id="railOuter">
+    <div class="rail-sticky on-dark">
+      <div class="rail-head">
+        <div class="sec-top" style="margin-bottom:0">
+          <div class="sec-head wide">
+            <p class="eyebrow">By budget</p>
+            <h2 style="color:var(--malai)">What &#8377;6 lakh buys, and what &#8377;60 lakh does.</h2>
+          </div>
+          <p class="sec-note">Pick the bracket you can fund without borrowing against the house. The format follows the capital, not the other way round.</p>
+        </div>
+      </div>
+      <div class="rail" id="rail">
+        <article class="slab">
+          <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&h=350&fit=crop" alt="Coffee cups on a counter" /></div>
+          <span class="slab-amt">&#8377;6&ndash;15L</span>
+          <p>Kiosk and takeaway formats. One or two staff, zero seating, quick to launch.</p>
+          <ul><li>Chai, momo, waffle and bakery counters</li><li>90&ndash;200 sqft, shutter or mall kiosk</li><li>Break-even typically 11&ndash;15 months</li><li>You can run it hands-on after your day job</li></ul>
+        </article>
+        <article class="slab">
+          <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=700&h=350&fit=crop" alt="Burger on a counter" /></div>
+          <span class="slab-amt">&#8377;15&ndash;30L</span>
+          <p>Full QSR outlets with a small dine-in area and a proper kitchen line.</p>
+          <ul><li>Ice cream parlours, burger and biryani QSR</li><li>300&ndash;600 sqft on a high street</li><li>Break-even typically 16&ndash;22 months</li><li>Needs a shift manager and 4&ndash;6 staff</li></ul>
+        </article>
+        <article class="slab">
+          <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=700&h=350&fit=crop" alt="Cafe interior with plants" /></div>
+          <span class="slab-amt">&#8377;30&ndash;60L</span>
+          <p>Caf&eacute;s and casual dining. Higher ticket size, higher rent, longer runway.</p>
+          <ul><li>Caf&eacute; chains and 60&ndash;90 cover restaurants</li><li>1,200&ndash;2,400 sqft with parking</li><li>Break-even typically 24&ndash;32 months</li><li>Six months of working capital is non-negotiable</li></ul>
+        </article>
+        <article class="slab">
+          <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=700&h=350&fit=crop" alt="Large dining hall" /></div>
+          <span class="slab-amt">&#8377;60L+</span>
+          <p>Master franchise and multi-unit rights for a city or district.</p>
+          <ul><li>Territory rights with sub-franchise income</li><li>Three to five units committed over 24 months</li><li>Brand expects prior F&amp;B or retail experience</li><li>Warehouse and supply responsibility sits with you</li></ul>
+        </article>
+      </div>
+      <div class="progress"><i id="railBar"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METRICS ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <div class="sec-head wide"><p class="eyebrow">Since 2019</p><h2>The part most portals won't print.</h2></div>
+      <p class="sec-note">We publish verified placement numbers because the alternative is asking you to trust unvetted promotional claims.</p>
+    </div>
+    <div class="metrics rv">
+      <div class="metric"><b data-count="1860">0</b><span>Outlets opened</span></div>
+      <div class="metric"><b data-count="214">0</b><span>Cities covered</span></div>
+      <div class="metric"><b data-count="41">0</b><span>Brands on board</span></div>
+      <div class="metric"><b data-count="87" data-suffix="%">0</b><span>Still trading at year 3</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VOICES ============ -->
+<section class="sec tight">
+  <div class="wrap">
+    <div class="sec-top rv"><div class="sec-head wide"><p class="eyebrow">Franchisees</p><h2>People who signed and opened.</h2></div>
+    <p class="sec-note">Three operators, three brackets, three very different journeys.</p></div>
+    <div class="voices">
+      <article class="voice rv">
+        <q>I wanted a caf&eacute;. They showed me the rent maths and talked me into a kiosk instead. Two years on, that was the call that saved me.</q>
+        <div class="voice-who"><span class="avatar">RD</span><div><strong>Rohan D.</strong><small>Chai Katta &middot; Kothrud, Pune</small></div></div>
+      </article>
+      <article class="voice rv">
+        <q>The brand let me sit in a running outlet for three days before I paid anything. That's when I stopped comparing and signed.</q>
+        <div class="voice-who"><span class="avatar">SM</span><div><strong>Shalini M.</strong><small>Kulfi Club &middot; Vashi, Navi Mumbai</small></div></div>
+      </article>
+      <article class="voice rv">
+        <q>My first outlet broke even in fourteen months. The second took nine, because by then I knew where the money leaks.</q>
+        <div class="voice-who"><span class="avatar">AK</span><div><strong>Aditya K.</strong><small>Biryani Bay &middot; Madhapur, Hyderabad</small></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRAND SERVICES HUB (SECTIONS 4, 5, 6) ============ -->
+<section class="sec on-dark" id="brand-services">
+  <div class="wrap">
+    <div class="services-hub rv">
+      <div class="sec-head wide" style="margin-bottom:24px">
+        <p class="eyebrow on-dark">For Food Brand Owners &amp; Founders</p>
+        <h2 style="color:var(--malai)">Develop, scale &amp; market your F&amp;B brand nationwide.</h2>
+        <p class="sec-note on-dark">Whether turning a single successful kitchen into a franchise network or expanding an established 5-outlet chain across 200 cities, Franchise 101 handles the entire ecosystem.</p>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="service-nav-tabs">
+        <button type="button" class="srv-tab-btn active" onclick="switchServiceTab('develop-brand', this)">1. Develop Your Own Brand</button>
+        <button type="button" class="srv-tab-btn" onclick="switchServiceTab('scale-brand', this)">2. Develop &amp; Scale (Multi-City)</button>
+        <button type="button" class="srv-tab-btn" onclick="switchServiceTab('franchise-marketing', this)">3. Franchise Marketing &amp; Leads</button>
+      </div>
+
+      <!-- Tab 1: Develop Your Own Brand -->
+      <div class="service-pane active" id="pane-develop-brand">
+        <div class="service-content-grid">
+          <div>
+            <h3 style="font-size:24px;color:var(--malai);margin-bottom:8px">Turn your secret recipe into a franchise-ready machine</h3>
+            <p style="color:rgba(255,243,222,.78);font-size:15px;line-height:1.6;margin-bottom:24px">We take your proven culinary concept and standardize every aspect &mdash; from central gravy bases and line equipment to comprehensive franchise legal disclosures &mdash; so any 10th-pass cook can replicate your taste perfectly.</p>
+            <div class="service-feature-list">
+              <div class="service-feat-card">
+                <h5>Recipe &amp; SOP Standardization</h5>
+                <p>Convert chef intuition into gram-accurate pre-mixes, cooking timers, and visual station cards.</p>
+              </div>
+              <div class="service-feat-card">
+                <h5>Kitchen Architecture &amp; CAD</h5>
+                <p>Ergonomic stainless layouts designed to fit compact 80-250 sqft high-turnover counters.</p>
+              </div>
+              <div class="service-feat-card">
+                <h5>Central Supply Chain Setup</h5>
+                <p>Contract manufacturing &amp; cold-chain distribution to ensure zero on-site raw prep.</p>
+              </div>
+              <div class="service-feat-card">
+                <h5>Franchise Legal Suite</h5>
+                <p>FSSAI, municipal licensing checklists, FOFO/FOCO agreements, and IP protection.</p>
+              </div>
+            </div>
+          </div>
+          <div class="service-outcome-box">
+            <h4 style="color:var(--kesar);font-size:18px;margin:0">Deliverables &amp; Timeline</h4>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-size:14.5px;color:rgba(255,243,222,.85)">
+              <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> Complete Brand Operations Manual (120+ pages)</li>
+              <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> Line-by-line Capex &amp; Unit Economics Model</li>
+              <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> 5-Year Legal Franchise Agreement Template</li>
+              <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> Ready for Marketplace Launch in 6 Weeks</li>
+            </ul>
+            <a class="btn btn--kesar" href="#apply" onclick="prefillServiceConsultation('Develop Brand')">Consult Brand Growth Team &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Develop & Scale -->
+      <div class="service-pane" id="pane-scale-brand">
+        <div class="service-content-grid">
+          <div>
+            <h3 style="font-size:24px;color:var(--malai);margin-bottom:8px">Expand from 3 regional outlets to 50+ nationwide units</h3>
+            <p style="color:rgba(255,243,222,.78);font-size:15px;line-height:1.6;margin-bottom:24px">Designed for operating brands with strong local product-market fit ready to conquer new states through cluster zoning and master franchise syndication.</p>
+            <div class="service-feature-list">
+              <div class="service-feat-card">
+                <h5>City Catchment Mapping</h5>
+                <p>Demographic heat-mapping across 214+ cities to locate prime high-density clusters.</p>
+              </div>
+              <div class="service-feat-card">
+                <h5>Master Territory Syndication</h5>
+                <p>Multi-unit syndication deals with vetted HNI investors committing to 3&ndash;5 outlets.</p>
+              </div>
+              <div class="service-feat-card">
+                <h5>Audited Unit Economics</h5>
+                <p>Auditing store-level P&amp;Ls to establish bulletproof payback claims that attract serious capital.</p>
+              </div>
+              <div class="service-feat-card">
+                <h5>Mystery Audits &amp; QA Control</h5>
+                <p>Quarterly quality assurance and POS audit systems to maintain brand reputation.</p>
+              </div>
+            </div>
+          </div>
+          <div class="service-outcome-box">
+            <h4 style="color:var(--kesar);font-size:18px;margin:0">Scaling Impact</h4>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-size:14.5px;color:rgba(255,243,222,.85)">
+              <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> 15&ndash;40 New Verified Openings per Year</li>
+              <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> Tier-1 &amp; Tier-2 Market Penetration</li>
+              <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> 87% Year-3 Outlet Survival Rate</li>
+              <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> Direct Founder-to-Investor Meetings</li>
+            </ul>
+            <a class="btn btn--kesar" href="#apply" onclick="prefillServiceConsultation('Develop and Scale')">Request Scaling Blueprint &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Franchise Marketing -->
+      <div class="service-pane" id="pane-franchise-marketing">
+        <div class="service-content-grid">
+          <div>
+            <h3 style="font-size:24px;color:var(--malai);margin-bottom:8px">High-intent investor lead generation &amp; CRM pipeline</h3>
+            <p style="color:rgba(255,243,222,.78);font-size:15px;line-height:1.6;margin-bottom:24px">No dead leads or junk enquiries. We run hyper-targeted investor acquisition funnels and pre-qualify capital before scheduling discovery calls.</p>
+            <div class="service-feature-list">
+              <div class="service-feat-card">
+                <h5>Performance Investor Funnels</h5>
+                <p>Targeted Google, Meta &amp; LinkedIn campaigns capturing capital-ready investors.</p>
+              </div>
+              <div class="service-feat-card">
+                <h5>Video Pitchbooks &amp; Reels</h5>
+                <p>Cinematic outlet tours, founder interviews, and unit economics walk-throughs.</p>
+              </div>
+              <div class="service-feat-card">
+                <h5>Privyr &amp; CRM Lead Routing</h5>
+                <p>Instant SMS/WhatsApp lead routing with automated background qualification checks.</p>
+              </div>
+              <div class="service-feat-card">
+                <h5>Franchise Discovery Days</h5>
+                <p>Exclusive kitchen tasting and investor meet-and-greets yielding 3.8x higher close rates.</p>
+              </div>
+            </div>
+          </div>
+          <div class="service-outcome-box">
+            <h4 style="color:var(--kesar);font-size:18px;margin:0">Campaign Metrics</h4>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-size:14.5px;color:rgba(255,243,222,.85)">
+              <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> 100% Pre-qualified Investor Net Worth</li>
+              <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> 48-Hour SLA on Discovery Calls</li>
+              <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> Complete CRM / LMS Integration</li>
+              <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> 3.8x Higher Lead-to-Agreement Ratio</li>
+            </ul>
+            <a class="btn btn--kesar" href="#apply" onclick="prefillServiceConsultation('Franchise Marketing')">Launch Investor Marketing &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT & LEADERSHIP ============ -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <div class="sec-head wide">
+        <p class="eyebrow">About Franchise 101</p>
+        <h2>The transparent food franchise marketplace India needed.</h2>
+      </div>
+      <p class="sec-note">Traditional franchise portals sell ad banners to the highest bidder with zero due diligence. We built Franchise 101 to verify real unit economics, eliminate junk promises, and protect investor capital.</p>
+    </div>
+
+    <!-- 4 Pillars of Trust -->
+    <div class="about-pillars rv">
+      <div class="pillar-card">
+        <span class="p-num">01</span>
+        <h4>Audited Unit Economics</h4>
+        <p>Every gross margin and payback timeline is verified through actual store POS and raw ingredient invoices before listing.</p>
+      </div>
+      <div class="pillar-card">
+        <span class="p-num">02</span>
+        <h4>Strict SOP Standardisation</h4>
+        <p>We only onboard brands with central supply chains and turnkey recipes that do not depend on elusive master chefs.</p>
+      </div>
+      <div class="pillar-card">
+        <span class="p-num">03</span>
+        <h4>Radius Exclusivity Protection</h4>
+        <p>Strict territory covenants ensure you never face cannibalization from another outlet opening 500 meters away.</p>
+      </div>
+      <div class="pillar-card">
+        <span class="p-num">04</span>
+        <h4>Zero Brokerage to Investors</h4>
+        <p>Investors pay zero discovery or consultation fee. Brands compensate Franchise 101 only when a legal agreement is executed.</p>
+      </div>
+    </div>
+
+    <!-- Leadership Team -->
+    <div style="margin-top:clamp(48px,6vw,72px)" class="rv">
+      <div class="sec-head">
+        <p class="eyebrow">Leadership &amp; Advisory</p>
+        <h3 style="font-size:clamp(24px,3vw,34px)">Decades of F&amp;B scaling, culinary ops &amp; legal expertise.</h3>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-img">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&h=500&fit=crop" alt="Priya Sengupta" />
+          </div>
+          <div class="team-info">
+            <strong>Priya Sengupta</strong>
+            <small>Managing Partner &middot; Brand Strategy</small>
+            <p>14+ years scaling national QSR brands. Scaled 180+ beverage outlets across Western &amp; Southern India.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-img">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop" alt="Vikram Malhotra" />
+          </div>
+          <div class="team-info">
+            <strong>Vikram Malhotra</strong>
+            <small>Partner &middot; Unit Economics &amp; Auditing</small>
+            <p>Ex-KPMG F&amp;B Advisory. Audited over ₹400Cr in franchise capex and store-level P&amp;L viability models.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-img">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=500&fit=crop" alt="Arjun Dave" />
+          </div>
+          <div class="team-info">
+            <strong>Arjun Dave</strong>
+            <small>Head of Legal &amp; Territory Allotment</small>
+            <p>Specialist in Indian franchise contracts, FOFO/FOCO covenants, FSSAI compliance, and investor protection.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec tight" id="faq">
+  <div class="wrap">
+    <div class="sec-top rv"><div class="sec-head wide"><p class="eyebrow">Before you apply</p><h2>Straight answers on fees, legal &amp; setup.</h2></div>
+    <p class="sec-note">Anything not covered here, ask on the application form &mdash; a dedicated franchise manager replies within 24 hours.</p></div>
+    
+    <div class="faq-filter-pills rv">
+      <button class="pill-btn active" onclick="filterFaq('all', this)">All Questions</button>
+      <button class="pill-btn" onclick="filterFaq('cost', this)">Costs &amp; Royalties</button>
+      <button class="pill-btn" onclick="filterFaq('models', this)">FOFO vs FOCO</button>
+      <button class="pill-btn" onclick="filterFaq('location', this)">Site &amp; Licences</button>
+    </div>
+
+    <div class="faq rv" id="faqContainer">
+      <div class="q" data-category="cost"><button aria-expanded="false"><span>What does Franchise 101 charge prospective franchisees?</span><span class="sign">+</span></button>
+        <div class="panel"><p>Nothing. Food brands pay our marketplace facilitation fee when a verified agreement is signed. You never pay a shortlisting, consultation, or registration fee &mdash; if anyone asks for one in our name, report it immediately.</p></div></div>
+      
+      <div class="q" data-category="cost"><button aria-expanded="false"><span>Is the investment figure the complete startup cost?</span><span class="sign">+</span></button>
+        <div class="panel"><p>Listed ranges cover brand fee, kitchen equipment, furniture, branding and fit-out. Commercial rent deposit, local municipal licences (FSSAI, GST, Fire), and about 3 to 6 months of working capital sit on top. We send a line-by-line capex sheet with every shortlist so there are zero surprises.</p></div></div>
+      
+      <div class="q" data-category="models"><button aria-expanded="false"><span>What is the core difference between FOFO and FOCO?</span><span class="sign">+</span></button>
+        <div class="panel"><p>In <strong>FOFO (Franchise Owned, Franchise Operated)</strong>, you own and personally run the day-to-day business &mdash; you retain all profits after paying a 4-8% brand royalty. In <strong>FOCO (Franchise Owned, Company Operated)</strong>, you invest the capital, but the brand handles staffing, inventory and daily operations, paying you a guaranteed minimum guarantee (MG) or 15-22% gross revenue share.</p></div></div>
+      
+      <div class="q" data-category="models"><button aria-expanded="false"><span>Do I need prior food industry or chef experience?</span><span class="sign">+</span></button>
+        <div class="panel"><p>Not for kiosk, beverage, and standard QSR formats &mdash; brands supply central gravies, frozen bases, and pre-mixes with strict SOPs that can be run by 10th-pass staff after 7 days of training. Fine dining and territory rights do require past retail/management experience.</p></div></div>
+      
+      <div class="q" data-category="location"><button aria-expanded="false"><span>Can you assist with commercial property search?</span><span class="sign">+</span></button>
+        <div class="panel"><p>Yes. If you already have a commercial shutter, the brand's territory team surveys footfall and approves the location. If you do not have space, our local real estate partners help identify viable 100–500 sqft spots near colleges, high streets, tech parks, or transit junctions.</p></div></div>
+      
+      <div class="q" data-category="location"><button aria-expanded="false"><span>How long does it take from signing to grand opening?</span><span class="sign">+</span></button>
+        <div class="panel"><p>Typically 4 to 6 weeks for kiosks, 6 to 9 weeks for QSRs, and 12 to 16 weeks for casual dining restaurants with extensive civil work and liquor licensing.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPLY FORM ============ -->
+<section class="sec tight" id="apply">
+  <div class="wrap">
+    <div class="apply rv">
+      <div class="apply-grid on-dark">
+        <div class="sec-head wide">
+          <p class="eyebrow">Direct Application</p>
+          <h2>Send five details. Get three matched brands.</h2>
+          <p class="sec-note">We reply within one working day with brands that match your budget and city. No spam call centres, zero consultation fee, and your contact info stays private.</p>
+          <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1497534446932-c925b458314e?w=760&h=475&fit=crop" alt="Cold drinks on a counter" /></div>
+          <p class="contact">
+            <strong>Direct Desk:</strong> partners@franchise101.in<br>
+            <strong>Helpline:</strong> +91 22 4000 8899<br>
+            Mon&ndash;Sat &middot; 10:00&ndash;19:00 IST &middot; Mumbai HQ
+          </p>
+        </div>
+
+        <form class="form" id="form" onsubmit="return false;" novalidate>
+          <div class="brand-selected-badge" id="brandBadge">
+            <span>Selected Brand: <strong id="brandBadgeName">None</strong></span>
+            <button type="button" onclick="clearSelectedBrand()">Remove &times;</button>
+          </div>
+
+          <div class="field">
+            <label for="fname">Full name *</label>
+            <input id="fname" type="text" autocomplete="name" placeholder="Rohan Sharma" />
+            <span class="err" data-for="fname"></span>
+          </div>
+
+          <div class="field">
+            <label for="fphone">Mobile Phone (WhatsApp) *</label>
+            <input id="fphone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="98XXXXXXXX" />
+            <span class="err" data-for="fphone"></span>
+          </div>
+
+          <div class="field">
+            <label for="femail">Email address *</label>
+            <input id="femail" type="email" autocomplete="email" placeholder="rohan@example.com" />
+            <span class="err" data-for="femail"></span>
+          </div>
+
+          <div class="field">
+            <label for="fcity">Target City / District *</label>
+            <input id="fcity" type="text" autocomplete="address-level2" placeholder="e.g. Pune, Kothrud" />
+            <span class="err" data-for="fcity"></span>
+          </div>
+
+          <div class="field">
+            <label for="fbudget">Available Investment Capital *</label>
+            <select id="fbudget">
+              <option value="">Select an investment bracket</option>
+              <option value="&#8377;6–15 lakh">&#8377;6 &ndash; 15 lakh (Kiosk / Chai / Express)</option>
+              <option value="&#8377;15–30 lakh">&#8377;15 &ndash; 30 lakh (QSR / Dessert Parlour)</option>
+              <option value="&#8377;30–60 lakh">&#8377;30 &ndash; 60 lakh (Cafe / Casual Dining)</option>
+              <option value="&#8377;60 lakh and above">&#8377;60 lakh+ (Master Franchise)</option>
+            </select>
+            <span class="err" data-for="fbudget"></span>
+          </div>
+
+          <div class="field">
+            <label for="fspace">Do you have a commercial property? *</label>
+            <select id="fspace">
+              <option value="">Select status</option>
+              <option value="Yes, ready">Yes, owned / rented and ready to fit-out</option>
+              <option value="Yes, shortlisting">Yes, scouting locations currently</option>
+              <option value="No, need help">No, need Franchise 101 &amp; brand site selection support</option>
+            </select>
+            <span class="err" data-for="fspace"></span>
+          </div>
+
+          <div class="field full">
+            <label for="fnote">Preferences or experience (optional)</label>
+            <textarea id="fnote" placeholder="Preferred food categories, whether you'll operate hands-on or hire a manager, intended launch month..."></textarea>
+          </div>
+
+          <div class="form-foot">
+            <button class="btn btn--kesar" type="button" id="send">
+              <span>Send My Application</span> <span class="arw">&rarr;</span>
+            </button>
+            <small>By applying, you agree we may share your inquiry with matched brand directors. Zero spam guaranteed.</small>
+          </div>
+
+          <div class="sent" id="sent" role="status">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="font-size:24px;color:var(--pista)">&#10003;</span>
+              <b>Application received successfully!</b>
+            </div>
+            <p style="color:rgba(255,243,222,.8);font-size:15px">Reference Token: <strong id="tokenDisplay">#F101-9812</strong>. A dedicated franchise analyst will email your custom unit-economics sheet and schedule a brand introduction within 1 business day.</p>
+            <div style="display:flex;gap:10px;margin-top:6px;flex-wrap:wrap">
+              <button class="btn btn--sm btn--pista" type="button" onclick="openWhatsAppChat()">Chat on WhatsApp &rarr;</button>
+              <button class="btn btn--sm btn--ghost" type="button" onclick="resetApplicationForm()">Submit Another Enquiry</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRAND DETAIL MODAL ============ -->
+<div class="modal-overlay" id="brandModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeBrandModal()" aria-label="Close brand breakdown">&times;</button>
+    <div class="modal-header-banner">
+      <img id="modalImg" src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800" alt="Brand banner" />
+      <div class="modal-banner-content">
+        <span class="tag hot" id="modalTag">BEVERAGE</span>
+        <h3 style="font-size:32px;color:var(--malai);margin-top:6px" id="modalTitle">Chai Katta</h3>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div>
+        <h4 style="margin-bottom:8px">Brand Overview &amp; Format</h4>
+        <p style="color:var(--ink-60);font-size:15px" id="modalDesc">Kiosk-format cutting chai, bun maska and snacks. Low capex with high daytime footfall.</p>
+      </div>
+
+      <div>
+        <h4 style="margin-bottom:12px">Capital Expenditure (Capex Breakdown)</h4>
+        <table class="modal-table">
+          <thead><tr><th>Item</th><th>Included Scope</th><th>Est. Cost</th></tr></thead>
+          <tbody id="modalCapexRows">
+            <tr><td>Franchise Brand Fee</td><td>5-Year Agreement, Training &amp; Trademark</td><td>&#8377;3,00,000</td></tr>
+            <tr><td>Kitchen Machinery</td><td>Induction burners, boiler, refrigeration, POS</td><td>&#8377;2,50,000</td></tr>
+            <tr><td>Store Interiors &amp; Glow Sign</td><td>Counter, stainless steel fit-out, lighting</td><td>&#8377;2,00,000</td></tr>
+            <tr><td>Opening Inventory</td><td>Teas, syrups, cups, packaging &amp; merchandise</td><td>&#8377;80,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="background:var(--malai);border-radius:14px;padding:16px">
+        <h4 style="margin-bottom:6px">Operating Unit Economics</h4>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px" id="modalEconomicsGrid">
+          <div><small style="font-family:var(--mono);font-size:11px;color:var(--ink-60)">GROSS MARGIN</small><strong style="display:block;font-size:18px;color:var(--ink)">68%</strong></div>
+          <div><small style="font-family:var(--mono);font-size:11px;color:var(--ink-60)">MONTHLY NET</small><strong style="display:block;font-size:18px;color:var(--ink)">&#8377;95K &ndash; 1.4L</strong></div>
+          <div><small style="font-family:var(--mono);font-size:11px;color:var(--ink-60)">ROYALTY</small><strong style="display:block;font-size:18px;color:var(--ink)">6% Net Rev</strong></div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;align-items:center;justify-content:flex-end;margin-top:10px">
+        <button class="btn btn--ghost btn--sm" onclick="closeBrandModal()">Close</button>
+        <button class="btn btn--kesar" id="modalApplyBtn" onclick="applyFromModal()">Apply for this Brand &rarr;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Back to Top Button -->
+<button class="floating-up" id="btnBackToTop" onclick="scrollToTop()" aria-label="Scroll back to top">&#8593;</button>
+
+<!-- ============ FOOTER (PREMIUM DARK ANCHOR) ============ -->
+<footer class="foot on-dark">
+  <div class="wrap">
+    <!-- Callout Banner Strip -->
+    <div class="foot-banner">
+      <div class="foot-banner-text">
+        <h3>Ready to launch a profitable food franchise in 2026?</h3>
+        <p>Get matched with 3 vetted brands tailored to your target city and budget within 1 business day.</p>
+      </div>
+      <div class="foot-banner-actions">
+        <a class="btn btn--kesar" href="#apply">Get Free Shortlist <span class="arw">&rarr;</span></a>
+        <button class="btn btn--ghost" type="button" onclick="openWhatsAppChat()">Chat on WhatsApp 💬</button>
+      </div>
+    </div>
+
+    <!-- 4-Column Main Grid -->
+    <div class="foot-grid">
+      <!-- Col 1: Brand & Contacts -->
+      <div class="foot-brand">
+        <a class="logo" href="#top" aria-label="Franchise 101 Home">FRANCHISE 101<span class="dot"></span></a>
+        <p>India's curated food franchise discovery and investment platform. We verify real unit economics, secure territorial exclusivity, and guide investors from application to grand opening.</p>
+        <div class="foot-contacts">
+          <div><span>Direct Desk:</span> <a href="mailto:partners@franchise101.in">partners@franchise101.in</a></div>
+          <div><span>Investor Helpline:</span> <a href="tel:+912240008899">+91 22 4000 8899</a></div>
+          <div><span>HQ:</span> BKC, Mumbai &middot; Pune &middot; Bengaluru &middot; Delhi NCR</div>
+        </div>
+      </div>
+
+      <!-- Col 2: Formats -->
+      <div class="foot-col">
+        <h4>Franchise Formats</h4>
+        <ul>
+          <li><a href="#brands">Chai &amp; Beverages <small>₹6L–11L</small></a></li>
+          <li><a href="#brands">Matka Kulfi &amp; Desserts <small>₹14L–22L</small></a></li>
+          <li><a href="#brands">QSR &amp; Fast Food <small>₹12L–24L</small></a></li>
+          <li><a href="#brands">Delivery Cloud Kitchens <small>₹8L–13L</small></a></li>
+          <li><a href="#brands">Waffle &amp; Bakery Cafes <small>₹9L–16L</small></a></li>
+          <li><a href="#brands">Casual Dining (FOCO) <small>₹40L–65L</small></a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Tools -->
+      <div class="foot-col">
+        <h4>Investor Tools</h4>
+        <ul>
+          <li><a href="#calculator">ROI &amp; Payback Simulator</a></li>
+          <li><a href="#city-sec">Territory Availability Finder</a></li>
+          <li><a href="#brands">Capex &amp; Equipment Sheets</a></li>
+          <li><a href="#faq">FOFO vs FOCO Breakdown</a></li>
+          <li><a href="#how">9-Week Launch Roadmap</a></li>
+          <li><a href="#faq">Investor Protection Charter</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: For Brands & Support -->
+      <div class="foot-col">
+        <h4>For Brands &amp; Legal</h4>
+        <ul>
+          <li><a href="#apply">List Your Franchise Brand</a></li>
+          <li><a href="#apply">National City Mapping</a></li>
+          <li><a href="#apply">Franchisee Screening Engine</a></li>
+          <li><a href="#faq">FSSAI &amp; Municipal Licensing</a></li>
+          <li><a href="#faq">Verified Agreement Terms</a></li>
+          <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="foot-base">
+      <span>&copy; 2026 Franchise 101 Ventures Pvt Ltd &middot; All Rights Reserved</span>
+      <div class="foot-status">
+        <span class="dot-pulse"></span>
+        <span>41 Verified Brands Live &middot; 214 Cities Covered</span>
+      </div>
+      <div class="foot-base-links">
+        <a href="#top">Privacy Policy</a>
+        <a href="#faq">Terms of Service</a>
+        <a href="#faq">Security &amp; Trust</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============ INITIAL SETUP & DATA ============ */
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const BRAND_DATA = {
+  'chai-katta': {
+    name: 'Chai Katta',
+    category: 'Beverage',
+    budget: '&#8377;6–15 lakh',
+    investmentRange: '₹6–11 Lakh',
+    img: 'https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800',
+    desc: 'Kiosk-format cutting chai, bun maska, and regional snacks. Fits an 80-160 sqft shutter near colleges, transit hubs, and tech campuses. No master chef required.',
+    capex: [
+      { item: 'Franchise Brand Fee', scope: '5-Year Agreement, Training & Brand Assets', cost: '₹2,50,000' },
+      { item: 'Kitchen Equipment', scope: 'Heavy-duty induction, automated boiler, cooler, POS', cost: '₹2,20,000' },
+      { item: 'Interiors & Signage', scope: 'Stainless counter, LED menu, acrylic branding', cost: '₹1,80,000' },
+      { item: 'Opening Raw Material', scope: 'Chai blend, premixes, branded cups & packaging', cost: '₹60,000' }
+    ],
+    margin: '68%',
+    monthlyNet: '₹85K – 1.4 Lakh',
+    royalty: '5% Net Sales'
+  },
+  'kulfi-club': {
+    name: 'Kulfi Club',
+    category: 'Dessert',
+    budget: '&#8377;6–15 lakh',
+    investmentRange: '₹14–22 Lakh',
+    img: 'https://images.unsplash.com/photo-1534706936160-d5ee67737249?w=800',
+    desc: 'Artisanal matka kulfi, falooda sundaes, and rabdi desserts. Pre-packaged central supply allows a smooth 2-person shift with zero kitchen prep on site.',
+    capex: [
+      { item: 'Franchise Brand Fee', scope: '5-Year License & Operations SOPs', cost: '₹3,50,000' },
+      { item: 'Freezers & Deep Chillers', scope: 'Commercial glycol deep freezer, display counters', cost: '₹4,50,000' },
+      { item: 'Mall Kiosk Interior Fitout', scope: 'Modern wooden panelling, lighting, touch POS', cost: '₹4,20,000' },
+      { item: 'Initial Inventory', scope: 'Full dessert stock & signature earthen matkas', cost: '₹1,50,000' }
+    ],
+    margin: '62%',
+    monthlyNet: '₹1.2 – 2.1 Lakh',
+    royalty: '6% Net Sales'
+  },
+  'momo-mafia': {
+    name: 'Momo Mafia',
+    category: 'QSR',
+    budget: '&#8377;6–15 lakh',
+    investmentRange: '₹12–18 Lakh',
+    img: 'https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800',
+    desc: 'Steamed, pan-fried, kurkure, and tandoori momos on a streamlined 22-item menu. Centralized sauce supply guarantees consistent taste across all metro locations.',
+    capex: [
+      { item: 'Franchise Fee', scope: '5-Year Territorial Rights', cost: '₹3,00,000' },
+      { item: 'Commercial Steamers & Fryers', scope: 'Stainless multi-tier steam station, fryer line', cost: '₹3,20,000' },
+      { item: 'Store Build & Neon Brand Decor', scope: 'High-street front counter, extraction hood', cost: '₹3,80,000' },
+      { item: 'Initial Stock', scope: 'Frozen momo batches, sauces, dips, branded boxes', cost: '₹1,00,000' }
+    ],
+    margin: '65%',
+    monthlyNet: '₹1.1 – 1.9 Lakh',
+    royalty: '5% Net Sales'
+  },
+  'biryani-bay': {
+    name: 'Biryani Bay',
+    category: 'Cloud kitchen',
+    budget: '&#8377;6–15 lakh',
+    investmentRange: '₹8–13 Lakh',
+    img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800',
+    desc: 'Delivery-only authentic dum biryani kitchen. Operates from low-rent secondary streets with zero storefront requirement. Direct integration with food aggregators.',
+    capex: [
+      { item: 'Franchise Onboarding', scope: 'Brand License & Aggregator Algorithm Boost', cost: '₹2,00,000' },
+      { item: 'Kitchen Reheating & Dum Stations', scope: 'Commercial combi-ovens, handis, freezers', cost: '₹3,50,000' },
+      { item: 'FSSAI/Civil Setup', scope: 'Tiling, drainage, exhaust system & packaging area', cost: '₹2,20,000' },
+      { item: 'Stock & Spices', scope: 'Pre-marinated vacuum packs, basmati, earthenware', cost: '₹1,10,000' }
+    ],
+    margin: '58%',
+    monthlyNet: '₹90K – 1.6 Lakh',
+    royalty: '6% Net Sales'
+  },
+  'waffle-theory': {
+    name: 'Waffle Theory',
+    category: 'Dessert',
+    budget: '&#8377;6–15 lakh',
+    investmentRange: '₹11–16 Lakh',
+    img: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800',
+    desc: 'Crispy Belgian waffles, waffle cakes, and bubble shakes. Simple waffle irons and customized fillings with high gross margin and strong youth appeal.',
+    capex: [
+      { item: 'Brand License Fee', scope: '5-Year Agreement & Recipe Vault', cost: '₹2,75,000' },
+      { item: 'Commercial Waffle Irons', scope: 'Dual Belgian waffle units, crepe machines, fridge', cost: '₹2,60,000' },
+      { item: 'Counter Design & Lighting', scope: 'Glass sneeze guard, aesthetic lighting, POS', cost: '₹2,90,000' },
+      { item: 'Premixes & Chocolate Sauces', scope: 'Imported chocolate tubs, syrups, batter packs', cost: '₹95,000' }
+    ],
+    margin: '71%',
+    monthlyNet: '₹1.0 – 1.7 Lakh',
+    royalty: '5% Net Sales'
+  },
+  'frost-co': {
+    name: 'Frost & Co.',
+    category: 'Dessert',
+    budget: '&#8377;15–30 lakh',
+    investmentRange: '₹18–26 Lakh',
+    img: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800',
+    desc: 'Live cold-stone ice cream, rolled gelato, and decadent milkshakes. Visual theater counter designed for families, date nights, and weekend crowds.',
+    capex: [
+      { item: 'Franchise Brand Fee', scope: '5-Year License with Area Exclusivity', cost: '₹4,00,000' },
+      { item: 'Cold Stone Granite Table', scope: '-15°C marble mixing station, blast freezer', cost: '₹6,20,000' },
+      { item: 'High Street Dine-in Parlour', scope: 'Seating, false ceiling, air conditioning, signage', cost: '₹5,50,000' },
+      { item: 'Gelato Base Inventory', scope: 'Dairy bases, inclusions, waffle cone maker', cost: '₹1,80,000' }
+    ],
+    margin: '64%',
+    monthlyNet: '₹1.5 – 2.8 Lakh',
+    royalty: '6% Net Sales'
+  },
+  'bun-maska': {
+    name: 'Bun Maska Co.',
+    category: 'Bakery',
+    budget: '&#8377;6–15 lakh',
+    investmentRange: '₹9–15 Lakh',
+    img: 'https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=800',
+    desc: 'Irani chai, fresh pavs, cookies, and savoury baked puffs. Centralized bakery distribution ensures consistent taste and zero on-site baking skills.',
+    capex: [
+      { item: 'Franchise Fee', scope: '5-Year Brand Rights', cost: '₹2,50,000' },
+      { item: 'Bakery Warming Display', scope: 'Heated glass showcases, beverage dispenser, POS', cost: '₹2,80,000' },
+      { item: 'Wood & Brass Nostalgic Fitout', scope: 'Retro cafe branding, signage & furniture', cost: '₹2,90,000' },
+      { item: 'Initial Inventory', scope: 'Bakery items, teas, rusk boxes, butter packs', cost: '₹75,000' }
+    ],
+    margin: '66%',
+    monthlyNet: '₹90K – 1.5 Lakh',
+    royalty: '5% Net Sales'
+  },
+  'dosa-dastarkhan': {
+    name: 'Dosa Dastarkhan',
+    category: 'QSR',
+    budget: '&#8377;15–30 lakh',
+    investmentRange: '₹15–24 Lakh',
+    img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=800',
+    desc: '99-variety fusion dosas and filter coffee in a clean, hygienic express counter. High table turnover and strong breakfast/snack pull across all age groups.',
+    capex: [
+      { item: 'Brand Rights & Recipes', scope: '5-Year License, Chef Training Program', cost: '₹3,50,000' },
+      { item: 'Commercial Tawa & Steamer', scope: 'High-speed 4-foot flat tawa, idli steamer, cooler', cost: '₹4,50,000' },
+      { item: 'Express Counter Fitout', scope: 'Stainless worktops, exhaust chimney, billing line', cost: '₹4,20,000' },
+      { item: 'Batter & Chutney Stock', scope: 'Pre-fermented batter, spices, ghee, sambar base', cost: '₹1,20,000' }
+    ],
+    margin: '69%',
+    monthlyNet: '₹1.4 – 2.4 Lakh',
+    royalty: '5% Net Sales'
+  },
+  'tandoor-tribe': {
+    name: 'Tandoor Tribe',
+    category: 'Casual dining',
+    budget: '&#8377;30–60 lakh',
+    investmentRange: '₹40–65 Lakh',
+    img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800',
+    desc: 'Seventy-cover casual dining restaurant with North Indian gravies, live clay ovens, and bar option. FOCO model: Brand provides master chefs and general manager.',
+    capex: [
+      { item: 'Master Franchise License', scope: 'Exclusive City/Zone Territory Rights', cost: '₹8,00,000' },
+      { item: 'Full Commercial Kitchen Line', scope: 'Twin tandoors, range burners, cold storage, bar unit', cost: '₹14,00,000' },
+      { item: 'Restaurant Decor & HVAC', scope: 'Full dining seating, AC, acoustic lighting, sound', cost: '₹16,50,000' },
+      { item: 'Pre-launch Marketing & Stock', scope: 'Launch PR, meat/veg stock, liquor inventory', cost: '₹3,50,000' }
+    ],
+    margin: '55%',
+    monthlyNet: '₹3.5 – 6.5 Lakh',
+    royalty: '8% Net (FOCO Ops)'
+  }
+};
+
+/* ---- Scroll progress bar & Smart Auto-hide Nav on Scroll ---- */
+const nav = document.getElementById('nav');
+const topProgress = document.getElementById('topProgress');
+const btnBackToTop = document.getElementById('btnBackToTop');
+
+let lastScrollY = window.scrollY;
+const scrollDeltaThreshold = 8;
+
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = maxScroll > 0 ? (scrolled / maxScroll) * 100 : 0;
+  
+  if (topProgress) topProgress.style.width = progress + '%';
+  if (btnBackToTop) btnBackToTop.classList.toggle('show', scrolled > 400);
+
+  if (nav) {
+    nav.classList.toggle('stuck', scrolled > 20);
+
+    const isDrawerOpen = mobileDrawer && mobileDrawer.classList.contains('open');
+
+    if (!isDrawerOpen) {
+      if (scrolled <= 30) {
+        // Near the top of the page -> always reveal
+        nav.classList.remove('nav--hidden');
+      } else if (scrolled > lastScrollY + scrollDeltaThreshold && scrolled > 80) {
+        // Scrolling DOWN -> hide header
+        nav.classList.add('nav--hidden');
+      } else if (scrolled < lastScrollY - scrollDeltaThreshold) {
+        // Scrolling UP -> reveal header
+        nav.classList.remove('nav--hidden');
+      }
+    }
+  }
+
+  lastScrollY = Math.max(scrolled, 0);
+}, { passive: true });
+
+function scrollToTop(){
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ---- Mobile Navigation Drawer Toggle ---- */
+const navToggle = document.getElementById('navToggle');
+const mobileDrawer = document.getElementById('mobileDrawer');
+
+function toggleMobileNav(){
+  const isOpen = mobileDrawer.classList.contains('open');
+  mobileDrawer.classList.toggle('open', !isOpen);
+  navToggle.classList.toggle('open', !isOpen);
+  navToggle.setAttribute('aria-expanded', !isOpen);
+  document.body.style.overflow = !isOpen ? 'hidden' : '';
+}
+
+if (navToggle && mobileDrawer) {
+  navToggle.addEventListener('click', toggleMobileNav);
+  mobileDrawer.addEventListener('click', (e) => {
+    if (e.target === mobileDrawer) toggleMobileNav();
+  });
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      if (mobileDrawer.classList.contains('open')) toggleMobileNav();
+    });
+  });
+}
+
+/* ---- Ticker Duplication ---- */
+const tRow = document.getElementById('tickerRow');
+if (tRow) tRow.innerHTML += tRow.innerHTML;
+
+/* ---- 3D Ring Layout & Interactive Orbit ---- */
+const ring = document.getElementById('ring');
+const tiles = ring ? [...ring.children] : [];
+const N = tiles.length;
+
+function layout3DRing(){
+  if (!ring) return;
+  const radius = innerWidth < 700 ? 265 : innerWidth < 1100 ? 330 : 405;
+  tiles.forEach((t, i) => {
+    t.style.transform = 'rotateY(' + (i * (360 / N)) + 'deg) translateZ(' + radius + 'px)';
+  });
+}
+layout3DRing();
+window.addEventListener('resize', layout3DRing);
+
+let spin = 0, velocity = 0, dragging = false, lastX = 0;
+function renderRing(){
+  if (!dragging) {
+    spin += velocity;
+    velocity *= 0.94;
+    if (!reduce) spin += 0.08;
+  }
+  const y = Math.min(window.scrollY, 900) * 0.05;
+  if (ring) ring.style.setProperty('--spin', (spin + y) + 'deg');
+  requestAnimationFrame(renderRing);
+}
+renderRing();
+
+const stage = document.getElementById('stage');
+if (stage) {
+  const grab = e => {
+    dragging = true;
+    lastX = (e.touches ? e.touches[0].clientX : e.clientX);
+    velocity = 0;
+  };
+  const move = e => {
+    if (!dragging) return;
+    const x = (e.touches ? e.touches[0].clientX : e.clientX);
+    const d = (x - lastX) * 0.35;
+    lastX = x;
+    spin += d;
+    velocity = d * 0.5;
+  };
+  const drop = () => { dragging = false; };
+
+  stage.addEventListener('mousedown', grab);
+  stage.addEventListener('touchstart', grab, { passive: true });
+  window.addEventListener('mousemove', move);
+  window.addEventListener('touchmove', move, { passive: true });
+  window.addEventListener('mouseup', drop);
+  window.addEventListener('touchend', drop);
+
+  // Click on tile to view modal
+  tiles.forEach(tile => {
+    tile.addEventListener('click', () => {
+      const brandKey = tile.getAttribute('data-brand');
+      if (brandKey && BRAND_DATA[brandKey]) {
+        openBrandModal(brandKey);
+      }
+    });
+  });
+}
+
+/* ---- Reveal on Scroll ---- */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px' });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+/* ---- Count Up Numbers ---- */
+const cio = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, target = +el.dataset.count, suffix = el.dataset.suffix || '';
+    const dur = reduce ? 0 : 1300, t0 = performance.now();
+    const tick = now => {
+      const p = Math.min((now - t0) / (dur || 1), 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString('en-IN') + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    cio.unobserve(el);
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('[data-count]').forEach(c => cio.observe(c));
+
+/* ---- 3D Tilt On Brand Cards ---- */
+if (!reduce && matchMedia('(hover:hover)').matches) {
+  document.querySelectorAll('.tilt').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = 'perspective(900px) rotateX(' + (-py * 6) + 'deg) rotateY(' + (px * 7) + 'deg) translateY(-6px)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
+/* ---- Horizontal Scroll Budget Rail ---- */
+const railOuter = document.getElementById('railOuter');
+const rail = document.getElementById('rail');
+const bar = document.getElementById('railBar');
+
+function railScroll(){
+  if (!railOuter || !rail || !bar) return;
+  if (innerWidth <= 760) {
+    rail.style.transform = '';
+    bar.style.width = '0%';
+    return;
+  }
+  const r = railOuter.getBoundingClientRect();
+  const total = railOuter.offsetHeight - innerHeight;
+  const p = Math.min(Math.max(-r.top / total, 0), 1);
+  const pad = parseFloat(getComputedStyle(rail).paddingLeft) || 0;
+  const dist = Math.max(rail.scrollWidth - innerWidth + pad, 0);
+  rail.style.transform = 'translate3d(' + (-p * dist) + 'px,0,0)';
+  bar.style.width = (p * 100) + '%';
+}
+window.addEventListener('scroll', railScroll, { passive: true });
+window.addEventListener('resize', railScroll);
+railScroll();
+
+/* ============ MARKETPLACE FILTER & SEARCH LOGIC ============ */
+const searchInput = document.getElementById('brandSearch');
+const budgetSelect = document.getElementById('budgetFilter');
+const modelSelect = document.getElementById('modelFilter');
+const categoryPillContainer = document.getElementById('categoryPills');
+const brandCards = document.querySelectorAll('#brandCardsGrid .card');
+const resultCountEl = document.getElementById('resultCount');
+const noResultsBox = document.getElementById('noResults');
+
+let currentCategory = 'all';
+
+function filterBrandGrid(){
+  const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
+  const selectedBudget = budgetSelect ? budgetSelect.value : 'all';
+  const selectedModel = modelSelect ? modelSelect.value : 'all';
+
+  let visibleCount = 0;
+
+  brandCards.forEach(card => {
+    const cardName = (card.getAttribute('data-name') || '').toLowerCase();
+    const cardCategory = card.getAttribute('data-category') || '';
+    const cardBudget = card.getAttribute('data-budget') || '';
+    const cardModel = card.getAttribute('data-model') || '';
+    const cardText = card.textContent.toLowerCase();
+
+    const matchesSearch = !query || cardName.includes(query) || cardCategory.toLowerCase().includes(query) || cardText.includes(query);
+    const matchesCat = currentCategory === 'all' || cardCategory === currentCategory;
+    const matchesBudget = selectedBudget === 'all' || cardBudget === selectedBudget;
+    const matchesModel = selectedModel === 'all' || cardModel === selectedModel;
+
+    if (matchesSearch && matchesCat && matchesBudget && matchesModel) {
+      card.style.display = 'flex';
+      visibleCount++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  if (resultCountEl) {
+    resultCountEl.textContent = `Showing ${visibleCount} of ${brandCards.length} verified brands`;
+  }
+  if (noResultsBox) {
+    noResultsBox.style.display = visibleCount === 0 ? 'flex' : 'none';
+  }
+}
+
+if (searchInput) searchInput.addEventListener('input', filterBrandGrid);
+if (budgetSelect) budgetSelect.addEventListener('change', filterBrandGrid);
+if (modelSelect) modelSelect.addEventListener('change', filterBrandGrid);
+
+if (categoryPillContainer) {
+  categoryPillContainer.querySelectorAll('.pill-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      categoryPillContainer.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentCategory = btn.getAttribute('data-cat') || 'all';
+      filterBrandGrid();
+    });
+  });
+}
+
+function resetAllFilters(){
+  if (searchInput) searchInput.value = '';
+  if (budgetSelect) budgetSelect.value = 'all';
+  if (modelSelect) modelSelect.value = 'all';
+  currentCategory = 'all';
+  if (categoryPillContainer) {
+    categoryPillContainer.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+    const allBtn = categoryPillContainer.querySelector('[data-cat="all"]');
+    if (allBtn) allBtn.classList.add('active');
+  }
+  filterBrandGrid();
+}
+const resetBtn = document.getElementById('resetFilters');
+if (resetBtn) resetBtn.addEventListener('click', resetAllFilters);
+
+/* ============ BRAND DETAIL MODAL ============ */
+let activeModalBrandKey = null;
+
+function openBrandModal(brandKey){
+  const data = BRAND_DATA[brandKey];
+  if (!data) return;
+  activeModalBrandKey = brandKey;
+
+  document.getElementById('modalTitle').textContent = data.name;
+  document.getElementById('modalTag').textContent = data.category.toUpperCase();
+  document.getElementById('modalDesc').textContent = data.desc;
+  document.getElementById('modalImg').src = data.img;
+
+  const capexTbody = document.getElementById('modalCapexRows');
+  capexTbody.innerHTML = data.capex.map(c => `<tr><td><strong>${c.item}</strong></td><td>${c.scope}</td><td>${c.cost}</td></tr>`).join('');
+
+  const econGrid = document.getElementById('modalEconomicsGrid');
+  econGrid.innerHTML = `
+    <div><small style="font-family:var(--mono);font-size:11px;color:var(--ink-60)">GROSS MARGIN</small><strong style="display:block;font-size:18px;color:var(--ink)">${data.margin}</strong></div>
+    <div><small style="font-family:var(--mono);font-size:11px;color:var(--ink-60)">MONTHLY NET</small><strong style="display:block;font-size:18px;color:var(--ink)">${data.monthlyNet}</strong></div>
+    <div><small style="font-family:var(--mono);font-size:11px;color:var(--ink-60)">ROYALTY</small><strong style="display:block;font-size:18px;color:var(--ink)">${data.royalty}</strong></div>
+  `;
+
+  const modal = document.getElementById('brandModal');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBrandModal(){
+  const modal = document.getElementById('brandModal');
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+const modalOverlay = document.getElementById('brandModal');
+if (modalOverlay) {
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeBrandModal();
+  });
+}
+
+function applyFromModal(){
+  if (!activeModalBrandKey) return;
+  const brand = BRAND_DATA[activeModalBrandKey];
+  closeBrandModal();
+  prefillBrand(brand.name, brand.budget);
+  const applySection = document.getElementById('apply');
+  if (applySection) applySection.scrollIntoView({ behavior: 'smooth' });
+}
+
+/* ============ INTERACTIVE ROI CALCULATOR ============ */
+let calcFormat = 'kiosk';
+
+const formatConfigs = {
+  kiosk: { baseInvest: 8, baseOrders: 160, baseAov: 120, foodCostPct: 0.34, opex: 145000, royaltyPct: 0.06 },
+  qsr: { baseInvest: 16, baseOrders: 240, baseAov: 190, foodCostPct: 0.35, opex: 260000, royaltyPct: 0.05 },
+  cloud: { baseInvest: 10, baseOrders: 180, baseAov: 260, foodCostPct: 0.38, opex: 160000, royaltyPct: 0.06 },
+  dine: { baseInvest: 50, baseOrders: 130, baseAov: 680, foodCostPct: 0.36, opex: 650000, royaltyPct: 0.07 }
+};
+
+function setCalcFormat(fmt){
+  calcFormat = fmt;
+  document.querySelectorAll('.fmt-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-fmt') === fmt));
+  const cfg = formatConfigs[fmt];
+  document.getElementById('sliderInvestment').value = cfg.baseInvest;
+  document.getElementById('sliderOrders').value = cfg.baseOrders;
+  document.getElementById('sliderAOV').value = cfg.baseAov;
+  updateCalculator();
+}
+
+function updateCalculator(){
+  const investLakh = +document.getElementById('sliderInvestment').value;
+  const dailyOrders = +document.getElementById('sliderOrders').value;
+  const aov = +document.getElementById('sliderAOV').value;
+
+  document.getElementById('valInvestment').textContent = `₹${investLakh} Lakh`;
+  document.getElementById('valOrders').textContent = `${dailyOrders} bills / day`;
+  document.getElementById('valAOV').textContent = `₹${aov} / bill`;
+
+  const monthlyTurnover = dailyOrders * aov * 30;
+  const cfg = formatConfigs[calcFormat] || formatConfigs.kiosk;
+
+  const foodCost = monthlyTurnover * cfg.foodCostPct;
+  const royalty = monthlyTurnover * cfg.royaltyPct;
+  const opexScaled = cfg.opex * (1 + (investLakh - cfg.baseInvest) * 0.02);
+  const netProfit = Math.max(monthlyTurnover - foodCost - royalty - opexScaled, 15000);
+
+  const totalCapInr = investLakh * 100000;
+  const paybackMonths = (totalCapInr / netProfit).toFixed(1);
+
+  document.getElementById('resRevenue').textContent = '₹' + Math.round(monthlyTurnover).toLocaleString('en-IN');
+  document.getElementById('resFoodCost').textContent = '₹' + Math.round(foodCost).toLocaleString('en-IN');
+  document.getElementById('resOpex').textContent = '₹' + Math.round(opexScaled).toLocaleString('en-IN');
+  document.getElementById('resRoyalty').textContent = '₹' + Math.round(royalty).toLocaleString('en-IN');
+  document.getElementById('resNetProfit').textContent = '₹' + Math.round(netProfit).toLocaleString('en-IN');
+  document.getElementById('resPayback').textContent = `${paybackMonths} Months`;
+}
+updateCalculator();
+
+function applyForCalculatedBudget(){
+  const investLakh = +document.getElementById('sliderInvestment').value;
+  let bracket = '₹6–15 lakh';
+  if (investLakh > 60) bracket = '₹60 lakh and above';
+  else if (investLakh > 30) bracket = '₹30–60 lakh';
+  else if (investLakh > 15) bracket = '₹15–30 lakh';
+
+  const budgetDropdown = document.getElementById('fbudget');
+  if (budgetDropdown) budgetDropdown.value = bracket;
+
+  const applySection = document.getElementById('apply');
+  if (applySection) applySection.scrollIntoView({ behavior: 'smooth' });
+}
+
+/* ============ CITY AVAILABILITY CHECKER ============ */
+const CITY_SLOTS = {
+  mumbai: {
+    name: 'Mumbai & MMR',
+    slots: '18 Brand Slots Available',
+    desc: 'High-demand catchments open in Thane, Navi Mumbai, Andheri East, and Powai. Average kiosk footfall 1,400+ daily.',
+    brands: ['Chai Katta (4 slots)', 'Kulfi Club (3 slots)', 'Momo Mafia (5 slots)', 'Biryani Bay (6 slots)']
+  },
+  pune: {
+    name: 'Pune & PCMC',
+    slots: '14 Brand Slots Available',
+    desc: 'Prime student and tech park zones available in Kothrud, Baner, Viman Nagar, and Hinjawadi Phase 1.',
+    brands: ['Chai Katta (3 slots)', 'Waffle Theory (3 slots)', 'Frost & Co. (4 slots)', 'Bun Maska Co. (4 slots)']
+  },
+  bangalore: {
+    name: 'Bengaluru',
+    slots: '22 Brand Slots Available',
+    desc: 'Dense tech cluster opportunities in HSR Layout, Koramangala, Whitefield, and Electronic City.',
+    brands: ['Biryani Bay (8 slots)', 'Dosa Dastarkhan (5 slots)', 'Momo Mafia (5 slots)', 'Tandoor Tribe (4 slots)']
+  },
+  delhi: {
+    name: 'Delhi NCR (Gurugram, Noida)',
+    slots: '26 Brand Slots Available',
+    desc: 'Rapid QSR footfall corridors in Cyber Hub, Sector 62 Noida, South Ext, and Rajouri Garden.',
+    brands: ['Momo Mafia (7 slots)', 'Tandoor Tribe (6 slots)', 'Frost & Co. (5 slots)', 'Chai Katta (8 slots)']
+  },
+  hyderabad: {
+    name: 'Hyderabad & Secunderabad',
+    slots: '16 Brand Slots Available',
+    desc: 'Bustling evening trade in Madhapur, Gachibowli, Kukatpally, and Jubilee Hills.',
+    brands: ['Biryani Bay (6 slots)', 'Kulfi Club (4 slots)', 'Chai Katta (3 slots)', 'Dosa Dastarkhan (3 slots)']
+  },
+  ahmedabad: {
+    name: 'Ahmedabad & Surat',
+    slots: '12 Brand Slots Available',
+    desc: 'High-margin dessert and vegetarian fast-casual slots in SG Highway, Bodakdev, and Vesu.',
+    brands: ['Frost & Co. (4 slots)', 'Waffle Theory (3 slots)', 'Kulfi Club (5 slots)']
+  },
+  chennai: {
+    name: 'Chennai',
+    slots: '10 Brand Slots Available',
+    desc: 'Key transit & college hubs in OMR, Anna Nagar, T. Nagar, and Velachery.',
+    brands: ['Chai Katta (3 slots)', 'Momo Mafia (3 slots)', 'Dosa Dastarkhan (4 slots)']
+  },
+  kolkata: {
+    name: 'Kolkata',
+    slots: '11 Brand Slots Available',
+    desc: 'Strong evening street food demand in Salt Lake Sector V, Park Street, and Newtown.',
+    brands: ['Momo Mafia (4 slots)', 'Bun Maska Co. (3 slots)', 'Biryani Bay (4 slots)']
+  },
+  jaipur: {
+    name: 'Jaipur & Rajasthan',
+    slots: '9 Brand Slots Available',
+    desc: 'Tourist and student catchments in Malviya Nagar, Vaishali Nagar, and MI Road.',
+    brands: ['Chai Katta (3 slots)', 'Kulfi Club (3 slots)', 'Frost & Co. (3 slots)']
+  },
+  lucknow: {
+    name: 'Lucknow & Kanpur',
+    slots: '8 Brand Slots Available',
+    desc: 'Gomti Nagar, Hazratganj, and Alambagh commercial high-street spaces.',
+    brands: ['Biryani Bay (3 slots)', 'Momo Mafia (3 slots)', 'Kulfi Club (2 slots)']
+  }
+};
+
+function checkCityAvailability(){
+  const cityKey = document.getElementById('citySelect').value;
+  const data = CITY_SLOTS[cityKey] || CITY_SLOTS.mumbai;
+
+  document.getElementById('cityResultName').textContent = data.name;
+  document.getElementById('citySlotCount').textContent = data.slots;
+  document.getElementById('cityResultDesc').textContent = data.desc;
+
+  const tagRow = document.getElementById('cityTagRow');
+  tagRow.innerHTML = data.brands.map(b => `<span class="tag">${b}</span>`).join('');
+}
+
+/* ============ FAQ ACCORDION & CATEGORY FILTER ============ */
+document.querySelectorAll('.q').forEach(q => {
+  const btn = q.querySelector('button'), panel = q.querySelector('.panel');
+  btn.addEventListener('click', () => {
+    const open = q.dataset.open === 'true';
+    document.querySelectorAll('.q').forEach(o => {
+      o.dataset.open = 'false';
+      o.querySelector('button').setAttribute('aria-expanded', 'false');
+      o.querySelector('.panel').style.height = '0px';
+    });
+    if (!open) {
+      q.dataset.open = 'true';
+      btn.setAttribute('aria-expanded', 'true');
+      panel.style.height = panel.firstElementChild.offsetHeight + 'px';
+    }
+  });
+});
+
+function filterFaq(cat, btn){
+  document.querySelectorAll('.faq-filter-pills .pill-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  document.querySelectorAll('#faqContainer .q').forEach(item => {
+    const itemCat = item.getAttribute('data-category');
+    if (cat === 'all' || itemCat === cat) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+      item.dataset.open = 'false';
+      item.querySelector('button').setAttribute('aria-expanded', 'false');
+      item.querySelector('.panel').style.height = '0px';
+    }
+  });
+}
+
+/* ============ INTERACTIVE 5-STEP QUIZ LOGIC ============ */
+let currentQuizStep = 1;
+const quizState = {
+  budget: '6-15',
+  category: 'chai',
+  location: 'mumbai',
+  model: 'fofo',
+  timeline: 'immediate'
+};
+
+function selectQuizOpt(step, key, val, elem) {
+  quizState[key] = val;
+  const pane = document.getElementById(`quizStep${step}`);
+  if (pane) {
+    pane.querySelectorAll('.quiz-opt-btn').forEach(btn => btn.classList.remove('selected'));
+  }
+  if (elem) elem.classList.add('selected');
+}
+
+function nextQuizStep(step) {
+  currentQuizStep = step;
+  for (let i = 1; i <= 5; i++) {
+    const p = document.getElementById(`quizStep${i}`);
+    if (p) p.classList.remove('active');
+  }
+  const resultPane = document.getElementById('quizResultPane');
+  if (resultPane) resultPane.classList.remove('active');
+
+  const nextPane = document.getElementById(`quizStep${step}`);
+  if (nextPane) nextPane.classList.add('active');
+
+  const progressFill = document.getElementById('quizProgressFill');
+  if (progressFill) progressFill.style.width = (step * 20) + '%';
+
+  const badge = document.getElementById('quizStepBadge');
+  if (badge) badge.textContent = `Step ${step} of 5`;
+}
+
+function prevQuizStep(step) {
+  nextQuizStep(step);
+}
+
+function calculateQuizResult() {
+  currentQuizStep = 6;
+  for (let i = 1; i <= 5; i++) {
+    const p = document.getElementById(`quizStep${i}`);
+    if (p) p.classList.remove('active');
+  }
+  const resultPane = document.getElementById('quizResultPane');
+  if (resultPane) resultPane.classList.add('active');
+
+  const progressFill = document.getElementById('quizProgressFill');
+  if (progressFill) progressFill.style.width = '100%';
+
+  const badge = document.getElementById('quizStepBadge');
+  if (badge) badge.textContent = 'Match Result Complete';
+
+  // Compute matched brand based on budget & category
+  let matchedBrand = 'Chai Katta';
+  let matchCat = 'Beverage';
+  let matchCapex = '₹6–11L';
+  let matchPayback = '11–14 mo';
+  let matchModel = 'FOFO';
+  let matchDesc = 'Compact 80-160 sqft kiosk format with high gross margins (68%) and fast payback. Perfect match for your selected budget and location.';
+  let matchImg = 'https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800';
+
+  if (quizState.budget === '30-60' || quizState.model === 'foco' || quizState.category === 'dining') {
+    matchedBrand = 'Tandoor Tribe';
+    matchCat = 'Casual Dining';
+    matchCapex = '₹40–65L';
+    matchPayback = '24–30 mo';
+    matchModel = 'FOCO / FOFO';
+    matchDesc = '70-cover North Indian casual dining & tandoor restaurant. Complete brand-managed culinary operations with high average bill values.';
+    matchImg = 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800';
+  } else if (quizState.category === 'qsr' || (quizState.budget === '15-30' && quizState.category !== 'dessert')) {
+    matchedBrand = 'Momo Mafia';
+    matchCat = 'QSR Express';
+    matchCapex = '₹12–18L';
+    matchPayback = '12–16 mo';
+    matchModel = 'FOFO';
+    matchDesc = 'Steamed, pan-fried & kurkure Himalayan momo express counter. Fast table turnover and massive youth and college campus footfall.';
+    matchImg = 'https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800';
+  } else if (quizState.category === 'dessert') {
+    matchedBrand = 'Kulfi Club';
+    matchCat = 'Dessert Kiosk';
+    matchCapex = '₹14–22L';
+    matchPayback = '14–18 mo';
+    matchModel = 'FOFO';
+    matchDesc = 'Artisanal matka kulfi and falooda dessert counter. 100% pre-packaged central supply allows a smooth 2-person shift with zero kitchen prep.';
+    matchImg = 'https://images.unsplash.com/photo-1534706936160-d5ee67737249?w=800';
+  } else if (quizState.category === 'cloud') {
+    matchedBrand = 'Biryani Bay';
+    matchCat = 'Cloud Kitchen';
+    matchCapex = '₹8–13L';
+    matchPayback = '12–15 mo';
+    matchModel = 'FOFO';
+    matchDesc = 'Delivery-only authentic dum biryani kitchen. Operates from low-rent secondary streets with direct Swiggy/Zomato high-velocity routing.';
+    matchImg = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800';
+  }
+
+  document.getElementById('quizMatchTitle').textContent = matchedBrand;
+  document.getElementById('quizMatchCat').textContent = matchCat;
+  document.getElementById('quizMatchCapex').innerHTML = matchCapex;
+  document.getElementById('quizMatchPayback').textContent = matchPayback;
+  document.getElementById('quizMatchModel').textContent = matchModel;
+  document.getElementById('quizMatchDesc').textContent = matchDesc;
+  document.getElementById('quizMatchImg').src = matchImg;
+
+  window.matchedQuizBrand = matchedBrand;
+  window.matchedQuizBudget = matchCapex;
+}
+
+function applyFromQuiz() {
+  const brand = window.matchedQuizBrand || 'Chai Katta';
+  const budget = window.matchedQuizBudget || '₹6–15 lakh';
+  prefillBrand(brand, budget);
+  const target = document.getElementById('apply');
+  if (target) target.scrollIntoView({ behavior: 'smooth' });
+}
+
+function restartQuiz() {
+  nextQuizStep(1);
+}
+
+/* ============ BRAND SERVICES TAB TOGGLING ============ */
+function switchServiceTab(tabId, btn) {
+  document.querySelectorAll('.srv-tab-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  document.querySelectorAll('.service-pane').forEach(pane => pane.classList.remove('active'));
+  const targetPane = document.getElementById(`pane-${tabId}`);
+  if (targetPane) targetPane.classList.add('active');
+}
+
+function prefillServiceConsultation(serviceType) {
+  const noteField = document.getElementById('fnote');
+  if (noteField) {
+    noteField.value = `Enquiring as a Food Brand Founder for: ${serviceType}. We are looking for franchise standardization & scaling support.`;
+  }
+  const target = document.getElementById('apply');
+  if (target) target.scrollIntoView({ behavior: 'smooth' });
+}
+
+/* ============ FORM & PRE-FILL LOGIC ============ */
+let selectedBrandName = null;
+
+function prefillBrand(brandName, budgetVal){
+  selectedBrandName = brandName;
+  const badge = document.getElementById('brandBadge');
+  const badgeName = document.getElementById('brandBadgeName');
+  if (badge && badgeName) {
+    badgeName.textContent = brandName;
+    badge.classList.add('show');
+  }
+  const budgetSelectEl = document.getElementById('fbudget');
+  if (budgetSelectEl && budgetVal) {
+    for (let i = 0; i < budgetSelectEl.options.length; i++) {
+      if (budgetSelectEl.options[i].value.includes(budgetVal) || budgetSelectEl.options[i].text.includes(budgetVal)) {
+        budgetSelectEl.selectedIndex = i;
+        break;
+      }
+    }
+  }
+  const noteField = document.getElementById('fnote');
+  if (noteField && !noteField.value.includes(brandName)) {
+    noteField.value = `Enquiring specifically for ${brandName} franchise opportunity. ` + noteField.value;
+  }
+}
+
+function clearSelectedBrand(){
+  selectedBrandName = null;
+  const badge = document.getElementById('brandBadge');
+  if (badge) badge.classList.remove('show');
+}
+
+const formRules = {
+  fname: v => v.trim().length >= 2 || 'Please enter your full name',
+  fphone: v => /^[6-9]\d{9}$/.test(v.replace(/\D/g, '').slice(-10)) || 'Please enter a valid 10-digit mobile number',
+  femail: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) || 'Please enter a valid email address',
+  fcity: v => v.trim().length >= 2 || 'Please enter your target city or area',
+  fbudget: v => !!v || 'Please choose your investment budget bracket',
+  fspace: v => !!v || 'Please select your property status'
+};
+
+// Real-time error clearing on input
+for (const id in formRules) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.addEventListener('input', () => {
+      const slot = document.querySelector(`.err[data-for="${id}"]`);
+      if (slot) slot.textContent = '';
+      el.style.borderColor = '';
+    });
+    el.addEventListener('change', () => {
+      const slot = document.querySelector(`.err[data-for="${id}"]`);
+      if (slot) slot.textContent = '';
+      el.style.borderColor = '';
+    });
+  }
+}
+
+const sendBtn = document.getElementById('send');
+if (sendBtn) {
+  sendBtn.addEventListener('click', () => {
+    let ok = true, firstInvalid = null;
+
+    for (const id in formRules) {
+      const el = document.getElementById(id);
+      const msg = formRules[id](el ? el.value : '');
+      const slot = document.querySelector(`.err[data-for="${id}"]`);
+      if (msg !== true) {
+        if (slot) slot.textContent = msg;
+        if (el) el.style.borderColor = '#FF9C7A';
+        ok = false;
+        if (!firstInvalid) firstInvalid = el;
+      } else {
+        if (slot) slot.textContent = '';
+        if (el) el.style.borderColor = '';
+      }
+    }
+
+    if (!ok) {
+      if (firstInvalid) firstInvalid.focus();
+      return;
+    }
+
+    // Processing animation
+    sendBtn.disabled = true;
+    sendBtn.innerHTML = `<span>Submitting Application...</span>`;
+
+    setTimeout(() => {
+      const tokenNum = Math.floor(1000 + Math.random() * 9000);
+      const tokenDisplay = document.getElementById('tokenDisplay');
+      if (tokenDisplay) tokenDisplay.textContent = `#F101-${tokenNum}`;
+
+      document.getElementById('sent').classList.add('show');
+      sendBtn.style.display = 'none';
+
+      // Clear input fields
+      for (const id in formRules) {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+      }
+      document.getElementById('fnote').value = '';
+      clearSelectedBrand();
+
+      document.getElementById('sent').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 650);
+  });
+}
+
+function resetApplicationForm(){
+  document.getElementById('sent').classList.remove('show');
+  if (sendBtn) {
+    sendBtn.style.display = 'inline-flex';
+    sendBtn.disabled = false;
+    sendBtn.innerHTML = `<span>Send My Application</span> <span class="arw">&rarr;</span>`;
+  }
+}
+
+function openWhatsAppChat(){
+  const phone = '912240008899';
+  const text = encodeURIComponent('Hi Franchise 101, I submitted a food franchise application and would like to review the unit economics sheet.');
+  window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+}
+</script>
+</body>
+</html>
