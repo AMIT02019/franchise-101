@@ -222,42 +222,57 @@ p{margin:0}
 
 /* ---- SIGNATURE: 3D brand carousel ---- */
 .stage{
-  width:100%;height:clamp(440px,56vh,540px);margin-top:clamp(40px,6vw,64px);margin-bottom:0;
-  perspective:1200px;perspective-origin:50% 50%;
-  position:relative;cursor:grab;touch-action:pan-y;
+  width:100%;height:clamp(450px,58vh,560px);margin-top:clamp(40px,5.5vw,60px);margin-bottom:0;
+  perspective:1400px;perspective-origin:50% 48%;
+  position:relative;cursor:grab;touch-action:pan-y;z-index:10;
 }
 .stage:active{cursor:grabbing}
 .stage::after{
-  content:"";position:absolute;left:50%;bottom:24px;transform:translateX(-50%);
-  width:min(700px,80%);height:60px;border-radius:50%;
-  background:radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,.6),transparent 70%);
-  filter:blur(10px);pointer-events:none;
+  content:"";position:absolute;left:50%;bottom:26px;transform:translateX(-50%);
+  width:min(800px,85%);height:64px;border-radius:50%;
+  background:radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,.65),transparent 72%);
+  filter:blur(12px);pointer-events:none;
 }
 .ring{
   position:absolute;inset:0;transform-style:preserve-3d;
-  transform:translateY(0px) rotateX(-4deg) rotateY(var(--spin,0deg));
+  transform:translateY(0px) rotateX(-5deg) rotateY(var(--spin,0deg));
   will-change:transform;
 }
 .tile{
-  position:absolute;top:50%;left:50%;width:220px;height:290px;margin:-145px 0 0 -110px;
-  border-radius:18px;overflow:hidden;cursor:pointer;
-  box-shadow:0 24px 46px -14px rgba(0,0,0,.8);
-  border:1.5px solid rgba(255,255,255,.2);
+  position:absolute;top:50%;left:50%;width:220px;height:295px;margin:-147px 0 0 -110px;
+  border-radius:20px;overflow:hidden;cursor:pointer;
+  box-shadow:0 24px 50px -14px rgba(0,0,0,.85);
+  border:1.5px solid rgba(255,255,255,.24);
   backface-visibility:hidden;
   transition:border-color .25s,box-shadow .25s;
 }
-.tile:hover{border-color:var(--kesar);box-shadow:0 0 30px rgba(255,176,32,.55)}
+@media(max-width:680px){
+  .tile{width:180px;height:245px;margin:-122px 0 0 -90px;border-radius:16px}
+}
+.tile:hover{border-color:var(--kesar);box-shadow:0 0 35px rgba(255,176,32,.65)}
 .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,8,37,.1) 0%,rgba(24,8,37,.5) 45%,rgba(24,8,37,.95) 90%)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,8,37,.1) 0%,rgba(24,8,37,.45) 45%,rgba(24,8,37,.96) 88%)}
 .tile-in{
   position:absolute;inset:0;z-index:2;padding:16px;
   display:flex;flex-direction:column;justify-content:space-between;color:var(--malai);text-align:left;
 }
-.tile-mark{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-.01em;line-height:1.2;color:#FFF3DE;text-shadow:0 2px 8px rgba(0,0,0,.9);margin-bottom:2px}
+@media(max-width:680px){
+  .tile-in{padding:12px}
+}
+.tile-mark{
+  font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.01em;line-height:1.2;
+  color:#FFF3DE;text-shadow:0 2px 8px rgba(0,0,0,.9);margin-bottom:2px;
+}
+@media(max-width:680px){
+  .tile-mark{font-size:16px}
+}
 .tile-cat{
   font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--jamun-deep);background:var(--kesar);padding:4px 10px;border-radius:999px;align-self:flex-start;font-weight:700;
-  box-shadow:0 2px 8px rgba(0,0,0,.35);
+  box-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+@media(max-width:680px){
+  .tile-cat{font-size:9.5px;padding:3px 8px}
 }
 .tile-num{font-family:var(--mono);font-size:14.5px;font-weight:800;color:var(--kesar);margin-top:4px;text-shadow:0 2px 6px rgba(0,0,0,.8)}
 .tile-num span{display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,243,222,.75);font-weight:500;margin-top:2px}
@@ -1062,7 +1077,18 @@ section[id],header[id]{scroll-margin-top:92px}
   <!-- SIGNATURE: draggable, scroll-driven 3D brand carousel -->
   <div class="stage" id="stage" aria-label="Featured franchise brands">
     <div class="ring" id="ring">
-      <div class="tile" data-brand="beyond-temptation"><img src="assets/brands/beyond-temptation.png" alt="Beyond Temptation Cafe" /><div class="tile-in"><span class="tile-cat">Dessert &amp; Cafe</span><div><div class="tile-mark">Beyond Temptation</div><div class="tile-num">&#8377;13&ndash;20L<span>Investment</span></div></div></div></div>
+      <div class="tile" data-brand="beyond-temptation"><img src="assets/brands/beyond-temptation.png" alt="Beyond Temptation" /><div class="tile-in"><span class="tile-cat">Dessert &amp; Cafe</span><div><div class="tile-mark">Beyond Temptation</div><div class="tile-num">&#8377;13&ndash;20L<span>Investment</span></div></div></div></div>
+      <div class="tile" data-brand="dunk-burgers"><img src="assets/brands/dunk-burgers.png" alt="Dunk Burgers" /><div class="tile-in"><span class="tile-cat">Burgers &amp; QSR</span><div><div class="tile-mark">Dunk Burgers</div><div class="tile-num">&#8377;15&ndash;25L<span>Zero Royalty</span></div></div></div></div>
+      <div class="tile" data-brand="mr-sandwich"><img src="assets/brands/mr-sandwich.png" alt="Mr. Sandwich" /><div class="tile-in"><span class="tile-cat">Sandwiches &amp; Subs</span><div><div class="tile-mark">Mr. Sandwich</div><div class="tile-num">&#8377;9&ndash;17.5L<span>41% Net Margin</span></div></div></div></div>
+      <div class="tile" data-brand="south-twist"><img src="assets/brands/south_twist_food.png" alt="South Twist" /><div class="tile-in"><span class="tile-cat">South Indian QSR</span><div><div class="tile-mark">South Twist</div><div class="tile-num">&#8377;10&ndash;20L<span>Thatte Idli &amp; Dosa</span></div></div></div></div>
+      <div class="tile" data-brand="cafe-choco-craze"><img src="assets/brands/cafe-choco-craze.png" alt="Cafe Choco Craze" /><div class="tile-in"><span class="tile-cat">Chocolate Cafe</span><div><div class="tile-mark">Cafe Choco Craze</div><div class="tile-num">&#8377;8&ndash;20L<span>80+ Outlets</span></div></div></div></div>
+      <div class="tile" data-brand="beyond-temptation"><img src="assets/brands/beyond_temptation_food.png" alt="Beyond Temptation Cafe Lounge" /><div class="tile-in"><span class="tile-cat">Cad-Bee &amp; Shakes</span><div><div class="tile-mark">Beyond Temptation</div><div class="tile-num">&#8377;15&ndash;20L<span>Lounge Model</span></div></div></div></div>
+      <div class="tile" data-brand="dunk-burgers"><img src="assets/brands/dunk_burgers_dip.png" alt="Dunk Burgers Dip-In" /><div class="tile-in"><span class="tile-cat">Dip-In Burgers</span><div><div class="tile-mark">Dunk Burgers</div><div class="tile-num">&#8377;15&ndash;17L<span>Express Cafe</span></div></div></div></div>
+      <div class="tile" data-brand="mr-sandwich"><img src="assets/brands/mr_sandwich_kiosk.png" alt="Mr Sandwich Takeaway" /><div class="tile-in"><span class="tile-cat">200+ Outlets</span><div><div class="tile-mark">Mr. Sandwich</div><div class="tile-num">&#8377;9.0L<span>Takeaway Model</span></div></div></div></div>
+      <div class="tile" data-brand="south-twist"><img src="assets/brands/south_twist_store.png" alt="South Twist Kiosk" /><div class="tile-in"><span class="tile-cat">Chef-Less QSR</span><div><div class="tile-mark">South Twist</div><div class="tile-num">&#8377;13.3L<span>Kiosk Format</span></div></div></div></div>
+      <div class="tile" data-brand="cafe-choco-craze"><img src="assets/brands/cafe-choco-craze.png" alt="Cafe Choco Craze Chocolicks" /><div class="tile-in"><span class="tile-cat">Cad-B Thick Shakes</span><div><div class="tile-mark">Cafe Choco Craze</div><div class="tile-num">&#8377;15&ndash;20L<span>Lounge Cafe</span></div></div></div></div>
+    </div>
+  </div></div></div>
       <div class="tile" data-brand="dunk-burgers"><img src="assets/brands/dunk-burgers.png" alt="Dunk Burgers" /><div class="tile-in"><span class="tile-cat">Burgers &amp; QSR</span><div><div class="tile-mark">Dunk Burgers</div><div class="tile-num">&#8377;15&ndash;25L<span>Investment</span></div></div></div></div>
       <div class="tile" data-brand="mr-sandwich"><img src="assets/brands/mr-sandwich.png" alt="Mr. Sandwich" /><div class="tile-in"><span class="tile-cat">Sandwiches &amp; Subs</span><div><div class="tile-mark">Mr. Sandwich</div><div class="tile-num">&#8377;9&ndash;17.5L<span>Investment</span></div></div></div></div>
       <div class="tile" data-brand="south-twist"><img src="assets/brands/south-twist.png" alt="South Twist Thatte Idli" /><div class="tile-in"><span class="tile-cat">South Indian QSR</span><div><div class="tile-mark">South Twist</div><div class="tile-num">&#8377;10&ndash;20L<span>Investment</span></div></div></div></div>
@@ -2352,8 +2378,8 @@ const tiles = ring ? [...ring.children] : [];
 const N = tiles.length;
 
 function layout3DRing(){
-  if (!ring) return;
-  const radius = innerWidth < 700 ? 265 : innerWidth < 1100 ? 330 : 405;
+  if (!ring || N === 0) return;
+  const radius = innerWidth < 680 ? 290 : innerWidth < 1100 ? 390 : 490;
   tiles.forEach((t, i) => {
     t.style.transform = 'rotateY(' + (i * (360 / N)) + 'deg) translateZ(' + radius + 'px)';
   });
@@ -2366,9 +2392,9 @@ function renderRing(){
   if (!dragging) {
     spin += velocity;
     velocity *= 0.94;
-    if (!reduce) spin += 0.08;
+    if (!reduce) spin += 0.07;
   }
-  const y = Math.min(window.scrollY, 900) * 0.05;
+  const y = Math.min(window.scrollY, 900) * 0.04;
   if (ring) ring.style.setProperty('--spin', (spin + y) + 'deg');
   requestAnimationFrame(renderRing);
 }
@@ -2384,10 +2410,10 @@ if (stage) {
   const move = e => {
     if (!dragging) return;
     const x = (e.touches ? e.touches[0].clientX : e.clientX);
-    const d = (x - lastX) * 0.35;
+    const d = (x - lastX) * 0.32;
     lastX = x;
     spin += d;
-    velocity = d * 0.5;
+    velocity = d * 0.45;
   };
   const drop = () => { dragging = false; };
 
