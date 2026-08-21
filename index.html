@@ -222,32 +222,32 @@ p{margin:0}
 
 /* ---- SIGNATURE: 3D brand carousel ---- */
 .stage{
-  width:100%;height:clamp(430px,52vh,500px);margin-top:clamp(48px,6.5vw,76px);margin-bottom:0;
-  perspective:1400px;perspective-origin:50% 50%;
+  width:100%;height:clamp(440px,52vh,500px);margin-top:clamp(40px,5vw,56px);margin-bottom:0;
+  perspective:1300px;perspective-origin:50% 42%;
   position:relative;cursor:grab;touch-action:pan-y;z-index:10;
 }
 .stage:active{cursor:grabbing}
 .stage::after{
-  content:"";position:absolute;left:50%;bottom:26px;transform:translateX(-50%);
-  width:min(800px,85%);height:64px;border-radius:50%;
+  content:"";position:absolute;left:50%;bottom:18px;transform:translateX(-50%);
+  width:min(750px,82%);height:54px;border-radius:50%;
   background:radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,.65),transparent 72%);
   filter:blur(12px);pointer-events:none;
 }
 .ring{
   position:absolute;inset:0;transform-style:preserve-3d;
-  transform:translateY(0px) rotateX(-5deg) rotateY(var(--spin,0deg));
+  transform:translateY(-24px) rotateX(-4deg) rotateY(var(--spin,0deg));
   will-change:transform;
 }
 .tile{
-  position:absolute;top:50%;left:50%;width:220px;height:295px;margin:-147px 0 0 -110px;
-  border-radius:20px;overflow:hidden;cursor:pointer;
+  position:absolute;top:50%;left:50%;width:210px;height:280px;margin:-140px 0 0 -105px;
+  border-radius:18px;overflow:hidden;cursor:pointer;
   box-shadow:0 24px 50px -14px rgba(0,0,0,.85);
   border:1.5px solid rgba(255,255,255,.24);
   backface-visibility:hidden;
   transition:border-color .25s,box-shadow .25s;
 }
 @media(max-width:680px){
-  .tile{width:180px;height:245px;margin:-122px 0 0 -90px;border-radius:16px}
+  .tile{width:170px;height:235px;margin:-117px 0 0 -85px;border-radius:14px}
 }
 .tile:hover{border-color:var(--kesar);box-shadow:0 0 35px rgba(255,176,32,.65)}
 .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -260,26 +260,26 @@ p{margin:0}
   .tile-in{padding:12px}
 }
 .tile-mark{
-  font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.01em;line-height:1.2;
+  font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.01em;line-height:1.2;
   color:#FFF3DE;text-shadow:0 2px 8px rgba(0,0,0,.9);margin-bottom:2px;
 }
 @media(max-width:680px){
-  .tile-mark{font-size:16px}
+  .tile-mark{font-size:15px}
 }
 .tile-cat{
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+  font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--jamun-deep);background:var(--kesar);padding:4px 10px;border-radius:999px;align-self:flex-start;font-weight:700;
   box-shadow:0 2px 8px rgba(0,0,0,.4);
 }
 @media(max-width:680px){
-  .tile-cat{font-size:9.5px;padding:3px 8px}
+  .tile-cat{font-size:9px;padding:3px 7px}
 }
-.tile-num{font-family:var(--mono);font-size:14.5px;font-weight:800;color:var(--kesar);margin-top:4px;text-shadow:0 2px 6px rgba(0,0,0,.8)}
-.tile-num span{display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,243,222,.75);font-weight:500;margin-top:2px}
+.tile-num{font-family:var(--mono);font-size:14px;font-weight:800;color:var(--kesar);margin-top:4px;text-shadow:0 2px 6px rgba(0,0,0,.8)}
+.tile-num span{display:block;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,243,222,.75);font-weight:500;margin-top:2px}
 
 .drag-hint-wrap{
   display:flex;justify-content:center;align-items:center;
-  margin-top:14px;margin-bottom:28px;position:relative;z-index:5;
+  margin-top:36px;margin-bottom:32px;position:relative;z-index:150;
 }
 .drag-hint{
   font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
@@ -2384,7 +2384,7 @@ function renderRing(){
   const currentSpin = spin + y;
   ring.style.setProperty('--spin', currentSpin + 'deg');
 
-  const radius = innerWidth < 680 ? 280 : innerWidth < 1100 ? 380 : 470;
+  const radius = innerWidth < 680 ? 260 : innerWidth < 1100 ? 350 : 430;
   
   tiles.forEach((t, i) => {
     const baseAngle = i * (360 / N);
