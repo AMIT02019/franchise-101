@@ -427,6 +427,18 @@ function restartQuiz() {
   document.getElementById('quizResultPane').classList.remove('active');
   nextQuizStep(1);
 }
+
+// Reveal elements on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.05, rootMargin: '0px 0px 50px' });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
 </script>
 </body>
 </html>

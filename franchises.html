@@ -455,13 +455,25 @@ if (navToggle && mobileDrawer) {
   });
 }
 
+// Reveal elements on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.05, rootMargin: '0px 0px 50px' });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
 function filterCatalog(category, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+  if (btn) btn.classList.add('active');
   const cards = document.querySelectorAll('.brand-detail-card');
   cards.forEach(card => {
     if (category === 'all' || card.dataset.category === category) {
       card.style.display = 'grid';
+      card.classList.add('in');
     } else {
       card.style.display = 'none';
     }
