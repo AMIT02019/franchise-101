@@ -3,5 +3,7 @@
 .DS_Store
 node_modules
 *.log
-
-.vercel
+pdf_pages/
+pdf_dump.txt
+ocr_test.ps1
+update_*.py
