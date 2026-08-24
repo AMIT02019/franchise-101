@@ -14,23 +14,23 @@
    Warm, Authentic Indian Culinary Palette & Human Typography
    ================================= */
 :root{
-  --jamun:#0F172A;
-  --jamun-deep:#0A0F1D;
-  --jamun-soft:#1E293B;
-  --kesar:#C59B27;
-  --kesar-hot:#B3861B;
-  --kesar-hover:#D4AF37;
-  --pista:#059669;
-  --pista-dark:#047857;
+  --jamun:#1E0F38;
+  --jamun-deep:#140A24;
+  --jamun-soft:#2F1754;
+  --kesar:#FF5E14;
+  --kesar-hot:#E64A00;
+  --kesar-hover:#FF7A29;
+  --pista:#00E599;
+  --pista-dark:#00B377;
   --malai:#FFFFFF;
-  --paper:#F8FAFC;
+  --paper:#FFFBF5;
   --paper-card:#FFFFFF;
-  --ink:#0F172A;
-  --ink-80:#334155;
-  --ink-60:rgba(15,23,42,.7);
-  --ink-30:rgba(15,23,42,.3);
-  --line:#E2E8F0;
-  --line-dark:rgba(255,255,255,.12);
+  --ink:#1A0D2E;
+  --ink-80:#331E56;
+  --ink-60:rgba(26,13,46,.7);
+  --ink-30:rgba(26,13,46,.28);
+  --line:rgba(26,13,46,.08);
+  --line-dark:rgba(255,255,255,.16);
 
   --display:"Fraunces",Georgia,serif;
   --body:"Plus Jakarta Sans",-apple-system,sans-serif;
@@ -122,7 +122,7 @@ p{margin:0}
 .nav.stuck{
   background:rgba(24,8,37,.94);
   border-color:rgba(248,250,252,.22);
-  box-shadow:0 20px 40px -12px rgba(0,0,0,.7),0 0 0 1px rgba(197,155,39,.2);
+  box-shadow:0 20px 40px -12px rgba(0,0,0,.7),0 0 0 1px rgba(255,94,20,.2);
 }
 .nav.nav--hidden{
   transform:translate(-50%,-150%);
@@ -141,7 +141,7 @@ p{margin:0}
 .nav-cta-wrap{display:flex;align-items:center;gap:10px}
 .nav .btn--kesar{
   padding:10px 22px;font-size:14px;border-radius:999px;font-weight:700;
-  box-shadow:0 8px 18px -6px rgba(197,155,39,.5);
+  box-shadow:0 8px 18px -6px rgba(255,94,20,.5);
 }
 
 /* Mobile Hamburger Toggle */
@@ -215,13 +215,13 @@ p{margin:0}
   width: 100%;
   height: 100%;
   z-index: 1;
-  background: radial-gradient(circle at 50% 35%, rgba(15, 23, 42, 0.38) 0%, rgba(10, 15, 29, 0.65) 65%, rgba(10, 15, 29, 0.9) 100%);
+  background: radial-gradient(circle at 50% 35%, rgba(30, 15, 56, 0.38) 0%, rgba(20, 10, 36, 0.65) 65%, rgba(20, 10, 36, 0.9) 100%);
   pointer-events: none;
 }
 
 /* ============ HERO ============ */
 .hero{
-  position:relative;background:#0A0F1D;color:var(--malai);
+  position:relative;background:#140A24;color:var(--malai);
   padding:clamp(110px,14vh,152px) 0 0;overflow:hidden;
   border-radius:0 0 clamp(24px,4vw,44px) clamp(24px,4vw,44px);
 }
@@ -284,7 +284,7 @@ p{margin:0}
 @media(max-width:680px){
   .tile{width:170px;height:235px;margin:-117px 0 0 -85px;border-radius:14px}
 }
-.tile:hover{border-color:var(--kesar);box-shadow:0 0 35px rgba(197,155,39,.65)}
+.tile:hover{border-color:var(--kesar);box-shadow:0 0 35px rgba(255,94,20,.65)}
 .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,8,37,.1) 0%,rgba(24,8,37,.45) 45%,rgba(24,8,37,.96) 88%)}
 .tile-in{
@@ -510,7 +510,7 @@ section[id],header[id]{scroll-margin-top:92px}
 }
 .calc-slider::-webkit-slider-thumb{
   -webkit-appearance:none;width:20px;height:20px;border-radius:50%;
-  background:var(--kesar);box-shadow:0 0 10px rgba(197,155,39,.7);cursor:pointer;
+  background:var(--kesar);box-shadow:0 0 10px rgba(255,94,20,.7);cursor:pointer;
 }
 .calc-formats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 @media(max-width:540px){.calc-formats{grid-template-columns:repeat(2,1fr)}}
@@ -523,7 +523,7 @@ section[id],header[id]{scroll-margin-top:92px}
 .fmt-btn.active{background:var(--kesar);color:var(--jamun-deep);border-color:var(--kesar);font-weight:700}
 
 .calc-results-board{
-  background:var(--jamun-deep);border:1px solid rgba(197,155,39,.3);
+  background:var(--jamun-deep);border:1px solid rgba(255,94,20,.3);
   border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:20px;
   box-shadow:0 20px 40px -15px rgba(0,0,0,.6);
 }
@@ -629,7 +629,7 @@ section[id],header[id]{scroll-margin-top:92px}
   display:flex;flex-direction:column;gap:6px;transition:all .25s var(--ease);
 }
 .quiz-opt-btn:hover{border-color:var(--kesar);background:var(--malai);transform:translateY(-2px)}
-.quiz-opt-btn.selected{border-color:var(--kesar-hot);background:rgba(197,155,39,.12);box-shadow:0 0 0 1px var(--kesar-hot)}
+.quiz-opt-btn.selected{border-color:var(--kesar-hot);background:rgba(255,94,20,.12);box-shadow:0 0 0 1px var(--kesar-hot)}
 .quiz-opt-btn strong{font-size:16px;color:var(--ink);display:flex;align-items:center;justify-content:space-between}
 .quiz-opt-btn span{font-size:13px;color:var(--ink-60);font-family:var(--mono)}
 .quiz-actions{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
@@ -668,7 +668,7 @@ section[id],header[id]{scroll-margin-top:92px}
 .service-feat-card h5{font-family:var(--display);font-size:16px;color:var(--malai);margin:0}
 .service-feat-card p{font-size:13.5px;color:rgba(248,250,252,.7);margin:0;line-height:1.5}
 .service-outcome-box{
-  background:var(--jamun-deep);border:1px solid rgba(197,155,39,.3);
+  background:var(--jamun-deep);border:1px solid rgba(255,94,20,.3);
   border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:18px;
 }
 
@@ -725,7 +725,7 @@ section[id],header[id]{scroll-margin-top:92px}
 
 .brand-selected-badge{
   grid-column:1/-1;display:none;align-items:center;justify-content:space-between;
-  background:rgba(197,155,39,.14);border:1px solid var(--kesar);border-radius:12px;
+  background:rgba(255,94,20,.14);border:1px solid var(--kesar);border-radius:12px;
   padding:10px 14px;font-family:var(--mono);font-size:13px;color:var(--malai);
 }
 .brand-selected-badge.show{display:flex}
@@ -773,7 +773,7 @@ section[id],header[id]{scroll-margin-top:92px}
   position:fixed;bottom:24px;right:24px;width:46px;height:46px;border-radius:50%;
   background:var(--kesar);color:var(--ink);border:1px solid rgba(255,255,255,.25);
   display:grid;place-items:center;font-size:20px;cursor:pointer;z-index:75;
-  box-shadow:0 10px 24px -6px rgba(197,155,39,.5);opacity:0;pointer-events:none;
+  box-shadow:0 10px 24px -6px rgba(255,94,20,.5);opacity:0;pointer-events:none;
   transition:opacity .3s,transform .3s,background .2s;font-weight:800;
 }
 .floating-up.show{opacity:1;pointer-events:auto}
@@ -792,7 +792,7 @@ section[id],header[id]{scroll-margin-top:92px}
 .foot::before{
   content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
   width:min(900px,90%);height:180px;
-  background:radial-gradient(50% 100% at 50% 0%,rgba(197,155,39,.12),transparent 70%);
+  background:radial-gradient(50% 100% at 50% 0%,rgba(255,94,20,.12),transparent 70%);
   pointer-events:none;
 }
 .foot-banner{

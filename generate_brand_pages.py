@@ -78,7 +78,7 @@ def create_brand_page(brand_id, brand_name, category, tagline, investment, payba
 .capex-table th, .capex-table td {{ padding: 12px 16px; border-bottom: 1px solid var(--line); text-align: left; }}
 .capex-table th {{ background: rgba(26,20,32,0.04); font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; color: var(--ink-60); }}
 .capex-table td:last-child {{ text-align: right; font-family: var(--font-mono); font-weight: 700; color: var(--ink); }}
-.capex-table tr.total-row {{ background: rgba(197,155,39,0.1); font-weight: 800; }}
+.capex-table tr.total-row {{ background: rgba(255,94,20,0.1); font-weight: 800; }}
 .capex-table tr.total-row td {{ font-size: 15px; color: var(--ink); border-bottom: none; }}
 
 .pnl-card {{
@@ -297,7 +297,7 @@ def create_brand_page(brand_id, brand_name, category, tagline, investment, payba
           <div class="pnl-row"><span>Raw Material / Food Cost</span><strong style="color:var(--pista)">{pnl_data['food_cost']}</strong></div>
           <div class="pnl-row"><span>Gross Profit</span><strong>{pnl_data['gross_profit']}</strong></div>
           <div class="pnl-row"><span>Store Expenses (Rent, Staff, Power)</span><strong>{pnl_data['expenses']}</strong></div>
-          <div class="pnl-row" style="background:rgba(197,155,39,0.15);padding:14px;border-radius:12px;margin-top:10px">
+          <div class="pnl-row" style="background:rgba(255,94,20,0.15);padding:14px;border-radius:12px;margin-top:10px">
             <span style="font-weight:800;color:var(--malai);font-size:16px">Monthly Net Profit</span>
             <strong style="font-size:22px;color:var(--kesar)">{pnl_data['net_profit']}</strong>
           </div>
