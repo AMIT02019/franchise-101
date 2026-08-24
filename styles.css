@@ -9,9 +9,9 @@
   --jamun: #1E0F38;
   --jamun-deep: #140A24;
   --jamun-soft: #2F1754;
-  --kesar: #FF5E14;
-  --kesar-hot: #E64A00;
-  --kesar-hover: #FF7A29;
+  --kesar: #FFB020;
+  --kesar-hot: #FFB020;
+  --kesar-hover: #FFBA36;
   --pista: #00E599;
   --pista-dark: #00B377;
   --malai: #FFFFFF;
@@ -24,7 +24,7 @@
   --ink-30: rgba(26, 13, 46, 0.28);
   --line: rgba(26, 13, 46, 0.08);
   --line-dark: rgba(255, 255, 255, 0.16);
-  --line-gold: rgba(255, 94, 20, 0.35);
+  --line-gold: rgba(255, 176, 32, 0.35);
 
   /* Geometry & Rhythm */
   --r: 18px;
@@ -155,11 +155,11 @@ em {
   background: var(--kesar);
   color: var(--jamun-deep);
   font-weight: 700;
-  box-shadow: 0 6px 18px -4px rgba(255, 94, 20, 0.45);
+  box-shadow: 0 6px 18px -4px rgba(255, 176, 32, 0.45);
 }
 .btn--kesar:hover {
   background: var(--kesar-hover);
-  box-shadow: 0 12px 28px -6px rgba(255, 94, 20, 0.6);
+  box-shadow: 0 12px 28px -6px rgba(255, 176, 32, 0.6);
 }
 
 .btn--pista {
@@ -203,8 +203,8 @@ em {
   border: 1px solid rgba(16, 185, 129, 0.5); font-weight: 700;
 }
 .tag.gold {
-  background: rgba(255, 94, 20, 0.18); color: #8A4F00;
-  border: 1px solid rgba(255, 94, 20, 0.45); font-weight: 700;
+  background: rgba(255, 176, 32, 0.18); color: #8A4F00;
+  border: 1px solid rgba(255, 176, 32, 0.45); font-weight: 700;
 }
 .on-dark .tag {
   background: rgba(248, 250, 252, 0.12); color: var(--malai);
@@ -227,8 +227,8 @@ em {
 }
 .nav.stuck {
   background: rgba(20, 10, 36, 0.96);
-  border-color: rgba(255, 94, 20, 0.3);
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 94, 20, 0.2);
+  border-color: rgba(255, 176, 32, 0.3);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 176, 32, 0.2);
 }
 .nav.nav--hidden { transform: translate(-50%, -150%); box-shadow: none; }
 
@@ -301,7 +301,7 @@ em {
 }
 .page-hero::before {
   content: ""; position: absolute; inset: 0;
-  background: radial-gradient(60% 50% at 50% 15%, rgba(255, 94, 20, 0.22), transparent 70%);
+  background: radial-gradient(60% 50% at 50% 15%, rgba(255, 176, 32, 0.22), transparent 70%);
   pointer-events: none;
   animation: auraPulse 6s ease-in-out infinite alternate;
 }
@@ -311,7 +311,7 @@ em {
 }
 .page-hero::after {
   content: ""; position: absolute; inset: 0;
-  background-image: radial-gradient(rgba(255, 94, 20, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 176, 32, 0.08) 1px, transparent 1px);
   background-size: 36px 36px;
   pointer-events: none; opacity: 0.6;
 }
@@ -374,7 +374,7 @@ em {
 .foot::before {
   content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
   width: min(900px, 90%); height: 180px;
-  background: radial-gradient(50% 100% at 50% 0%, rgba(255, 94, 20, 0.14), transparent 70%);
+  background: radial-gradient(50% 100% at 50% 0%, rgba(255, 176, 32, 0.14), transparent 70%);
   pointer-events: none;
 }
 .foot-banner {
@@ -430,7 +430,7 @@ em {
   position: fixed; bottom: 24px; right: 24px; width: 46px; height: 46px; border-radius: 50%;
   background: var(--kesar); color: var(--jamun-deep); border: 1px solid rgba(255, 255, 255, 0.25);
   display: grid; place-items: center; font-size: 20px; cursor: pointer; z-index: 75;
-  box-shadow: 0 10px 24px -6px rgba(255, 94, 20, 0.5); opacity: 0; pointer-events: none;
+  box-shadow: 0 10px 24px -6px rgba(255, 176, 32, 0.5); opacity: 0; pointer-events: none;
   transition: opacity 0.3s, transform 0.3s, background 0.2s; font-weight: 800;
 }
 .floating-up.show { opacity: 1; pointer-events: auto; }
@@ -769,14 +769,14 @@ em {
 .field textarea:focus {
   border-color: var(--kesar);
   background: #FFF;
-  box-shadow: 0 0 0 3px rgba(255, 94, 20, 0.25);
+  box-shadow: 0 0 0 3px rgba(255, 176, 32, 0.25);
 }
 .on-dark .field input:focus,
 .on-dark .field select:focus,
 .on-dark .field textarea:focus {
   background: rgba(248, 250, 252, 0.12);
   border-color: var(--kesar);
-  box-shadow: 0 0 0 3px rgba(255, 94, 20, 0.2);
+  box-shadow: 0 0 0 3px rgba(255, 176, 32, 0.2);
 }
 
 .field input::placeholder {
