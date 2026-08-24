@@ -2,7 +2,7 @@
 import os
 
 # Base template builder for individual brand pages
-def create_brand_page(brand_id, brand_name, category, tagline, investment, payback, margin, area, outlets, states, hero_img, food_img, store_img, desc, capex_items, capex_total, formats, menu_items, pnl_data):
+def create_brand_page(brand_id, brand_name, category, tagline, investment, payback, margin, area, outlets, states, hero_img, food_img, store_img, desc, capex_items, capex_total, formats, menu_items, pnl_data, video_file="assets/videos/chocolate_craft.mp4", video_title="Central Kitchen Craft & SOPs"):
     
     # Formats HTML
     formats_html = ""
@@ -224,6 +224,38 @@ def create_brand_page(brand_id, brand_name, category, tagline, investment, payba
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px" class="rv">
       {menu_html}
+    </div>
+  </div>
+</section>
+
+<!-- ============ CENTRAL KITCHEN & OPS VIDEO SHOWCASE ============ -->
+<section class="sec on-dark" style="background:var(--jamun-deep);position:relative;overflow:hidden">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px, 4vw, 56px);align-items:center">
+      <div class="rv">
+        <div class="badge-trust" style="margin-bottom:12px"><span class="pulse"></span> Standardized Food Manufacturing</div>
+        <h2 style="color:var(--malai)">Behind the Taste: Proprietary Central Supply</h2>
+        <p style="color:rgba(255,243,222,0.85);font-size:15px;line-height:1.65;margin-bottom:20px">
+          {brand_name} eliminates skilled-chef dependency. Over 85% of core bases, signature seasonings, and pre-mixes are manufactured at central facilities and delivered directly to your outlet.
+        </p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div style="background:rgba(255,243,222,0.06);border:1px solid rgba(255,243,222,0.14);border-radius:12px;padding:14px">
+            <strong style="color:var(--kesar);display:block;font-size:18px">0% Wastage</strong>
+            <span style="font-size:12.5px;color:rgba(255,243,222,0.75)">Pre-portioned batches</span>
+          </div>
+          <div style="background:rgba(255,243,222,0.06);border:1px solid rgba(255,243,222,0.14);border-radius:12px;padding:14px">
+            <strong style="color:var(--pista);display:block;font-size:18px">100% Chef-Less</strong>
+            <span style="font-size:12.5px;color:rgba(255,243,222,0.75)">3-minute SOP training</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rv" style="position:relative;border-radius:24px;overflow:hidden;border:1.5px solid rgba(255,243,222,0.2);box-shadow:0 25px 60px -20px rgba(0,0,0,0.6)">
+        <video autoplay muted loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block">
+          <source src="{video_file}" type="video/mp4">
+        </video>
+        <span class="tag gold" style="position:absolute;top:16px;left:16px;z-index:2">{video_title}</span>
+      </div>
     </div>
   </div>
 </section>
@@ -506,6 +538,8 @@ bt_html = create_brand_page(
         {"title": "Mango Mastani", "desc": "Authentic Pune dessert drink with mango pulp, ice cream & dry fruits.", "highlight": "High Repeat Footfall"},
         {"title": "Gourmet Pizzas & Burgers", "desc": "Cheese burst pizzas and crispy patty burgers with in-house sauces.", "highlight": "Evening Dining Pull"}
     ],
+    video_file="assets/videos/chocolate_craft.mp4",
+    video_title="Cad-Bee & Chocolate Craft",
     pnl_data={
         "daily_orders": "140–180 Orders",
         "aov": "₹220",
@@ -552,6 +586,8 @@ db_html = create_brand_page(
         {"title": "Korean Loaded Fries", "desc": "Crispy fries loaded with melted cheese, jalapenos and spicy drizzle.", "highlight": "Add-On Ticket Booster"},
         {"title": "Cad-B & Boba Shakes", "desc": "Thick chocolate shakes and refreshing fruit boba drinks.", "highlight": "High Margin Beverage"}
     ],
+    video_file="assets/videos/dessert_donuts.mp4",
+    video_title="Dip Station & High-Speed Assembly",
     pnl_data={
         "daily_orders": "150–200 Orders",
         "aov": "₹240",
@@ -599,6 +635,8 @@ ms_html = create_brand_page(
         {"title": "Cheesy Burgers & Pastas", "desc": "Creamy Alfredo & Arrabiata pastas and stacked burgers.", "highlight": "Dinner & Weekend Booster"},
         {"title": "Artisanal Cold Coffees", "desc": "Thick blended frappes, hazelnut coffees and fruit smoothies.", "highlight": "High Margin Beverage"}
     ],
+    video_file="assets/videos/baking_craft.mp4",
+    video_title="Artisanal Bread & Sub Grilling",
     pnl_data={
         "daily_orders": "130–170 Orders",
         "aov": "₹210",
@@ -646,6 +684,8 @@ st_html = create_brand_page(
         {"title": "Jamaican & Mix Veg Appe", "desc": "Crispy appe balls served with tangy podi and signature chutneys.", "highlight": "High Margin Snack"},
         {"title": "Traditional Filter Coffee", "desc": "Authentic degree filter coffee brewed with chicory-roasted beans.", "highlight": "High Volume Repeat"}
     ],
+    video_file="assets/videos/cookie_prep.mp4",
+    video_title="Fresh Thatte Idli & Automated Batter",
     pnl_data={
         "daily_orders": "180–240 Orders",
         "aov": "₹160",
@@ -692,6 +732,8 @@ cc_html = create_brand_page(
         {"title": "Nutella Chocolate Grills", "desc": "Crispy grilled sandwiches overflowing with hot melted Nutella chocolate.", "highlight": "Youth Favorite"},
         {"title": "Cheese Burst Pizzas", "desc": "Fresh hand-tossed pizzas loaded with mozzarella and gourmet toppings.", "highlight": "Evening Dining Pull"}
     ],
+    video_file="assets/videos/chocolate_craft.mp4",
+    video_title="Chocolick B & Chocolate Formulations",
     pnl_data={
         "daily_orders": "140–190 Orders",
         "aov": "₹200",
