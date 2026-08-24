@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Us & Book Consultation — Franchise 101</title>
+<meta name="description" content="Schedule a confidential 1-on-1 strategy call with Franchise 101's senior food franchise specialists. Zero advisory fees for prospective investors." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+/* Contact & Consultation Page Styles */
+.contact-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.28fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: start;
+  position: relative;
+}
+@media (max-width: 960px) {
+  .contact-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Sticky Consultation Form Card */
+.consult-form-box {
+  background: var(--jamun-deep);
+  color: var(--malai);
+  border-radius: clamp(24px, 4vw, 36px);
+  padding: clamp(28px, 4.5vw, 44px);
+  box-shadow: 0 24px 60px -20px rgba(10,3,18,0.6), 0 0 0 1px rgba(248, 250, 252, 0.12);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(248, 250, 252, 0.15);
+}
+
+@media (min-width: 961px) {
+  .consult-form-box {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 96px;
+    z-index: 20;
+    will-change: transform;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+}
+
+.consult-form-box::after {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(255,176,32,0.18), transparent 70%);
+  pointer-events: none;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 18px;
+}
+@media (max-width: 560px) {
+  .form {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(248, 250, 252, 0.9);
+  display: block;
+}
+
+.field input,
+.field select,
+.field textarea {
+  font: inherit;
+  font-size: 14.5px;
+  color: var(--malai);
+  background: rgba(248, 250, 252, 0.08);
+  border: 1.5px solid rgba(248, 250, 252, 0.18);
+  border-radius: 12px;
+  padding: 12px 15px;
+  transition: all 0.25s ease;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.field select option {
+  color: #F8FAFC;
+  background: #080B10;
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+  background: rgba(248, 250, 252, 0.12);
+  border-color: rgba(255, 176, 32, 0.4);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--kesar);
+  background: rgba(248, 250, 252, 0.14);
+  box-shadow: 0 0 0 3px rgba(255, 176, 32, 0.2);
+}
+
+.field .err {
+  font-size: 12px;
+  color: #FF9C7A;
+  min-height: 16px;
+  line-height: 16px;
+}
+
+.brand-selected-badge {
+  grid-column: 1 / -1;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,176,32,0.15);
+  border: 1px solid var(--kesar);
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 13.5px;
+  color: var(--malai);
+}
+.brand-selected-badge.show { display: flex; }
+.brand-selected-badge button {
+  background: none; border: 0; color: var(--kesar); cursor: pointer; font-weight: 700; font-size: 13px;
+}
+
+.sent {
+  grid-column: 1 / -1;
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+  background: rgba(16,185,129,0.16);
+  border: 1.5px solid var(--pista);
+  border-radius: 16px;
+  padding: 24px;
+}
+.sent.show { display: flex; }
+.sent b {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--pista);
+}
+
+/* Office Cards with Scroll-Spy & Active State */
+.office-card {
+  background: var(--paper-card);
+  border: 1.5px solid var(--line);
+  border-radius: 20px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  box-shadow: 0 8px 20px -8px rgba(26,20,32,0.05);
+}
+.office-card::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4.5px;
+  background: var(--kesar);
+  border-radius: 20px 0 0 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.office-card:hover, .office-card.active-spy {
+  transform: translateX(6px);
+  border-color: var(--kesar);
+  background: #FFF;
+  box-shadow: 0 16px 36px -10px rgba(255, 176, 32, 0.2);
+}
+.office-card:hover::before, .office-card.active-spy::before {
+  opacity: 1;
+}
+
+.office-card strong {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.office-card p {
+  font-size: 14px;
+  color: var(--ink-60);
+  line-height: 1.5;
+  margin: 0;
+}
+.office-card small {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--kesar-hot);
+  font-weight: 600;
+}
+
+/* Advisory Steps Timeline Box */
+.advisory-steps-box {
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.advisory-step-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.step-num-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,176,32,0.15);
+  color: var(--kesar-hot);
+  font-weight: 800;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+</style>
+</head>
+<body>
+
+<div class="top-progress" id="topProgress"></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a class="logo" href="index.html" aria-label="Franchise 101 Home">FRANCHISE 101<span class="dot"></span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="franchises.html">Franchises</a>
+    <a href="develop-brand.html">Develop Brand</a>
+    <a href="develop-scale.html">Develop &amp; Scale</a>
+    <a href="franchise-marketing.html">Marketing</a>
+    <a href="find-franchise.html">Find Match</a>
+    <a href="book-consultation.html" class="active">Contact</a>
+  </div>
+  <div class="nav-cta-wrap">
+    <a class="btn btn--kesar" href="book-consultation.html">Book a Consultation <span class="arw">&rarr;</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+  <div class="mobile-drawer-content">
+    <div class="logo">FRANCHISE 101<span class="dot"></span></div>
+    <nav>
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About Franchise 101</a>
+      <a href="franchises.html" class="mobile-nav-link">Franchise Opportunities</a>
+      <a href="develop-brand.html" class="mobile-nav-link">Develop Your Own Brand</a>
+      <a href="develop-scale.html" class="mobile-nav-link">Develop &amp; Scale</a>
+      <a href="franchise-marketing.html" class="mobile-nav-link">Franchise Marketing</a>
+      <a href="find-franchise.html" class="mobile-nav-link">Find The Right Franchise</a>
+      <a href="book-consultation.html" class="mobile-nav-link active">Book a Consultation</a>
+    </nav>
+    <div style="margin-top:auto;display:flex;flex-direction:column;gap:12px">
+      <a class="btn btn--kesar" href="book-consultation.html" style="width:100%;text-align:center">Book a Consultation &rarr;</a>
+      <p style="font-family:var(--font-mono);font-size:12px;color:rgba(248,250,252,.6);text-align:center">Zero fee &middot; Direct brand connect</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PAGE HERO ============ -->
+<header class="page-hero on-dark">
+  <div class="wrap">
+    <div class="badge-trust rise"><span class="pulse"></span> 1-on-1 Investor Strategy &middot; 24-Hour SLA</div>
+    <h1 class="rise">Book a Consultation with Our Franchise Specialists</h1>
+    <p class="page-hero-sub rise">Whether you are evaluating your first tea kiosk in Pune or acquiring a master casual dining territory in Hyderabad, our senior advisors provide audited unit economics, capex sheets, and direct brand introductions.</p>
+  </div>
+</header>
+
+<!-- ============ FORM & OFFICE DIRECTORY ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="contact-layout-grid rv">
+      <!-- Left: Office Locations & Contact Details -->
+      <div>
+        <div class="sec-head" style="margin-bottom:24px">
+          <p class="eyebrow">Direct Touchpoints</p>
+          <h2 style="font-size:clamp(24px,3vw,34px)">Headquarters &amp; Regional Desks</h2>
+          <p class="sec-note">Speak with an advisor or visit our corporate offices across India's premier commercial hubs.</p>
+        </div>
+
+        <div class="office-card">
+          <strong>🏢 Mumbai Corporate HQ</strong>
+          <p>Level 8, Platina Tower, G-Block, Bandra Kurla Complex (BKC), Mumbai, MH 400051</p>
+          <small>Mon &ndash; Sat &middot; 9:30 AM &ndash; 7:30 PM IST</small>
+        </div>
+
+        <div class="office-card">
+          <strong>📍 Pune Regional Hub</strong>
+          <p>4th Floor, Supreme Headquarters, Balewadi High Street, Baner, Pune, MH 411045</p>
+          <small>Regional Desk &middot; Western Maharashtra</small>
+        </div>
+
+        <div class="office-card">
+          <strong>📍 Bengaluru Technology Corridor</strong>
+          <p>Indiranagar 100ft Road, HAL 2nd Stage, Bengaluru, KA 560038</p>
+          <small>South India Expansion Desk</small>
+        </div>
+
+        <div class="office-card">
+          <strong>📍 Delhi NCR Hub</strong>
+          <p>DLF Cyber City, Building 10, Tower B, Phase II, Gurugram, HR 122002</p>
+          <small>North India Master Territory Desk</small>
+        </div>
+
+        <div style="background:var(--paper-card);border:1px solid var(--line);border-radius:var(--r);padding:24px;margin-top:20px;display:flex;flex-direction:column;gap:10px">
+          <h4 style="margin:0;font-size:16px;color:var(--ink)">Direct Communications</h4>
+          <div style="font-family:var(--font-mono);font-size:13.5px;color:var(--ink-60)">
+            <div><strong>Investor Helpline:</strong> <a href="tel:+912240008899" style="color:var(--kesar-hot)">+91 22 4000 8899</a></div>
+            <div style="margin-top:4px"><strong>Investor Desk:</strong> <a href="mailto:partners@franchise101.in" style="color:var(--kesar-hot)">partners@franchise101.in</a></div>
+            <div style="margin-top:4px"><strong>Brand Growth Desk:</strong> <a href="mailto:brands@franchise101.in" style="color:var(--kesar-hot)">brands@franchise101.in</a></div>
+          </div>
+          <a class="btn btn--kesar btn--sm" href="https://wa.me/912240008899" target="_blank" style="margin-top:8px">Instant WhatsApp Chat 💬</a>
+        </div>
+      </div>
+
+              <!-- Advisory Steps Timeline -->
+        <div class="advisory-steps-box rv">
+          <h4 style="margin:0;font-size:16.5px;color:var(--ink)">What Happens After You Apply?</h4>
+          
+          <div class="advisory-step-item">
+            <span class="step-num-badge">1</span>
+            <div>
+              <strong style="font-size:14px;color:var(--ink);display:block">Confidential Call in 24h</strong>
+              <span style="font-size:13px;color:var(--ink-60)">A senior manager reviews your city footfall, budget bracket &amp; category preference.</span>
+            </div>
+          </div>
+
+          <div class="advisory-step-item">
+            <span class="step-num-badge">2</span>
+            <div>
+              <strong style="font-size:14px;color:var(--ink);display:block">Itemized P&amp;L &amp; Capex Sheets</strong>
+              <span style="font-size:13px;color:var(--ink-60)">Receive audited cost sheets and raw material gross margins before signing any agreement.</span>
+            </div>
+          </div>
+
+          <div class="advisory-step-item">
+            <span class="step-num-badge">3</span>
+            <div>
+              <strong style="font-size:14px;color:var(--ink);display:block">Direct Founder Introduction</strong>
+              <span style="font-size:13px;color:var(--ink-60)">Visit a running outlet and speak with the brand directors with 100% zero brokerage fee.</span>
+            </div>
+          </div>
+        </div>
+
+      <!-- Right: Guided Consultation Form -->
+      <div class="consult-form-box">
+        <h3 style="color:var(--malai);font-size:clamp(22px,2.5vw,30px);margin-bottom:6px">Schedule 1-on-1 Consultation</h3>
+        <p style="color:rgba(248,250,252,.75);font-size:14.5px;margin-bottom:24px">No brokerage fee. A dedicated franchise manager evaluates your location and provides unit economics within 24 hours.</p>
+
+        <form class="form" id="consultForm" onsubmit="return false">
+          <!-- Selected Brand Badge -->
+          <div class="brand-selected-badge" id="brandBadge">
+            <span>Enquiring for: <strong id="brandBadgeName" style="color:var(--kesar)">Beyond Temptation</strong></span>
+            <button type="button" onclick="clearSelectedBrand()">Remove &#10005;</button>
+          </div>
+
+          <div class="field">
+            <label for="fname">Full Name *</label>
+            <input type="text" id="fname" placeholder="Rohan Deshmukh" autocomplete="name" />
+            <span class="err" data-for="fname"></span>
+          </div>
+
+          <div class="field">
+            <label for="fphone">Mobile Number *</label>
+            <input type="tel" id="fphone" placeholder="9820012345" autocomplete="tel" />
+            <span class="err" data-for="fphone"></span>
+          </div>
+
+          <div class="field">
+            <label for="femail">Email Address *</label>
+            <input type="email" id="femail" placeholder="rohan@example.com" autocomplete="email" />
+            <span class="err" data-for="femail"></span>
+          </div>
+
+          <div class="field">
+            <label for="fcity">Target City / Area *</label>
+            <input type="text" id="fcity" placeholder="Pune (Kothrud / Baner)" />
+            <span class="err" data-for="fcity"></span>
+          </div>
+
+          <div class="field">
+            <label for="fbudget">Investment Budget *</label>
+                        <select id="fbudget">
+              <option value="">Select capital range</option>
+              <option value="8-15">&#8377;8 &ndash; 15 Lakh (Mr. Sandwich / South Twist / Cafe Choco Craze)</option>
+              <option value="15-25">&#8377;15 &ndash; 25 Lakh (Beyond Temptation / Dunk Burgers)</option>
+              <option value="25-45">&#8377;25 &ndash; 45 Lakh (Multi-Unit City Expansion)</option>
+              <option value="50plus">&#8377;50 Lakh+ (Master Franchise &amp; State Partner)</option>
+            </select>
+            <span class="err" data-for="fbudget"></span>
+          </div>
+
+          <div class="field">
+            <label for="fspace">Property Status *</label>
+            <select id="fspace">
+              <option value="">Do you have commercial space?</option>
+              <option value="own">I own a commercial shutter / land</option>
+              <option value="rented">I have rented a commercial spot</option>
+              <option value="identifying">Actively identifying high-footfall space</option>
+              <option value="need_help">Need Franchise 101 site-selection support</option>
+            </select>
+            <span class="err" data-for="fspace"></span>
+          </div>
+
+          <div class="field full">
+            <label for="fnote">Specific Questions or Preferred Food Categories</label>
+            <textarea id="fnote" placeholder="Tell us if you prefer hands-on FOFO or passive FOCO, your target launch month, or past retail experience."></textarea>
+          </div>
+
+          <!-- Submission Confirmation -->
+          <div class="sent" id="sent">
+            <b>Application Received Successfully!</b>
+            <p style="color:var(--malai);font-size:14.5px;line-height:1.6;margin:0">
+              Your confidential inquiry has been routed to our Senior Franchise Desk. Your unique tracking reference is <strong id="tokenDisplay" style="color:var(--kesar);font-family:var(--font-mono)">#F101-4821</strong>. A dedicated franchise manager will call and share the itemized capex sheet within 24 hours.
+            </p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
+              <button type="button" class="btn btn--kesar btn--sm" onclick="openWhatsAppChat()">Open WhatsApp Concierge 💬</button>
+              <button type="button" class="btn btn--ghost btn--sm on-dark" onclick="resetForm()">Submit Another Query</button>
+            </div>
+          </div>
+
+          <div style="grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:12px">
+            <button class="btn btn--kesar" id="send" type="button">
+              <span>Send My Application</span> <span class="arw">&rarr;</span>
+            </button>
+            <span style="font-family:var(--font-mono);font-size:12px;color:rgba(248,250,252,.6)">🔒 100% Zero Fee Guarantee</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot on-dark">
+  <div class="wrap">
+    <div class="foot-banner">
+      <div class="foot-banner-text">
+        <h3>Explore verified brand opportunities</h3>
+        <p>Review audited unit economics, capex schedules, and store profit margins.</p>
+      </div>
+      <div class="foot-banner-actions">
+        <a class="btn btn--kesar" href="franchises.html">View 5 Curated Brands <span class="arw">&rarr;</span></a>
+        <a class="btn btn--ghost" href="find-franchise.html">Take Matching Quiz</a>
+      </div>
+    </div>
+
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index.html">FRANCHISE 101<span class="dot"></span></a>
+        <p>India's curated food franchise discovery and investment platform. We verify real unit economics, secure territorial exclusivity, and guide investors from application to grand opening.</p>
+        <div class="foot-contacts">
+          <div><span>Direct Desk:</span> <a href="mailto:partners@franchise101.in">partners@franchise101.in</a></div>
+          <div><span>Investor Helpline:</span> <a href="tel:+912240008899">+91 22 4000 8899</a></div>
+          <div><span>HQ:</span> BKC, Mumbai &middot; Pune &middot; Bengaluru &middot; Delhi NCR</div>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h4>Franchise Formats</h4>
+        <ul>
+          <li><a href="franchises.html#chai-katta">Chai &amp; Beverages <small>₹6L–11L</small></a></li>
+          <li><a href="franchises.html#kulfi-club">Matka Kulfi &amp; Desserts <small>₹14L–22L</small></a></li>
+          <li><a href="franchises.html#momo-mafia">QSR &amp; Fast Food <small>₹12L–24L</small></a></li>
+          <li><a href="franchises.html#biryani-bay">Delivery Cloud Kitchens <small>₹8L–13L</small></a></li>
+          <li><a href="franchises.html#tandoor-tribe">Casual Dining (FOCO) <small>₹40L–65L</small></a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Investor Tools</h4>
+        <ul>
+          <li><a href="find-franchise.html">Franchise Matcher Quiz</a></li>
+          <li><a href="index.html#calculator">ROI &amp; Payback Simulator</a></li>
+          <li><a href="index.html#city-sec">Territory Availability Finder</a></li>
+          <li><a href="about.html">Why Franchise 101</a></li>
+          <li><a href="index.html#faq">Investor FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>For Brands &amp; Legal</h4>
+        <ul>
+          <li><a href="develop-brand.html">Develop Your Own Brand</a></li>
+          <li><a href="develop-scale.html">Develop &amp; Scale Network</a></li>
+          <li><a href="franchise-marketing.html">Franchise Marketing &amp; Leads</a></li>
+          <li><a href="book-consultation.html">Schedule Strategy Call</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-base">
+      <span>&copy; 2026 Franchise 101 Ventures Pvt Ltd &middot; All Rights Reserved</span>
+      <div class="foot-status">
+        <span class="dot-pulse"></span>
+        <span>41 Verified Brands Live &middot; 214 Cities Covered</span>
+      </div>
+      <div class="foot-base-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="book-consultation.html">Privacy &amp; Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="floating-up" id="btnBackToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+
+<script>
+// Check URL parameters for prefill
+window.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const brand = params.get('brand');
+  const service = params.get('service');
+
+  if (brand) {
+    prefillBrand(brand);
+  } else if (service) {
+    const noteField = document.getElementById('fnote');
+    if (noteField) noteField.value = `Enquiring for food brand growth service: ${service}.`;
+  }
+});
+
+let selectedBrandName = null;
+function prefillBrand(brandName) {
+  selectedBrandName = brandName;
+  const badge = document.getElementById('brandBadge');
+  const badgeName = document.getElementById('brandBadgeName');
+  if (badge && badgeName) {
+    badgeName.textContent = brandName;
+    badge.classList.add('show');
+  }
+  const noteField = document.getElementById('fnote');
+  if (noteField && !noteField.value.includes(brandName)) {
+    noteField.value = `Enquiring specifically for ${brandName} franchise opportunity. ` + noteField.value;
+  }
+}
+
+function clearSelectedBrand() {
+  selectedBrandName = null;
+  const badge = document.getElementById('brandBadge');
+  if (badge) badge.classList.remove('show');
+}
+
+// Form validation
+const formRules = {
+  fname: v => v.trim().length >= 2 || 'Please enter your full name',
+  fphone: v => /^[6-9]\d{9}$/.test(v.replace(/\D/g, '').slice(-10)) || 'Please enter a valid 10-digit mobile number',
+  femail: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) || 'Please enter a valid email address',
+  fcity: v => v.trim().length >= 2 || 'Please enter your target city or area',
+  fbudget: v => !!v || 'Please choose your investment budget bracket',
+  fspace: v => !!v || 'Please select your property status'
+};
+
+for (const id in formRules) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.addEventListener('input', () => {
+      const slot = document.querySelector(`.err[data-for="${id}"]`);
+      if (slot) slot.textContent = '';
+      el.style.borderColor = '';
+    });
+    el.addEventListener('change', () => {
+      const slot = document.querySelector(`.err[data-for="${id}"]`);
+      if (slot) slot.textContent = '';
+      el.style.borderColor = '';
+    });
+  }
+}
+
+const sendBtn = document.getElementById('send');
+if (sendBtn) {
+  sendBtn.addEventListener('click', () => {
+    let ok = true, firstInvalid = null;
+
+    for (const id in formRules) {
+      const el = document.getElementById(id);
+      const msg = formRules[id](el ? el.value : '');
+      const slot = document.querySelector(`.err[data-for="${id}"]`);
+      if (msg !== true) {
+        if (slot) slot.textContent = msg;
+        if (el) el.style.borderColor = '#FF9C7A';
+        ok = false;
+        if (!firstInvalid) firstInvalid = el;
+      } else {
+        if (slot) slot.textContent = '';
+        if (el) el.style.borderColor = '';
+      }
+    }
+
+    if (!ok) {
+      if (firstInvalid) firstInvalid.focus();
+      return;
+    }
+
+    sendBtn.disabled = true;
+    sendBtn.innerHTML = `<span>Submitting Application...</span>`;
+
+    setTimeout(() => {
+      const tokenNum = Math.floor(1000 + Math.random() * 9000);
+      const tokenDisplay = document.getElementById('tokenDisplay');
+      if (tokenDisplay) tokenDisplay.textContent = `#F101-${tokenNum}`;
+
+      document.getElementById('sent').classList.add('show');
+      sendBtn.style.display = 'none';
+
+      for (const id in formRules) {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+      }
+      document.getElementById('fnote').value = '';
+      clearSelectedBrand();
+
+      document.getElementById('sent').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 650);
+  });
+}
+
+function resetForm() {
+  document.getElementById('sent').classList.remove('show');
+  if (sendBtn) {
+    sendBtn.style.display = 'inline-flex';
+    sendBtn.disabled = false;
+    sendBtn.innerHTML = `<span>Send My Application</span> <span class="arw">&rarr;</span>`;
+  }
+}
+
+function openWhatsAppChat() {
+  const phone = '912240008899';
+  const text = encodeURIComponent('Hi Franchise 101, I submitted a food franchise application and would like to review the unit economics sheet.');
+  window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+}
+
+// Auto-hide navigation on scroll
+const nav = document.getElementById('nav');
+const topProgress = document.getElementById('topProgress');
+const btnBackToTop = document.getElementById('btnBackToTop');
+const navToggle = document.getElementById('navToggle');
+const mobileDrawer = document.getElementById('mobileDrawer');
+
+let lastScrollY = window.scrollY;
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  if (topProgress) topProgress.style.width = ((scrolled / maxScroll) * 100) + '%';
+  if (btnBackToTop) btnBackToTop.classList.toggle('show', scrolled > 400);
+
+  if (nav) {
+    nav.classList.toggle('stuck', scrolled > 20);
+    const isDrawerOpen = mobileDrawer && mobileDrawer.classList.contains('open');
+    if (!isDrawerOpen) {
+      if (scrolled <= 30) {
+        nav.classList.remove('nav--hidden');
+      } else if (scrolled > lastScrollY + 8 && scrolled > 80) {
+        nav.classList.add('nav--hidden');
+      } else if (scrolled < lastScrollY - 8) {
+        nav.classList.remove('nav--hidden');
+      }
+    }
+  }
+  lastScrollY = Math.max(scrolled, 0);
+}, { passive: true });
+
+function toggleMobileNav() {
+  const isOpen = mobileDrawer.classList.contains('open');
+  mobileDrawer.classList.toggle('open', !isOpen);
+  navToggle.classList.toggle('open', !isOpen);
+  document.body.style.overflow = !isOpen ? 'hidden' : '';
+}
+
+if (navToggle && mobileDrawer) {
+  navToggle.addEventListener('click', toggleMobileNav);
+  mobileDrawer.addEventListener('click', e => { if (e.target === mobileDrawer) toggleMobileNav(); });
+}
+
+// Reveal on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

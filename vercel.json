@@ -1,4 +1,22 @@
 {
   "version": 2,
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/book-consultation",
+      "destination": "/book-consultation.html"
+    },
+    {
+      "source": "/book-consultation.html",
+      "destination": "/book-consultation.html"
+    }
+  ]
 }
