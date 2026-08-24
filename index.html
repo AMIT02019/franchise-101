@@ -14,23 +14,23 @@
    Warm, Authentic Indian Culinary Palette & Human Typography
    ================================= */
 :root{
-  --jamun:#25103C;
-  --jamun-deep:#180825;
-  --jamun-soft:#3B1C5C;
-  --kesar:#FFB020;
-  --kesar-hot:#FFB020;
-  --kesar-hover:#FFBA36;
-  --pista:#A9E86B;
-  --pista-dark:#327515;
-  --malai:#FFF3DE;
-  --paper:#FAF8F3;
+  --jamun:#0F172A;
+  --jamun-deep:#080D1A;
+  --jamun-soft:#1E293B;
+  --kesar:#F59E0B;
+  --kesar-hot:#D97706;
+  --kesar-hover:#FBBF24;
+  --pista:#10B981;
+  --pista-dark:#047857;
+  --malai:#F8FAFC;
+  --paper:#F8FAFC;
   --paper-card:#FFFFFF;
-  --ink:#1A1420;
-  --ink-80:#382F42;
-  --ink-60:rgba(26,20,32,.64);
-  --ink-30:rgba(26,20,32,.28);
-  --line:rgba(26,20,32,.1);
-  --line-dark:rgba(255,243,222,.16);
+  --ink:#0F172A;
+  --ink-80:#1E293B;
+  --ink-60:rgba(15,23,42,.68);
+  --ink-30:rgba(15,23,42,.28);
+  --line:rgba(15,23,42,.09);
+  --line-dark:rgba(248,250,252,.14);
 
   --display:"Fraunces",Georgia,serif;
   --body:"Plus Jakarta Sans",-apple-system,sans-serif;
@@ -68,7 +68,7 @@ p{margin:0}
 }
 .eyebrow::before{content:"";width:26px;height:2px;background:var(--kesar-hot);flex:none}
 .on-dark .eyebrow, .eyebrow.on-dark, .calc-section .eyebrow, .hero .eyebrow, .apply .eyebrow, .brackets .eyebrow{
-  color:rgba(255,243,222,.85);
+  color:rgba(248,250,252,.85);
 }
 
 /* ============ PROGRESS BAR TOP ============ */
@@ -100,7 +100,7 @@ p{margin:0}
 .btn--ghost{--bg:transparent;--fg:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
 .btn--ghost:hover{background:rgba(26,20,32,.05)}
 .on-dark .btn--ghost{--fg:var(--malai);box-shadow:inset 0 0 0 1.5px var(--line-dark)}
-.on-dark .btn--ghost:hover{background:rgba(255,243,222,.08)}
+.on-dark .btn--ghost:hover{background:rgba(248,250,252,.08)}
 .btn--sm{padding:10px 18px;font-size:14px}
 .btn .arw{transition:transform .3s var(--ease)}
 .btn:hover .arw{transform:translateX(4px)}
@@ -112,7 +112,7 @@ p{margin:0}
   display:flex;align-items:center;justify-content:space-between;gap:20px;
   padding:10px 14px 10px 24px;
   background:rgba(30,14,48,.86);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border:1px solid rgba(255,243,222,.16);
+  border:1px solid rgba(248,250,252,.16);
   border-radius:999px;
   box-shadow:0 20px 40px -15px rgba(10,3,18,.6),0 0 0 1px rgba(255,255,255,.05);
   transform:translate(-50%,0);
@@ -121,8 +121,8 @@ p{margin:0}
 }
 .nav.stuck{
   background:rgba(24,8,37,.94);
-  border-color:rgba(255,243,222,.22);
-  box-shadow:0 20px 40px -12px rgba(0,0,0,.7),0 0 0 1px rgba(255,176,32,.2);
+  border-color:rgba(248,250,252,.22);
+  box-shadow:0 20px 40px -12px rgba(0,0,0,.7),0 0 0 1px rgba(245,158,11,.2);
 }
 .nav.nav--hidden{
   transform:translate(-50%,-150%);
@@ -134,20 +134,20 @@ p{margin:0}
 }
 .logo .dot{width:8px;height:8px;border-radius:50%;background:var(--kesar-hot);display:block;box-shadow:0 0 10px var(--kesar)}
 .nav-links{display:flex;gap:26px;font-size:14.5px;font-weight:500;align-items:center}
-.nav-links a{position:relative;padding:6px 0;color:rgba(255,243,222,.8);transition:color .2s}
+.nav-links a{position:relative;padding:6px 0;color:rgba(248,250,252,.8);transition:color .2s}
 .nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2.5px;width:0;background:var(--kesar);border-radius:2px;transition:width .28s var(--ease)}
 .nav-links a:hover{color:#fff}
 .nav-links a:hover::after{width:100%}
 .nav-cta-wrap{display:flex;align-items:center;gap:10px}
 .nav .btn--kesar{
   padding:10px 22px;font-size:14px;border-radius:999px;font-weight:700;
-  box-shadow:0 8px 18px -6px rgba(255,176,32,.5);
+  box-shadow:0 8px 18px -6px rgba(245,158,11,.5);
 }
 
 /* Mobile Hamburger Toggle */
 .nav-toggle{
   display:none;width:38px;height:38px;border-radius:50%;
-  border:1px solid rgba(255,243,222,.2);background:rgba(255,243,222,.08);
+  border:1px solid rgba(248,250,252,.2);background:rgba(248,250,252,.08);
   flex-direction:column;justify-content:center;align-items:center;gap:5px;
   cursor:pointer;padding:0;z-index:90;
 }
@@ -171,7 +171,7 @@ p{margin:0}
 .mobile-drawer.open .mobile-drawer-content{transform:translateX(0)}
 .mobile-drawer nav{display:flex;flex-direction:column;gap:18px}
 .mobile-drawer nav a{
-  font-family:var(--display);font-size:22px;font-weight:700;color:rgba(255,243,222,.85);
+  font-family:var(--display);font-size:22px;font-weight:700;color:rgba(248,250,252,.85);
   padding:8px 0;border-bottom:1px solid var(--line-dark);transition:color .2s,padding-left .2s;
 }
 .mobile-drawer nav a:hover{color:var(--kesar);padding-left:6px}
@@ -215,13 +215,13 @@ p{margin:0}
   width: 100%;
   height: 100%;
   z-index: 1;
-  background: radial-gradient(circle at 50% 35%, rgba(37, 16, 60, 0.38) 0%, rgba(24, 8, 37, 0.65) 65%, rgba(24, 8, 37, 0.9) 100%);
+  background: radial-gradient(circle at 50% 35%, rgba(15, 23, 42, 0.38) 0%, rgba(8, 13, 26, 0.65) 65%, rgba(8, 13, 26, 0.9) 100%);
   pointer-events: none;
 }
 
 /* ============ HERO ============ */
 .hero{
-  position:relative;background:#180825;color:var(--malai);
+  position:relative;background:#080D1A;color:var(--malai);
   padding:clamp(110px,14vh,152px) 0 0;overflow:hidden;
   border-radius:0 0 clamp(24px,4vw,44px) clamp(24px,4vw,44px);
 }
@@ -237,13 +237,13 @@ p{margin:0}
   animation:swipe 1s var(--ease) .85s forwards;
 }
 @keyframes swipe{to{transform:scaleX(1)}}
-.hero-sub{max-width:54ch;color:rgba(255,243,222,.95);font-size:clamp(16px,1.6vw,19px);text-shadow:none}
+.hero-sub{max-width:54ch;color:rgba(248,250,252,.95);font-size:clamp(16px,1.6vw,19px);text-shadow:none}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 
 .badge-trust{
   display:inline-flex;align-items:center;gap:8px;padding:6px 14px;
-  background:rgba(255,243,222,.08);border:1px solid var(--line-dark);
-  border-radius:999px;font-family:var(--mono);font-size:11.5px;color:rgba(255,243,222,.8);
+  background:rgba(248,250,252,.08);border:1px solid var(--line-dark);
+  border-radius:999px;font-family:var(--mono);font-size:11.5px;color:rgba(248,250,252,.8);
 }
 .badge-trust .pulse{width:7px;height:7px;border-radius:50%;background:var(--pista);box-shadow:0 0 8px var(--pista)}
 
@@ -284,7 +284,7 @@ p{margin:0}
 @media(max-width:680px){
   .tile{width:170px;height:235px;margin:-117px 0 0 -85px;border-radius:14px}
 }
-.tile:hover{border-color:var(--kesar);box-shadow:0 0 35px rgba(255,176,32,.65)}
+.tile:hover{border-color:var(--kesar);box-shadow:0 0 35px rgba(245,158,11,.65)}
 .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,8,37,.1) 0%,rgba(24,8,37,.45) 45%,rgba(24,8,37,.96) 88%)}
 .tile-in{
@@ -296,7 +296,7 @@ p{margin:0}
 }
 .tile-mark{
   font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.01em;line-height:1.2;
-  color:#FFF3DE;text-shadow:0 2px 8px rgba(0,0,0,.9);margin-bottom:2px;
+  color:#F8FAFC;text-shadow:0 2px 8px rgba(0,0,0,.9);margin-bottom:2px;
 }
 @media(max-width:680px){
   .tile-mark{font-size:15px}
@@ -310,7 +310,7 @@ p{margin:0}
   .tile-cat{font-size:9px;padding:3px 7px}
 }
 .tile-num{font-family:var(--mono);font-size:14px;font-weight:800;color:var(--kesar);margin-top:4px;text-shadow:0 2px 6px rgba(0,0,0,.8)}
-.tile-num span{display:block;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,243,222,.75);font-weight:500;margin-top:2px}
+.tile-num span{display:block;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(248,250,252,.75);font-weight:500;margin-top:2px}
 
 .drag-hint-wrap{
   display:flex;justify-content:center;align-items:center;
@@ -318,9 +318,9 @@ p{margin:0}
 }
 .drag-hint{
   font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(255,243,222,.85);display:inline-flex;align-items:center;gap:10px;
+  color:rgba(248,250,252,.85);display:inline-flex;align-items:center;gap:10px;
   background:rgba(24,8,37,.7);padding:8px 20px;border-radius:999px;
-  border:1px solid rgba(255,243,222,.15);backdrop-filter:blur(8px);
+  border:1px solid rgba(248,250,252,.15);backdrop-filter:blur(8px);
   box-shadow:0 6px 20px rgba(0,0,0,.35);white-space:nowrap;
 }
 .drag-hint::before,.drag-hint::after{content:"↔";color:var(--kesar)}
@@ -336,10 +336,10 @@ p{margin:0}
 .ticker-item{
   display:flex;align-items:center;gap:10px;padding:13px 24px;
   font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
-  color:rgba(255,243,222,.75);white-space:nowrap;
+  color:rgba(248,250,252,.75);white-space:nowrap;
 }
 .ticker-item b{color:var(--kesar);font-weight:700}
-.ticker-item .sep{color:rgba(255,243,222,.25)}
+.ticker-item .sep{color:rgba(248,250,252,.25)}
 
 /* ============ SECTION SHELL ============ */
 section{position:relative}
@@ -355,7 +355,7 @@ section[id],header[id]{scroll-margin-top:92px}
 }
 .sec-note{color:var(--ink-60);font-size:16.5px;max-width:44ch}
 .on-dark .sec-note, .sec-note.on-dark, .calc-section .sec-note, .hero .sec-note, .apply .sec-note, .brackets .sec-note{
-  color:rgba(255,243,222,.85);
+  color:rgba(248,250,252,.85);
 }
 @media(max-width:820px){.sec-top{grid-template-columns:1fr;align-items:start}}
 
@@ -498,7 +498,7 @@ section[id],header[id]{scroll-margin-top:92px}
 @media(max-width:920px){.calc-grid{grid-template-columns:1fr}}
 
 .calc-card{
-  background:rgba(255,243,222,.06);border:1px solid var(--line-dark);
+  background:rgba(248,250,252,.06);border:1px solid var(--line-dark);
   border-radius:var(--r);padding:24px 28px;display:flex;flex-direction:column;gap:20px;
 }
 .calc-group{display:flex;flex-direction:column;gap:8px}
@@ -506,36 +506,36 @@ section[id],header[id]{scroll-margin-top:92px}
 .calc-val-badge{color:var(--kesar);font-weight:700;font-size:15px}
 .calc-slider{
   -webkit-appearance:none;width:100%;height:6px;border-radius:6px;
-  background:rgba(255,243,222,.2);outline:none;cursor:pointer;
+  background:rgba(248,250,252,.2);outline:none;cursor:pointer;
 }
 .calc-slider::-webkit-slider-thumb{
   -webkit-appearance:none;width:20px;height:20px;border-radius:50%;
-  background:var(--kesar);box-shadow:0 0 10px rgba(255,176,32,.7);cursor:pointer;
+  background:var(--kesar);box-shadow:0 0 10px rgba(245,158,11,.7);cursor:pointer;
 }
 .calc-formats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 @media(max-width:540px){.calc-formats{grid-template-columns:repeat(2,1fr)}}
 .fmt-btn{
-  background:rgba(255,243,222,.08);border:1px solid var(--line-dark);
-  color:rgba(255,243,222,.85);padding:10px 8px;border-radius:10px;
+  background:rgba(248,250,252,.08);border:1px solid var(--line-dark);
+  color:rgba(248,250,252,.85);padding:10px 8px;border-radius:10px;
   font-family:var(--mono);font-size:11.5px;cursor:pointer;text-align:center;
   transition:all .2s;
 }
 .fmt-btn.active{background:var(--kesar);color:var(--jamun-deep);border-color:var(--kesar);font-weight:700}
 
 .calc-results-board{
-  background:var(--jamun-deep);border:1px solid rgba(255,176,32,.3);
+  background:var(--jamun-deep);border:1px solid rgba(245,158,11,.3);
   border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:20px;
   box-shadow:0 20px 40px -15px rgba(0,0,0,.6);
 }
 .calc-metric-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.calc-metric-item{background:rgba(255,243,222,.04);border-radius:12px;padding:14px}
-.calc-metric-item small{display:block;font-family:var(--mono);font-size:11px;color:rgba(255,243,222,.75);text-transform:uppercase;letter-spacing:.1em}
+.calc-metric-item{background:rgba(248,250,252,.04);border-radius:12px;padding:14px}
+.calc-metric-item small{display:block;font-family:var(--mono);font-size:11px;color:rgba(248,250,252,.75);text-transform:uppercase;letter-spacing:.1em}
 .calc-metric-item strong{display:block;font-family:var(--display);font-size:24px;font-weight:800;color:var(--kesar);margin-top:4px}
 .calc-highlight-box{
-  background:rgba(169,232,107,.12);border:1px solid rgba(169,232,107,.35);
+  background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.35);
   border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;
 }
-.calc-highlight-box div small{display:block;font-family:var(--mono);font-size:11px;color:rgba(255,243,222,.85);text-transform:uppercase}
+.calc-highlight-box div small{display:block;font-family:var(--mono);font-size:11px;color:rgba(248,250,252,.85);text-transform:uppercase}
 .calc-highlight-box div b{font-family:var(--display);font-size:28px;color:var(--pista)}
 
 /* ============ CITY AVAILABILITY CHECKER ============ */
@@ -560,14 +560,14 @@ section[id],header[id]{scroll-margin-top:92px}
 .rail{display:flex;gap:18px;padding-inline:var(--gutter);will-change:transform}
 .slab{
   flex:none;width:min(390px,78vw);border-radius:var(--r);padding:18px;
-  background:linear-gradient(170deg,rgba(255,243,222,.1),rgba(255,243,222,.03));
+  background:linear-gradient(170deg,rgba(248,250,252,.1),rgba(248,250,252,.03));
   border:1px solid var(--line-dark);display:flex;flex-direction:column;gap:14px;
 }
 .slab .shot{aspect-ratio:16/8}
 .slab-amt{font-family:var(--display);font-weight:800;font-size:clamp(30px,4vw,46px);letter-spacing:-.04em;line-height:.9;color:var(--kesar);padding-inline:6px}
-.slab p{color:rgba(255,243,222,.75);font-size:15px;padding-inline:6px}
+.slab p{color:rgba(248,250,252,.75);font-size:15px;padding-inline:6px}
 .slab ul{list-style:none;margin:auto 0 0;padding:0 6px;display:flex;flex-direction:column;gap:8px}
-.slab li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:rgba(255,243,222,.86)}
+.slab li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:rgba(248,250,252,.86)}
 .slab li::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--pista);margin-top:7px;flex:none}
 .progress{height:3px;background:var(--line-dark);margin:clamp(24px,3vw,36px) var(--gutter) 0;border-radius:99px;overflow:hidden}
 .progress i{display:block;height:100%;width:0;background:var(--kesar-hot);border-radius:99px}
@@ -629,7 +629,7 @@ section[id],header[id]{scroll-margin-top:92px}
   display:flex;flex-direction:column;gap:6px;transition:all .25s var(--ease);
 }
 .quiz-opt-btn:hover{border-color:var(--kesar);background:var(--malai);transform:translateY(-2px)}
-.quiz-opt-btn.selected{border-color:var(--kesar-hot);background:rgba(255,176,32,.12);box-shadow:0 0 0 1px var(--kesar-hot)}
+.quiz-opt-btn.selected{border-color:var(--kesar-hot);background:rgba(245,158,11,.12);box-shadow:0 0 0 1px var(--kesar-hot)}
 .quiz-opt-btn strong{font-size:16px;color:var(--ink);display:flex;align-items:center;justify-content:space-between}
 .quiz-opt-btn span{font-size:13px;color:var(--ink-60);font-family:var(--mono)}
 .quiz-actions{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
@@ -649,8 +649,8 @@ section[id],header[id]{scroll-margin-top:92px}
 }
 .service-nav-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;border-bottom:1px solid var(--line-dark);padding-bottom:16px}
 .srv-tab-btn{
-  background:rgba(255,243,222,.06);border:1px solid var(--line-dark);
-  color:rgba(255,243,222,.8);padding:12px 22px;border-radius:999px;
+  background:rgba(248,250,252,.06);border:1px solid var(--line-dark);
+  color:rgba(248,250,252,.8);padding:12px 22px;border-radius:999px;
   font-family:var(--mono);font-size:13px;cursor:pointer;transition:all .25s;
 }
 .srv-tab-btn.active{background:var(--kesar);color:var(--jamun-deep);border-color:var(--kesar);font-weight:700}
@@ -662,13 +662,13 @@ section[id],header[id]{scroll-margin-top:92px}
 .service-feature-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:540px){.service-feature-list{grid-template-columns:1fr}}
 .service-feat-card{
-  background:rgba(255,243,222,.05);border:1px solid var(--line-dark);
+  background:rgba(248,250,252,.05);border:1px solid var(--line-dark);
   border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px;
 }
 .service-feat-card h5{font-family:var(--display);font-size:16px;color:var(--malai);margin:0}
-.service-feat-card p{font-size:13.5px;color:rgba(255,243,222,.7);margin:0;line-height:1.5}
+.service-feat-card p{font-size:13.5px;color:rgba(248,250,252,.7);margin:0;line-height:1.5}
 .service-outcome-box{
-  background:var(--jamun-deep);border:1px solid rgba(255,176,32,.3);
+  background:var(--jamun-deep);border:1px solid rgba(245,158,11,.3);
   border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:18px;
 }
 
@@ -705,37 +705,37 @@ section[id],header[id]{scroll-margin-top:92px}
 .apply h2{color:var(--malai)}
 .apply .sec-head{max-width:none;gap:16px}
 .apply .shot{aspect-ratio:16/10;margin-top:6px}
-.contact{font-family:var(--mono);font-size:13px;color:rgba(255,243,222,.65);line-height:1.9}
+.contact{font-family:var(--mono);font-size:13px;color:rgba(248,250,252,.65);line-height:1.9}
 
 .form{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
 @media(max-width:520px){.form{grid-template-columns:1fr}}
 .field{display:flex;flex-direction:column;gap:6px;min-width:0}
 .field.full{grid-column:1/-1}
-.field label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,243,222,.7)}
+.field label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(248,250,252,.7)}
 .field input,.field select,.field textarea{
   font:inherit;font-size:16px;color:var(--malai);
-  background:rgba(255,243,222,.07);border:1px solid var(--line-dark);border-radius:12px;
+  background:rgba(248,250,252,.07);border:1px solid var(--line-dark);border-radius:12px;
   padding:14px 15px;transition:border-color .25s,background .25s;width:100%;
 }
 .field textarea{resize:vertical;min-height:88px}
 .field select option{color:#111;background:#fff}
-.field input:hover,.field select:hover,.field textarea:hover{background:rgba(255,243,222,.12)}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--kesar);background:rgba(255,243,222,.14)}
+.field input:hover,.field select:hover,.field textarea:hover{background:rgba(248,250,252,.12)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--kesar);background:rgba(248,250,252,.14)}
 .field .err{font-size:12.5px;color:#FF9C7A;min-height:17px;line-height:17px}
 
 .brand-selected-badge{
   grid-column:1/-1;display:none;align-items:center;justify-content:space-between;
-  background:rgba(255,176,32,.14);border:1px solid var(--kesar);border-radius:12px;
+  background:rgba(245,158,11,.14);border:1px solid var(--kesar);border-radius:12px;
   padding:10px 14px;font-family:var(--mono);font-size:13px;color:var(--malai);
 }
 .brand-selected-badge.show{display:flex}
 .brand-selected-badge button{background:none;border:0;color:var(--kesar);cursor:pointer;font-weight:700}
 
 .form-foot{grid-column:1/-1;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.form-foot small{color:rgba(255,243,222,.55);font-size:13px;max-width:34ch}
+.form-foot small{color:rgba(248,250,252,.55);font-size:13px;max-width:34ch}
 .sent{
   grid-column:1/-1;display:none;flex-direction:column;gap:14px;
-  background:rgba(169,232,107,.14);border:1px solid rgba(169,232,107,.5);border-radius:16px;padding:24px}
+  background:rgba(16,185,129,.14);border:1px solid rgba(16,185,129,.5);border-radius:16px;padding:24px}
 .sent.show{display:flex}
 .sent b{font-family:var(--display);font-size:22px;color:var(--pista)}
 
@@ -773,7 +773,7 @@ section[id],header[id]{scroll-margin-top:92px}
   position:fixed;bottom:24px;right:24px;width:46px;height:46px;border-radius:50%;
   background:var(--kesar);color:var(--ink);border:1px solid rgba(255,255,255,.25);
   display:grid;place-items:center;font-size:20px;cursor:pointer;z-index:75;
-  box-shadow:0 10px 24px -6px rgba(255,176,32,.5);opacity:0;pointer-events:none;
+  box-shadow:0 10px 24px -6px rgba(245,158,11,.5);opacity:0;pointer-events:none;
   transition:opacity .3s,transform .3s,background .2s;font-weight:800;
 }
 .floating-up.show{opacity:1;pointer-events:auto}
@@ -792,16 +792,16 @@ section[id],header[id]{scroll-margin-top:92px}
 .foot::before{
   content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
   width:min(900px,90%);height:180px;
-  background:radial-gradient(50% 100% at 50% 0%,rgba(255,176,32,.12),transparent 70%);
+  background:radial-gradient(50% 100% at 50% 0%,rgba(245,158,11,.12),transparent 70%);
   pointer-events:none;
 }
 .foot-banner{
-  background:rgba(255,243,222,.05);border:1px solid var(--line-dark);border-radius:20px;
+  background:rgba(248,250,252,.05);border:1px solid var(--line-dark);border-radius:20px;
   padding:28px 32px;margin-bottom:clamp(40px,6vw,60px);
   display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
 }
 .foot-banner-text h3{font-size:clamp(20px,2.4vw,28px);color:var(--malai);letter-spacing:-.02em}
-.foot-banner-text p{color:rgba(255,243,222,.75);font-size:15px;margin-top:6px}
+.foot-banner-text p{color:rgba(248,250,252,.75);font-size:15px;margin-top:6px}
 .foot-banner-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(28px,4vw,48px)}
@@ -810,8 +810,8 @@ section[id],header[id]{scroll-margin-top:92px}
 
 .foot-brand{display:flex;flex-direction:column;gap:16px}
 .foot-brand .logo{font-size:24px;color:var(--malai)}
-.foot-brand p{color:rgba(255,243,222,.72);font-size:14.5px;line-height:1.6}
-.foot-contacts{display:flex;flex-direction:column;gap:8px;margin-top:6px;font-family:var(--mono);font-size:13px;color:rgba(255,243,222,.8)}
+.foot-brand p{color:rgba(248,250,252,.72);font-size:14.5px;line-height:1.6}
+.foot-contacts{display:flex;flex-direction:column;gap:8px;margin-top:6px;font-family:var(--mono);font-size:13px;color:rgba(248,250,252,.8)}
 .foot-contacts a{color:var(--kesar);text-decoration:none}
 .foot-contacts a:hover{text-decoration:underline}
 
@@ -822,7 +822,7 @@ section[id],header[id]{scroll-margin-top:92px}
 .foot-col h4::before{content:"";width:12px;height:2px;background:var(--kesar-hot);flex:none}
 .foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
 .foot-col li a{
-  font-size:14.5px;color:rgba(255,243,222,.75);transition:color .2s,padding-left .2s;
+  font-size:14.5px;color:rgba(248,250,252,.75);transition:color .2s,padding-left .2s;
   display:inline-flex;align-items:center;gap:6px;
 }
 .foot-col li a:hover{color:var(--malai);padding-left:4px}
@@ -831,14 +831,14 @@ section[id],header[id]{scroll-margin-top:92px}
 .foot-base{
   display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
   border-top:1px solid var(--line-dark);margin-top:clamp(40px,5vw,60px);padding-top:24px;
-  font-size:13px;color:rgba(255,243,222,.6);font-family:var(--mono);
+  font-size:13px;color:rgba(248,250,252,.6);font-family:var(--mono);
 }
 .foot-base-links{display:flex;gap:18px;flex-wrap:wrap}
-.foot-base-links a{color:rgba(255,243,222,.65);transition:color .2s}
+.foot-base-links a{color:rgba(248,250,252,.65);transition:color .2s}
 .foot-base-links a:hover{color:var(--kesar)}
 .foot-status{
   display:inline-flex;align-items:center;gap:8px;
-  background:rgba(169,232,107,.1);border:1px solid rgba(169,232,107,.3);
+  background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);
   padding:4px 12px;border-radius:999px;color:var(--pista);font-size:12px;
 }
 .foot-status .dot-pulse{width:6px;height:6px;border-radius:50%;background:var(--pista);box-shadow:0 0 8px var(--pista)}
@@ -1097,7 +1097,7 @@ section[id],header[id]{scroll-margin-top:92px}
     </nav>
     <div style="margin-top:auto;display:flex;flex-direction:column;gap:12px">
       <a class="btn btn--kesar" href="book-consultation.html" style="width:100%;text-align:center">Book a Consultation &rarr;</a>
-      <p style="font-family:var(--mono);font-size:12px;color:rgba(255,243,222,.6);text-align:center">Zero fee &middot; Direct brand connect</p>
+      <p style="font-family:var(--mono);font-size:12px;color:rgba(248,250,252,.6);text-align:center">Zero fee &middot; Direct brand connect</p>
     </div>
   </div>
 </div>
@@ -1214,7 +1214,7 @@ section[id],header[id]{scroll-margin-top:92px}
     <div class="craft-grid-2x2 rv" style="display:grid;grid-template-columns:repeat(2, 1fr);gap:24px">
       
       <!-- Card 1: Beyond Temptation & Cafe Choco Craze -->
-      <div class="craft-card" style="background:rgba(255,243,222,0.05);border:1px solid rgba(255,243,222,0.14);border-radius:22px;overflow:hidden;display:grid;grid-template-columns:1.05fr 1fr;box-shadow:0 18px 40px -15px rgba(0,0,0,0.5);transition:all 0.3s ease">
+      <div class="craft-card" style="background:rgba(248,250,252,0.05);border:1px solid rgba(248,250,252,0.14);border-radius:22px;overflow:hidden;display:grid;grid-template-columns:1.05fr 1fr;box-shadow:0 18px 40px -15px rgba(0,0,0,0.5);transition:all 0.3s ease">
         <div style="position:relative;height:100%;min-height:220px;background:#000;overflow:hidden">
           <video autoplay muted loop playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
             <source src="assets/videos/chocolate_craft.mp4" type="video/mp4">
@@ -1224,7 +1224,7 @@ section[id],header[id]{scroll-margin-top:92px}
         <div style="padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:12px">
           <div>
             <h4 style="margin:0 0 6px;font-size:18px;color:var(--malai)">Proprietary Chocolate Bases</h4>
-            <p style="font-size:13px;color:rgba(255,243,222,0.75);line-height:1.5;margin:0">Over 85% of Cad-Bee bases &amp; dessert pre-mixes are manufactured centrally in Pune with 0% kitchen waste.</p>
+            <p style="font-size:13px;color:rgba(248,250,252,0.75);line-height:1.5;margin:0">Over 85% of Cad-Bee bases &amp; dessert pre-mixes are manufactured centrally in Pune with 0% kitchen waste.</p>
           </div>
           <div>
             <div style="font-family:var(--font-mono);font-size:11.5px;color:var(--pista);font-weight:700;margin-bottom:8px">&bull; Beyond Temptation &middot; Cafe Choco Craze</div>
@@ -1234,7 +1234,7 @@ section[id],header[id]{scroll-margin-top:92px}
       </div>
 
       <!-- Card 2: Mr. Sandwich -->
-      <div class="craft-card" style="background:rgba(255,243,222,0.05);border:1px solid rgba(255,243,222,0.14);border-radius:22px;overflow:hidden;display:grid;grid-template-columns:1.05fr 1fr;box-shadow:0 18px 40px -15px rgba(0,0,0,0.5);transition:all 0.3s ease">
+      <div class="craft-card" style="background:rgba(248,250,252,0.05);border:1px solid rgba(248,250,252,0.14);border-radius:22px;overflow:hidden;display:grid;grid-template-columns:1.05fr 1fr;box-shadow:0 18px 40px -15px rgba(0,0,0,0.5);transition:all 0.3s ease">
         <div style="position:relative;height:100%;min-height:220px;background:#000;overflow:hidden">
           <video autoplay muted loop playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
             <source src="assets/videos/baking_craft.mp4" type="video/mp4">
@@ -1244,7 +1244,7 @@ section[id],header[id]{scroll-margin-top:92px}
         <div style="padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:12px">
           <div>
             <h4 style="margin:0 0 6px;font-size:18px;color:var(--malai)">Standardized Bread &amp; Subs</h4>
-            <p style="font-size:13px;color:rgba(255,243,222,0.75);line-height:1.5;margin:0">European subs, paninis, and dough recipes certified for 0% chef skill dependency and fast 4-min dispatch.</p>
+            <p style="font-size:13px;color:rgba(248,250,252,0.75);line-height:1.5;margin:0">European subs, paninis, and dough recipes certified for 0% chef skill dependency and fast 4-min dispatch.</p>
           </div>
           <div>
             <div style="font-family:var(--font-mono);font-size:11.5px;color:var(--kesar);font-weight:700;margin-bottom:8px">&bull; Mr. Sandwich &middot; 200+ Outlets</div>
@@ -1254,7 +1254,7 @@ section[id],header[id]{scroll-margin-top:92px}
       </div>
 
       <!-- Card 3: South Twist -->
-      <div class="craft-card" style="background:rgba(255,243,222,0.05);border:1px solid rgba(255,243,222,0.14);border-radius:22px;overflow:hidden;display:grid;grid-template-columns:1.05fr 1fr;box-shadow:0 18px 40px -15px rgba(0,0,0,0.5);transition:all 0.3s ease">
+      <div class="craft-card" style="background:rgba(248,250,252,0.05);border:1px solid rgba(248,250,252,0.14);border-radius:22px;overflow:hidden;display:grid;grid-template-columns:1.05fr 1fr;box-shadow:0 18px 40px -15px rgba(0,0,0,0.5);transition:all 0.3s ease">
         <div style="position:relative;height:100%;min-height:220px;background:#000;overflow:hidden">
           <video autoplay muted loop playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
             <source src="assets/videos/cookie_prep.mp4" type="video/mp4">
@@ -1264,7 +1264,7 @@ section[id],header[id]{scroll-margin-top:92px}
         <div style="padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:12px">
           <div>
             <h4 style="margin:0 0 6px;font-size:18px;color:var(--malai)">Thatte Idli Pre-Fermented Batter</h4>
-            <p style="font-size:13px;color:rgba(255,243,222,0.75);line-height:1.5;margin:0">Pre-fermented Thatte Idli batter and Ghee Podi formulations shipped fresh with zero on-site grinding.</p>
+            <p style="font-size:13px;color:rgba(248,250,252,0.75);line-height:1.5;margin:0">Pre-fermented Thatte Idli batter and Ghee Podi formulations shipped fresh with zero on-site grinding.</p>
           </div>
           <div>
             <div style="font-family:var(--font-mono);font-size:11.5px;color:var(--pista);font-weight:700;margin-bottom:8px">&bull; South Twist &middot; QSR Express</div>
@@ -1274,7 +1274,7 @@ section[id],header[id]{scroll-margin-top:92px}
       </div>
 
       <!-- Card 4: Dunk Burgers -->
-      <div class="craft-card" style="background:rgba(255,243,222,0.05);border:1px solid rgba(255,243,222,0.14);border-radius:22px;overflow:hidden;display:grid;grid-template-columns:1.05fr 1fr;box-shadow:0 18px 40px -15px rgba(0,0,0,0.5);transition:all 0.3s ease">
+      <div class="craft-card" style="background:rgba(248,250,252,0.05);border:1px solid rgba(248,250,252,0.14);border-radius:22px;overflow:hidden;display:grid;grid-template-columns:1.05fr 1fr;box-shadow:0 18px 40px -15px rgba(0,0,0,0.5);transition:all 0.3s ease">
         <div style="position:relative;height:100%;min-height:220px;background:#000;overflow:hidden">
           <video autoplay muted loop playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
             <source src="assets/videos/dessert_donuts.mp4" type="video/mp4">
@@ -1284,7 +1284,7 @@ section[id],header[id]{scroll-margin-top:92px}
         <div style="padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:12px">
           <div>
             <h4 style="margin:0 0 6px;font-size:18px;color:var(--malai)">Signature Dip-In &amp; Fast Assembly</h4>
-            <p style="font-size:13px;color:rgba(255,243,222,0.75);line-height:1.5;margin:0">Warm sauce bath burgers, crispy loaded sides, and dessert items prepared in under 180 seconds.</p>
+            <p style="font-size:13px;color:rgba(248,250,252,0.75);line-height:1.5;margin:0">Warm sauce bath burgers, crispy loaded sides, and dessert items prepared in under 180 seconds.</p>
           </div>
           <div>
             <div style="font-family:var(--font-mono);font-size:11.5px;color:var(--kesar);font-weight:700;margin-bottom:8px">&bull; Dunk Burgers &middot; Zero Royalty</div>
@@ -1470,7 +1470,7 @@ section[id],header[id]{scroll-margin-top:92px}
       <!-- Sliders / Controls -->
       <div class="calc-card">
         <div class="calc-group">
-          <label style="font-family:var(--mono);font-size:11.5px;color:rgba(255,243,222,.7);text-transform:uppercase">1. Outlet Format</label>
+          <label style="font-family:var(--mono);font-size:11.5px;color:rgba(248,250,252,.7);text-transform:uppercase">1. Outlet Format</label>
           <div class="calc-formats">
             <button class="fmt-btn active" data-fmt="kiosk" onclick="setCalcFormat('kiosk')">Kiosk (&#8377;8L)</button>
             <button class="fmt-btn" data-fmt="qsr" onclick="setCalcFormat('qsr')">QSR (&#8377;16L)</button>
@@ -1513,18 +1513,18 @@ section[id],header[id]{scroll-margin-top:92px}
           </div>
           <div class="calc-metric-item">
             <small>Raw Food Cost (~34%)</small>
-            <strong id="resFoodCost" style="color:rgba(255,243,222,.85)">&#8377;1,95,840</strong>
+            <strong id="resFoodCost" style="color:rgba(248,250,252,.85)">&#8377;1,95,840</strong>
           </div>
         </div>
 
         <div class="calc-metric-row">
           <div class="calc-metric-item">
             <small>Staff &amp; Rent Overhead</small>
-            <strong id="resOpex" style="color:rgba(255,243,222,.85)">&#8377;1,45,000</strong>
+            <strong id="resOpex" style="color:rgba(248,250,252,.85)">&#8377;1,45,000</strong>
           </div>
           <div class="calc-metric-item">
             <small>Brand Royalty (5-8%)</small>
-            <strong id="resRoyalty" style="color:rgba(255,243,222,.85)">&#8377;34,560</strong>
+            <strong id="resRoyalty" style="color:rgba(248,250,252,.85)">&#8377;34,560</strong>
           </div>
         </div>
 
@@ -1759,12 +1759,12 @@ section[id],header[id]{scroll-margin-top:92px}
             <span class="tag" id="quizMatchCat">Beverage</span>
           </div>
           <h3 style="font-size:clamp(24px,3vw,34px);color:var(--malai);margin-bottom:6px" id="quizMatchTitle">Mr. Sandwich</h3>
-          <p style="font-size:14.5px;color:rgba(255,243,222,.8);line-height:1.5;margin-bottom:16px" id="quizMatchDesc">Compact 80-160 sqft kiosk format with high gross margins (68%) and fast payback. Perfect match for your selected budget and location.</p>
+          <p style="font-size:14.5px;color:rgba(248,250,252,.8);line-height:1.5;margin-bottom:16px" id="quizMatchDesc">Compact 80-160 sqft kiosk format with high gross margins (68%) and fast payback. Perfect match for your selected budget and location.</p>
           
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;background:rgba(255,243,222,.06);padding:12px;border-radius:12px">
-            <div><small style="font-family:var(--mono);font-size:10.5px;color:rgba(255,243,222,.6)">INVESTMENT</small><strong style="display:block;font-size:16px;color:var(--kesar)" id="quizMatchCapex">&#8377;6&ndash;11L</strong></div>
-            <div><small style="font-family:var(--mono);font-size:10.5px;color:rgba(255,243,222,.6)">EST. PAYBACK</small><strong style="display:block;font-size:16px;color:var(--malai)" id="quizMatchPayback">11&ndash;14 mo</strong></div>
-            <div><small style="font-family:var(--mono);font-size:10.5px;color:rgba(255,243,222,.6)">MODEL</small><strong style="display:block;font-size:16px;color:var(--pista)" id="quizMatchModel">FOFO</strong></div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;background:rgba(248,250,252,.06);padding:12px;border-radius:12px">
+            <div><small style="font-family:var(--mono);font-size:10.5px;color:rgba(248,250,252,.6)">INVESTMENT</small><strong style="display:block;font-size:16px;color:var(--kesar)" id="quizMatchCapex">&#8377;6&ndash;11L</strong></div>
+            <div><small style="font-family:var(--mono);font-size:10.5px;color:rgba(248,250,252,.6)">EST. PAYBACK</small><strong style="display:block;font-size:16px;color:var(--malai)" id="quizMatchPayback">11&ndash;14 mo</strong></div>
+            <div><small style="font-family:var(--mono);font-size:10.5px;color:rgba(248,250,252,.6)">MODEL</small><strong style="display:block;font-size:16px;color:var(--pista)" id="quizMatchModel">FOFO</strong></div>
           </div>
 
           <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
@@ -1882,7 +1882,7 @@ section[id],header[id]{scroll-margin-top:92px}
         <div class="service-content-grid">
           <div>
             <h3 style="font-size:24px;color:var(--malai);margin-bottom:8px">Turn your secret recipe into a franchise-ready machine</h3>
-            <p style="color:rgba(255,243,222,.78);font-size:15px;line-height:1.6;margin-bottom:24px">We take your proven culinary concept and standardize every aspect &mdash; from central gravy bases and line equipment to comprehensive franchise legal disclosures &mdash; so any 10th-pass cook can replicate your taste perfectly.</p>
+            <p style="color:rgba(248,250,252,.78);font-size:15px;line-height:1.6;margin-bottom:24px">We take your proven culinary concept and standardize every aspect &mdash; from central gravy bases and line equipment to comprehensive franchise legal disclosures &mdash; so any 10th-pass cook can replicate your taste perfectly.</p>
             <div class="service-feature-list">
               <div class="service-feat-card">
                 <h5>Recipe &amp; SOP Standardization</h5>
@@ -1904,7 +1904,7 @@ section[id],header[id]{scroll-margin-top:92px}
           </div>
           <div class="service-outcome-box">
             <h4 style="color:var(--kesar);font-size:18px;margin:0">Deliverables &amp; Timeline</h4>
-            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-size:14.5px;color:rgba(255,243,222,.85)">
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-size:14.5px;color:rgba(248,250,252,.85)">
               <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> Complete Brand Operations Manual (120+ pages)</li>
               <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> Line-by-line Capex &amp; Unit Economics Model</li>
               <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> 5-Year Legal Franchise Agreement Template</li>
@@ -1920,7 +1920,7 @@ section[id],header[id]{scroll-margin-top:92px}
         <div class="service-content-grid">
           <div>
             <h3 style="font-size:24px;color:var(--malai);margin-bottom:8px">Expand from 3 regional outlets to 50+ nationwide units</h3>
-            <p style="color:rgba(255,243,222,.78);font-size:15px;line-height:1.6;margin-bottom:24px">Designed for operating brands with strong local product-market fit ready to conquer new states through cluster zoning and master franchise syndication.</p>
+            <p style="color:rgba(248,250,252,.78);font-size:15px;line-height:1.6;margin-bottom:24px">Designed for operating brands with strong local product-market fit ready to conquer new states through cluster zoning and master franchise syndication.</p>
             <div class="service-feature-list">
               <div class="service-feat-card">
                 <h5>City Catchment Mapping</h5>
@@ -1942,7 +1942,7 @@ section[id],header[id]{scroll-margin-top:92px}
           </div>
           <div class="service-outcome-box">
             <h4 style="color:var(--kesar);font-size:18px;margin:0">Scaling Impact</h4>
-            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-size:14.5px;color:rgba(255,243,222,.85)">
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-size:14.5px;color:rgba(248,250,252,.85)">
               <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> 15&ndash;40 New Verified Openings per Year</li>
               <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> Tier-1 &amp; Tier-2 Market Penetration</li>
               <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> 87% Year-3 Outlet Survival Rate</li>
@@ -1958,7 +1958,7 @@ section[id],header[id]{scroll-margin-top:92px}
         <div class="service-content-grid">
           <div>
             <h3 style="font-size:24px;color:var(--malai);margin-bottom:8px">High-intent investor lead generation &amp; CRM pipeline</h3>
-            <p style="color:rgba(255,243,222,.78);font-size:15px;line-height:1.6;margin-bottom:24px">No dead leads or junk enquiries. We run hyper-targeted investor acquisition funnels and pre-qualify capital before scheduling discovery calls.</p>
+            <p style="color:rgba(248,250,252,.78);font-size:15px;line-height:1.6;margin-bottom:24px">No dead leads or junk enquiries. We run hyper-targeted investor acquisition funnels and pre-qualify capital before scheduling discovery calls.</p>
             <div class="service-feature-list">
               <div class="service-feat-card">
                 <h5>Performance Investor Funnels</h5>
@@ -1980,7 +1980,7 @@ section[id],header[id]{scroll-margin-top:92px}
           </div>
           <div class="service-outcome-box">
             <h4 style="color:var(--kesar);font-size:18px;margin:0">Campaign Metrics</h4>
-            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-size:14.5px;color:rgba(255,243,222,.85)">
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-size:14.5px;color:rgba(248,250,252,.85)">
               <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> 100% Pre-qualified Investor Net Worth</li>
               <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> 48-Hour SLA on Discovery Calls</li>
               <li style="display:flex;gap:10px"><span style="color:var(--pista)">&#10003;</span> Complete CRM / LMS Integration</li>
@@ -2198,7 +2198,7 @@ section[id],header[id]{scroll-margin-top:92px}
               <span style="font-size:24px;color:var(--pista)">&#10003;</span>
               <b>Application received successfully!</b>
             </div>
-            <p style="color:rgba(255,243,222,.8);font-size:15px">Reference Token: <strong id="tokenDisplay">#F101-9812</strong>. A dedicated franchise analyst will email your custom unit-economics sheet and schedule a brand introduction within 1 business day.</p>
+            <p style="color:rgba(248,250,252,.8);font-size:15px">Reference Token: <strong id="tokenDisplay">#F101-9812</strong>. A dedicated franchise analyst will email your custom unit-economics sheet and schedule a brand introduction within 1 business day.</p>
             <div style="display:flex;gap:10px;margin-top:6px;flex-wrap:wrap">
               <button class="btn btn--sm btn--pista" type="button" onclick="openWhatsAppChat()">Chat on WhatsApp &rarr;</button>
               <button class="btn btn--sm btn--ghost" type="button" onclick="resetApplicationForm()">Submit Another Enquiry</button>

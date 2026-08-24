@@ -29,10 +29,10 @@
   color: var(--malai);
   border-radius: clamp(24px, 4vw, 36px);
   padding: clamp(28px, 4.5vw, 44px);
-  box-shadow: 0 24px 60px -20px rgba(10,3,18,0.6), 0 0 0 1px rgba(255, 243, 222, 0.12);
+  box-shadow: 0 24px 60px -20px rgba(10,3,18,0.6), 0 0 0 1px rgba(248, 250, 252, 0.12);
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 243, 222, 0.15);
+  border: 1px solid rgba(248, 250, 252, 0.15);
 }
 
 @media (min-width: 961px) {
@@ -51,7 +51,7 @@
   position: absolute;
   top: 0; right: 0;
   width: 240px; height: 240px;
-  background: radial-gradient(circle, rgba(255,176,32,0.18), transparent 70%);
+  background: radial-gradient(circle, rgba(245,158,11,0.18), transparent 70%);
   pointer-events: none;
 }
 
@@ -81,7 +81,7 @@
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
-  color: rgba(255, 243, 222, 0.9);
+  color: rgba(248, 250, 252, 0.9);
   display: block;
 }
 
@@ -91,8 +91,8 @@
   font: inherit;
   font-size: 14.5px;
   color: var(--malai);
-  background: rgba(255, 243, 222, 0.08);
-  border: 1.5px solid rgba(255, 243, 222, 0.18);
+  background: rgba(248, 250, 252, 0.08);
+  border: 1.5px solid rgba(248, 250, 252, 0.18);
   border-radius: 12px;
   padding: 12px 15px;
   transition: all 0.25s ease;
@@ -107,15 +107,15 @@
 }
 
 .field select option {
-  color: #FFF3DE;
-  background: #1e0e30;
+  color: #F8FAFC;
+  background: #080D1A;
 }
 
 .field input:hover,
 .field select:hover,
 .field textarea:hover {
-  background: rgba(255, 243, 222, 0.12);
-  border-color: rgba(255, 176, 32, 0.4);
+  background: rgba(248, 250, 252, 0.12);
+  border-color: rgba(245, 158, 11, 0.4);
 }
 
 .field input:focus,
@@ -123,8 +123,8 @@
 .field textarea:focus {
   outline: none;
   border-color: var(--kesar);
-  background: rgba(255, 243, 222, 0.14);
-  box-shadow: 0 0 0 3px rgba(255, 176, 32, 0.2);
+  background: rgba(248, 250, 252, 0.14);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
 }
 
 .field .err {
@@ -139,7 +139,7 @@
   display: none;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255,176,32,0.15);
+  background: rgba(245,158,11,0.15);
   border: 1px solid var(--kesar);
   border-radius: 12px;
   padding: 10px 16px;
@@ -156,7 +156,7 @@
   display: none;
   flex-direction: column;
   gap: 14px;
-  background: rgba(169,232,107,0.16);
+  background: rgba(16,185,129,0.16);
   border: 1.5px solid var(--pista);
   border-radius: 16px;
   padding: 24px;
@@ -196,7 +196,7 @@
   transform: translateX(6px);
   border-color: var(--kesar);
   background: #FFF;
-  box-shadow: 0 16px 36px -10px rgba(255, 176, 32, 0.2);
+  box-shadow: 0 16px 36px -10px rgba(245, 158, 11, 0.2);
 }
 .office-card:hover::before, .office-card.active-spy::before {
   opacity: 1;
@@ -243,7 +243,7 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: rgba(255,176,32,0.15);
+  background: rgba(245,158,11,0.15);
   color: var(--kesar-hot);
   font-weight: 800;
   font-size: 13px;
@@ -295,7 +295,7 @@
     </nav>
     <div style="margin-top:auto;display:flex;flex-direction:column;gap:12px">
       <a class="btn btn--kesar" href="book-consultation.html" style="width:100%;text-align:center">Book a Consultation &rarr;</a>
-      <p style="font-family:var(--font-mono);font-size:12px;color:rgba(255,243,222,.6);text-align:center">Zero fee &middot; Direct brand connect</p>
+      <p style="font-family:var(--font-mono);font-size:12px;color:rgba(248,250,252,.6);text-align:center">Zero fee &middot; Direct brand connect</p>
     </div>
   </div>
 </div>
@@ -388,7 +388,7 @@
       <!-- Right: Guided Consultation Form -->
       <div class="consult-form-box">
         <h3 style="color:var(--malai);font-size:clamp(22px,2.5vw,30px);margin-bottom:6px">Schedule 1-on-1 Consultation</h3>
-        <p style="color:rgba(255,243,222,.75);font-size:14.5px;margin-bottom:24px">No brokerage fee. A dedicated franchise manager evaluates your location and provides unit economics within 24 hours.</p>
+        <p style="color:rgba(248,250,252,.75);font-size:14.5px;margin-bottom:24px">No brokerage fee. A dedicated franchise manager evaluates your location and provides unit economics within 24 hours.</p>
 
         <form class="form" id="consultForm" onsubmit="return false">
           <!-- Selected Brand Badge -->
@@ -466,7 +466,7 @@
             <button class="btn btn--kesar" id="send" type="button">
               <span>Send My Application</span> <span class="arw">&rarr;</span>
             </button>
-            <span style="font-family:var(--font-mono);font-size:12px;color:rgba(255,243,222,.6)">🔒 100% Zero Fee Guarantee</span>
+            <span style="font-family:var(--font-mono);font-size:12px;color:rgba(248,250,252,.6)">🔒 100% Zero Fee Guarantee</span>
           </div>
         </form>
       </div>

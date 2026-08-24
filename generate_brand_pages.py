@@ -56,7 +56,7 @@ def create_brand_page(brand_id, brand_name, category, tagline, investment, payba
 
 .brand-hero-img-box {{
   border-radius: 24px; overflow: hidden; position: relative; box-shadow: 0 25px 60px -20px rgba(0,0,0,0.5);
-  border: 1.5px solid rgba(255, 243, 222, 0.2); aspect-ratio: 4/3;
+  border: 1.5px solid rgba(248, 250, 252, 0.2); aspect-ratio: 4/3;
 }}
 .brand-hero-img-box img {{ width: 100%; height: 100%; object-fit: cover; }}
 
@@ -78,12 +78,12 @@ def create_brand_page(brand_id, brand_name, category, tagline, investment, payba
 .capex-table th, .capex-table td {{ padding: 12px 16px; border-bottom: 1px solid var(--line); text-align: left; }}
 .capex-table th {{ background: rgba(26,20,32,0.04); font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; color: var(--ink-60); }}
 .capex-table td:last-child {{ text-align: right; font-family: var(--font-mono); font-weight: 700; color: var(--ink); }}
-.capex-table tr.total-row {{ background: rgba(255,176,32,0.1); font-weight: 800; }}
+.capex-table tr.total-row {{ background: rgba(245,158,11,0.1); font-weight: 800; }}
 .capex-table tr.total-row td {{ font-size: 15px; color: var(--ink); border-bottom: none; }}
 
 .pnl-card {{
   background: var(--jamun-deep); color: var(--malai); border-radius: 20px; padding: clamp(24px, 4vw, 36px);
-  border: 1px solid rgba(255,243,222,0.15); box-shadow: 0 20px 50px -15px rgba(10,3,18,0.5);
+  border: 1px solid rgba(248,250,252,0.15); box-shadow: 0 20px 50px -15px rgba(10,3,18,0.5);
 }}
 @media (min-width: 901px) {{
   .pnl-card {{
@@ -96,7 +96,7 @@ def create_brand_page(brand_id, brand_name, category, tagline, investment, payba
 }}
 .pnl-row {{
   display: flex; justify-content: space-between; align-items: center; padding: 10px 0;
-  border-bottom: 1px solid rgba(255,243,222,0.12); font-size: 14.5px;
+  border-bottom: 1px solid rgba(248,250,252,0.12); font-size: 14.5px;
 }}
 .pnl-row:last-child {{ border-bottom: none; }}
 .pnl-row strong {{ font-family: var(--font-mono); font-size: 16px; color: var(--kesar); }}
@@ -143,7 +143,7 @@ def create_brand_page(brand_id, brand_name, category, tagline, investment, payba
     </nav>
     <div style="margin-top:auto;display:flex;flex-direction:column;gap:12px">
       <a class="btn btn--kesar" href="book-consultation.html?brand={brand_name.replace(' ', '+')}" style="width:100%;text-align:center">Apply For {brand_name} &rarr;</a>
-      <p style="font-size:12px;color:rgba(255,243,222,.6);text-align:center">Zero brokerage &middot; Direct brand connect</p>
+      <p style="font-size:12px;color:rgba(248,250,252,.6);text-align:center">Zero brokerage &middot; Direct brand connect</p>
     </div>
   </div>
 </div>
@@ -158,7 +158,7 @@ def create_brand_page(brand_id, brand_name, category, tagline, investment, payba
         </div>
         <h1 class="rise">{brand_name} <em>Franchise<span class="strike"></span></em></h1>
         <p class="page-hero-sub rise" style="margin-bottom:14px">{tagline}</p>
-        <p class="rise" style="color:rgba(255,243,222,.8);font-size:15px;line-height:1.6;margin-bottom:24px">{desc}</p>
+        <p class="rise" style="color:rgba(248,250,252,.8);font-size:15px;line-height:1.6;margin-bottom:24px">{desc}</p>
         
         <div class="rise" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
           <a class="btn btn--kesar" href="#apply-brand">Apply For Territory <span class="arw">&rarr;</span></a>
@@ -235,22 +235,22 @@ def create_brand_page(brand_id, brand_name, category, tagline, investment, payba
       <div class="rv">
         <div class="badge-trust" style="margin-bottom:12px"><span class="pulse"></span> Standardized Food Manufacturing</div>
         <h2 style="color:var(--malai)">Behind the Taste: Proprietary Central Supply</h2>
-        <p style="color:rgba(255,243,222,0.85);font-size:15px;line-height:1.65;margin-bottom:20px">
+        <p style="color:rgba(248,250,252,0.85);font-size:15px;line-height:1.65;margin-bottom:20px">
           {brand_name} eliminates skilled-chef dependency. Over 85% of core bases, signature seasonings, and pre-mixes are manufactured at central facilities and delivered directly to your outlet.
         </p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <div style="background:rgba(255,243,222,0.06);border:1px solid rgba(255,243,222,0.14);border-radius:12px;padding:14px">
+          <div style="background:rgba(248,250,252,0.06);border:1px solid rgba(248,250,252,0.14);border-radius:12px;padding:14px">
             <strong style="color:var(--kesar);display:block;font-size:18px">0% Wastage</strong>
-            <span style="font-size:12.5px;color:rgba(255,243,222,0.75)">Pre-portioned batches</span>
+            <span style="font-size:12.5px;color:rgba(248,250,252,0.75)">Pre-portioned batches</span>
           </div>
-          <div style="background:rgba(255,243,222,0.06);border:1px solid rgba(255,243,222,0.14);border-radius:12px;padding:14px">
+          <div style="background:rgba(248,250,252,0.06);border:1px solid rgba(248,250,252,0.14);border-radius:12px;padding:14px">
             <strong style="color:var(--pista);display:block;font-size:18px">100% Chef-Less</strong>
-            <span style="font-size:12.5px;color:rgba(255,243,222,0.75)">3-minute SOP training</span>
+            <span style="font-size:12.5px;color:rgba(248,250,252,0.75)">3-minute SOP training</span>
           </div>
         </div>
       </div>
 
-      <div class="rv" style="position:relative;border-radius:24px;overflow:hidden;border:1.5px solid rgba(255,243,222,0.2);box-shadow:0 25px 60px -20px rgba(0,0,0,0.6)">
+      <div class="rv" style="position:relative;border-radius:24px;overflow:hidden;border:1.5px solid rgba(248,250,252,0.2);box-shadow:0 25px 60px -20px rgba(0,0,0,0.6)">
         <video autoplay muted loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block">
           <source src="{video_file}" type="video/mp4">
         </video>
@@ -297,7 +297,7 @@ def create_brand_page(brand_id, brand_name, category, tagline, investment, payba
           <div class="pnl-row"><span>Raw Material / Food Cost</span><strong style="color:var(--pista)">{pnl_data['food_cost']}</strong></div>
           <div class="pnl-row"><span>Gross Profit</span><strong>{pnl_data['gross_profit']}</strong></div>
           <div class="pnl-row"><span>Store Expenses (Rent, Staff, Power)</span><strong>{pnl_data['expenses']}</strong></div>
-          <div class="pnl-row" style="background:rgba(255,176,32,0.15);padding:14px;border-radius:12px;margin-top:10px">
+          <div class="pnl-row" style="background:rgba(245,158,11,0.15);padding:14px;border-radius:12px;margin-top:10px">
             <span style="font-weight:800;color:var(--malai);font-size:16px">Monthly Net Profit</span>
             <strong style="font-size:22px;color:var(--kesar)">{pnl_data['net_profit']}</strong>
           </div>
