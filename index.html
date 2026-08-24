@@ -552,25 +552,36 @@ section[id],header[id]{scroll-margin-top:92px}
 .city-result-chip .tag-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
 
 /* ============ STICKY BRACKETS (scroll-driven horizontal) ============ */
-.brackets{background:var(--jamun);color:var(--malai);border-radius:clamp(24px,4vw,44px)}
+.brackets{
+  background:var(--paper);color:var(--ink);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
 .rail-outer{height:230vh;position:relative}
 .rail-sticky{position:sticky;top:0;height:100vh;padding-top:64px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
 .rail-head{padding-inline:var(--gutter);margin-bottom:clamp(24px,3vw,36px)}
 .rail-head .sec-top{margin-bottom:0}
-.rail{display:flex;gap:18px;padding-inline:var(--gutter);will-change:transform}
+.rail{display:flex;gap:20px;padding-inline:var(--gutter);will-change:transform}
 .slab{
-  flex:none;width:min(390px,78vw);border-radius:var(--r);padding:18px;
-  background:linear-gradient(170deg,rgba(248,250,252,.1),rgba(248,250,252,.03));
-  border:1px solid var(--line-dark);display:flex;flex-direction:column;gap:14px;
+  flex:none;width:min(390px,78vw);border-radius:var(--r);padding:22px;
+  background:#FFFFFF;
+  border:1.5px solid var(--line);
+  box-shadow:0 12px 32px -8px rgba(14,18,26,0.07);
+  display:flex;flex-direction:column;gap:14px;
+  transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
-.slab .shot{aspect-ratio:16/8}
+.slab:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px -12px rgba(14,18,26,0.12);
+  border-color:rgba(255,176,32,0.4);
+}
+.slab .shot{aspect-ratio:16/8;border-radius:12px;overflow:hidden}
 .slab-amt{font-family:var(--display);font-weight:800;font-size:clamp(30px,4vw,46px);letter-spacing:-.04em;line-height:.9;color:var(--kesar);padding-inline:6px}
-.slab p{color:rgba(248,250,252,.75);font-size:15px;padding-inline:6px}
-.slab ul{list-style:none;margin:auto 0 0;padding:0 6px;display:flex;flex-direction:column;gap:8px}
-.slab li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:rgba(248,250,252,.86)}
-.slab li::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--pista);margin-top:7px;flex:none}
-.progress{height:3px;background:var(--line-dark);margin:clamp(24px,3vw,36px) var(--gutter) 0;border-radius:99px;overflow:hidden}
-.progress i{display:block;height:100%;width:0;background:var(--kesar-hot);border-radius:99px}
+.slab p{color:var(--ink-60);font-size:15px;line-height:1.5;padding-inline:6px}
+.slab ul{list-style:none;margin:auto 0 0;padding:0 6px;display:flex;flex-direction:column;gap:10px}
+.slab li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink);line-height:1.4}
+.slab li::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--pista);margin-top:6px;flex:none}
+.progress{height:4px;background:rgba(14,18,26,0.08);margin:clamp(24px,3vw,36px) var(--gutter) 0;border-radius:99px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:var(--kesar);border-radius:99px}
 @media(max-width:760px){
   .rail-outer{height:auto}
   .rail-sticky{position:static;height:auto;padding:clamp(68px,9vw,120px) 0}
@@ -1778,15 +1789,15 @@ section[id],header[id]{scroll-margin-top:92px}
   </div>
 </section>
 
-<!-- ============ BUDGET RAIL ============ -->
+<!-- ============ BUDGET RAIL (LIGHT THEME) ============ -->
 <section class="brackets" id="budget">
   <div class="rail-outer" id="railOuter">
-    <div class="rail-sticky on-dark">
+    <div class="rail-sticky">
       <div class="rail-head">
         <div class="sec-top" style="margin-bottom:0">
           <div class="sec-head wide">
             <p class="eyebrow">By budget</p>
-            <h2 style="color:var(--malai)">What &#8377;6 lakh buys, and what &#8377;60 lakh does.</h2>
+            <h2 style="color:var(--ink)">What &#8377;6 lakh buys, and what &#8377;60 lakh does.</h2>
           </div>
           <p class="sec-note">Pick the bracket you can fund without borrowing against the house. The format follows the capital, not the other way round.</p>
         </div>
