@@ -83,6 +83,16 @@ def create_brand_page(brand_id, brand_name, category, tagline, investment, payba
 
 .pnl-card {{
   background: var(--jamun-deep); color: var(--malai); border-radius: 20px; padding: clamp(24px, 4vw, 36px);
+  border: 1px solid rgba(255,243,222,0.15); box-shadow: 0 20px 50px -15px rgba(10,3,18,0.5);
+}}
+@media (min-width: 901px) {{
+  .pnl-card {{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 96px;
+    z-index: 10;
+    will-change: transform;
+  }}
 }}
 .pnl-row {{
   display: flex; justify-content: space-between; align-items: center; padding: 10px 0;
