@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cafe Choco Craze Franchise — Cost, ROI, Profit &amp; Capex Sheet — Franchise 101</title>
+<meta name="description" content="Official franchise details for Cafe Choco Craze. Investment ₹8–20 Lakh, 35%–40% Net net margin, 9–14 Months payback. Download audited capex sheet and apply for territory exclusivity." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+.brand-hero-grid {
+  display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: center;
+}
+@media (max-width: 900px) { .brand-hero-grid { grid-template-columns: 1fr; } }
+
+.brand-hero-img-box {
+  border-radius: 24px; overflow: hidden; position: relative; box-shadow: 0 25px 60px -20px rgba(0,0,0,0.5);
+  border: 1.5px solid rgba(255, 243, 222, 0.2); aspect-ratio: 4/3;
+}
+.brand-hero-img-box img { width: 100%; height: 100%; object-fit: cover; }
+
+.econ-summary-bar {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  background: var(--paper-card); border: 1px solid var(--line); border-radius: 18px; padding: 20px;
+  box-shadow: 0 10px 30px -10px rgba(26,20,32,0.06); margin-top: -36px; position: relative; z-index: 10;
+}
+@media (max-width: 768px) { .econ-summary-bar { grid-template-columns: 1fr 1fr; margin-top: -20px; } }
+
+.econ-stat-item small { display: block; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--ink-60); }
+.econ-stat-item strong { display: block; font-size: 20px; font-weight: 800; color: var(--ink); margin-top: 4px; }
+
+.capex-table-wrap {
+  background: #FFF; border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+  box-shadow: 0 10px 25px -10px rgba(26,20,32,0.06);
+}
+.capex-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.capex-table th, .capex-table td { padding: 12px 16px; border-bottom: 1px solid var(--line); text-align: left; }
+.capex-table th { background: rgba(26,20,32,0.04); font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; color: var(--ink-60); }
+.capex-table td:last-child { text-align: right; font-family: var(--font-mono); font-weight: 700; color: var(--ink); }
+.capex-table tr.total-row { background: rgba(255,176,32,0.1); font-weight: 800; }
+.capex-table tr.total-row td { font-size: 15px; color: var(--ink); border-bottom: none; }
+
+.pnl-card {
+  background: var(--jamun-deep); color: var(--malai); border-radius: 20px; padding: clamp(24px, 4vw, 36px);
+}
+.pnl-row {
+  display: flex; justify-content: space-between; align-items: center; padding: 10px 0;
+  border-bottom: 1px solid rgba(255,243,222,0.12); font-size: 14.5px;
+}
+.pnl-row:last-child { border-bottom: none; }
+.pnl-row strong { font-family: var(--font-mono); font-size: 16px; color: var(--kesar); }
+</style>
+</head>
+<body>
+
+<div class="top-progress" id="topProgress"></div>
+
+<!-- ============ FLOATING PILL CAPSULE NAV ============ -->
+<nav class="nav" id="nav">
+  <a class="logo" href="index.html" aria-label="Franchise 101 Home">FRANCHISE 101<span class="dot"></span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="franchises.html" class="active">Franchises</a>
+    <a href="develop-brand.html">Develop Brand</a>
+    <a href="develop-scale.html">Develop &amp; Scale</a>
+    <a href="franchise-marketing.html">Marketing</a>
+    <a href="find-franchise.html">Find Match</a>
+    <a href="book-consultation.html">Contact</a>
+  </div>
+  <div class="nav-cta-wrap">
+    <a class="btn btn--kesar" href="book-consultation.html?brand=Cafe+Choco+Craze">Book Consultation <span class="arw">&rarr;</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+  <div class="mobile-drawer-content">
+    <div class="logo">FRANCHISE 101<span class="dot"></span></div>
+    <nav>
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About Franchise 101</a>
+      <a href="franchises.html" class="mobile-nav-link active">Franchise Opportunities</a>
+      <a href="develop-brand.html" class="mobile-nav-link">Develop Your Own Brand</a>
+      <a href="develop-scale.html" class="mobile-nav-link">Develop &amp; Scale</a>
+      <a href="franchise-marketing.html" class="mobile-nav-link">Franchise Marketing</a>
+      <a href="find-franchise.html" class="mobile-nav-link">Find The Right Franchise</a>
+      <a href="book-consultation.html" class="mobile-nav-link">Book a Consultation</a>
+    </nav>
+    <div style="margin-top:auto;display:flex;flex-direction:column;gap:12px">
+      <a class="btn btn--kesar" href="book-consultation.html?brand=Cafe+Choco+Craze" style="width:100%;text-align:center">Apply For Cafe Choco Craze &rarr;</a>
+      <p style="font-size:12px;color:rgba(255,243,222,.6);text-align:center">Zero brokerage &middot; Direct brand connect</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ BRAND HERO ============ -->
+<header class="page-hero on-dark">
+  <div class="wrap">
+    <div class="brand-hero-grid">
+      <div>
+        <div class="badge-trust rise">
+          <span class="pulse"></span> Verified Brand &middot; 80+ Outlets in Maharashtra & Pan-India
+        </div>
+        <h1 class="rise">Cafe Choco Craze <em>Franchise<span class="strike"></span></em></h1>
+        <p class="page-hero-sub rise" style="margin-bottom:14px">Pune's Iconic Chocolate Cafe Chain Since 2010 · 80+ Outlets</p>
+        <p class="rise" style="color:rgba(255,243,222,.8);font-size:15px;line-height:1.6;margin-bottom:24px">The iconic Pune chocolate cafe chain. Renowned for Chocolick B (signature Cad-B chocolate thick shake), Chocolick M, Frosips, Exotic Cheese Burst Pizzas, Nutella Chocolate Grills, Garlic Breads, and Thick Cold Coffees. In-house chocolate compound manufacturing in Pune ensures unbeatable gross margins and zero supply chain delays.</p>
+        
+        <div class="rise" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+          <a class="btn btn--kesar" href="#apply-brand">Apply For Territory <span class="arw">&rarr;</span></a>
+          <a class="btn btn--ghost on-dark" href="#capex-breakdown">View Capex Breakdown</a>
+          <a class="btn btn--ghost on-dark" href="franchises.html">&larr; All Brands</a>
+        </div>
+      </div>
+      
+      <div class="brand-hero-img-box rise">
+        <img src="assets/brands/cafe-choco-craze.png" alt="Cafe Choco Craze Storefront & Food" />
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ SUMMARY BAR ============ -->
+<section style="padding:0">
+  <div class="wrap">
+    <div class="econ-summary-bar rv">
+      <div class="econ-stat-item">
+        <small>Total Investment</small>
+        <strong style="color:var(--kesar)">₹8–20 Lakh</strong>
+      </div>
+      <div class="econ-stat-item">
+        <small>Est. Net Margin</small>
+        <strong style="color:var(--pista)">35%–40% Net</strong>
+      </div>
+      <div class="econ-stat-item">
+        <small>Est. Payback</small>
+        <strong>9–14 Months</strong>
+      </div>
+      <div class="econ-stat-item">
+        <small>Space Required</small>
+        <strong>100–800 sq.ft</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FRANCHISE FORMATS ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head wide rv" style="margin-bottom:32px">
+      <p class="eyebrow">Investment Options</p>
+      <h2>Available Store Formats for Cafe Choco Craze</h2>
+      <p class="sec-note">Choose the layout and capital model that fits your available commercial shutter or target territory.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:20px">
+      
+        <div class="card rv" style="background:var(--paper-card);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <span class="tag gold">Low Investment</span>
+            <strong style="font-size:22px;color:var(--kesar);font-family:var(--font-editorial)">₹8–12 Lakh</strong>
+          </div>
+          <h3 style="font-size:20px;margin:0;color:var(--ink)">Kiosk Model</h3>
+          <p style="font-size:14px;color:var(--ink-60);line-height:1.55;margin:0">Compact shake and coffee counter focused on Cad-B, Chocolicks and takeaway snacks.</p>
+          <div style="font-family:var(--font-mono);font-size:12.5px;color:var(--ink-60);margin-top:auto;border-top:1px solid var(--line);padding-top:12px">
+            <div><strong>Space:</strong> 100–250 sq.ft</div>
+            <div style="margin-top:4px"><strong>Ideal For:</strong> College gates, youth streets & food courts</div>
+          </div>
+        </div>
+        
+        <div class="card rv" style="background:var(--paper-card);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <span class="tag gold">Full Menu</span>
+            <strong style="font-size:22px;color:var(--kesar);font-family:var(--font-editorial)">₹15–20 Lakh</strong>
+          </div>
+          <h3 style="font-size:20px;margin:0;color:var(--ink)">Lounge Cafe</h3>
+          <p style="font-size:14px;color:var(--ink-60);line-height:1.55;margin:0">Complete dining cafe with chocolate shakes, cheese pizzas, garlic breads & desserts.</p>
+          <div style="font-family:var(--font-mono);font-size:12.5px;color:var(--ink-60);margin-top:auto;border-top:1px solid var(--line);padding-top:12px">
+            <div><strong>Space:</strong> 400–800 sq.ft</div>
+            <div style="margin-top:4px"><strong>Ideal For:</strong> Prominent high streets & family shopping destinations</div>
+          </div>
+        </div>
+        
+        <div class="card rv" style="background:var(--paper-card);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <span class="tag gold">City Partnership</span>
+            <strong style="font-size:22px;color:var(--kesar);font-family:var(--font-editorial)">₹40–60 Lakh</strong>
+          </div>
+          <h3 style="font-size:20px;margin:0;color:var(--ink)">Master Franchise</h3>
+          <p style="font-size:14px;color:var(--ink-60);line-height:1.55;margin:0">Territorial master rights, franchise fee sharing and localized supply chain hub.</p>
+          <div style="font-family:var(--font-mono);font-size:12.5px;color:var(--ink-60);margin-top:auto;border-top:1px solid var(--line);padding-top:12px">
+            <div><strong>Space:</strong> City / District Rights</div>
+            <div style="margin-top:4px"><strong>Ideal For:</strong> Multi-unit investors & regional developers</div>
+          </div>
+        </div>
+        
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGNATURE MENU SHOWCASE ============ -->
+<section class="sec on-dark" style="background:var(--jamun-soft)">
+  <div class="wrap">
+    <div class="sec-head wide rv" style="margin-bottom:32px">
+      <p class="eyebrow on-dark">High Margin Products</p>
+      <h2 style="color:var(--malai)">Signature Menu &amp; Hero Offerings</h2>
+      <p class="sec-note on-dark">Standardized chef-less pre-mix formulations ensure zero wastage and identical taste across all branches.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px" class="rv">
+      
+        <div style="background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px">
+          <strong style="font-size:16px;color:var(--ink)">Chocolick B (Cad-B)</strong>
+          <span style="font-size:13.5px;color:var(--ink-60)">The legendary thick chocolate dessert shake that created a cult following in Pune.</span>
+          <span style="font-family:var(--font-mono);font-size:11.5px;color:var(--kesar);font-weight:700;margin-top:auto">Hero Product · 75% Gross Margin</span>
+        </div>
+        
+        <div style="background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px">
+          <strong style="font-size:16px;color:var(--ink)">Chocolick M & Frosips</strong>
+          <span style="font-size:13.5px;color:var(--ink-60)">Rich milk chocolate and fruit-infused thick ice drinks.</span>
+          <span style="font-family:var(--font-mono);font-size:11.5px;color:var(--kesar);font-weight:700;margin-top:auto">High Repeat Rate</span>
+        </div>
+        
+        <div style="background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px">
+          <strong style="font-size:16px;color:var(--ink)">Nutella Chocolate Grills</strong>
+          <span style="font-size:13.5px;color:var(--ink-60)">Crispy grilled sandwiches overflowing with hot melted Nutella chocolate.</span>
+          <span style="font-family:var(--font-mono);font-size:11.5px;color:var(--kesar);font-weight:700;margin-top:auto">Youth Favorite</span>
+        </div>
+        
+        <div style="background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px">
+          <strong style="font-size:16px;color:var(--ink)">Cheese Burst Pizzas</strong>
+          <span style="font-size:13.5px;color:var(--ink-60)">Fresh hand-tossed pizzas loaded with mozzarella and gourmet toppings.</span>
+          <span style="font-family:var(--font-mono);font-size:11.5px;color:var(--kesar);font-weight:700;margin-top:auto">Evening Dining Pull</span>
+        </div>
+        
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUDITED CAPEX & P&L SECTION ============ -->
+<section class="sec" id="capex-breakdown">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(32px, 4vw, 56px);align-items:start">
+      
+      <!-- Left: Capex Table -->
+      <div>
+        <div class="sec-head rv" style="margin-bottom:24px">
+          <p class="eyebrow">Audited Capex Sheet</p>
+          <h2>Itemized Store Setup Cost</h2>
+          <p class="sec-note">Official breakdown from brand brochure for turnkey setup.</p>
+        </div>
+
+        <div class="capex-table-wrap rv">
+          <table class="capex-table">
+            <tr><th>Component</th><th>Deliverables &amp; Scope</th><th>Cost</th></tr>
+            <tr><td>Franchise Brand License</td><td>5-Year Brand Rights & Territorial Exclusivity</td><td>₹3,50,000</td></tr><tr><td>Heavy-Duty Commercial Blenders</td><td>High-torque shake blenders, deep chillers, sandwich grills</td><td>₹4,20,000</td></tr><tr><td>Cafe Theme Interior & Wall Branding</td><td>Signature chocolate decor, counter build, lighting & furniture</td><td>₹5,00,000</td></tr><tr><td>Initial Chocolate Compounds & Stock</td><td>Signature chocolate bases, shake premixes, beans, cups & boxes</td><td>₹1,80,000</td></tr><tr><td>POS Software, Licences & Launch</td><td>Billing terminal, staff SOP certification & local launch ads</td><td>₹2,00,000</td></tr>
+            <tr class="total-row"><td><strong>Total Capex</strong></td><td><strong>Turnkey Setup (Excl. Taxes)</strong></td><td><strong>₹16,50,000</strong></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Right: Projected Monthly Unit Economics -->
+      <div>
+        <div class="sec-head rv" style="margin-bottom:24px">
+          <p class="eyebrow">Unit Economics</p>
+          <h2>Projected Monthly P&amp;L</h2>
+          <p class="sec-note">Audited outlet financial model based on average footfall.</p>
+        </div>
+
+        <div class="pnl-card rv">
+          <div class="pnl-row"><span>Avg Daily Orders</span><strong>140–190 Orders</strong></div>
+          <div class="pnl-row"><span>Avg Order Value (AOV)</span><strong>₹200</strong></div>
+          <div class="pnl-row"><span>Monthly Gross Revenue</span><strong>₹9,80,000 / mo</strong></div>
+          <div class="pnl-row"><span>Raw Material / Food Cost</span><strong style="color:var(--pista)">30% (₹2,94,000)</strong></div>
+          <div class="pnl-row"><span>Gross Profit</span><strong>70% (₹6,86,000)</strong></div>
+          <div class="pnl-row"><span>Store Expenses (Rent, Staff, Power)</span><strong>₹4,80,000 (Rent, Staff, Power)</strong></div>
+          <div class="pnl-row" style="background:rgba(255,176,32,0.15);padding:14px;border-radius:12px;margin-top:10px">
+            <span style="font-weight:800;color:var(--malai);font-size:16px">Monthly Net Profit</span>
+            <strong style="font-size:22px;color:var(--kesar)">₹2,06,000 / month</strong>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPLICATION FORM SECTION ============ -->
+<section class="sec on-dark" id="apply-brand" style="background:var(--jamun-deep)">
+  <div class="wrap">
+    <div style="max-width:720px;margin:0 auto">
+      <div class="sec-head wide text-center rv" style="text-align:center;margin-bottom:32px">
+        <p class="eyebrow on-dark">Direct Founder Connect</p>
+        <h2 style="color:var(--malai)">Apply For Cafe Choco Craze Franchise</h2>
+        <p class="sec-note on-dark" style="margin:0 auto">Zero brokerage fee. A dedicated Franchise 101 advisor will review your location and coordinate directly with Cafe Choco Craze brand directors.</p>
+      </div>
+
+      <div style="background:rgba(255,243,222,0.05);border:1px solid rgba(255,243,222,0.15);border-radius:24px;padding:clamp(24px, 4vw, 40px)" class="rv">
+        <form class="form" onsubmit="handleBrandApply(event)">
+          <div class="field">
+            <label for="bname">Full Name *</label>
+            <input type="text" id="bname" placeholder="Rohan Deshmukh" required />
+          </div>
+
+          <div class="field">
+            <label for="bphone">Mobile Number (WhatsApp) *</label>
+            <input type="tel" id="bphone" placeholder="9820012345" required />
+          </div>
+
+          <div class="field">
+            <label for="bcity">Target City / Catchment Area *</label>
+            <input type="text" id="bcity" placeholder="Pune (Kothrud / Baner)" required />
+          </div>
+
+          <div class="field">
+            <label for="bformat">Preferred Format *</label>
+            <select id="bformat" required>
+              <option value="">Select format</option>
+              <option value="Kiosk Model">Kiosk Model (₹8–12 Lakh)</option><option value="Lounge Cafe">Lounge Cafe (₹15–20 Lakh)</option><option value="Master Franchise">Master Franchise (₹40–60 Lakh)</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="bspace">Do you have a commercial property?</label>
+            <select id="bspace">
+              <option value="identifying">Actively identifying high-footfall location</option>
+              <option value="owned">I own a commercial shop / space</option>
+              <option value="rented">I have already rented a location</option>
+              <option value="need_help">Need Franchise 101 site-selection advisory</option>
+            </select>
+          </div>
+
+          <div id="applySuccess" style="display:none;background:rgba(169,232,107,0.15);border:1px solid var(--pista);border-radius:12px;padding:16px;margin:16px 0;color:var(--malai)">
+            <strong style="color:var(--pista)">Application Submitted Successfully!</strong>
+            <p style="font-size:14px;margin:6px 0 0">Your inquiry for Cafe Choco Craze has been routed to our senior team. A dedicated franchise manager will call you with the complete P&amp;L projection within 24 hours.</p>
+          </div>
+
+          <div style="margin-top:16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+            <button type="submit" class="btn btn--kesar" id="btnSubmitApply">
+              Submit Application &rarr;
+            </button>
+            <a class="btn btn--ghost on-dark" href="https://wa.me/912240008899?text=Hi%2C%20I%20am%20interested%20in%20Cafe Choco Craze%20Franchise" target="_blank">Chat on WhatsApp 💬</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot on-dark">
+  <div class="wrap">
+    <div class="foot-banner">
+      <div class="foot-banner-text">
+        <h3>Explore other verified franchise opportunities</h3>
+        <p>Compare all 5 curated F&amp;B brands side-by-side with audited capex sheets.</p>
+      </div>
+      <div class="foot-banner-actions">
+        <a class="btn btn--kesar" href="franchises.html">All 5 Franchise Brands &rarr;</a>
+        <a class="btn btn--ghost on-dark" href="find-franchise.html">Take Matching Quiz</a>
+      </div>
+    </div>
+
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">FRANCHISE 101<span class="dot"></span></div>
+        <p>India's definitive food franchise intelligence and advisory platform. Connecting qualified investors with audited F&amp;B brands.</p>
+        <div class="foot-contacts">
+          <div>Email: <a href="mailto:partners@franchise101.in">partners@franchise101.in</a></div>
+          <div>Phone: <a href="tel:+912240008899">+91 22 4000 8899</a></div>
+        </div>
+      </div>
+            <div class="foot-col">
+        <h4>Flagship Brands</h4>
+        <ul>
+          <li><a href="beyond-temptation.html">Beyond Temptation <small>&#8377;13&ndash;20L</small></a></li>
+          <li><a href="dunk-burgers.html">Dunk Burgers <small>&#8377;15&ndash;25L</small></a></li>
+          <li><a href="mr-sandwich.html">Mr. Sandwich <small>&#8377;9&ndash;17.5L</small></a></li>
+          <li><a href="south-twist.html">South Twist <small>&#8377;10&ndash;20L</small></a></li>
+          <li><a href="cafe-choco-craze.html">Cafe Choco Craze <small>&#8377;8&ndash;20L</small></a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>For Brand Owners</h4>
+        <ul>
+          <li><a href="develop-brand.html">Develop Your Own Brand</a></li>
+          <li><a href="develop-scale.html">Develop &amp; Scale (Multi-City)</a></li>
+          <li><a href="franchise-marketing.html">Franchise Marketing &amp; Leads</a></li>
+          <li><a href="book-consultation.html?service=brand-growth">Brand Advisory Audit</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Regional Desks</h4>
+        <ul>
+          <li><a href="book-consultation.html">BKC, Mumbai</a></li>
+          <li><a href="book-consultation.html">Balewadi High St, Pune</a></li>
+          <li><a href="book-consultation.html">Indiranagar, Bengaluru</a></li>
+          <li><a href="book-consultation.html">Cyber City, Gurugram</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-base">
+      <div>&copy; 2026 Franchise 101 Advisory LLP. All rights reserved.</div>
+      <div class="foot-status"><span class="dot-pulse"></span> Q1 2026 Batch Open</div>
+    </div>
+  </div>
+</footer>
+
+<button class="floating-up" id="btnBackToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<script>
+const nav = document.getElementById('nav');
+const topProgress = document.getElementById('topProgress');
+const btnBackToTop = document.getElementById('btnBackToTop');
+const navToggle = document.getElementById('navToggle');
+const mobileDrawer = document.getElementById('mobileDrawer');
+
+let lastScrollY = window.scrollY;
+const scrollDeltaThreshold = 8;
+
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = maxScroll > 0 ? (scrolled / maxScroll) * 100 : 0;
+  
+  if (topProgress) topProgress.style.width = progress + '%';
+  if (btnBackToTop) btnBackToTop.classList.toggle('show', scrolled > 400);
+
+  if (nav) {
+    nav.classList.toggle('stuck', scrolled > 20);
+
+    const isDrawerOpen = mobileDrawer && mobileDrawer.classList.contains('open');
+
+    if (!isDrawerOpen) {
+      if (scrolled <= 30) {
+        nav.classList.remove('nav--hidden');
+      } else if (scrolled > lastScrollY + scrollDeltaThreshold && scrolled > 80) {
+        nav.classList.add('nav--hidden');
+      } else if (scrolled < lastScrollY - scrollDeltaThreshold) {
+        nav.classList.remove('nav--hidden');
+      }
+    }
+  }
+  lastScrollY = scrolled;
+});
+
+if (navToggle && mobileDrawer) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = mobileDrawer.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+}
+
+// Reveal elements on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.05, rootMargin: '0px 0px 50px' });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+function handleBrandApply(e) {
+  e.preventDefault();
+  document.getElementById('applySuccess').style.display = 'block';
+  document.getElementById('btnSubmitApply').style.display = 'none';
+}
+</script>
+</body>
+</html>
