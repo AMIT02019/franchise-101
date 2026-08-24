@@ -182,19 +182,46 @@ p{margin:0}
   .nav-toggle{display:flex}
 }
 
+/* ============ HERO BACKGROUND VIDEO ============ */
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.78;
+  display: block;
+  filter: brightness(0.85) contrast(1.1);
+  transition: opacity 1s ease;
+}
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(circle at 50% 30%, rgba(37, 16, 60, 0.45) 0%, rgba(24, 8, 37, 0.72) 65%, rgba(24, 8, 37, 0.92) 100%);
+  pointer-events: none;
+}
+
 /* ============ HERO ============ */
 .hero{
-  position:relative;background:var(--jamun);color:var(--malai);
+  position:relative;background:#180825;color:var(--malai);
   padding:clamp(110px,14vh,152px) 0 0;overflow:clip;
   border-radius:0 0 clamp(24px,4vw,44px) clamp(24px,4vw,44px);
 }
 .hero::before{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(58% 46% at 50% 2%,rgba(255,176,32,.24),transparent 68%);
-  pointer-events:none;
+  display: none !important;
 }
 .hero-grid{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px}
-.hero h1{color:var(--malai);max-width:14ch;}
+.hero h1{color:var(--malai);max-width:14ch;text-shadow:0 4px 24px rgba(0,0,0,0.85), 0 2px 8px rgba(0,0,0,0.95);}
 .hero h1 em{font-style:normal;color:var(--kesar);position:relative;display:inline-block}
 .hero h1 .strike{
   position:absolute;left:-2%;right:-2%;bottom:.14em;height:.09em;background:var(--pista);
@@ -202,7 +229,7 @@ p{margin:0}
   animation:swipe 1s var(--ease) .85s forwards;
 }
 @keyframes swipe{to{transform:scaleX(1)}}
-.hero-sub{max-width:54ch;color:rgba(255,243,222,.94);font-size:clamp(16px,1.6vw,19px)}
+.hero-sub{max-width:54ch;color:rgba(255,243,222,.95);font-size:clamp(16px,1.6vw,19px);text-shadow:0 2px 14px rgba(0,0,0,0.9);}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 
 .badge-trust{
@@ -1061,6 +1088,14 @@ section[id],header[id]{scroll-margin-top:92px}
 
 <!-- ============ HERO ============ -->
 <header class="hero on-dark" id="top">
+  <!-- Background Donut Video Layer -->
+  <div class="hero-video-wrap" aria-hidden="true">
+    <video class="hero-bg-video" id="heroBgVideo" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" webkit-playsinline="true" preload="auto" disablepictureinpicture="true" disableremoteplayback="true" poster="assets/brands/beyond_temptation_food.png">
+      <source src="assets/videos/dessert_donuts.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
+  </div>
+
   <div class="wrap hero-grid">
     <div class="badge-trust rise">
       <span class="pulse"></span> Curated Food Franchises &middot; 5 Flagship Brands
@@ -3165,6 +3200,32 @@ function openWhatsAppChat(){
 }
 
 
+
+
+// ============ GUARANTEED AUTOPLAY KICKOFF ============
+(function() {
+  const bgVid = document.getElementById('heroBgVideo');
+  if (bgVid) {
+    bgVid.muted = true;
+    bgVid.defaultMuted = true;
+    bgVid.volume = 0;
+    
+    const playVid = function() {
+      if (bgVid.paused) {
+        bgVid.play().catch(function() {});
+      }
+    };
+
+    playVid();
+    document.addEventListener('DOMContentLoaded', playVid);
+    window.addEventListener('load', playVid);
+    window.addEventListener('pageshow', playVid);
+
+    ['touchstart', 'scroll', 'mousemove', 'click', 'keydown'].forEach(function(evt) {
+      window.addEventListener(evt, playVid, { once: true, passive: true });
+    });
+  }
+})();
 
 </script>
 </body>
