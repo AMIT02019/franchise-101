@@ -6,9 +6,9 @@
 
 :root {
   /* Original Palette: Kesar (Gold), Jamun (Deep Plum), Pista (Green), Malai (Cream) */
-  --jamun: #1E0F38;
-  --jamun-deep: #140A24;
-  --jamun-soft: #2F1754;
+  --jamun: #0E121A;
+  --jamun-deep: #080B10;
+  --jamun-soft: #181F2C;
   --kesar: #FFB020;
   --kesar-hot: #FFB020;
   --kesar-hover: #FFBA36;
@@ -16,13 +16,13 @@
   --pista-dark: #00B377;
   --malai: #FFFFFF;
   --malai-cream: #F1F5F9;
-  --paper: #FFFBF5;
+  --paper: #F6F7F9;
   --paper-card: #FFFFFF;
-  --ink: #1A0D2E;
-  --ink-80: #331E56;
-  --ink-60: rgba(26, 13, 46, 0.7);
-  --ink-30: rgba(26, 13, 46, 0.28);
-  --line: rgba(26, 13, 46, 0.08);
+  --ink: #0E121A;
+  --ink-80: #222938;
+  --ink-60: rgba(14, 18, 26, 0.68);
+  --ink-30: rgba(14, 18, 26, 0.28);
+  --line: rgba(14, 18, 26, 0.08);
   --line-dark: rgba(255, 255, 255, 0.16);
   --line-gold: rgba(255, 176, 32, 0.35);
 
@@ -143,10 +143,10 @@ em {
   background: var(--bg); color: var(--fg);
   padding: 14px 28px; border: 0; border-radius: var(--r-pill); cursor: pointer;
   font-weight: 600; font-size: 15px; letter-spacing: -0.01em; line-height: 1;
-  box-shadow: 0 4px 14px rgba(20, 10, 36, 0.12);
+  box-shadow: 0 4px 14px rgba(8, 11, 16, 0.12);
   transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s, color 0.25s;
 }
-.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -6px rgba(20, 10, 36, 0.22); }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -6px rgba(8, 11, 16, 0.22); }
 .btn:active { transform: translateY(0); }
 
 .btn--kesar {
@@ -226,7 +226,7 @@ em {
   will-change: transform;
 }
 .nav.stuck {
-  background: rgba(20, 10, 36, 0.96);
+  background: rgba(8, 11, 16, 0.96);
   border-color: rgba(255, 176, 32, 0.3);
   box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 176, 32, 0.2);
 }
@@ -265,7 +265,7 @@ em {
 
 /* MOBILE DRAWER */
 .mobile-drawer {
-  position: fixed; inset: 0; background: rgba(20, 10, 36, 0.65); backdrop-filter: blur(10px);
+  position: fixed; inset: 0; background: rgba(8, 11, 16, 0.65); backdrop-filter: blur(10px);
   z-index: 85; opacity: 0; pointer-events: none; transition: opacity 0.35s var(--ease);
 }
 .mobile-drawer.open { opacity: 1; pointer-events: auto; }
