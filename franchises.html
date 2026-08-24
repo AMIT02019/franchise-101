@@ -115,13 +115,15 @@
 <!-- ============ PAGE HERO ============ -->
 <header class="page-hero on-dark">
   <div class="wrap">
-    <p class="eyebrow on-dark">Audited F&amp;B Catalog &middot; Q1 2026 Batch</p>
-    <h1>5 Verified Food Franchise Opportunities</h1>
-    <p class="page-hero-sub">Explore our 5 flagship partner brands with audited unit economics, in-house manufacturing support, chef-less operations, and territory exclusivity.</p>
-    <div class="page-hero-meta">
-      <span class="tag green">Zero Investor Brokerage</span>
-      <span class="tag gold">Direct Founder Introduction</span>
-      <span class="tag">Audited Capex Sheets</span>
+    <div class="badge-trust rise">
+      <span class="pulse"></span> Audited F&amp;B Catalog &middot; Q1 2026 Batch
+    </div>
+    <h1 class="rise">5 Verified Food Franchise <em>Opportunities<span class="strike"></span></em></h1>
+    <p class="page-hero-sub rise">Explore our 5 flagship partner brands with audited unit economics, in-house manufacturing support, chef-less operations, and 500m territory exclusivity protection.</p>
+    <div class="page-hero-meta rise">
+      <span class="tag green">&#10003; Zero Investor Brokerage</span>
+      <span class="tag gold">&#9733; Direct Founder Introduction</span>
+      <span class="tag">&#9670; Audited Capex Sheets</span>
     </div>
   </div>
 </header>
@@ -438,12 +440,33 @@ const btnBackToTop = document.getElementById('btnBackToTop');
 const navToggle = document.getElementById('navToggle');
 const mobileDrawer = document.getElementById('mobileDrawer');
 
+let lastScrollY = window.scrollY;
+const scrollDeltaThreshold = 8;
+
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY;
   const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-  if (topProgress) topProgress.style.width = (maxScroll > 0 ? (scrolled / maxScroll) * 100 : 0) + '%';
+  const progress = maxScroll > 0 ? (scrolled / maxScroll) * 100 : 0;
+  
+  if (topProgress) topProgress.style.width = progress + '%';
   if (btnBackToTop) btnBackToTop.classList.toggle('show', scrolled > 400);
-  if (nav) nav.classList.toggle('stuck', scrolled > 20);
+
+  if (nav) {
+    nav.classList.toggle('stuck', scrolled > 20);
+
+    const isDrawerOpen = mobileDrawer && mobileDrawer.classList.contains('open');
+
+    if (!isDrawerOpen) {
+      if (scrolled <= 30) {
+        nav.classList.remove('nav--hidden');
+      } else if (scrolled > lastScrollY + scrollDeltaThreshold && scrolled > 80) {
+        nav.classList.add('nav--hidden');
+      } else if (scrolled < lastScrollY - scrollDeltaThreshold) {
+        nav.classList.remove('nav--hidden');
+      }
+    }
+  }
+  lastScrollY = scrolled;
 });
 
 if (navToggle && mobileDrawer) {

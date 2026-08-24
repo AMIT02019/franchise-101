@@ -108,9 +108,9 @@
 <!-- ============ PAGE HERO ============ -->
 <header class="page-hero on-dark">
   <div class="wrap">
-    <p class="eyebrow on-dark">Interactive Investor Qualifier &middot; 5 Questions</p>
-    <h1>Find The Right Food Franchise For You</h1>
-    <p class="page-hero-sub">Answer 5 quick questions about your capital budget, preferred cuisine category, target city, and operational involvement. Get matched in real-time with verified F&amp;B brands.</p>
+    <div class="badge-trust rise"><span class="pulse"></span> Interactive Investor Qualifier &middot; 5 Questions</div>
+    <h1 class="rise">Find The Right Food Franchise For You</h1>
+    <p class="page-hero-sub rise">Answer 5 quick questions about your capital budget, preferred cuisine category, target city, and operational involvement. Get matched in real-time with verified F&amp;B brands.</p>
   </div>
 </header>
 
@@ -327,11 +327,33 @@ const topProgress = document.getElementById('topProgress');
 const navToggle = document.getElementById('navToggle');
 const mobileDrawer = document.getElementById('mobileDrawer');
 
+let lastScrollY = window.scrollY;
+const scrollDeltaThreshold = 8;
+
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY;
   const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-  if (topProgress) topProgress.style.width = (maxScroll > 0 ? (scrolled / maxScroll) * 100 : 0) + '%';
-  if (nav) nav.classList.toggle('stuck', scrolled > 20);
+  const progress = maxScroll > 0 ? (scrolled / maxScroll) * 100 : 0;
+  
+  if (topProgress) topProgress.style.width = progress + '%';
+  if (btnBackToTop) btnBackToTop.classList.toggle('show', scrolled > 400);
+
+  if (nav) {
+    nav.classList.toggle('stuck', scrolled > 20);
+
+    const isDrawerOpen = mobileDrawer && mobileDrawer.classList.contains('open');
+
+    if (!isDrawerOpen) {
+      if (scrolled <= 30) {
+        nav.classList.remove('nav--hidden');
+      } else if (scrolled > lastScrollY + scrollDeltaThreshold && scrolled > 80) {
+        nav.classList.add('nav--hidden');
+      } else if (scrolled < lastScrollY - scrollDeltaThreshold) {
+        nav.classList.remove('nav--hidden');
+      }
+    }
+  }
+  lastScrollY = scrolled;
 });
 
 if (navToggle && mobileDrawer) {
