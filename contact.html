@@ -4,18 +4,91 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Contact Us & Book Consultation — Franchise 101</title>
-<meta name="description" content="Schedule a confidential 1-on-1 strategy call with Franchise 101's senior food franchise specialists. Zero advisory fees for prospective investors." />
+<meta name="description" content="Connect with Franchise 101 senior food franchise advisors. Schedule a confidential 1-on-1 strategy call, receive audited P&L sheets, and visit running outlets with zero investor fees." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+
 <style>
-/* Contact & Consultation Page Styles */
+/* ==========================================================================
+   ENHANCED CONTACT PAGE STYLES WITH SCROLL ANIMATIONS
+   ========================================================================== */
+
+:root {
+  --contact-glow: rgba(255, 176, 32, 0.15);
+}
+
+/* Page Hero Animations */
+.contact-hero {
+  position: relative;
+  background: radial-gradient(circle at 50% 20%, rgba(14, 18, 26, 0.6) 0%, #080B10 100%), #080B10;
+  padding: clamp(90px, 12vw, 140px) 0 clamp(40px, 6vw, 70px);
+  color: var(--malai);
+  overflow: hidden;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(255, 176, 32, 0.12), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: heroGlowPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlowPulse {
+  0% { transform: scale(1) translate(0, 0); opacity: 0.6; }
+  100% { transform: scale(1.25) translate(-30px, 30px); opacity: 1; }
+}
+
+.contact-stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: clamp(36px, 5vw, 54px);
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+@media (max-width: 768px) {
+  .contact-stats-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+.stat-pill {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.stat-pill b {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 32px);
+  color: var(--kesar);
+  font-weight: 800;
+  line-height: 1;
+}
+.stat-pill span {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: rgba(248, 250, 252, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Two-Column Interactive Layout */
 .contact-layout-grid {
   display: grid;
-  grid-template-columns: 1fr 1.28fr;
+  grid-template-columns: 1fr 1.25fr;
   gap: clamp(32px, 5vw, 64px);
   align-items: start;
   position: relative;
+  margin-top: 10px;
 }
 @media (max-width: 960px) {
   .contact-layout-grid {
@@ -23,16 +96,17 @@
   }
 }
 
-/* Sticky Consultation Form Card */
+/* STICKY CONSULTATION FORM CARD */
 .consult-form-box {
-  background: var(--jamun-deep);
+  background: #0E121A;
   color: var(--malai);
   border-radius: clamp(24px, 4vw, 36px);
   padding: clamp(28px, 4.5vw, 44px);
-  box-shadow: 0 24px 60px -20px rgba(10,3,18,0.6), 0 0 0 1px rgba(248, 250, 252, 0.12);
+  box-shadow: 0 24px 60px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(255, 255, 255, 0.12);
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(248, 250, 252, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 @media (min-width: 961px) {
@@ -42,17 +116,38 @@
     top: 96px;
     z-index: 20;
     will-change: transform;
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
   }
+}
+
+.consult-form-box:hover {
+  box-shadow: 0 30px 70px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(255, 176, 32, 0.3);
+  border-color: rgba(255, 176, 32, 0.35);
 }
 
 .consult-form-box::after {
   content: "";
   position: absolute;
   top: 0; right: 0;
-  width: 240px; height: 240px;
-  background: radial-gradient(circle, rgba(255,176,32,0.18), transparent 70%);
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(255,176,32,0.16), transparent 70%);
   pointer-events: none;
+}
+
+/* Form Progress Indicator */
+.form-progress-bar-wrap {
+  margin-bottom: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  height: 6px;
+  overflow: hidden;
+  position: relative;
+}
+.form-progress-bar-fill {
+  height: 100%;
+  width: 15%;
+  background: linear-gradient(90deg, var(--kesar), #FFD166);
+  border-radius: 999px;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .form {
@@ -82,7 +177,9 @@
   font-size: 13px;
   font-weight: 600;
   color: rgba(248, 250, 252, 0.9);
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .field input,
@@ -91,8 +188,8 @@
   font: inherit;
   font-size: 14.5px;
   color: var(--malai);
-  background: rgba(248, 250, 252, 0.08);
-  border: 1.5px solid rgba(248, 250, 252, 0.18);
+  background: rgba(248, 250, 252, 0.07);
+  border: 1.5px solid rgba(248, 250, 252, 0.16);
   border-radius: 12px;
   padding: 12px 15px;
   transition: all 0.25s ease;
@@ -114,7 +211,7 @@
 .field input:hover,
 .field select:hover,
 .field textarea:hover {
-  background: rgba(248, 250, 252, 0.12);
+  background: rgba(248, 250, 252, 0.11);
   border-color: rgba(255, 176, 32, 0.4);
 }
 
@@ -168,7 +265,111 @@
   color: var(--pista);
 }
 
-/* Office Cards with Scroll-Spy & Active State */
+/* ==========================================================================
+   SCROLL-TRIGGERED ONBOARDING JOURNEY (LEFT COLUMN)
+   ========================================================================== */
+
+.scroll-timeline {
+  position: relative;
+  padding-left: 32px;
+  margin-top: 24px;
+  margin-bottom: 36px;
+}
+
+.scroll-timeline::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 14px;
+  bottom: 14px;
+  width: 2.5px;
+  background: var(--line);
+  border-radius: 2px;
+}
+
+.timeline-progress-line {
+  position: absolute;
+  left: 11px;
+  top: 14px;
+  width: 2.5px;
+  height: 0%;
+  background: linear-gradient(180deg, var(--kesar), var(--pista));
+  border-radius: 2px;
+  transition: height 0.2s ease-out;
+  z-index: 1;
+}
+
+.timeline-step-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1.5px solid var(--line);
+  border-radius: 20px;
+  padding: 22px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 24px -8px rgba(14,18,26,0.06);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-step-card::before {
+  content: "";
+  position: absolute;
+  left: -32px;
+  top: 24px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--paper-card);
+  border: 2px solid var(--line);
+  z-index: 2;
+  transition: all 0.35s ease;
+}
+
+.timeline-step-card.active-spy {
+  transform: translateX(8px);
+  border-color: var(--kesar);
+  box-shadow: 0 16px 36px -10px rgba(255, 176, 32, 0.2);
+}
+
+.timeline-step-card.active-spy::before {
+  background: var(--kesar);
+  border-color: var(--jamun-deep);
+  box-shadow: 0 0 0 4px rgba(255, 176, 32, 0.35);
+}
+
+.timeline-step-card h4 {
+  font-family: var(--font-display);
+  font-size: 17.5px;
+  color: var(--ink);
+  margin: 0 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.timeline-step-card p {
+  font-size: 14px;
+  color: var(--ink-60);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.timeline-step-card .tag-indicator {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--kesar-hot);
+  font-weight: 700;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/* Regional Office Cards */
+.office-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 20px;
+}
+
 .office-card {
   background: var(--paper-card);
   border: 1.5px solid var(--line);
@@ -177,11 +378,11 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 18px;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-  box-shadow: 0 8px 20px -8px rgba(26,20,32,0.05);
+  box-shadow: 0 8px 20px -8px rgba(14,18,26,0.05);
 }
+
 .office-card::before {
   content: "";
   position: absolute;
@@ -192,13 +393,15 @@
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-.office-card:hover, .office-card.active-spy {
-  transform: translateX(6px);
+
+.office-card:hover, .office-card.active-office {
+  transform: translateY(-3px) translateX(4px);
   border-color: var(--kesar);
   background: #FFF;
   box-shadow: 0 16px 36px -10px rgba(255, 176, 32, 0.2);
 }
-.office-card:hover::before, .office-card.active-spy::before {
+
+.office-card:hover::before, .office-card.active-office::before {
   opacity: 1;
 }
 
@@ -208,14 +411,16 @@
   color: var(--ink);
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
 }
+
 .office-card p {
   font-size: 14px;
   color: var(--ink-60);
   line-height: 1.5;
   margin: 0;
 }
+
 .office-card small {
   font-family: var(--font-mono);
   font-size: 12px;
@@ -223,34 +428,48 @@
   font-weight: 600;
 }
 
-/* Advisory Steps Timeline Box */
-.advisory-steps-box {
-  background: var(--paper-card);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 24px;
-  margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.advisory-step-item {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-}
-.step-num-badge {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: rgba(255,176,32,0.15);
-  color: var(--kesar-hot);
-  font-weight: 800;
-  font-size: 13px;
-  display: flex;
+.office-status-dot {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  gap: 5px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--pista-dark);
+  font-weight: 700;
+}
+
+.office-status-dot::before {
+  content: "";
+  width: 6.5px;
+  height: 6.5px;
+  border-radius: 50%;
+  background: var(--pista);
+  box-shadow: 0 0 8px var(--pista);
+}
+
+/* Floating WhatsApp Quick Action Button */
+.whatsapp-float-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: #25D366;
+  color: #FFFFFF;
+  border-radius: 999px;
+  padding: 12px 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+  z-index: 100;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.whatsapp-float-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 16px 36px rgba(37, 211, 102, 0.55);
 }
 </style>
 </head>
@@ -269,10 +488,10 @@
     <a href="develop-scale.html">Develop &amp; Scale</a>
     <a href="franchise-marketing.html">Marketing</a>
     <a href="find-franchise.html">Find Match</a>
-    <a href="book-consultation.html" class="active">Contact</a>
+    <a href="contact.html" class="active">Contact</a>
   </div>
   <div class="nav-cta-wrap">
-    <a class="btn btn--kesar" href="book-consultation.html">Book a Consultation <span class="arw">&rarr;</span></a>
+    <a class="btn btn--kesar" href="contact.html">Book a Consultation <span class="arw">&rarr;</span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -291,188 +510,254 @@
       <a href="develop-scale.html" class="mobile-nav-link">Develop &amp; Scale</a>
       <a href="franchise-marketing.html" class="mobile-nav-link">Franchise Marketing</a>
       <a href="find-franchise.html" class="mobile-nav-link">Find The Right Franchise</a>
-      <a href="book-consultation.html" class="mobile-nav-link active">Book a Consultation</a>
+      <a href="contact.html" class="mobile-nav-link active">Book a Consultation</a>
     </nav>
     <div style="margin-top:auto;display:flex;flex-direction:column;gap:12px">
-      <a class="btn btn--kesar" href="book-consultation.html" style="width:100%;text-align:center">Book a Consultation &rarr;</a>
+      <a class="btn btn--kesar" href="contact.html" style="width:100%;text-align:center">Book a Consultation &rarr;</a>
       <p style="font-family:var(--font-mono);font-size:12px;color:rgba(248,250,252,.6);text-align:center">Zero fee &middot; Direct brand connect</p>
     </div>
   </div>
 </div>
 
 <!-- ============ PAGE HERO ============ -->
-<header class="page-hero on-dark">
+<header class="contact-hero on-dark">
   <div class="wrap">
-    <div class="badge-trust rise"><span class="pulse"></span> 1-on-1 Investor Strategy &middot; 24-Hour SLA</div>
-    <h1 class="rise">Book a Consultation with Our Franchise Specialists</h1>
-    <p class="page-hero-sub rise">Whether you are evaluating your first tea kiosk in Pune or acquiring a master casual dining territory in Hyderabad, our senior advisors provide audited unit economics, capex sheets, and direct brand introductions.</p>
-  </div>
-</header>
+    <div class="badge-trust rise"><span class="pulse"></span> Confidential 1-on-1 Investor Strategy &middot; 24-Hour SLA</div>
+    <h1 class="rise" style="font-size:clamp(34px,4.5vw,56px);max-width:20ch;margin-block:16px 14px">Get In Touch With Senior Franchise Advisors.</h1>
+    <p class="page-hero-sub rise" style="max-width:58ch">Whether evaluating your first high-street kiosk or acquiring state master franchise rights, our team provides audited Capex sheets, confidential unit economics, and zero-brokerage brand introductions.</p>
 
-<!-- ============ FORM & OFFICE DIRECTORY ============ -->
-<section class="sec">
-  <div class="wrap">
-    <div class="contact-layout-grid rv">
-      <!-- Left: Office Locations & Contact Details -->
-      <div>
-        <div class="sec-head" style="margin-bottom:24px">
-          <p class="eyebrow">Direct Touchpoints</p>
-          <h2 style="font-size:clamp(24px,3vw,34px)">Headquarters &amp; Regional Desks</h2>
-          <p class="sec-note">Speak with an advisor or visit our corporate offices across India's premier commercial hubs.</p>
-        </div>
-
-        <div class="office-card">
-          <strong>🏢 Mumbai Corporate HQ</strong>
-          <p>Level 8, Platina Tower, G-Block, Bandra Kurla Complex (BKC), Mumbai, MH 400051</p>
-          <small>Mon &ndash; Sat &middot; 9:30 AM &ndash; 7:30 PM IST</small>
-        </div>
-
-        <div class="office-card">
-          <strong>📍 Pune Regional Hub</strong>
-          <p>4th Floor, Supreme Headquarters, Balewadi High Street, Baner, Pune, MH 411045</p>
-          <small>Regional Desk &middot; Western Maharashtra</small>
-        </div>
-
-        <div class="office-card">
-          <strong>📍 Bengaluru Technology Corridor</strong>
-          <p>Indiranagar 100ft Road, HAL 2nd Stage, Bengaluru, KA 560038</p>
-          <small>South India Expansion Desk</small>
-        </div>
-
-        <div class="office-card">
-          <strong>📍 Delhi NCR Hub</strong>
-          <p>DLF Cyber City, Building 10, Tower B, Phase II, Gurugram, HR 122002</p>
-          <small>North India Master Territory Desk</small>
-        </div>
-
-        <div style="background:var(--paper-card);border:1px solid var(--line);border-radius:var(--r);padding:24px;margin-top:20px;display:flex;flex-direction:column;gap:10px">
-          <h4 style="margin:0;font-size:16px;color:var(--ink)">Direct Communications</h4>
-          <div style="font-family:var(--font-mono);font-size:13.5px;color:var(--ink-60)">
-            <div><strong>Investor Helpline:</strong> <a href="tel:+912240008899" style="color:var(--kesar-hot)">+91 22 4000 8899</a></div>
-            <div style="margin-top:4px"><strong>Investor Desk:</strong> <a href="mailto:partners@franchise101.in" style="color:var(--kesar-hot)">partners@franchise101.in</a></div>
-            <div style="margin-top:4px"><strong>Brand Growth Desk:</strong> <a href="mailto:brands@franchise101.in" style="color:var(--kesar-hot)">brands@franchise101.in</a></div>
-          </div>
-          <a class="btn btn--kesar btn--sm" href="https://wa.me/912240008899" target="_blank" style="margin-top:8px">Instant WhatsApp Chat 💬</a>
-        </div>
+    <!-- Interactive Live Stats Strip -->
+    <div class="contact-stats-strip rv">
+      <div class="stat-pill">
+        <b data-count="1860">1,860+</b>
+        <span>Outlets Facilitated</span>
       </div>
-
-              <!-- Advisory Steps Timeline -->
-        <div class="advisory-steps-box rv">
-          <h4 style="margin:0;font-size:16.5px;color:var(--ink)">What Happens After You Apply?</h4>
-          
-          <div class="advisory-step-item">
-            <span class="step-num-badge">1</span>
-            <div>
-              <strong style="font-size:14px;color:var(--ink);display:block">Confidential Call in 24h</strong>
-              <span style="font-size:13px;color:var(--ink-60)">A senior manager reviews your city footfall, budget bracket &amp; category preference.</span>
-            </div>
-          </div>
-
-          <div class="advisory-step-item">
-            <span class="step-num-badge">2</span>
-            <div>
-              <strong style="font-size:14px;color:var(--ink);display:block">Itemized P&amp;L &amp; Capex Sheets</strong>
-              <span style="font-size:13px;color:var(--ink-60)">Receive audited cost sheets and raw material gross margins before signing any agreement.</span>
-            </div>
-          </div>
-
-          <div class="advisory-step-item">
-            <span class="step-num-badge">3</span>
-            <div>
-              <strong style="font-size:14px;color:var(--ink);display:block">Direct Founder Introduction</strong>
-              <span style="font-size:13px;color:var(--ink-60)">Visit a running outlet and speak with the brand directors with 100% zero brokerage fee.</span>
-            </div>
-          </div>
-        </div>
-
-      <!-- Right: Guided Consultation Form -->
-      <div class="consult-form-box">
-        <h3 style="color:var(--malai);font-size:clamp(22px,2.5vw,30px);margin-bottom:6px">Schedule 1-on-1 Consultation</h3>
-        <p style="color:rgba(248,250,252,.75);font-size:14.5px;margin-bottom:24px">No brokerage fee. A dedicated franchise manager evaluates your location and provides unit economics within 24 hours.</p>
-
-        <form class="form" id="consultForm" onsubmit="return false">
-          <!-- Selected Brand Badge -->
-          <div class="brand-selected-badge" id="brandBadge">
-            <span>Enquiring for: <strong id="brandBadgeName" style="color:var(--kesar)">Beyond Temptation</strong></span>
-            <button type="button" onclick="clearSelectedBrand()">Remove &#10005;</button>
-          </div>
-
-          <div class="field">
-            <label for="fname">Full Name *</label>
-            <input type="text" id="fname" placeholder="Rohan Deshmukh" autocomplete="name" />
-            <span class="err" data-for="fname"></span>
-          </div>
-
-          <div class="field">
-            <label for="fphone">Mobile Number *</label>
-            <input type="tel" id="fphone" placeholder="9820012345" autocomplete="tel" />
-            <span class="err" data-for="fphone"></span>
-          </div>
-
-          <div class="field">
-            <label for="femail">Email Address *</label>
-            <input type="email" id="femail" placeholder="rohan@example.com" autocomplete="email" />
-            <span class="err" data-for="femail"></span>
-          </div>
-
-          <div class="field">
-            <label for="fcity">Target City / Area *</label>
-            <input type="text" id="fcity" placeholder="Pune (Kothrud / Baner)" />
-            <span class="err" data-for="fcity"></span>
-          </div>
-
-          <div class="field">
-            <label for="fbudget">Investment Budget *</label>
-                        <select id="fbudget">
-              <option value="">Select capital range</option>
-              <option value="8-15">&#8377;8 &ndash; 15 Lakh (Mr. Sandwich / South Twist / Cafe Choco Craze)</option>
-              <option value="15-25">&#8377;15 &ndash; 25 Lakh (Beyond Temptation / Dunk Burgers)</option>
-              <option value="25-45">&#8377;25 &ndash; 45 Lakh (Multi-Unit City Expansion)</option>
-              <option value="50plus">&#8377;50 Lakh+ (Master Franchise &amp; State Partner)</option>
-            </select>
-            <span class="err" data-for="fbudget"></span>
-          </div>
-
-          <div class="field">
-            <label for="fspace">Property Status *</label>
-            <select id="fspace">
-              <option value="">Do you have commercial space?</option>
-              <option value="own">I own a commercial shutter / land</option>
-              <option value="rented">I have rented a commercial spot</option>
-              <option value="identifying">Actively identifying high-footfall space</option>
-              <option value="need_help">Need Franchise 101 site-selection support</option>
-            </select>
-            <span class="err" data-for="fspace"></span>
-          </div>
-
-          <div class="field full">
-            <label for="fnote">Specific Questions or Preferred Food Categories</label>
-            <textarea id="fnote" placeholder="Tell us if you prefer hands-on FOFO or passive FOCO, your target launch month, or past retail experience."></textarea>
-          </div>
-
-          <!-- Submission Confirmation -->
-          <div class="sent" id="sent">
-            <b>Application Received Successfully!</b>
-            <p style="color:var(--malai);font-size:14.5px;line-height:1.6;margin:0">
-              Your confidential inquiry has been routed to our Senior Franchise Desk. Your unique tracking reference is <strong id="tokenDisplay" style="color:var(--kesar);font-family:var(--font-mono)">#F101-4821</strong>. A dedicated franchise manager will call and share the itemized capex sheet within 24 hours.
-            </p>
-            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
-              <button type="button" class="btn btn--kesar btn--sm" onclick="openWhatsAppChat()">Open WhatsApp Concierge 💬</button>
-              <button type="button" class="btn btn--ghost btn--sm on-dark" onclick="resetForm()">Submit Another Query</button>
-            </div>
-          </div>
-
-          <div style="grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:12px">
-            <button class="btn btn--kesar" id="send" type="button">
-              <span>Send My Application</span> <span class="arw">&rarr;</span>
-            </button>
-            <span style="font-family:var(--font-mono);font-size:12px;color:rgba(248,250,252,.6)">🔒 100% Zero Fee Guarantee</span>
-          </div>
-        </form>
+      <div class="stat-pill">
+        <b>&#8377;0 Brokerage</b>
+        <span>Free For Investors</span>
+      </div>
+      <div class="stat-pill">
+        <b data-count="24" data-suffix="h SLA">24h SLA</b>
+        <span>Direct Call Response</span>
+      </div>
+      <div class="stat-pill">
+        <b>100% Audited</b>
+        <span>Central Kitchen SOPs</span>
       </div>
     </div>
   </div>
+</header>
+
+<!-- ============ FORM & SCROLLING ONBOARDING TIMELINE ============ -->
+<section class="sec" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="contact-layout-grid">
+      
+      <!-- Left Column: Scroll-Spy Onboarding Steps & Office Locations -->
+      <div>
+        <div class="sec-head" style="margin-bottom:20px">
+          <p class="eyebrow"><span class="pulse"></span> Advisory Roadmap</p>
+          <h2 style="font-size:clamp(24px,3vw,34px)">What Happens When You Connect?</h2>
+          <p class="sec-note">Scroll down to explore our structured 4-step onboarding journey and regional corporate hubs.</p>
+        </div>
+
+        <!-- Scroll-Driven Animated Journey Timeline -->
+        <div class="scroll-timeline" id="scrollTimeline">
+          <div class="timeline-progress-line" id="timelineProgressLine"></div>
+
+          <!-- Step 1 -->
+          <div class="timeline-step-card active-spy" data-step="1">
+            <h4><span style="color:var(--kesar)">01.</span> Location &amp; Budget Feasibility</h4>
+            <p>Our senior manager analyzes your city footfall, target demographics, and commercial rent feasibility against real F&amp;B operational benchmarks.</p>
+            <span class="tag-indicator">&bull; Step 1 Complete in 24 Hours</span>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-step-card" data-step="2">
+            <h4><span style="color:var(--kesar)">02.</span> Itemized Capex &amp; P&amp;L Review</h4>
+            <p>Receive confidential profit &amp; loss schedules, equipment bills of materials, and verified raw material gross margins before making any financial commitment.</p>
+            <span class="tag-indicator">&bull; Audited Cost Breakdown</span>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-step-card" data-step="3">
+            <h4><span style="color:var(--kesar)">03.</span> Running Outlet Kitchen Visit</h4>
+            <p>Visit a live, running franchise outlet to taste menu recipes, inspect chef-less central kitchen supply packs, and observe peak order assembly first-hand.</p>
+            <span class="tag-indicator">&bull; Hands-On Operational Validation</span>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="timeline-step-card" data-step="4">
+            <h4><span style="color:var(--kesar)">04.</span> Direct Founder Meet &amp; Territory Lock</h4>
+            <p>Engage in direct strategic alignment with the brand directors to secure exclusive city territory pin-codes with 100% zero investor brokerage fees.</p>
+            <span class="tag-indicator">&bull; Official Franchise Agreement</span>
+          </div>
+        </div>
+
+        <!-- Regional Offices Section -->
+        <div class="sec-head" style="margin-top:40px;margin-bottom:18px">
+          <p class="eyebrow">Direct Touchpoints</p>
+          <h2 style="font-size:clamp(22px,2.5vw,30px)">Corporate Headquarters &amp; Regional Hubs</h2>
+        </div>
+
+        <div class="office-grid">
+          <div class="office-card active-office" id="offMumbai">
+            <strong>
+              <span>🏢 Mumbai Corporate HQ</span>
+              <span class="office-status-dot">Open Now</span>
+            </strong>
+            <p>Level 8, Platina Tower, G-Block, Bandra Kurla Complex (BKC), Mumbai, MH 400051</p>
+            <small>National Advisory &middot; Mon &ndash; Sat 9:30 AM &ndash; 7:30 PM IST</small>
+          </div>
+
+          <div class="office-card" id="offPune">
+            <strong>
+              <span>📍 Pune Regional Innovation Hub</span>
+              <span class="office-status-dot">Open Now</span>
+            </strong>
+            <p>4th Floor, Supreme Headquarters, Balewadi High Street, Baner, Pune, MH 411045</p>
+            <small>Western Maharashtra Desk &middot; Central Supply Logistics</small>
+          </div>
+
+          <div class="office-card" id="offBlr">
+            <strong>
+              <span>📍 Bengaluru Technology Corridor</span>
+              <span class="office-status-dot">Open Now</span>
+            </strong>
+            <p>Indiranagar 100ft Road, HAL 2nd Stage, Bengaluru, KA 560038</p>
+            <small>South India Expansion Desk &middot; QSR Formats</small>
+          </div>
+
+          <div class="office-card" id="offDelhi">
+            <strong>
+              <span>📍 Delhi NCR Master Territory Hub</span>
+              <span class="office-status-dot">Open Now</span>
+            </strong>
+            <p>DLF Cyber City, Building 10, Tower B, Phase II, Gurugram, HR 122002</p>
+            <small>North India Master Territory &middot; Multi-Unit Advisory</small>
+          </div>
+        </div>
+
+        <!-- Direct Direct Comms Card -->
+        <div style="background:#FFFFFF;border:1.5px solid var(--line);border-radius:20px;padding:24px;margin-top:20px;display:flex;flex-direction:column;gap:12px;box-shadow:0 8px 24px -8px rgba(14,18,26,0.06)">
+          <h4 style="margin:0;font-size:16px;color:var(--ink)">Direct Communications Directory</h4>
+          <div style="font-family:var(--font-mono);font-size:13.5px;color:var(--ink-60);display:flex;flex-direction:column;gap:6px">
+            <div><strong>Investor Helpline:</strong> <a href="tel:+912240008899" style="color:var(--kesar-hot);font-weight:700">+91 22 4000 8899</a></div>
+            <div><strong>Investor Desk:</strong> <a href="mailto:partners@franchise101.in" style="color:var(--kesar-hot);font-weight:700">partners@franchise101.in</a></div>
+            <div><strong>Brand Partnerships:</strong> <a href="mailto:brands@franchise101.in" style="color:var(--kesar-hot);font-weight:700">brands@franchise101.in</a></div>
+          </div>
+          <a class="btn btn--kesar btn--sm" href="https://wa.me/912240008899" target="_blank" style="margin-top:4px">Open Instant WhatsApp Concierge 💬</a>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Sticky Consultation Application Form -->
+      <div>
+        <div class="consult-form-box" id="consultStickyBox">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <h3 style="color:var(--malai);font-size:clamp(22px,2.5vw,30px);margin:0">Schedule 1-on-1 Strategy Call</h3>
+            <span class="tag gold" id="formStepTag">Step 1 of 4</span>
+          </div>
+          
+          <p style="color:rgba(248,250,252,.75);font-size:14px;line-height:1.5;margin-bottom:16px">
+            100% Zero investor fee. A dedicated franchise manager evaluates your city location and provides audited unit economics within 24 hours.
+          </p>
+
+          <!-- Interactive Form Progress -->
+          <div class="form-progress-bar-wrap">
+            <div class="form-progress-bar-fill" id="formProgressFill"></div>
+          </div>
+
+          <form class="form" id="consultForm" onsubmit="return false">
+            <!-- Selected Brand Badge -->
+            <div class="brand-selected-badge" id="brandBadge">
+              <span>Enquiring for: <strong id="brandBadgeName" style="color:var(--kesar)">Beyond Temptation</strong></span>
+              <button type="button" onclick="clearSelectedBrand()">Remove &#10005;</button>
+            </div>
+
+            <div class="field">
+              <label for="fname">Full Name *</label>
+              <input type="text" id="fname" placeholder="e.g. Rohan Deshmukh" autocomplete="name" oninput="updateFormProgress()" />
+              <span class="err" data-for="fname"></span>
+            </div>
+
+            <div class="field">
+              <label for="fphone">Mobile Number *</label>
+              <input type="tel" id="fphone" placeholder="e.g. 9820012345" autocomplete="tel" oninput="updateFormProgress()" />
+              <span class="err" data-for="fphone"></span>
+            </div>
+
+            <div class="field">
+              <label for="femail">Email Address *</label>
+              <input type="email" id="femail" placeholder="e.g. rohan@example.com" autocomplete="email" oninput="updateFormProgress()" />
+              <span class="err" data-for="femail"></span>
+            </div>
+
+            <div class="field">
+              <label for="fcity">Target City / Location *</label>
+              <input type="text" id="fcity" placeholder="e.g. Pune (Baner / Kothrud)" oninput="updateFormProgress()" />
+              <span class="err" data-for="fcity"></span>
+            </div>
+
+            <div class="field">
+              <label for="fbudget">Investment Budget *</label>
+              <select id="fbudget" onchange="updateFormProgress()">
+                <option value="">Select capital range</option>
+                <option value="8-15">&#8377;8 &ndash; 15 Lakh (Mr. Sandwich / South Twist / Cafe Choco Craze)</option>
+                <option value="15-25">&#8377;15 &ndash; 25 Lakh (Beyond Temptation / Dunk Burgers)</option>
+                <option value="25-45">&#8377;25 &ndash; 45 Lakh (Multi-Unit City Expansion)</option>
+                <option value="50plus">&#8377;50 Lakh+ (Master Franchise &amp; State Partner)</option>
+              </select>
+              <span class="err" data-for="fbudget"></span>
+            </div>
+
+            <div class="field">
+              <label for="fspace">Property Status *</label>
+              <select id="fspace" onchange="updateFormProgress()">
+                <option value="">Do you have commercial space?</option>
+                <option value="own">I own a commercial shutter / land</option>
+                <option value="rented">I have rented a commercial spot</option>
+                <option value="identifying">Actively identifying high-footfall space</option>
+                <option value="need_help">Need Franchise 101 site-selection support</option>
+              </select>
+              <span class="err" data-for="fspace"></span>
+            </div>
+
+            <div class="field full">
+              <label for="fnote">Specific Questions or Preferred Food Categories</label>
+              <textarea id="fnote" placeholder="Tell us if you prefer hands-on FOFO or passive FOCO, your target launch month, or past retail experience."></textarea>
+            </div>
+
+            <!-- Submission Confirmation -->
+            <div class="sent" id="sent">
+              <b>Application Received Successfully!</b>
+              <p style="color:var(--malai);font-size:14.5px;line-height:1.6;margin:0">
+                Your confidential inquiry has been routed to our Senior Franchise Desk. Your unique tracking reference is <strong id="tokenDisplay" style="color:var(--kesar);font-family:var(--font-mono)">#F101-4821</strong>. A dedicated franchise manager will call and share the itemized capex sheet within 24 hours.
+              </p>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
+                <button type="button" class="btn btn--kesar btn--sm" onclick="openWhatsAppChat()">Open WhatsApp Concierge 💬</button>
+                <button type="button" class="btn btn--ghost btn--sm on-dark" onclick="resetForm()">Submit Another Query</button>
+              </div>
+            </div>
+
+            <div style="grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:8px">
+              <button class="btn btn--kesar" id="send" type="button">
+                <span>Send My Application</span> <span class="arw">&rarr;</span>
+              </button>
+              <span style="font-family:var(--font-mono);font-size:12px;color:rgba(248,250,252,.6)">🔒 100% Zero Brokerage Fee Guarantee</span>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
+
+<!-- Floating WhatsApp Action -->
+<a href="https://wa.me/912240008899?text=Hi%20Franchise%20101,%20I%20would%20like%20to%20speak%20with%20a%20franchise%20advisor." target="_blank" class="whatsapp-float-btn" aria-label="Chat on WhatsApp">
+  <span>💬</span> Chat With Advisor
+</a>
 
 <!-- ============ FOOTER ============ -->
 <footer class="foot on-dark">
@@ -500,13 +785,13 @@
       </div>
 
       <div class="foot-col">
-        <h4>Franchise Formats</h4>
+        <h4>Flagship Brands</h4>
         <ul>
-          <li><a href="franchises.html#chai-katta">Chai &amp; Beverages <small>₹6L–11L</small></a></li>
-          <li><a href="franchises.html#kulfi-club">Matka Kulfi &amp; Desserts <small>₹14L–22L</small></a></li>
-          <li><a href="franchises.html#momo-mafia">QSR &amp; Fast Food <small>₹12L–24L</small></a></li>
-          <li><a href="franchises.html#biryani-bay">Delivery Cloud Kitchens <small>₹8L–13L</small></a></li>
-          <li><a href="franchises.html#tandoor-tribe">Casual Dining (FOCO) <small>₹40L–65L</small></a></li>
+          <li><a href="beyond-temptation.html">Beyond Temptation <small>₹13L–20L</small></a></li>
+          <li><a href="dunk-burgers.html">Dunk Burgers <small>₹15L–25L</small></a></li>
+          <li><a href="mr-sandwich.html">Mr. Sandwich <small>₹9L–17.5L</small></a></li>
+          <li><a href="south-twist.html">South Twist <small>₹10L–20L</small></a></li>
+          <li><a href="cafe-choco-craze.html">Cafe Choco Craze <small>₹8L–20L</small></a></li>
         </ul>
       </div>
 
@@ -522,39 +807,37 @@
       </div>
 
       <div class="foot-col">
-        <h4>For Brands &amp; Legal</h4>
+        <h4>Growth Advisory</h4>
         <ul>
-          <li><a href="develop-brand.html">Develop Your Own Brand</a></li>
+          <li><a href="develop-brand.html">Develop Your Brand</a></li>
           <li><a href="develop-scale.html">Develop &amp; Scale Network</a></li>
-          <li><a href="franchise-marketing.html">Franchise Marketing &amp; Leads</a></li>
-          <li><a href="book-consultation.html">Schedule Strategy Call</a></li>
+          <li><a href="franchise-marketing.html">Franchise Marketing</a></li>
+          <li><a href="contact.html">Book Strategy Call</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="foot-base">
-      <span>&copy; 2026 Franchise 101 Ventures Pvt Ltd &middot; All Rights Reserved</span>
-      <div class="foot-status">
-        <span class="dot-pulse"></span>
-        <span>41 Verified Brands Live &middot; 214 Cities Covered</span>
-      </div>
-      <div class="foot-base-links">
-        <a href="index.html">Home</a>
+    <div class="foot-sub">
+      <p>&copy; 2026 Franchise 101 Platform. All rights reserved. Direct brand verification with zero middleman fee.</p>
+      <div class="foot-sub-links">
         <a href="about.html">About</a>
-        <a href="book-consultation.html">Privacy &amp; Terms</a>
+        <a href="franchises.html">All Brands</a>
+        <a href="contact.html">Contact Us</a>
       </div>
     </div>
   </div>
 </footer>
 
-<button class="floating-up" id="btnBackToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+<button class="back-to-top" id="btnBackToTop" aria-label="Back to top">&#8593;</button>
 
+<!-- ============ JAVASCRIPT ============ -->
 <script>
-// Check URL parameters for prefill
+// Prefill from query params
 window.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   const brand = params.get('brand');
   const service = params.get('service');
+  const budget = params.get('budget');
 
   if (brand) {
     prefillBrand(brand);
@@ -562,6 +845,11 @@ window.addEventListener('DOMContentLoaded', () => {
     const noteField = document.getElementById('fnote');
     if (noteField) noteField.value = `Enquiring for food brand growth service: ${service}.`;
   }
+  if (budget) {
+    const bSel = document.getElementById('fbudget');
+    if (bSel) bSel.value = budget;
+  }
+  updateFormProgress();
 });
 
 let selectedBrandName = null;
@@ -585,7 +873,7 @@ function clearSelectedBrand() {
   if (badge) badge.classList.remove('show');
 }
 
-// Form validation
+// Form validation & progress
 const formRules = {
   fname: v => v.trim().length >= 2 || 'Please enter your full name',
   fphone: v => /^[6-9]\d{9}$/.test(v.replace(/\D/g, '').slice(-10)) || 'Please enter a valid 10-digit mobile number',
@@ -594,6 +882,25 @@ const formRules = {
   fbudget: v => !!v || 'Please choose your investment budget bracket',
   fspace: v => !!v || 'Please select your property status'
 };
+
+function updateFormProgress() {
+  let filled = 0;
+  const total = Object.keys(formRules).length;
+  for (const id in formRules) {
+    const el = document.getElementById(id);
+    if (el && el.value.trim().length > 0) filled++;
+  }
+  const pct = Math.max(15, Math.round((filled / total) * 100));
+  const fillBar = document.getElementById('formProgressFill');
+  const stepTag = document.getElementById('formStepTag');
+  if (fillBar) fillBar.style.width = pct + '%';
+  if (stepTag) {
+    if (filled <= 1) stepTag.textContent = 'Step 1 of 4';
+    else if (filled <= 3) stepTag.textContent = 'Step 2 of 4';
+    else if (filled < total) stepTag.textContent = 'Step 3 of 4';
+    else stepTag.textContent = 'Ready to Send 🚀';
+  }
+}
 
 for (const id in formRules) {
   const el = document.getElementById(id);
@@ -653,6 +960,7 @@ if (sendBtn) {
       }
       document.getElementById('fnote').value = '';
       clearSelectedBrand();
+      updateFormProgress();
 
       document.getElementById('sent').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }, 650);
@@ -666,6 +974,7 @@ function resetForm() {
     sendBtn.disabled = false;
     sendBtn.innerHTML = `<span>Send My Application</span> <span class="arw">&rarr;</span>`;
   }
+  updateFormProgress();
 }
 
 function openWhatsAppChat() {
@@ -674,20 +983,27 @@ function openWhatsAppChat() {
   window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
 }
 
-// Auto-hide navigation on scroll
+// ==========================================================================
+// SCROLL-SPY & SCROLL ANIMATIONS
+// ==========================================================================
+
 const nav = document.getElementById('nav');
 const topProgress = document.getElementById('topProgress');
 const btnBackToTop = document.getElementById('btnBackToTop');
 const navToggle = document.getElementById('navToggle');
 const mobileDrawer = document.getElementById('mobileDrawer');
+const timelineProgressLine = document.getElementById('timelineProgressLine');
+const timelineElement = document.getElementById('scrollTimeline');
 
 let lastScrollY = window.scrollY;
+
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY;
   const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
   if (topProgress) topProgress.style.width = ((scrolled / maxScroll) * 100) + '%';
   if (btnBackToTop) btnBackToTop.classList.toggle('show', scrolled > 400);
 
+  // Auto-hide navigation on scroll
   if (nav) {
     nav.classList.toggle('stuck', scrolled > 20);
     const isDrawerOpen = mobileDrawer && mobileDrawer.classList.contains('open');
@@ -702,7 +1018,43 @@ window.addEventListener('scroll', () => {
     }
   }
   lastScrollY = Math.max(scrolled, 0);
+
+  // Timeline Progress Line Scroll Animation
+  if (timelineElement && timelineProgressLine) {
+    const rect = timelineElement.getBoundingClientRect();
+    const windowH = window.innerHeight;
+    if (rect.top < windowH && rect.bottom > 0) {
+      const progress = Math.min(Math.max((windowH * 0.7 - rect.top) / rect.height, 0), 1);
+      timelineProgressLine.style.height = (progress * 100) + '%';
+    }
+  }
 }, { passive: true });
+
+// IntersectionObserver for Timeline Steps & Offices
+const stepObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active-spy');
+    }
+  });
+}, { threshold: 0.5, rootMargin: '0px 0px -10% 0px' });
+
+document.querySelectorAll('.timeline-step-card').forEach(step => {
+  stepObserver.observe(step);
+});
+
+const officeObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.office-card').forEach(c => c.classList.remove('active-office'));
+      entry.target.classList.add('active-office');
+    }
+  });
+}, { threshold: 0.6, rootMargin: '0px 0px -15% 0px' });
+
+document.querySelectorAll('.office-card').forEach(off => {
+  officeObserver.observe(off);
+});
 
 function toggleMobileNav() {
   const isOpen = mobileDrawer.classList.contains('open');
@@ -716,13 +1068,16 @@ if (navToggle && mobileDrawer) {
   mobileDrawer.addEventListener('click', e => { if (e.target === mobileDrawer) toggleMobileNav(); });
 }
 
-// Reveal on scroll
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
+// Reveal on scroll animation
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
   });
-}, { threshold: 0.1 });
-document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+}, { threshold: 0.05, rootMargin: '0px 0px 50px' });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
 </script>
 </body>
 </html>

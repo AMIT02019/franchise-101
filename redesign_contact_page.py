@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+# -*- coding: utf-8 -*-
+import os, json
+
+CONTACT_HTML_CONTENT = """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -1081,3 +1084,13 @@ document.querySelectorAll('.rv').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
+"""
+
+# Write to both contact.html and book-consultation.html
+with open("contact.html", "w", encoding="utf-8") as f:
+    f.write(CONTACT_HTML_CONTENT)
+print("Updated contact.html with redesigned scrolling animations")
+
+with open("book-consultation.html", "w", encoding="utf-8") as f:
+    f.write(CONTACT_HTML_CONTENT)
+print("Updated book-consultation.html with redesigned scrolling animations")
