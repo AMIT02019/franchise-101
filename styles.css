@@ -875,9 +875,22 @@ em {
 }
 
 
+
 /* ==========================================================================
-   PERFECT SINGLE-LINE NAV & COMPREHENSIVE SECTION ALIGNMENT FIXES
+   PRIMARY FLAGSHIP FLOATING HEADER & RICH ANIMATIONS
    ========================================================================== */
+
+/* 1. Primary Header Entrance & Capsule */
+@keyframes navSlideDown {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -36px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
 
 .nav {
   position: fixed !important;
@@ -889,22 +902,40 @@ em {
   align-items: center !important;
   justify-content: space-between !important;
   padding: 8px 14px 8px 22px !important;
-  background: rgba(14, 18, 26, 0.94) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
+  background: rgba(14, 18, 26, 0.92) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
   border: 1px solid rgba(255, 255, 255, 0.16) !important;
   border-radius: 999px !important;
-  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 176, 32, 0.15) !important;
+  box-shadow: 0 18px 45px -10px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 176, 32, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
   z-index: 9999 !important;
   white-space: nowrap !important;
   height: 58px !important;
   box-sizing: border-box !important;
+  animation: navSlideDown 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  transition: transform 0.36s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease, top 0.3s ease, opacity 0.25s ease !important;
 }
 
+/* Primary Sticky Transition on Scroll */
+.nav.stuck {
+  top: 10px !important;
+  height: 52px !important;
+  background: rgba(8, 11, 16, 0.97) !important;
+  border-color: rgba(255, 176, 32, 0.38) !important;
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.85), 0 0 24px -4px rgba(255, 176, 32, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+}
+
+.nav.nav--hidden {
+  transform: translate(-50%, -140%) scale(0.95) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. Primary Logo with Glowing Aura Pulse */
 .logo {
   font-family: var(--font-editorial, Georgia, serif) !important;
   font-weight: 800 !important;
-  font-size: 19px !important;
+  font-size: 19.5px !important;
   letter-spacing: -0.02em !important;
   color: #FFFFFF !important;
   display: inline-flex !important;
@@ -913,6 +944,23 @@ em {
   white-space: nowrap !important;
   flex-shrink: 0 !important;
   line-height: 1 !important;
+  text-decoration: none !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.logo:hover {
+  opacity: 0.92 !important;
+}
+
+@keyframes dotPulseAura {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 176, 32, 0.7), 0 0 8px var(--kesar, #FFB020);
+  }
+  50% {
+    transform: scale(1.25);
+    box-shadow: 0 0 0 6px rgba(255, 176, 32, 0), 0 0 14px var(--kesar, #FFB020);
+  }
 }
 
 .logo .dot {
@@ -921,40 +969,89 @@ em {
   border-radius: 50% !important;
   background: var(--kesar, #FFB020) !important;
   display: inline-block !important;
-  box-shadow: 0 0 8px var(--kesar, #FFB020) !important;
   flex-shrink: 0 !important;
+  animation: dotPulseAura 2.2s infinite ease-in-out !important;
 }
 
+/* 3. Primary Nav Links with Animated Underline */
 .nav-links {
   display: flex !important;
   align-items: center !important;
-  gap: clamp(10px, 1.3vw, 20px) !important;
+  gap: clamp(10px, 1.35vw, 22px) !important;
   white-space: nowrap !important;
   flex-shrink: 1 !important;
   margin: 0 !important;
   padding: 0 !important;
+  list-style: none !important;
 }
 
 .nav-links a {
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif) !important;
   font-size: 13.5px !important;
   font-weight: 600 !important;
-  color: rgba(248, 250, 252, 0.82) !important;
+  color: rgba(248, 250, 252, 0.8) !important;
   white-space: nowrap !important;
-  padding: 6px 2px !important;
-  transition: color 0.2s ease !important;
+  padding: 8px 4px !important;
+  position: relative !important;
+  transition: color 0.25s ease, transform 0.2s ease !important;
   text-decoration: none !important;
   display: inline-block !important;
   line-height: 1.2 !important;
 }
 
-.nav-links a:hover, .nav-links a.active {
+/* Expand-from-center Gold Underline */
+.nav-links a::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  height: 2.5px !important;
+  width: 100% !important;
+  background: var(--kesar, #FFB020) !important;
+  border-radius: 99px !important;
+  transform: scaleX(0) !important;
+  transform-origin: center !important;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease !important;
+  box-shadow: 0 0 10px rgba(255, 176, 32, 0.6) !important;
+}
+
+.nav-links a:hover {
   color: #FFFFFF !important;
+  transform: translateY(-1px) !important;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1) !important;
 }
 
 .nav-links a.active {
   color: var(--kesar, #FFB020) !important;
-  position: relative !important;
+  font-weight: 700 !important;
+}
+
+.nav-links a.active::after {
+  transform: scaleX(1) !important;
+  background: var(--kesar, #FFB020) !important;
+  box-shadow: 0 0 12px rgba(255, 176, 32, 0.8) !important;
+}
+
+/* 4. Primary CTA Button: Shimmer Sheen & Subtle Breathing Glow */
+@keyframes primaryShimmer {
+  0%, 25% {
+    left: -140%;
+  }
+  50%, 100% {
+    left: 170%;
+  }
+}
+
+@keyframes primaryPulseGlow {
+  0%, 100% {
+    box-shadow: 0 6px 20px -4px rgba(255, 176, 32, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 8px 28px -2px rgba(255, 176, 32, 0.85), 0 0 14px rgba(255, 176, 32, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
 }
 
 .nav-cta-wrap {
@@ -965,14 +1062,50 @@ em {
 }
 
 .nav .btn--kesar {
+  position: relative !important;
+  overflow: hidden !important;
   white-space: nowrap !important;
-  padding: 10px 20px !important;
+  padding: 10px 22px !important;
   font-size: 13.5px !important;
   font-weight: 700 !important;
   border-radius: 999px !important;
   line-height: 1 !important;
+  background: linear-gradient(135deg, #FFB020 0%, #FFBA36 50%, #FF9E00 100%) !important;
+  color: var(--jamun-deep, #080B10) !important;
+  box-shadow: 0 6px 20px -4px rgba(255, 176, 32, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+  animation: primaryPulseGlow 3.6s infinite !important;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s !important;
 }
 
+/* Moving Shimmer Sheen */
+.nav .btn--kesar::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -140% !important;
+  width: 75% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.45) 50%, transparent 100%) !important;
+  transform: skewX(-24deg) !important;
+  animation: primaryShimmer 3.6s infinite ease-in-out !important;
+  pointer-events: none !important;
+}
+
+.nav .btn--kesar:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 12px 32px -4px rgba(255, 176, 32, 0.95), 0 0 18px rgba(255, 176, 32, 0.5) !important;
+}
+
+.nav .btn--kesar .arw {
+  display: inline-block !important;
+  transition: transform 0.25s ease !important;
+}
+
+.nav .btn--kesar:hover .arw {
+  transform: translateX(4px) !important;
+}
+
+/* 5. Mobile Toggle & Drawer Animation */
 @media (max-width: 1140px) {
   .nav-links {
     display: none !important;
