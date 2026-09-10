@@ -371,6 +371,164 @@
   </div>
 </section>
 
+<!-- ============ BUDGET RAIL ============ -->
+<section class="brackets" id="budget">
+  <div class="rail-outer" id="railOuter">
+    <div class="rail-sticky on-dark">
+      <div class="rail-head">
+        <div class="sec-top" style="margin-bottom:0">
+          <div class="sec-head wide">
+            <p class="eyebrow">By budget</p>
+            <h2 style="color:var(--malai)">What &#8377;6 lakh buys, and what &#8377;60 lakh does.</h2>
+          </div>
+          <p class="sec-note">Pick the bracket you can fund without borrowing against the house. The format follows the capital, not the other way round.</p>
+        </div>
+      </div>
+      <div class="rail" id="rail">
+        <article class="slab">
+          <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&h=350&fit=crop" alt="Coffee cups on a counter" /></div>
+          <span class="slab-amt">&#8377;6&ndash;15L</span>
+          <p>Kiosk and takeaway formats. One or two staff, zero seating, quick to launch.</p>
+          <ul><li>Chai, momo, waffle and bakery counters</li><li>90&ndash;200 sqft, shutter or mall kiosk</li><li>Break-even typically 11&ndash;15 months</li><li>You can run it hands-on after your day job</li></ul>
+        </article>
+        <article class="slab">
+          <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=700&h=350&fit=crop" alt="Burger on a counter" /></div>
+          <span class="slab-amt">&#8377;15&ndash;30L</span>
+          <p>Full QSR outlets with a small dine-in area and a proper kitchen line.</p>
+          <ul><li>Ice cream parlours, burger and biryani QSR</li><li>300&ndash;600 sqft on a high street</li><li>Break-even typically 16&ndash;22 months</li><li>Needs a shift manager and 4&ndash;6 staff</li></ul>
+        </article>
+        <article class="slab">
+          <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=700&h=350&fit=crop" alt="Cafe interior with plants" /></div>
+          <span class="slab-amt">&#8377;30&ndash;60L</span>
+          <p>Caf&eacute;s and casual dining. Higher ticket size, higher rent, longer runway.</p>
+          <ul><li>Caf&eacute; chains and 60&ndash;90 cover restaurants</li><li>1,200&ndash;2,400 sqft with parking</li><li>Break-even typically 24&ndash;32 months</li><li>Six months of working capital is non-negotiable</li></ul>
+        </article>
+        <article class="slab">
+          <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=700&h=350&fit=crop" alt="Large dining hall" /></div>
+          <span class="slab-amt">&#8377;60L+</span>
+          <p>Master franchise and multi-unit rights for a city or district.</p>
+          <ul><li>Territory rights with sub-franchise income</li><li>Three to five units committed over 24 months</li><li>Brand expects prior F&amp;B or retail experience</li><li>Warehouse and supply responsibility sits with you</li></ul>
+        </article>
+      </div>
+      <div class="progress"><i id="railBar"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTERACTIVE FORMAT & BRAND ROI CALCULATOR ============ -->
+<section class="wrap" id="calculator">
+  <div class="calc-section rv on-dark">
+    <div class="sec-head on-dark" style="margin-bottom:28px">
+      <p class="eyebrow on-dark"><span class="pulse"></span> Unit Economics Simulator</p>
+      <h2 style="color:var(--malai)">Calculate Profit &amp; Payback by Format &amp; Brand.</h2>
+      <p class="sec-note on-dark">Select an outlet format (Kiosk, QSR, Cloud Kitchen, Dine-in) and optionally apply audited brand data from our 5 flagship food brands.</p>
+    </div>
+
+    <div class="calc-grid">
+      <!-- Sliders / Controls -->
+      <div class="calc-card">
+        <!-- 1. Format Selector -->
+        <div class="calc-group">
+          <label style="font-family:var(--mono);font-size:11.5px;color:rgba(248,250,252,.75);text-transform:uppercase;letter-spacing:0.06em">1. Select Outlet Format</label>
+          <div class="calc-formats">
+            <button type="button" class="fmt-btn active" data-fmt="kiosk" onclick="setCalcFormat('kiosk')">Kiosk (&#8377;8L)</button>
+            <button type="button" class="fmt-btn" data-fmt="qsr" onclick="setCalcFormat('qsr')">QSR (&#8377;16L)</button>
+            <button type="button" class="fmt-btn" data-fmt="cloud" onclick="setCalcFormat('cloud')">Cloud Kitchen (&#8377;10L)</button>
+            <button type="button" class="fmt-btn" data-fmt="dine" onclick="setCalcFormat('dine')">Dine-in (&#8377;50L)</button>
+          </div>
+        </div>
+
+        <!-- 2. Brand Presets -->
+        <div class="calc-group" style="padding-top:4px">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <label style="font-family:var(--mono);font-size:11.5px;color:rgba(248,250,252,.75);text-transform:uppercase;letter-spacing:0.06em">2. Calibrate by Brand Model (Optional)</label>
+            <span id="calcBrandBadge" style="font-family:var(--font-mono);font-size:11px;color:var(--kesar);font-weight:700">General F&amp;B</span>
+          </div>
+          <div class="calc-brand-pills">
+            <button type="button" class="brand-pill-btn active" data-brand="general" onclick="setCalcBrand('general')">Standard F&amp;B</button>
+            <button type="button" class="brand-pill-btn" data-brand="beyond-temptation" onclick="setCalcBrand('beyond-temptation')">Beyond Temptation</button>
+            <button type="button" class="brand-pill-btn" data-brand="dunk-burgers" onclick="setCalcBrand('dunk-burgers')">Dunk Burgers</button>
+            <button type="button" class="brand-pill-btn" data-brand="mr-sandwich" onclick="setCalcBrand('mr-sandwich')">Mr. Sandwich</button>
+            <button type="button" class="brand-pill-btn" data-brand="south-twist" onclick="setCalcBrand('south-twist')">South Twist</button>
+            <button type="button" class="brand-pill-btn" data-brand="cafe-choco-craze" onclick="setCalcBrand('cafe-choco-craze')">Cafe Choco Craze</button>
+          </div>
+        </div>
+
+        <!-- 3. Sliders -->
+        <div class="calc-group" style="margin-top:6px">
+          <div class="calc-label-row">
+            <span>Total Capital Investment</span>
+            <span class="calc-val-badge" id="valInvestment">&#8377;8 Lakh</span>
+          </div>
+          <input type="range" class="calc-slider" id="sliderInvestment" min="6" max="75" step="1" value="8" oninput="updateCalculator()" />
+        </div>
+
+        <div class="calc-group">
+          <div class="calc-label-row">
+            <span>Daily Customer Orders</span>
+            <span class="calc-val-badge" id="valOrders">160 bills / day</span>
+          </div>
+          <input type="range" class="calc-slider" id="sliderOrders" min="40" max="450" step="5" value="160" oninput="updateCalculator()" />
+        </div>
+
+        <div class="calc-group">
+          <div class="calc-label-row">
+            <span>Average Order Value (AOV)</span>
+            <span class="calc-val-badge" id="valAOV">&#8377;120 / bill</span>
+          </div>
+          <input type="range" class="calc-slider" id="sliderAOV" min="50" max="650" step="10" value="120" oninput="updateCalculator()" />
+        </div>
+      </div>
+
+      <!-- Live Calculation Results -->
+      <div class="calc-results-board">
+        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.12);padding-bottom:12px">
+          <div>
+            <small style="font-family:var(--font-mono);font-size:11px;color:rgba(255,255,255,0.7);text-transform:uppercase">Active Simulator Model</small>
+            <strong id="resModelTitle" style="display:block;font-size:16px;color:var(--malai)">Kiosk Format &middot; Standard F&amp;B</strong>
+          </div>
+          <span id="resTagMargin" class="tag gold">Audited Unit Economics</span>
+        </div>
+
+        <div class="calc-metric-row">
+          <div class="calc-metric-item">
+            <small>Est. Monthly Revenue</small>
+            <strong id="resRevenue">&#8377;5,76,000</strong>
+          </div>
+          <div class="calc-metric-item">
+            <small id="labelFoodCost">Raw Material Cost (~34%)</small>
+            <strong id="resFoodCost" style="color:rgba(248,250,252,.85)">&#8377;1,95,840</strong>
+          </div>
+        </div>
+
+        <div class="calc-metric-row">
+          <div class="calc-metric-item">
+            <small>Staff, Rent &amp; Overhead</small>
+            <strong id="resOpex" style="color:rgba(248,250,252,.85)">&#8377;1,45,000</strong>
+          </div>
+          <div class="calc-metric-item">
+            <small>Brand Royalty</small>
+            <strong id="resRoyalty" style="color:var(--pista)">&#8377;0 (0% Royalty)</strong>
+          </div>
+        </div>
+
+        <div class="calc-highlight-box">
+          <div>
+            <small>Est. Net Profit / Month</small>
+            <b id="resNetProfit">&#8377;2,35,160</b>
+          </div>
+          <div style="text-align:right">
+            <small>Est. Payback Period</small>
+            <b id="resPayback" style="color:var(--kesar)">3.4 Months</b>
+          </div>
+        </div>
+
+        <button class="btn btn--kesar" id="calcApplyBtn" style="width:100%" onclick="applyForCalculatedBudget()">Apply For This Franchise Opportunity &rarr;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FOOTER ============ -->
 <footer class="foot on-dark">
   <div class="wrap">
