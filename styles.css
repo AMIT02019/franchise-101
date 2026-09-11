@@ -290,6 +290,15 @@ em {
   .nav-toggle { display: flex; }
 }
 
+@media (max-width: 768px) {
+  .nav-contact-link { display: none !important; }
+}
+
+@media (max-width: 480px) {
+  .nav .btn--kesar { display: none !important; }
+  .nav { padding: 8px 14px; }
+}
+
 /* PAGE HERO (SUB-PAGES) & ANIMATIONS */
 .page-hero {
   background: radial-gradient(110% 90% at 50% 0%, var(--jamun-soft) 0%, var(--jamun-deep) 70%);

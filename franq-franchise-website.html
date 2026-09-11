@@ -980,6 +980,57 @@ section[id],header[id]{scroll-margin-top:92px}
   .craft-card { grid-template-columns: 1fr !important; }
 }
 
+
+/* ============ DYNAMIC TYPEWRITER EFFECT ============ */
+.hero h1 {
+  color: var(--malai);
+  max-width: 16ch;
+  text-shadow: none;
+  min-height: 3.85em; /* Prevents layout shift during typing */
+  display: inline-block;
+  text-align: center;
+}
+.tw-accent {
+  color: var(--kesar);
+  font-style: italic;
+  font-weight: 700;
+  text-shadow: 0 0 24px rgba(255, 176, 32, 0.4);
+  transition: color 0.3s ease;
+}
+.tw-cursor {
+  display: inline-block;
+  width: 3.5px;
+  height: 0.88em;
+  background: var(--kesar);
+  margin-left: 6px;
+  vertical-align: -0.04em;
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(255, 176, 32, 0.85);
+  animation: twBlink 0.9s ease-in-out infinite;
+}
+.tw-cursor.tw-typing {
+  animation: none;
+  opacity: 1;
+}
+@keyframes twBlink {
+  0%, 45% { opacity: 1; transform: scaleY(1); }
+  50%, 95% { opacity: 0; transform: scaleY(0.9); }
+  100% { opacity: 1; transform: scaleY(1); }
+}
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: clamp(28px, 7.5vw, 42px) !important;
+    max-width: 100% !important;
+    min-height: 4.4em !important;
+    line-height: 1.15 !important;
+  }
+  .tw-cursor {
+    width: 2.5px;
+    height: 0.85em;
+    margin-left: 4px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1037,7 +1088,7 @@ section[id],header[id]{scroll-margin-top:92px}
 <div class="badge-trust rise">
 <span class="pulse"></span> Discover. Build. Grow. &middot; Franchise &amp; Business Solutions Ecosystem
 </div>
-<h1 class="rise">Discover the Right Business. Build It Right. Grow with Confidence.</h1>
+<h1 class="rise" id="heroHeadline" aria-label="Discover the Right Business. Build It Right. Grow with Confidence."><span id="twTarget">Discover the Right Business. Build It Right. Grow with <span class="tw-accent">Confidence.</span></span><span class="tw-cursor" id="twCursor" aria-hidden="true"></span></h1>
 <p class="hero-sub rise">Franchise 101 is a trusted franchise and business solutions ecosystem helping investors discover the right opportunities, entrepreneurs build businesses from concept to launch, and brands franchise and scale.</p>
 <div class="hero-cta rise" style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
 <a class="btn btn--kesar" href="franchises.html">Explore Franchises <span class="arw">&rarr;</span></a>
@@ -2807,6 +2858,140 @@ function openWhatsAppChat(){
 
     ['touchstart', 'scroll', 'mousemove', 'click', 'keydown', 'wheel'].forEach(function(evt) {
       window.addEventListener(evt, tryPlay, { once: true, passive: true });
+    });
+  }
+})();
+
+
+/* ============ DYNAMIC HERO TYPEWRITER ENGINE ============ */
+(function initTypewriter() {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+
+  const target = document.getElementById('twTarget');
+  const cursor = document.getElementById('twCursor');
+  if (!target || !cursor) return;
+
+  const baseP1 = "Discover the Right Business. ";
+  const baseP2 = "Build It Right. ";
+  const baseP3 = "Grow with ";
+  const fullBase = baseP1 + baseP2 + baseP3;
+
+  const dynamicWords = [
+    "Confidence.",
+    "Audited Returns.",
+    "Turnkey Support.",
+    "Zero Brokerage.",
+    "Proven Systems."
+  ];
+
+  let wordIndex = 0;
+  let isInitial = true;
+
+  function setTyping(typing) {
+    if (cursor) {
+      if (typing) cursor.classList.add('tw-typing');
+      else cursor.classList.remove('tw-typing');
+    }
+  }
+
+  function typeFullInitial(onComplete) {
+    setTyping(true);
+    target.innerHTML = '';
+    let i = 0;
+    const fullText = fullBase;
+
+    function typeChar() {
+      if (i < fullText.length) {
+        target.textContent = fullText.slice(0, i + 1);
+        i++;
+        let delay = 35 + Math.random() * 20;
+        if (fullText[i - 1] === '.') delay = 260;
+        else if (fullText[i - 1] === ' ') delay = 50;
+        setTimeout(typeChar, delay);
+      } else {
+        typeAccentWord(dynamicWords[0], () => {
+          setTyping(false);
+          isInitial = false;
+          if (onComplete) onComplete();
+        });
+      }
+    }
+    typeChar();
+  }
+
+  function typeAccentWord(word, onComplete) {
+    setTyping(true);
+    let j = 0;
+    let accentSpan = document.createElement('span');
+    accentSpan.className = 'tw-accent';
+    target.appendChild(accentSpan);
+
+    function typeAccentChar() {
+      if (j < word.length) {
+        accentSpan.textContent += word[j];
+        j++;
+        setTimeout(typeAccentChar, 45 + Math.random() * 25);
+      } else {
+        setTyping(false);
+        if (onComplete) onComplete();
+      }
+    }
+    typeAccentChar();
+  }
+
+  function backspaceAccent(onComplete) {
+    setTyping(true);
+    const accentSpan = target.querySelector('.tw-accent');
+    if (!accentSpan) {
+      if (onComplete) onComplete();
+      return;
+    }
+
+    function removeChar() {
+      let current = accentSpan.textContent;
+      if (current.length > 0) {
+        accentSpan.textContent = current.slice(0, -1);
+        setTimeout(removeChar, 28);
+      } else {
+        accentSpan.remove();
+        setTyping(false);
+        setTimeout(onComplete, 200);
+      }
+    }
+    removeChar();
+  }
+
+  function cycleNextWord() {
+    setTimeout(() => {
+      backspaceAccent(() => {
+        wordIndex = (wordIndex + 1) % dynamicWords.length;
+        typeAccentWord(dynamicWords[wordIndex], () => {
+          cycleNextWord();
+        });
+      });
+    }, 3200);
+  }
+
+  setTimeout(() => {
+    typeFullInitial(() => {
+      cycleNextWord();
+    });
+  }, 400);
+
+  const headline = document.getElementById('heroHeadline');
+  if (headline) {
+    headline.style.cursor = 'pointer';
+    headline.title = 'Click to cycle highlights';
+    headline.addEventListener('click', () => {
+      if (!isInitial) {
+        backspaceAccent(() => {
+          wordIndex = (wordIndex + 1) % dynamicWords.length;
+          typeAccentWord(dynamicWords[wordIndex], () => {
+            cycleNextWord();
+          });
+        });
+      }
     });
   }
 })();
