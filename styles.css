@@ -93,7 +93,7 @@ em {
   padding-inline: var(--pad);
 }
 
-.sec { padding: clamp(64px, 8vw, 108px) 0; }
+.sec { padding: clamp(40px, 4.5vw, 64px) 0; }
 .sec.tight { padding-top: 0; }
 
 .eyebrow {
@@ -822,7 +822,7 @@ em {
   align-items: flex-end !important;
   gap: 24px !important;
   flex-wrap: wrap !important;
-  margin-bottom: clamp(28px, 4vw, 44px) !important;
+  margin-bottom: clamp(18px, 2.5vw, 28px) !important;
 }
 .sec-top .sec-head {
   margin-bottom: 0 !important;
