@@ -853,81 +853,197 @@ function filterCatalog(category, btn) {
 </script>
 
 <script>
-// Format & Brand Simulator Data
-const FORMAT_PRESETS = {
-  kiosk: { capex: 800000, margin: 42, dailyOrders: 85, aov: 160, rent: 25000, staff: 2, staffCost: 28000, royaltyRate: 0 },
-  qsr: { capex: 1600000, margin: 38, dailyOrders: 140, aov: 240, rent: 55000, staff: 5, staffCost: 75000, royaltyRate: 0 },
-  cloud: { capex: 1000000, margin: 40, dailyOrders: 110, aov: 280, rent: 30000, staff: 3, staffCost: 45000, royaltyRate: 0 },
-  dine: { capex: 5000000, margin: 36, dailyOrders: 220, aov: 480, rent: 140000, staff: 12, staffCost: 220000, royaltyRate: 0 }
+/* ============ INTERACTIVE FORMAT & BRAND ROI CALCULATOR ============ */
+const formatConfigs = {
+  kiosk: { name: 'Kiosk Format', baseInvest: 8, baseOrders: 160, baseAov: 120, opex: 120000 },
+  qsr: { name: 'QSR Format', baseInvest: 16, baseOrders: 220, baseAov: 180, opex: 180000 },
+  cloud: { name: 'Cloud Kitchen', baseInvest: 10, baseOrders: 170, baseAov: 240, opex: 130000 },
+  dine: { name: 'Dine-in Format', baseInvest: 50, baseOrders: 140, baseAov: 480, opex: 380000 }
 };
 
-const BRAND_PRESETS = {
-  'general': { foodCost: 32, royalty: 0, label: 'General F&B' },
-  'beyond-temptation': { foodCost: 32, royalty: 0, label: 'Beyond Temptation (32% Food Cost)' },
-  'dunk-burgers': { foodCost: 30, royalty: 0, label: 'Dunk Burgers (30% Food Cost · 0% Royalty)' },
-  'mr-sandwich': { foodCost: 29, royalty: 0, label: 'Mr. Sandwich (29% Food Cost · 41% Margin)' },
-  'south-twist': { foodCost: 26, royalty: 0, label: 'South Twist (26% Food Cost · Automated)' },
-  'cafe-choco-craze': { foodCost: 31, royalty: 0, label: 'Cafe Choco Craze (31% Food Cost)' }
+const brandProfiles = {
+  general: {
+    name: 'Standard F&B',
+    foodCostPct: 0.34,
+    royaltyPct: 0.05,
+    tagline: 'Standard Industry Benchmark',
+    badge: 'Industry Average'
+  },
+  'beyond-temptation': {
+    name: 'Beyond Temptation',
+    foodCostPct: 0.32,
+    royaltyPct: 0.00,
+    aovBoost: 190,
+    investDefault: 15,
+    tagline: 'Cad-Bee Chocolate Shakes & Cafe',
+    badge: '32% Food Cost · 0% Royalty'
+  },
+  'dunk-burgers': {
+    name: 'Dunk Burgers',
+    foodCostPct: 0.30,
+    royaltyPct: 0.00,
+    aovBoost: 220,
+    investDefault: 18,
+    tagline: 'Dip-In Burgers & Loaded Sides',
+    badge: '30% Food Cost · 0% Royalty'
+  },
+  'mr-sandwich': {
+    name: 'Mr. Sandwich',
+    foodCostPct: 0.29,
+    royaltyPct: 0.00,
+    aovBoost: 160,
+    investDefault: 12,
+    tagline: 'European Subs & Grills (200+ Outlets)',
+    badge: '29% Food Cost · 41% Margin'
+  },
+  'south-twist': {
+    name: 'South Twist',
+    foodCostPct: 0.26,
+    royaltyPct: 0.00,
+    aovBoost: 130,
+    investDefault: 14,
+    tagline: 'Thatte Idli & Benne Dosa QSR',
+    badge: '26% Food Cost · Automated'
+  },
+  'cafe-choco-craze': {
+    name: 'Cafe Choco Craze',
+    foodCostPct: 0.31,
+    royaltyPct: 0.00,
+    aovBoost: 175,
+    investDefault: 13,
+    tagline: 'Chocolick B Cad-B & Shakes',
+    badge: '31% Food Cost · 80+ Outlets'
+  }
 };
 
-let currentFmt = 'kiosk';
+let currentFormat = 'kiosk';
 let currentBrand = 'general';
 
 function setCalcFormat(fmt) {
-  currentFmt = fmt;
+  currentFormat = fmt;
   document.querySelectorAll('.fmt-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-fmt') === fmt));
-  const p = FORMAT_PRESETS[fmt];
-  document.getElementById('calcCapex').value = p.capex;
-  document.getElementById('calcOrders').value = p.dailyOrders;
-  document.getElementById('calcAov').value = p.aov;
-  document.getElementById('calcMargin').value = p.margin;
-  updateCalc();
+  
+  const fCfg = formatConfigs[fmt];
+  const sliderInvest = document.getElementById('sliderInvestment');
+  const sliderOrders = document.getElementById('sliderOrders');
+  const sliderAOV = document.getElementById('sliderAOV');
+  
+  if (sliderInvest && fCfg) sliderInvest.value = fCfg.baseInvest;
+  if (sliderOrders && fCfg) sliderOrders.value = fCfg.baseOrders;
+  
+  if (currentBrand === 'general' && sliderAOV && fCfg) {
+    sliderAOV.value = fCfg.baseAov;
+  }
+  updateCalculator();
 }
 
-function setCalcBrand(brandKey) {
-  currentBrand = brandKey;
-  document.querySelectorAll('.brand-pill-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-brand') === brandKey));
-  const bData = BRAND_PRESETS[brandKey];
-  document.getElementById('calcBrandBadge').textContent = bData.label;
-  const impliedMargin = 100 - bData.foodCost - 28;
-  document.getElementById('calcMargin').value = Math.max(28, Math.min(46, impliedMargin));
-  updateCalc();
+function setCalcBrand(bKey) {
+  currentBrand = bKey;
+  document.querySelectorAll('.brand-pill-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-brand') === bKey));
+  
+  const bData = brandProfiles[bKey];
+  const badgeEl = document.getElementById('calcBrandBadge');
+  if (badgeEl && bData) badgeEl.textContent = bData.name;
+  
+  const sliderInvest = document.getElementById('sliderInvestment');
+  const sliderAOV = document.getElementById('sliderAOV');
+  
+  if (bKey !== 'general' && bData) {
+    if (bData.investDefault && sliderInvest) sliderInvest.value = bData.investDefault;
+    if (bData.aovBoost && sliderAOV) sliderAOV.value = bData.aovBoost;
+  }
+  updateCalculator();
 }
 
-function updateCalc() {
-  const capex = parseInt(document.getElementById('calcCapex').value);
-  const orders = parseInt(document.getElementById('calcOrders').value);
-  const aov = parseInt(document.getElementById('calcAov').value);
-  const marginPct = parseInt(document.getElementById('calcMargin').value);
+function updateCalculator() {
+  const fCfg = formatConfigs[currentFormat] || formatConfigs.kiosk;
+  const bData = brandProfiles[currentBrand] || brandProfiles.general;
 
-  document.getElementById('calcCapexVal').textContent = '₹' + (capex >= 10000000 ? (capex/10000000).toFixed(1) + ' Cr' : (capex/100000).toFixed(1) + ' Lakh');
-  document.getElementById('calcOrdersVal').textContent = orders + ' / day';
-  document.getElementById('calcAovVal').textContent = '₹' + aov;
-  document.getElementById('calcMarginVal').textContent = marginPct + '%';
+  const sliderInvest = document.getElementById('sliderInvestment');
+  const sliderOrders = document.getElementById('sliderOrders');
+  const sliderAOV = document.getElementById('sliderAOV');
 
-  const monthlyRev = orders * aov * 30;
-  const grossProfit = monthlyRev * (marginPct / 100);
-  const p = FORMAT_PRESETS[currentFmt];
-  const monthlyNet = Math.max(15000, grossProfit);
-  const paybackMonths = Math.max(6, Math.min(36, Math.round(capex / monthlyNet)));
-  const annualProfit = monthlyNet * 12;
-  const annualRoi = Math.min(240, Math.round((annualProfit / capex) * 100));
+  if (!sliderInvest || !sliderOrders || !sliderAOV) return;
 
-  document.getElementById('resMonthlyRev').textContent = '₹' + (monthlyRev/100000).toFixed(2) + 'L';
-  document.getElementById('resMonthlyNet').textContent = '₹' + (monthlyNet/100000).toFixed(2) + 'L';
-  document.getElementById('resAnnualProfit').textContent = '₹' + (annualProfit/100000).toFixed(2) + 'L';
-  document.getElementById('resAnnualRoi').textContent = annualRoi + '%';
-  document.getElementById('resPayback').textContent = paybackMonths + ' Months';
+  const investLakh = +sliderInvest.value;
+  const dailyOrders = +sliderOrders.value;
+  const aov = +sliderAOV.value;
+
+  const valInvestEl = document.getElementById('valInvestment');
+  const valOrdersEl = document.getElementById('valOrders');
+  const valAovEl = document.getElementById('valAOV');
+
+  if (valInvestEl) valInvestEl.textContent = '₹' + investLakh + ' Lakh';
+  if (valOrdersEl) valOrdersEl.textContent = dailyOrders + ' bills / day';
+  if (valAovEl) valAovEl.textContent = '₹' + aov + ' / bill';
+
+  // UI labels
+  const titleEl = document.getElementById('resModelTitle');
+  const marginTagEl = document.getElementById('resTagMargin');
+  const foodCostLabelEl = document.getElementById('labelFoodCost');
+
+  if (titleEl) titleEl.textContent = fCfg.name + ' · ' + bData.name;
+  if (marginTagEl) marginTagEl.textContent = bData.badge;
+  if (foodCostLabelEl) foodCostLabelEl.textContent = 'Raw Material Cost (~' + Math.round(bData.foodCostPct * 100) + '%)';
+
+  const monthlyTurnover = dailyOrders * aov * 30;
+  const foodCost = monthlyTurnover * bData.foodCostPct;
+  const royalty = monthlyTurnover * bData.royaltyPct;
+  const opexScaled = fCfg.opex * (1 + (investLakh - fCfg.baseInvest) * 0.025);
+  const netProfit = Math.max(monthlyTurnover - foodCost - royalty - opexScaled, 25000);
+
+  const totalCapInr = investLakh * 100000;
+  const paybackMonths = Math.max(2.5, Math.min(36, +(totalCapInr / netProfit).toFixed(1)));
+
+  const resRevEl = document.getElementById('resRevenue');
+  const resFoodEl = document.getElementById('resFoodCost');
+  const resOpexEl = document.getElementById('resOpex');
+  const resRoyaltyEl = document.getElementById('resRoyalty');
+  const resNetProfitEl = document.getElementById('resNetProfit');
+  const resPaybackEl = document.getElementById('resPayback');
+
+  if (resRevEl) resRevEl.textContent = '₹' + Math.round(monthlyTurnover).toLocaleString('en-IN');
+  if (resFoodEl) resFoodEl.textContent = '₹' + Math.round(foodCost).toLocaleString('en-IN');
+  if (resOpexEl) resOpexEl.textContent = '₹' + Math.round(opexScaled).toLocaleString('en-IN');
+  
+  if (resRoyaltyEl) {
+    if (bData.royaltyPct === 0) {
+      resRoyaltyEl.innerHTML = '<span style="color:var(--pista)">₹0 (0% Royalty)</span>';
+    } else {
+      resRoyaltyEl.textContent = '₹' + Math.round(royalty).toLocaleString('en-IN') + ' (' + (bData.royaltyPct * 100) + '%)';
+    }
+  }
+
+  if (resNetProfitEl) resNetProfitEl.textContent = '₹' + Math.round(netProfit).toLocaleString('en-IN');
+  if (resPaybackEl) resPaybackEl.textContent = paybackMonths + ' Months';
+
+  const applyBtn = document.getElementById('calcApplyBtn');
+  if (applyBtn) {
+    if (currentBrand !== 'general') {
+      applyBtn.innerHTML = 'Apply For ' + bData.name + ' Franchise &rarr;';
+    } else {
+      applyBtn.innerHTML = 'Apply For ' + fCfg.name + ' Franchise &rarr;';
+    }
+  }
 }
 
-// Initial binding
+function applyForCalculatedBudget() {
+  const sliderInvest = document.getElementById('sliderInvestment');
+  const investLakh = sliderInvest ? sliderInvest.value : 15;
+  const bData = brandProfiles[currentBrand] || brandProfiles.general;
+  const brandParam = currentBrand !== 'general' ? '&brand=' + encodeURIComponent(bData.name) : '';
+  window.location.href = 'book-consultation.html?intent=investor&budget=' + investLakh + 'L' + brandParam;
+}
+
+// Initial calculation kickoff
 document.addEventListener('DOMContentLoaded', () => {
-  ['calcCapex', 'calcOrders', 'calcAov', 'calcMargin'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.addEventListener('input', updateCalc);
-  });
-  if (document.getElementById('calcCapex')) updateCalc();
+  if (document.getElementById('sliderInvestment')) {
+    updateCalculator();
+  }
 });
+if (document.getElementById('sliderInvestment')) {
+  updateCalculator();
+}
 </script>
 
 </body>
