@@ -1557,3 +1557,105 @@ em {
   flex-wrap: wrap !important;
   gap: 18px !important;
 }
+
+/* ============ VISUAL-FIRST REDESIGN UTILITIES ============ */
+.card-media-banner {
+  width: 100%;
+  height: 160px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 14px;
+  background: var(--jamun-deep, #05070A);
+  flex-shrink: 0;
+}
+.card-media-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.35, 1);
+}
+.journey-card:hover .card-media-banner img,
+.ecosystem-card:hover .card-media-banner img,
+.stage-card:hover .card-media-banner img {
+  transform: scale(1.06);
+}
+.card-media-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  font-family: var(--font-mono, monospace);
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(13, 15, 18, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.card-media-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(13,15,18,0.1) 0%, rgba(13,15,18,0.55) 100%);
+  pointer-events: none;
+}
+.why-visual-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(24px, 4vw, 40px);
+  align-items: stretch;
+  margin-bottom: 28px;
+}
+@media (max-width: 900px) {
+  .why-visual-showcase {
+    grid-template-columns: 1fr;
+  }
+}
+.faq-split-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: clamp(24px, 4vw, 40px);
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .faq-split-layout {
+    grid-template-columns: 1fr;
+  }
+}
+.cta-atmospheric-bg {
+  position: relative;
+  overflow: hidden;
+}
+.cta-atmospheric-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('assets/brands/beyond_temptation_store.png') center/cover no-repeat;
+  filter: brightness(0.22) contrast(1.15);
+  opacity: 0.85;
+  z-index: 0;
+}
+.cta-atmospheric-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+.stage-card, .ecosystem-card {
+  transition: transform 0.28s cubic-bezier(0.25, 1, 0.35, 1), box-shadow 0.28s cubic-bezier(0.25, 1, 0.35, 1), border-color 0.28s ease !important;
+}
+.stage-card:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(207, 60, 48, 0.35) !important;
+  box-shadow: 0 14px 32px -10px rgba(14, 18, 26, 0.1) !important;
+}
+.ecosystem-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(207, 60, 48, 0.35) !important;
+  box-shadow: 0 16px 36px -12px rgba(14, 18, 26, 0.12) !important;
+}
