@@ -2088,3 +2088,257 @@ header.on-dark h1, header.on-dark h2, header.on-dark h3, header.on-dark h4 {
 section.on-dark p, header.on-dark p {
   color: #CBD5E1 !important;
 }
+
+
+/* ==========================================================================
+   MOBILE & RESPONSIVE PERFECTION — ALL BREAKPOINTS (360px – 768px)
+   ========================================================================== */
+
+/* 1. Global Overflow Prevention & Touch Optimization */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+  position: relative !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* iOS Safari font zoom prevention on inputs */
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* 2. Floating Nav Bar Mobile Sizing */
+@media (max-width: 768px) {
+  .nav {
+    width: calc(100% - 24px) !important;
+    padding: 7px 12px 7px 16px !important;
+    top: 10px !important;
+  }
+  .nav-contact-link {
+    display: none !important;
+  }
+  .nav .btn--kesar {
+    display: none !important;
+  }
+  .logo {
+    font-size: 16.5px !important;
+    gap: 6px !important;
+  }
+  .logo-mark {
+    width: 26px !important;
+    height: 26px !important;
+  }
+  .nav-toggle {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav {
+    width: calc(100% - 16px) !important;
+    padding: 6px 10px 6px 12px !important;
+    top: 8px !important;
+  }
+  .logo {
+    font-size: 14.5px !important;
+  }
+  .logo span {
+    font-size: 14.5px !important;
+  }
+}
+
+/* 3. Hero & Section Mobile Ergonomics */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 96px !important;
+    overflow-x: clip !important;
+    max-width: 100vw !important;
+  }
+  .page-hero {
+    padding-top: 100px !important;
+    overflow-x: clip !important;
+  }
+  .wrap {
+    padding-inline: 16px !important;
+  }
+  .sec {
+    padding: clamp(36px, 6vw, 56px) 0 !important;
+  }
+}
+
+/* 4. Interactive ROI Calculator Mobile Layout */
+@media (max-width: 960px) {
+  .calc-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .calc-section {
+    padding: 24px 14px !important;
+    border-radius: 20px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+  .calc-card, .calc-results-board {
+    padding: 18px 14px !important;
+    border-radius: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+  .calc-formats {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .fmt-btn {
+    padding: 10px 6px !important;
+    font-size: 11px !important;
+    white-space: normal !important;
+    line-height: 1.25 !important;
+    min-height: 44px !important;
+    box-sizing: border-box !important;
+  }
+  .calc-brand-pills {
+    gap: 6px !important;
+  }
+  .brand-pill-btn {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    min-height: 36px !important;
+    box-sizing: border-box !important;
+  }
+  .calc-label-row {
+    font-size: 12px !important;
+  }
+  .calc-val-badge {
+    font-size: 13.5px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .calc-formats {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+  }
+  .fmt-btn {
+    font-size: 10px !important;
+    padding: 8px 4px !important;
+  }
+  .calc-metric-row {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+  .calc-metric-item {
+    padding: 10px 10px !important;
+  }
+  .calc-metric-item small {
+    font-size: 10px !important;
+  }
+  .calc-metric-item strong {
+    font-size: 19px !important;
+  }
+}
+
+/* 5. Brand Pages: Capex Table & Video Grid Containment */
+.brand-video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+}
+@media (max-width: 860px) {
+  .brand-video-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+.capex-pnl-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .capex-pnl-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+}
+
+.capex-table-wrap {
+  background: #FFFFFF !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 16px !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 10px 25px -10px rgba(26,20,32,0.06) !important;
+}
+
+.capex-table {
+  width: 100% !important;
+  min-width: 480px !important;
+  border-collapse: collapse !important;
+  font-size: 13.5px !important;
+}
+
+.capex-table th, .capex-table td {
+  padding: 12px 14px !important;
+  border-bottom: 1px solid var(--line) !important;
+  text-align: left !important;
+}
+
+.mobile-table-scroll-hint {
+  display: none;
+  font-size: 11.5px;
+  color: var(--ink-60);
+  margin-bottom: 8px;
+  align-items: center;
+  gap: 6px;
+}
+@media (max-width: 680px) {
+  .mobile-table-scroll-hint {
+    display: flex !important;
+  }
+}
+
+/* 6. Contact Page Responsive Grid */
+.contact-layout-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+}
+@media (max-width: 920px) {
+  .contact-layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float-btn {
+    bottom: 16px !important;
+    right: 16px !important;
+    padding: 10px 16px !important;
+    font-size: 13px !important;
+  }
+}

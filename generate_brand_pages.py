@@ -70,11 +70,21 @@ def create_brand_page(brand_id, brand_name, category, tagline, investment, payba
 .econ-stat-item small {{ display: block; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--ink-60); }}
 .econ-stat-item strong {{ display: block; font-size: 20px; font-weight: 800; color: var(--ink); margin-top: 4px; }}
 
+.brand-video-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; }}
+@media (max-width: 860px) {{ .brand-video-grid {{ grid-template-columns: 1fr; gap: 24px; }} }}
+
+.capex-pnl-grid {{ display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: start; }}
+@media (max-width: 900px) {{ .capex-pnl-grid {{ grid-template-columns: 1fr; gap: 28px; }} }}
+
+.mobile-table-scroll-hint {{ display: none; font-size: 11.5px; color: var(--ink-60); margin-bottom: 8px; align-items: center; gap: 6px; }}
+@media (max-width: 680px) {{ .mobile-table-scroll-hint {{ display: flex !important; }} }}
+
 .capex-table-wrap {{
-  background: #FFF; border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+  background: #FFF; border: 1px solid var(--line); border-radius: 16px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+  width: 100%; max-width: 100%; box-sizing: border-box;
   box-shadow: 0 10px 25px -10px rgba(26,20,32,0.06);
 }}
-.capex-table {{ width: 100%; border-collapse: collapse; font-size: 14px; }}
+.capex-table {{ width: 100%; min-width: 480px; border-collapse: collapse; font-size: 13.5px; }}
 .capex-table th, .capex-table td {{ padding: 12px 16px; border-bottom: 1px solid var(--line); text-align: left; }}
 .capex-table th {{ background: rgba(26,20,32,0.04); font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; color: var(--ink-60); }}
 .capex-table td:last-child {{ text-align: right; font-family: var(--font-mono); font-weight: 700; color: var(--ink); }}
@@ -231,7 +241,7 @@ def create_brand_page(brand_id, brand_name, category, tagline, investment, payba
 <!-- ============ CENTRAL KITCHEN & OPS VIDEO SHOWCASE ============ -->
 <section class="sec on-dark" style="background:var(--jamun-deep);position:relative;overflow:hidden">
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px, 4vw, 56px);align-items:center">
+    <div class="brand-video-grid">
       <div class="rv">
         <div class="badge-trust" style="margin-bottom:12px"><span class="pulse"></span> Standardized Food Manufacturing</div>
         <h2 style="color:var(--malai)">Behind the Taste: Proprietary Central Supply</h2>
@@ -263,7 +273,7 @@ def create_brand_page(brand_id, brand_name, category, tagline, investment, payba
 <!-- ============ AUDITED CAPEX & P&L SECTION ============ -->
 <section class="sec" id="capex-breakdown">
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(32px, 4vw, 56px);align-items:start">
+    <div class="capex-pnl-grid">
       
       <!-- Left: Capex Table -->
       <div>
@@ -273,6 +283,7 @@ def create_brand_page(brand_id, brand_name, category, tagline, investment, payba
           <p class="sec-note">Official breakdown from brand brochure for turnkey setup.</p>
         </div>
 
+        <div class="mobile-table-scroll-hint"><span>&larr; Swipe table horizontally to view all columns &rarr;</span></div>
         <div class="capex-table-wrap rv">
           <table class="capex-table">
             <tr><th>Component</th><th>Deliverables &amp; Scope</th><th>Cost</th></tr>

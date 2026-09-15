@@ -467,7 +467,7 @@
 }
 
 /* Floating WhatsApp Quick Action Button */
-.whatsapp-float-btn {
+.whatsapp-float-btn { 
   position: fixed;
   bottom: 28px;
   right: 28px;
@@ -485,7 +485,7 @@
   z-index: 100;
   text-decoration: none;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
+ max-width: calc(100vw - 32px); }
 .whatsapp-float-btn:hover {
   transform: translateY(-3px) scale(1.03);
   box-shadow: 0 16px 36px rgba(37, 211, 102, 0.55);
@@ -553,7 +553,7 @@
 <section class="sec" style="background:var(--paper)">
   <div class="wrap">
     
-    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(32px, 5vw, 64px);align-items:start" class="rv">
+    <div class="contact-layout-grid rv">
       
       <!-- Left Column: Official Contact Directory -->
       <div>
