@@ -16,7 +16,7 @@
    ========================================================================== */
 
 :root {
-  --contact-glow: rgba(255, 176, 32, 0.15);
+  --contact-glow: rgba(207, 60, 48, 0.15);
 }
 
 /* Page Hero Animations */
@@ -54,7 +54,7 @@
   right: -100px;
   width: 450px;
   height: 450px;
-  background: radial-gradient(circle, rgba(255, 176, 32, 0.12), transparent 70%);
+  background: radial-gradient(circle, rgba(207, 60, 48, 0.12), transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   animation: heroGlowPulse 8s ease-in-out infinite alternate;
@@ -138,8 +138,8 @@
 }
 
 .consult-form-box:hover {
-  box-shadow: 0 30px 70px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(255, 176, 32, 0.3);
-  border-color: rgba(255, 176, 32, 0.35);
+  box-shadow: 0 30px 70px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(207, 60, 48, 0.3);
+  border-color: rgba(207, 60, 48, 0.35);
 }
 
 .consult-form-box::after {
@@ -147,7 +147,7 @@
   position: absolute;
   top: 0; right: 0;
   width: 260px; height: 260px;
-  background: radial-gradient(circle, rgba(255,176,32,0.16), transparent 70%);
+  background: radial-gradient(circle, rgba(207, 60, 48,0.16), transparent 70%);
   pointer-events: none;
 }
 
@@ -230,7 +230,7 @@
 .field select:hover,
 .field textarea:hover {
   background: rgba(248, 250, 252, 0.11);
-  border-color: rgba(255, 176, 32, 0.4);
+  border-color: rgba(207, 60, 48, 0.4);
 }
 
 .field input:focus,
@@ -239,7 +239,7 @@
   outline: none;
   border-color: var(--kesar);
   background: rgba(248, 250, 252, 0.14);
-  box-shadow: 0 0 0 3px rgba(255, 176, 32, 0.2);
+  box-shadow: 0 0 0 3px rgba(207, 60, 48, 0.2);
 }
 
 .field .err {
@@ -254,7 +254,7 @@
   display: none;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255,176,32,0.15);
+  background: rgba(207, 60, 48,0.15);
   border: 1px solid var(--kesar);
   border-radius: 12px;
   padding: 10px 16px;
@@ -345,13 +345,13 @@
 .timeline-step-card.active-spy {
   transform: translateX(8px);
   border-color: var(--kesar);
-  box-shadow: 0 16px 36px -10px rgba(255, 176, 32, 0.2);
+  box-shadow: 0 16px 36px -10px rgba(207, 60, 48, 0.2);
 }
 
 .timeline-step-card.active-spy::before {
   background: var(--kesar);
   border-color: var(--jamun-deep);
-  box-shadow: 0 0 0 4px rgba(255, 176, 32, 0.35);
+  box-shadow: 0 0 0 4px rgba(207, 60, 48, 0.35);
 }
 
 .timeline-step-card h4 {
@@ -416,7 +416,7 @@
   transform: translateY(-3px) translateX(4px);
   border-color: var(--kesar);
   background: #FFF;
-  box-shadow: 0 16px 36px -10px rgba(255, 176, 32, 0.2);
+  box-shadow: 0 16px 36px -10px rgba(207, 60, 48, 0.2);
 }
 
 .office-card:hover::before, .office-card.active-office::before {
@@ -497,7 +497,7 @@
 
 <!-- ============ NAV ============ -->
 <nav class="nav" id="nav">
-  <a class="logo" href="index.html" aria-label="Franchise 101 Home">FRANCHISE 101<span class="dot"></span></a>
+  <a class="logo" href="index.html" aria-label="Franchise 101 Home"><img src="assets/logo-light.png" alt="Franchise 101" class="logo-mark" /><span>FRANCHISE 101</span><span class="dot"></span></a>
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="franchises.html">Explore Franchises</a>
@@ -518,7 +518,7 @@
 <!-- Mobile Navigation Drawer -->
 <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
   <div class="mobile-drawer-content">
-    <div class="logo">FRANCHISE 101<span class="dot"></span></div>
+    <div class="logo"><img src="assets/logo-light.png" alt="Franchise 101" class="logo-mark" /><span>FRANCHISE 101</span><span class="dot"></span></div>
     <nav>
       <a href="index.html" class="mobile-nav-link">Home</a>
       <a href="franchises.html" class="mobile-nav-link">Explore Franchises</a>
@@ -957,7 +957,7 @@
 .intent-tab-btn:hover {
   border-color: var(--kesar);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px -6px rgba(255,176,32,0.3);
+  box-shadow: 0 8px 20px -6px rgba(207, 60, 48,0.3);
 }
 .intent-tab-btn.active {
   border-color: var(--kesar);
