@@ -3,166 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel=\"icon\" type=\"image/png\" href=\"favicon.png\" />
+<link rel="icon" type="image/png" href="favicon.png" />
 <title>Explore Curated Franchise Opportunities — Franchise 101</title>
 <meta name="description" content="Find a business opportunity that fits you. Explore curated franchise opportunities across promising concepts, investment ranges, operating models, and support." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
-<style>
-.filter-bar {
-  background: var(--paper-card); border: 1px solid var(--line); border-radius: var(--r);
-  padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  flex-wrap: wrap; margin-bottom: 36px; box-shadow: 0 10px 25px -10px rgba(26,20,32,0.06);
-}
-.filter-group { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-.filter-btn {
-  background: var(--paper); border: 1px solid var(--line); border-radius: 999px;
-  padding: 8px 16px; font-size: 13.5px; cursor: pointer; font-weight: 500;
-  transition: all 0.2s;
-}
-.filter-btn.active, .filter-btn:hover {
-  background: var(--kesar); border-color: var(--kesar); color: var(--jamun-deep); font-weight: 700;
-}
-
-.brand-detail-card {
-  background: var(--paper-card); border: 1px solid var(--line); border-radius: 20px;
-  overflow: hidden; display: grid; grid-template-columns: 310px 1fr; gap: 0;
-  margin-bottom: 36px; box-shadow: 0 12px 35px -15px rgba(26,20,32,0.07);
-  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
-}
-@media (max-width: 960px) { .brand-detail-card { grid-template-columns: 1fr; } }
-.brand-detail-card:hover { transform: translateY(-3px); box-shadow: 0 18px 42px -15px rgba(26,20,32,0.12); }
-
-.brand-media { position: relative; height: 100%; min-height: 280px; background: var(--jamun-soft); overflow: hidden; }
-.brand-media img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-.brand-badge-float {
-  position: absolute; top: 16px; left: 16px; z-index: 2;
-  background: rgba(11, 15, 23, 0.88); color: var(--kesar); font-size: 11px; font-weight: 700;
-  padding: 6px 13px; border-radius: 999px; border: 1px solid rgba(207, 60, 48,0.35);
-  backdrop-filter: blur(4px); letter-spacing: 0.02em;
-}
-
-.brand-content { 
-  padding: 24px 30px; 
-  display: flex; 
-  flex-direction: column; 
-  gap: 16px; 
-  justify-content: space-between;
-}
-.brand-title-row { display: flex; justify-content: space-between; align-items: center; gap: 14px; }
-.brand-title-row h2 { font-size: 24px; margin: 0; line-height: 1.1; letter-spacing: -0.02em; }
-.brand-title-row .tag { font-size: 11.5px; padding: 4px 10px; font-weight: 600; border-radius: 999px; }
-
-.brand-usp { 
-  font-size: 14px; color: #475569; line-height: 1.5; margin: 0;
-  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-}
-
-/* Side-by-Side Spacious Financials Grid */
-.brand-financials-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.25fr;
-  gap: 16px;
-}
-@media (max-width: 820px) {
-  .brand-financials-grid { grid-template-columns: 1fr; gap: 12px; }
-}
-
-.fin-panel {
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
-  border-radius: 12px;
-  padding: 14px 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 10px;
-}
-.fin-panel-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  border-bottom: 1px solid #E2E8F0;
-  padding-bottom: 7px;
-}
-.fin-panel-title {
-  font-family: var(--body);
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #0F172A;
-}
-.fin-panel-sub {
-  font-size: 10.5px;
-  color: #64748B;
-  font-weight: 500;
-}
-
-.fin-stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px 14px;
-}
-.fin-stat small {
-  display: block;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #64748B;
-  font-weight: 600;
-  margin-bottom: 2px;
-}
-.fin-stat strong {
-  display: block;
-  font-size: 16px;
-  font-weight: 800;
-  color: #0F172A;
-}
-
-.fin-capex-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.fin-capex-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  color: #475569;
-}
-.fin-capex-row strong {
-  font-weight: 700;
-  color: #0F172A;
-  font-variant-numeric: tabular-nums;
-  margin-left: 8px;
-}
-.fin-capex-row.total {
-  border-top: 1.5px solid rgba(207, 60, 48, 0.2);
-  margin-top: 4px;
-  padding-top: 6px;
-  color: var(--kesar, #CF3C30);
-  font-weight: 800;
-}
-.fin-capex-row.total span {
-  color: var(--kesar, #CF3C30);
-  font-weight: 700;
-  font-size: 12.5px;
-}
-.fin-capex-row.total strong {
-  font-size: 14.5px;
-  color: var(--kesar, #CF3C30);
-}
-
-.brand-actions { 
-  display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
-  padding-top: 10px; border-top: 1px solid var(--line);
-}
-.brand-actions .btn { padding: 9px 20px; font-size: 13.5px; font-weight: 600; }
-.brand-actions .formats-note { font-size: 12px; color: #64748B; margin-left: auto; }
-</style>
 </head>
 <body>
 
@@ -208,486 +55,306 @@
   </div>
 </div>
 
-<!-- ============ PAGE HERO ============ -->
-<header class="page-hero on-dark">
+<!-- ============ HERO SECTION ============ -->
+<section class="explore-hero">
   <div class="wrap">
-    <div class="badge-trust rise"><span class="pulse"></span> Curated Franchise Portfolio &middot; Opportunity Discovery</div>
-    <h1 class="rise" style="font-size:clamp(32px, 4.4vw, 56px);margin-block:16px 14px">Find a Business Opportunity That Fits You</h1>
-    <p class="page-hero-sub rise" style="max-width:64ch">Explore curated franchise opportunities across different concepts, investment ranges and business formats. Go beyond the brand name to understand the concept, investment requirement, operating model, space requirement and support behind each opportunity.</p>
-    <div class="page-hero-meta rise" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
-      <a class="btn btn--kesar" href="find-franchise.html">Find My Franchise &rarr;</a>
-      <a class="btn btn--ghost on-dark" href="book-consultation.html?intent=investor">Book Investor Consultation</a>
+    <div class="explore-hero-grid">
+      <!-- Left: Headline, Subtitle, Actions, Trust Badges -->
+      <div class="explore-hero-left">
+        <h1 class="explore-hero-h1">Find a Business Opportunity That Fits You</h1>
+        <p class="explore-hero-sub">Curated franchise opportunities. Real businesses. A brighter tomorrow.</p>
+        
+        <div class="explore-hero-actions">
+          <a class="btn-primary-explore" href="#featured-opportunities">Explore Opportunities &rarr;</a>
+          <a class="btn-outline-explore" href="book-consultation.html">Book a Consultation</a>
+        </div>
+
+        <div class="explore-trust-strip">
+          <div class="trust-badge-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            <span>Verified Brands</span>
+          </div>
+          <div class="trust-badge-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            <span>Transparent Information</span>
+          </div>
+          <div class="trust-badge-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>End-to-End Support</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Arched Curved Showcase Card with Script Overlay -->
+      <div class="explore-hero-right">
+        <div class="hero-curved-card" id="heroCurvedCard">
+          <img id="heroShowcaseImg" class="hero-curved-img" src="assets/brands/beyond_temptation_store.png" alt="Beyond Temptation Storefront" />
+          <div class="hero-curved-overlay"></div>
+          <div class="hero-script-overlay" id="heroScriptOverlay">Turn Passion<br/><em>into a Business</em></div>
+          
+          <div class="hero-curved-bottom">
+            <div class="hero-slide-dots" id="heroSlideDots">
+              <span class="hero-dot active" onclick="setHeroSlide(0)"></span>
+              <span class="hero-dot" onclick="setHeroSlide(1)"></span>
+              <span class="hero-dot" onclick="setHeroSlide(2)"></span>
+              <span class="hero-dot" onclick="setHeroSlide(3)"></span>
+            </div>
+            <div class="hero-slide-nav-arrows">
+              <button type="button" class="hero-nav-arrow" onclick="prevHeroSlide()" aria-label="Previous featured brand">&#8249;</button>
+              <button type="button" class="hero-nav-arrow" onclick="nextHeroSlide()" aria-label="Next featured brand">&#8250;</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</header>
+</section>
 
-<!-- ============ FRANCHISE DIRECTORY ============ -->
-<section class="sec">
+<!-- ============ EXPLORE BY CATEGORY ============ -->
+<section class="sec" style="padding: clamp(36px, 5vw, 60px) 0 20px;">
   <div class="wrap">
-    <!-- Filter Bar -->
-    <div class="filter-bar">
-      <div class="filter-group">
-        <span style="font-size:12px;color:var(--ink-60);text-transform:uppercase;margin-right:4px">Category:</span>
-        <button class="filter-btn active" onclick="filterCatalog('all', this)">All (5)</button>
-        <button class="filter-btn" onclick="filterCatalog('Dessert', this)">Dessert &amp; Cafe</button>
-        <button class="filter-btn" onclick="filterCatalog('Burgers', this)">Burgers &amp; Wings</button>
-        <button class="filter-btn" onclick="filterCatalog('Sandwich', this)">Sandwiches &amp; Subs</button>
-        <button class="filter-btn" onclick="filterCatalog('SouthIndian', this)">South Indian QSR</button>
+    <div class="cat-sec-head">
+      <h2>Explore by Category</h2>
+      <a href="#featured-opportunities" class="link-view-all" onclick="filterCategory('all', this)">View All &rarr;</a>
+    </div>
+
+    <div class="cat-grid">
+      <!-- 1. Food & Beverage -->
+      <div class="cat-card active" onclick="filterCategory('Food & Beverage', this)">
+        <div class="cat-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2v6a3 3 0 0 1-3 3 3 3 0 0 1-3-3V2"/><path d="M12 2v20"/><path d="M5 2v10a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V2"/><path d="M7 14v8"/></svg>
+        </div>
+        <h3 class="cat-title">Food &amp; Beverage</h3>
       </div>
+
+      <!-- 2. Retail -->
+      <div class="cat-card" onclick="filterCategory('Retail', this)">
+        <div class="cat-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <h3 class="cat-title">Retail</h3>
+      </div>
+
+      <!-- 3. Services -->
+      <div class="cat-card" onclick="filterCategory('Services', this)">
+        <div class="cat-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </div>
+        <h3 class="cat-title">Services</h3>
+      </div>
+
+      <!-- 4. Education -->
+      <div class="cat-card" onclick="filterCategory('Education', this)">
+        <div class="cat-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+        </div>
+        <h3 class="cat-title">Education</h3>
+      </div>
+
+      <!-- 5. Health & Wellness -->
+      <div class="cat-card" onclick="filterCategory('Health & Wellness', this)">
+        <div class="cat-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </div>
+        <h3 class="cat-title">Health &amp; Wellness</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED OPPORTUNITIES ============ -->
+<section class="sec" id="featured-opportunities" style="padding: clamp(36px, 5vw, 60px) 0;">
+  <div class="wrap">
+    <div class="opps-sec-head">
       <div>
-        <a class="btn btn--ghost btn--sm" href="find-franchise.html">Take Matching Quiz &rarr;</a>
+        <h2>Featured Opportunities</h2>
+        <p>Handpicked brands with great potential.</p>
       </div>
+      <a href="#featured-opportunities" class="link-view-all" id="featuredViewAllBtn" onclick="toggleAllBrands(event)">View All &rarr;</a>
     </div>
 
-    <!-- Brand 1: Beyond Temptation -->
-    <article class="brand-detail-card rv" data-category="Dessert" id="beyond-temptation">
-      <div class="brand-media">
-        <img src="assets/brands/beyond-temptation.png" alt="Beyond Temptation Cafe & Shakes" />
-        <span class="brand-badge-float">90+ Outlets &middot; 8 States</span>
-      </div>
-      <div class="brand-content">
-        <div class="brand-title-row">
-          <div>
-            <h2>Beyond Temptation</h2>
-            <div style="display:flex;gap:6px;margin-top:4px">
-              <span class="tag gold">Dessert &amp; Cafe</span>
-              <span class="tag green">FOFO / FOCO</span>
-            </div>
-          </div>
-          <span style="font-family:var(--font-editorial);font-size:24px;font-weight:800;color:var(--kesar)">&#8377;13&ndash;20L</span>
+    <div class="featured-opps-grid" id="oppsGrid">
+      <!-- Brand 1: Beyond Temptation -->
+      <a class="opp-card" href="beyond-temptation.html" data-category="Food & Beverage">
+        <div class="opp-img-wrap">
+          <img src="assets/brands/beyond-temptation.png" alt="Beyond Temptation Storefront" class="opp-img" />
         </div>
-        <p class="brand-usp">
-          Established in 2009 with 15+ years of food manufacturing in Pune supplying &gt;85% of raw materials. Famous for Cad-Bee chocolate thick shakes, BT Special Cold Coffee, Mango Mastani, pizzas, burgers &amp; momos. Chef-less zero wastage model.
-        </p>
-        <div class="brand-financials-grid">
-          <div class="fin-panel">
-            <div class="fin-panel-head">
-              <span class="fin-panel-title">Unit Economics</span>
-              <span class="fin-panel-sub">Audited Outlets</span>
-            </div>
-            <div class="fin-stats-grid">
-              <div class="fin-stat"><small>Net Margin</small><strong>&gt; 35%</strong></div>
-              <div class="fin-stat"><small>Monthly Net</small><strong>&#8377;1.4 &ndash; 2.5L</strong></div>
-              <div class="fin-stat"><small>Est. Payback</small><strong>12 &ndash; 16 Mo</strong></div>
-              <div class="fin-stat"><small>Space Req.</small><strong>300 &ndash; 2000 sqft</strong></div>
-            </div>
-          </div>
-          <div class="fin-panel">
-            <div class="fin-panel-head">
-              <span class="fin-panel-title">Capex Breakdown</span>
-              <span class="fin-panel-sub">Lounge Model</span>
-            </div>
-            <div class="fin-capex-list">
-              <div class="fin-capex-row"><span>Franchise Brand Fee</span><strong>&#8377;5,00,000</strong></div>
-              <div class="fin-capex-row"><span>Kitchen Lines &amp; Espresso</span><strong>&#8377;4,50,000</strong></div>
-              <div class="fin-capex-row"><span>Cafe Interior &amp; 3D Fitout</span><strong>&#8377;4,00,000</strong></div>
-              <div class="fin-capex-row"><span>Stock, POS &amp; Compliance</span><strong>&#8377;2,50,000</strong></div>
-              <div class="fin-capex-row total"><span>Total Turnkey Setup</span><strong>&#8377;16,00,000</strong></div>
-            </div>
+        <div class="opp-body">
+          <span class="opp-tag">Food &amp; Beverage</span>
+          <h3 class="opp-name">Beyond Temptation</h3>
+          <span class="opp-category-sub">Café &amp; Coffee</span>
+          <div class="opp-meta-box">
+            <span class="opp-range-label">Investment Range</span>
+            <strong class="opp-price">&#8377;15 &ndash; 20L</strong>
+            <span class="opp-details-link">View Details &rarr;</span>
           </div>
         </div>
-        <div class="brand-actions">
-          <a class="btn btn--kesar" href="beyond-temptation.html">View Beyond Temptation &rarr;</a> <a class="btn btn--ghost" href="book-consultation.html?brand=Beyond+Temptation">Apply Now</a>
-          <span class="formats-note">Formats: Compact (&#8377;13-15L) &middot; Lounge (&#8377;15-20L) &middot; Master (&#8377;50-80L)</span>
-        </div>
-      </div>
-    </article>
+      </a>
 
-    <!-- Brand 2: Dunk Burgers -->
-    <article class="brand-detail-card rv" data-category="Burgers" id="dunk-burgers">
-      <div class="brand-media">
-        <img src="assets/brands/dunk-burgers.png" alt="Dunk Burgers First Dip In Burger" />
-        <span class="brand-badge-float">Zero Royalty Model</span>
-      </div>
-      <div class="brand-content">
-        <div class="brand-title-row">
-          <div>
-            <h2>Dunk Burgers</h2>
-            <div style="display:flex;gap:6px;margin-top:4px">
-              <span class="tag gold">Dip-In Burgers &amp; QSR</span>
-              <span class="tag green">0% Royalty</span>
-            </div>
-          </div>
-          <span style="font-family:var(--font-editorial);font-size:24px;font-weight:800;color:var(--kesar)">&#8377;15&ndash;25L</span>
+      <!-- Brand 2: Dunk Burgers -->
+      <a class="opp-card" href="dunk-burgers.html" data-category="Food & Beverage">
+        <div class="opp-img-wrap">
+          <img src="assets/brands/dunk-burgers.png" alt="Dunk Burgers Outlet" class="opp-img" />
         </div>
-        <p class="brand-usp">
-          India's First Dip-In Burger Brand. 16+ years of manufacturing and franchising expertise. Signature dip-it-in sauce burgers (Mushroom Stroganoff, New York Mash, Latino Heat), crispy wings, loaded fries, Cad-B shakes and boba beverages. Zero royalty model &mdash; keep 100% of your profits.
-        </p>
-        <div class="brand-financials-grid">
-          <div class="fin-panel">
-            <div class="fin-panel-head">
-              <span class="fin-panel-title">Unit Economics</span>
-              <span class="fin-panel-sub">Audited Outlets</span>
-            </div>
-            <div class="fin-stats-grid">
-              <div class="fin-stat"><small>Net Margin</small><strong>&gt; 38%</strong></div>
-              <div class="fin-stat"><small>Monthly Net</small><strong>&#8377;1.5 &ndash; 2.8L</strong></div>
-              <div class="fin-stat"><small>Est. Payback</small><strong>12 &ndash; 15 Mo</strong></div>
-              <div class="fin-stat"><small>Space Req.</small><strong>300 &ndash; 1000 sqft</strong></div>
-            </div>
-          </div>
-          <div class="fin-panel">
-            <div class="fin-panel-head">
-              <span class="fin-panel-title">Capex Breakdown</span>
-              <span class="fin-panel-sub">Express Cafe</span>
-            </div>
-            <div class="fin-capex-list">
-              <div class="fin-capex-row"><span>Setup &amp; Brand Rights</span><strong>&#8377;4,50,000</strong></div>
-              <div class="fin-capex-row"><span>Commercial Griddles &amp; Fryers</span><strong>&#8377;5,00,000</strong></div>
-              <div class="fin-capex-row"><span>Interior &amp; Neon Signage</span><strong>&#8377;4,80,000</strong></div>
-              <div class="fin-capex-row"><span>Initial Stock &amp; POS Launch</span><strong>&#8377;2,70,000</strong></div>
-              <div class="fin-capex-row total"><span>Total Turnkey Setup</span><strong>&#8377;17,00,000</strong></div>
-            </div>
+        <div class="opp-body">
+          <span class="opp-tag">Food &amp; Beverage</span>
+          <h3 class="opp-name">Dunk Burgers</h3>
+          <span class="opp-category-sub">Quick Service Restaurant</span>
+          <div class="opp-meta-box">
+            <span class="opp-range-label">Investment Range</span>
+            <strong class="opp-price">&#8377;15 &ndash; 25L</strong>
+            <span class="opp-details-link">View Details &rarr;</span>
           </div>
         </div>
-        <div class="brand-actions">
-          <a class="btn btn--kesar" href="dunk-burgers.html">View Dunk Burgers &rarr;</a> <a class="btn btn--ghost" href="book-consultation.html?brand=Dunk+Burgers">Apply Now</a>
-          <span class="formats-note">Formats: Express (&#8377;15-17L) &middot; Lounge (&#8377;20-25L) &middot; Master (&#8377;49.99L+)</span>
-        </div>
-      </div>
-    </article>
+      </a>
 
-    <!-- Brand 3: Mr. Sandwich -->
-    <article class="brand-detail-card rv" data-category="Sandwich" id="mr-sandwich">
-      <div class="brand-media">
-        <img src="assets/brands/mr-sandwich.png" alt="Mr Sandwich Largest Sandwich Brand" />
-        <span class="brand-badge-float">Top 200 Franchise Brand</span>
-      </div>
-      <div class="brand-content">
-        <div class="brand-title-row">
-          <div>
-            <h2>Mr. Sandwich</h2>
-            <div style="display:flex;gap:6px;margin-top:4px">
-              <span class="tag gold">Sandwiches &amp; Subs</span>
-              <span class="tag green">200+ Outlets</span>
-            </div>
-          </div>
-          <span style="font-family:var(--font-editorial);font-size:24px;font-weight:800;color:var(--kesar)">&#8377;9&ndash;17.5L</span>
+      <!-- Brand 3: Mr. Sandwich -->
+      <a class="opp-card" href="mr-sandwich.html" data-category="Food & Beverage">
+        <div class="opp-img-wrap">
+          <img src="assets/brands/mr-sandwich.png" alt="Mr. Sandwich Kiosk" class="opp-img" />
         </div>
-        <p class="brand-usp">
-          India's Largest Brand in the Sandwich Segment. 200+ Outlets across 100+ Cities &amp; 20+ States + 5 International Outlets. European gourmet subs, paninis, cheesy burgers, pastas and artisanal shakes. Audited &#8377;15L–&#8377;21.18L annual net profit per outlet.
-        </p>
-        <div class="brand-financials-grid">
-          <div class="fin-panel">
-            <div class="fin-panel-head">
-              <span class="fin-panel-title">Unit Economics</span>
-              <span class="fin-panel-sub">Audited Outlets</span>
-            </div>
-            <div class="fin-stats-grid">
-              <div class="fin-stat"><small>Net Margin</small><strong>39% &ndash; 42%</strong></div>
-              <div class="fin-stat"><small>Monthly Net</small><strong>&#8377;1.25 &ndash; 1.76L</strong></div>
-              <div class="fin-stat"><small>Est. Payback</small><strong>8 &ndash; 12 Mo</strong></div>
-              <div class="fin-stat"><small>Space Req.</small><strong>100 &ndash; 600 sqft</strong></div>
-            </div>
-          </div>
-          <div class="fin-panel">
-            <div class="fin-panel-head">
-              <span class="fin-panel-title">Capex Breakdown</span>
-              <span class="fin-panel-sub">Stand-Alone Model</span>
-            </div>
-            <div class="fin-capex-list">
-              <div class="fin-capex-row"><span>Franchise Fee &amp; License</span><strong>&#8377;5,00,000</strong></div>
-              <div class="fin-capex-row"><span>Store Fitout &amp; Fabrication</span><strong>&#8377;6,00,000</strong></div>
-              <div class="fin-capex-row"><span>Machineries &amp; Equipment</span><strong>&#8377;3,00,000</strong></div>
-              <div class="fin-capex-row"><span>Stock, POS, Signage &amp; Deposit</span><strong>&#8377;3,50,000</strong></div>
-              <div class="fin-capex-row total"><span>Total Turnkey Setup</span><strong>&#8377;17,50,000</strong></div>
-            </div>
+        <div class="opp-body">
+          <span class="opp-tag">Food &amp; Beverage</span>
+          <h3 class="opp-name">Mr. Sandwich</h3>
+          <span class="opp-category-sub">Sandwiches &amp; Salads</span>
+          <div class="opp-meta-box">
+            <span class="opp-range-label">Investment Range</span>
+            <strong class="opp-price">&#8377;9 &ndash; 17.5L</strong>
+            <span class="opp-details-link">View Details &rarr;</span>
           </div>
         </div>
-        <div class="brand-actions">
-          <a class="btn btn--kesar" href="mr-sandwich.html">View Mr. Sandwich &rarr;</a> <a class="btn btn--ghost" href="book-consultation.html?brand=Mr.+Sandwich">Apply Now</a>
-          <span class="formats-note">Formats: Takeaway (&#8377;9L) &middot; Stand-Alone (&#8377;17.5L) &middot; Master (&#8377;40L)</span>
-        </div>
-      </div>
-    </article>
+      </a>
 
-    <!-- Brand 4: South Twist -->
-    <article class="brand-detail-card rv" data-category="SouthIndian" id="south-twist">
-      <div class="brand-media">
-        <img src="assets/brands/south-twist.png" alt="South Twist Authentic South Indian Thatte Idli" />
-        <span class="brand-badge-float">Fastest Growing South Indian QSR</span>
+      <!-- Brand 4: South Twist -->
+      <a class="opp-card" href="south-twist.html" data-category="Food & Beverage">
+        <div class="opp-img-wrap">
+          <img src="assets/brands/south-twist.png" alt="South Twist Outlet" class="opp-img" />
+        </div>
+        <div class="opp-body">
+          <span class="opp-tag">Food &amp; Beverage</span>
+          <h3 class="opp-name">South Twist</h3>
+          <span class="opp-category-sub">South Indian QSR</span>
+          <div class="opp-meta-box">
+            <span class="opp-range-label">Investment Range</span>
+            <strong class="opp-price">&#8377;10 &ndash; 20L</strong>
+            <span class="opp-details-link">View Details &rarr;</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Brand 5: Cafe Choco Craze (Bonus Discovery Card) -->
+      <a class="opp-card extra-opp" href="cafe-choco-craze.html" data-category="Food & Beverage">
+        <div class="opp-img-wrap">
+          <img src="assets/brands/cafe-choco-craze.png" alt="Cafe Choco Craze Store" class="opp-img" />
+        </div>
+        <div class="opp-body">
+          <span class="opp-tag">Food &amp; Beverage</span>
+          <h3 class="opp-name">Cafe Choco Craze</h3>
+          <span class="opp-category-sub">Dessert &amp; Thick Shakes</span>
+          <div class="opp-meta-box">
+            <span class="opp-range-label">Investment Range</span>
+            <strong class="opp-price">&#8377;10 &ndash; 18L</strong>
+            <span class="opp-details-link">View Details &rarr;</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Category Empty State -->
+      <div id="noOppResults" style="display:none;grid-column:1/-1;text-align:center;padding:48px 24px;background:#FFFFFF;border:1.5px dashed #CBD5E1;border-radius:20px;">
+        <p style="font-family:var(--font-editorial,'Fraunces',Georgia,serif);font-size:20px;font-weight:700;color:#0F172A;margin:0 0 6px">Opportunities in this category are launching soon.</p>
+        <p style="font-size:14px;color:#64748B;margin:0 0 18px;max-width:520px;margin-left:auto;margin-right:auto">Our franchise advisory team is vetting live unit economics, brand operational manuals, and territory rights for shortlisted operators in this sector.</p>
+        <a href="book-consultation.html" class="btn btn--kesar btn--sm">Inquire for Unlisted Brands &rarr;</a>
       </div>
-      <div class="brand-content">
-        <div class="brand-title-row">
-          <div>
-            <h2>South Twist</h2>
-            <div style="display:flex;gap:6px;margin-top:4px">
-              <span class="tag gold">South Indian QSR</span>
-              <span class="tag green">Chef-Less</span>
-            </div>
-          </div>
-          <span style="font-family:var(--font-editorial);font-size:24px;font-weight:800;color:var(--kesar)">&#8377;10&ndash;20L</span>
-        </div>
-        <p class="brand-usp">
-          Authentic South with an innovative twist. Born in Pune. Famous for Ghee Podi Thatte Idlis, crispy Benne Dosas, Mysore Masala, Jamaican &amp; Mix Veg Appe, Peri Peri Idli Fry, and Filter Coffee. Chef-less automated batter supply from own factory, zero wastage.
-        </p>
-        <div class="brand-financials-grid">
-          <div class="fin-panel">
-            <div class="fin-panel-head">
-              <span class="fin-panel-title">Unit Economics</span>
-              <span class="fin-panel-sub">Audited Outlets</span>
-            </div>
-            <div class="fin-stats-grid">
-              <div class="fin-stat"><small>Net Margin</small><strong>40% &ndash; 45%</strong></div>
-              <div class="fin-stat"><small>Monthly Net</small><strong>&#8377;1.3 &ndash; 2.2L</strong></div>
-              <div class="fin-stat"><small>Est. Payback</small><strong>10 &ndash; 14 Mo</strong></div>
-              <div class="fin-stat"><small>Space Req.</small><strong>100 &ndash; 600 sqft</strong></div>
-            </div>
-          </div>
-          <div class="fin-panel">
-            <div class="fin-panel-head">
-              <span class="fin-panel-title">Capex Breakdown</span>
-              <span class="fin-panel-sub">Stand-Alone Format</span>
-            </div>
-            <div class="fin-capex-list">
-              <div class="fin-capex-row"><span>Franchise Brand Fee</span><strong>&#8377;4,00,000</strong></div>
-              <div class="fin-capex-row"><span>Store Interior &amp; Seating</span><strong>&#8377;6,50,000</strong></div>
-              <div class="fin-capex-row"><span>Steamers, Tawas &amp; Kitchen</span><strong>&#8377;4,00,000</strong></div>
-              <div class="fin-capex-row"><span>Stock, POS, Ads &amp; Launch</span><strong>&#8377;3,20,000</strong></div>
-              <div class="fin-capex-row total"><span>Total Turnkey Setup</span><strong>&#8377;17,70,000</strong></div>
-            </div>
-          </div>
-        </div>
-        <div class="brand-actions">
-          <a class="btn btn--kesar" href="south-twist.html">View South Twist &rarr;</a> <a class="btn btn--ghost" href="book-consultation.html?brand=South+Twist">Apply Now</a>
-          <span class="formats-note">Formats: Kiosk (&#8377;10-12L / &#8377;13.3L) &middot; Stand-Alone (&#8377;15-20L / &#8377;17.7L) &middot; Master (&#8377;50L-1Cr)</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- Brand 5: Cafe Choco Craze -->
-    <article class="brand-detail-card rv" data-category="Dessert" id="cafe-choco-craze">
-      <div class="brand-media">
-        <img src="assets/brands/cafe-choco-craze.png" alt="Cafe Choco Craze Chocolate Cafe" />
-        <span class="brand-badge-float">80+ Outlets &middot; Est. 2010</span>
-      </div>
-      <div class="brand-content">
-        <div class="brand-title-row">
-          <div>
-            <h2>Cafe Choco Craze</h2>
-            <div style="display:flex;gap:6px;margin-top:4px">
-              <span class="tag gold">Chocolate Cafe</span>
-              <span class="tag green">High Repeat Rate</span>
-            </div>
-          </div>
-          <span style="font-family:var(--font-editorial);font-size:24px;font-weight:800;color:var(--kesar)">&#8377;8&ndash;20L</span>
-        </div>
-        <p class="brand-usp">
-          The iconic Pune chocolate cafe chain. Renowned for Chocolick B (signature Cad-B chocolate thick shake), Chocolick M, Frosips, Exotic Cheese Burst Pizzas, Nutella Chocolate Grills, Garlic Breads, and Thick Cold Coffees. In-house chocolate manufacturing in Pune.
-        </p>
-        <div class="brand-financials-grid">
-          <div class="fin-panel">
-            <div class="fin-panel-head">
-              <span class="fin-panel-title">Unit Economics</span>
-              <span class="fin-panel-sub">Audited Outlets</span>
-            </div>
-            <div class="fin-stats-grid">
-              <div class="fin-stat"><small>Net Margin</small><strong>35% &ndash; 40%</strong></div>
-              <div class="fin-stat"><small>Monthly Net</small><strong>&#8377;1.1 &ndash; 2.0L</strong></div>
-              <div class="fin-stat"><small>Est. Payback</small><strong>9 &ndash; 14 Mo</strong></div>
-              <div class="fin-stat"><small>Space Req.</small><strong>100 &ndash; 800 sqft</strong></div>
-            </div>
-          </div>
-          <div class="fin-panel">
-            <div class="fin-panel-head">
-              <span class="fin-panel-title">Capex Breakdown</span>
-              <span class="fin-panel-sub">Lounge Model</span>
-            </div>
-            <div class="fin-capex-list">
-              <div class="fin-capex-row"><span>Franchise Brand License</span><strong>&#8377;3,50,000</strong></div>
-              <div class="fin-capex-row"><span>Commercial Blenders &amp; Line</span><strong>&#8377;4,20,000</strong></div>
-              <div class="fin-capex-row"><span>Cafe Interior &amp; Branding</span><strong>&#8377;5,00,000</strong></div>
-              <div class="fin-capex-row"><span>Stock, POS &amp; Launch</span><strong>&#8377;3,80,000</strong></div>
-              <div class="fin-capex-row total"><span>Total Turnkey Setup</span><strong>&#8377;16,50,000</strong></div>
-            </div>
-          </div>
-        </div>
-        <div class="brand-actions">
-          <a class="btn btn--kesar" href="cafe-choco-craze.html">View Cafe Choco Craze &rarr;</a> <a class="btn btn--ghost" href="book-consultation.html?brand=Cafe+Choco+Craze">Apply Now</a>
-          <span class="formats-note">Formats: Kiosk (&#8377;8-12L) &middot; Lounge (&#8377;15-20L) &middot; Master (&#8377;40-60L)</span>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<!-- ============ BUDGET RAIL ============ -->
-<section class="sec" id="budget" style="background:var(--jamun-deep);color:#FFFFFF;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)">
-  <div class="wrap">
-    <div class="sec-top rv" style="margin-bottom:32px">
-      <div class="sec-head wide">
-        <p class="eyebrow on-dark">By Budget Bracket</p>
-        <h2 style="color:#FFFFFF;font-size:clamp(26px, 3.4vw, 42px)">What &#8377;6 Lakh Buys, and What &#8377;60 Lakh Does.</h2>
-      </div>
-      <p class="sec-note on-dark">Pick the bracket you can fund without borrowing against the house. The format follows the capital, not the other way round.</p>
-    </div>
-    
-    <div class="rail rv">
-      <article class="slab">
-        <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&h=350&fit=crop" alt="Coffee cups on a counter" /></div>
-        <span class="slab-amt">&#8377;6&ndash;15L</span>
-        <p><strong>Kiosk &amp; Takeaway Formats.</strong> Low capex, high density, quick to launch.</p>
-        <ul>
-          <li>Chai, momo, waffle and bakery counters</li>
-          <li>90&ndash;200 sqft, shutter or mall kiosk</li>
-          <li>Break-even typically 11&ndash;15 months</li>
-          <li>Can run hands-on or with compact 2-person crew</li>
-        </ul>
-      </article>
-
-      <article class="slab">
-        <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=700&h=350&fit=crop" alt="Burger on a counter" /></div>
-        <span class="slab-amt">&#8377;15&ndash;30L</span>
-        <p><strong>Full QSR Outlets.</strong> Dine-in counter with a dedicated commercial kitchen line.</p>
-        <ul>
-          <li>Ice cream parlours, burger and biryani QSR</li>
-          <li>300&ndash;600 sqft on a high-street location</li>
-          <li>Break-even typically 16&ndash;22 months</li>
-          <li>Needs a shift manager and 4&ndash;6 staff</li>
-        </ul>
-      </article>
-
-      <article class="slab">
-        <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=700&h=350&fit=crop" alt="Cafe interior with plants" /></div>
-        <span class="slab-amt">&#8377;30&ndash;60L</span>
-        <p><strong>Caf&eacute;s &amp; Casual Dining.</strong> Higher ticket size, premium seating, higher repeat footfall.</p>
-        <ul>
-          <li>Caf&eacute; lounges and 40&ndash;80 cover restaurants</li>
-          <li>1,000&ndash;2,000 sqft with roadside visibility</li>
-          <li>Break-even typically 20&ndash;28 months</li>
-          <li>Six months of working capital is recommended</li>
-        </ul>
-      </article>
-
-      <article class="slab">
-        <div class="shot"><img loading="lazy" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=700&h=350&fit=crop" alt="Large dining hall" /></div>
-        <span class="slab-amt">&#8377;60L+</span>
-        <p><strong>Master Territory Rights.</strong> Exclusive rights for a city, district or state.</p>
-        <ul>
-          <li>Territory exclusivity with sub-franchise royalty sharing</li>
-          <li>Three to five units committed over 24 months</li>
-          <li>Direct founder introductions and area exclusivity</li>
-          <li>Centralized regional supply coordination</li>
-        </ul>
-      </article>
     </div>
   </div>
 </section>
 
-<!-- ============ INTERACTIVE FORMAT & BRAND ROI CALCULATOR ============ -->
-<section class="sec" id="calculator" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(64px, 8vw, 100px) 0">
+<!-- ============ PERSONALIZED GUIDANCE BANNER ============ -->
+<section class="sec" style="padding: clamp(20px, 4vw, 40px) 0;">
   <div class="wrap">
-  <div class="calc-section rv on-dark">
-    <div class="sec-head on-dark" style="margin-bottom:28px">
-      <p class="eyebrow on-dark"><span class="pulse"></span> Unit Economics Simulator</p>
-      <h2 style="color:var(--malai)">Calculate Profit &amp; Payback by Format &amp; Brand.</h2>
-      <p class="sec-note on-dark">Select an outlet format (Kiosk, QSR, Cloud Kitchen, Dine-in) and optionally apply audited brand data from our 5 flagship food brands.</p>
-    </div>
-
-    <div class="calc-grid">
-      <!-- Sliders / Controls -->
-      <div class="calc-card">
-        <!-- 1. Format Selector -->
-        <div class="calc-group">
-          <label style="font-family:var(--mono);font-size:11.5px;color:rgba(248,250,252,.75);text-transform:uppercase;letter-spacing:0.06em">1. Select Outlet Format</label>
-          <div class="calc-formats">
-            <button type="button" class="fmt-btn active" data-fmt="kiosk" onclick="setCalcFormat('kiosk')">Kiosk (&#8377;8L)</button>
-            <button type="button" class="fmt-btn" data-fmt="qsr" onclick="setCalcFormat('qsr')">QSR (&#8377;16L)</button>
-            <button type="button" class="fmt-btn" data-fmt="cloud" onclick="setCalcFormat('cloud')">Cloud Kitchen (&#8377;10L)</button>
-            <button type="button" class="fmt-btn" data-fmt="dine" onclick="setCalcFormat('dine')">Dine-in (&#8377;50L)</button>
-          </div>
-        </div>
-
-        <!-- 2. Brand Presets -->
-        <div class="calc-group" style="padding-top:4px">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <label style="font-family:var(--mono);font-size:11.5px;color:rgba(248,250,252,.75);text-transform:uppercase;letter-spacing:0.06em">2. Calibrate by Brand Model (Optional)</label>
-            <span id="calcBrandBadge" style="font-family:var(--font-mono);font-size:11px;color:var(--kesar);font-weight:700">General F&amp;B</span>
-          </div>
-          <div class="calc-brand-pills">
-            <button type="button" class="brand-pill-btn active" data-brand="general" onclick="setCalcBrand('general')">Standard F&amp;B</button>
-            <button type="button" class="brand-pill-btn" data-brand="beyond-temptation" onclick="setCalcBrand('beyond-temptation')">Beyond Temptation</button>
-            <button type="button" class="brand-pill-btn" data-brand="dunk-burgers" onclick="setCalcBrand('dunk-burgers')">Dunk Burgers</button>
-            <button type="button" class="brand-pill-btn" data-brand="mr-sandwich" onclick="setCalcBrand('mr-sandwich')">Mr. Sandwich</button>
-            <button type="button" class="brand-pill-btn" data-brand="south-twist" onclick="setCalcBrand('south-twist')">South Twist</button>
-            <button type="button" class="brand-pill-btn" data-brand="cafe-choco-craze" onclick="setCalcBrand('cafe-choco-craze')">Cafe Choco Craze</button>
-          </div>
-        </div>
-
-        <!-- 3. Sliders -->
-        <div class="calc-group" style="margin-top:6px">
-          <div class="calc-label-row">
-            <span>Total Capital Investment</span>
-            <span class="calc-val-badge" id="valInvestment">&#8377;8 Lakh</span>
-          </div>
-          <input type="range" class="calc-slider" id="sliderInvestment" min="6" max="75" step="1" value="8" oninput="updateCalculator()" />
-        </div>
-
-        <div class="calc-group">
-          <div class="calc-label-row">
-            <span>Daily Customer Orders</span>
-            <span class="calc-val-badge" id="valOrders">160 bills / day</span>
-          </div>
-          <input type="range" class="calc-slider" id="sliderOrders" min="40" max="450" step="5" value="160" oninput="updateCalculator()" />
-        </div>
-
-        <div class="calc-group">
-          <div class="calc-label-row">
-            <span>Average Order Value (AOV)</span>
-            <span class="calc-val-badge" id="valAOV">&#8377;120 / bill</span>
-          </div>
-          <input type="range" class="calc-slider" id="sliderAOV" min="50" max="650" step="10" value="120" oninput="updateCalculator()" />
-        </div>
+    <div class="guidance-banner-card">
+      <div class="guidance-content">
+        <h2>Not sure which franchise is right for you?</h2>
+        <p>Talk to our team and get personalised guidance.</p>
+        <a class="btn-primary-explore" href="book-consultation.html">Book a Free Consultation &rarr;</a>
       </div>
-
-      <!-- Live Calculation Results -->
-      <div class="calc-results-board">
-        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.12);padding-bottom:12px">
-          <div>
-            <small style="font-family:var(--font-mono);font-size:11px;color:rgba(255,255,255,0.7);text-transform:uppercase">Active Simulator Model</small>
-            <strong id="resModelTitle" style="display:block;font-size:16px;color:var(--malai)">Kiosk Format &middot; Standard F&amp;B</strong>
-          </div>
-          <span id="resTagMargin" class="tag gold">Audited Unit Economics</span>
-        </div>
-
-        <div class="calc-metric-row">
-          <div class="calc-metric-item">
-            <small>Est. Monthly Revenue</small>
-            <strong id="resRevenue">&#8377;5,76,000</strong>
-          </div>
-          <div class="calc-metric-item">
-            <small id="labelFoodCost">Raw Material Cost (~34%)</small>
-            <strong id="resFoodCost" style="color:rgba(248,250,252,.85)">&#8377;1,95,840</strong>
-          </div>
-        </div>
-
-        <div class="calc-metric-row">
-          <div class="calc-metric-item">
-            <small>Staff, Rent &amp; Overhead</small>
-            <strong id="resOpex" style="color:rgba(248,250,252,.85)">&#8377;1,45,000</strong>
-          </div>
-          <div class="calc-metric-item">
-            <small>Brand Royalty</small>
-            <strong id="resRoyalty" style="color:var(--pista)">&#8377;0 (0% Royalty)</strong>
-          </div>
-        </div>
-
-        <div class="calc-highlight-box">
-          <div>
-            <small>Est. Net Profit / Month</small>
-            <b id="resNetProfit">&#8377;2,35,160</b>
-          </div>
-          <div style="text-align:right">
-            <small>Est. Payback Period</small>
-            <b id="resPayback" style="color:var(--kesar)">3.4 Months</b>
-          </div>
-        </div>
-
-        <button class="btn btn--kesar" id="calcApplyBtn" style="width:100%" onclick="applyForCalculatedBudget()">Apply For This Franchise Opportunity &rarr;</button>
+      <div class="guidance-img-box">
+        <img class="guidance-img" src="assets/guidance-desk.jpg" alt="Franchise advisory notes, coffee cup with Ideas Franchises Growth and planning notebook" />
       </div>
     </div>
   </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="sec" style="padding: clamp(48px, 6vw, 76px) 0;">
+  <div class="wrap">
+    <div class="hiw-sec-head">
+      <h2>How It Works</h2>
+      <p>A simple process to help you get started.</p>
+    </div>
+
+    <div class="hiw-steps-row">
+      <!-- Step 01 -->
+      <div class="hiw-step-item">
+        <div class="hiw-icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
+        <div class="hiw-text-wrap">
+          <div class="hiw-step-title-row">
+            <span class="hiw-num">01</span>
+            <h3 class="hiw-title">Explore</h3>
+          </div>
+          <p class="hiw-desc">Discover curated franchise opportunities.</p>
+        </div>
+      </div>
+
+      <div class="hiw-arrow-divider">&rarr;</div>
+
+      <!-- Step 02 -->
+      <div class="hiw-step-item">
+        <div class="hiw-icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="hiw-text-wrap">
+          <div class="hiw-step-title-row">
+            <span class="hiw-num">02</span>
+            <h3 class="hiw-title">Discuss</h3>
+          </div>
+          <p class="hiw-desc">Get detailed information and expert advice.</p>
+        </div>
+      </div>
+
+      <div class="hiw-arrow-divider">&rarr;</div>
+
+      <!-- Step 03 -->
+      <div class="hiw-step-item">
+        <div class="hiw-icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 0 0 1.42 0l6.58-6.59a1 1 0 0 0 0-1.41l-2.58-2.58a1 1 0 0 0-1.42 0L15 10.5"/><path d="m18 11 1.5-1.5a1 1 0 0 0 0-1.41l-2.58-2.59a1 1 0 0 0-1.42 0L14 7"/><path d="m6.5 12.5 4 4"/><path d="m3 16 3.5 3.5a1 1 0 0 0 1.42 0l2.58-2.59"/><path d="M4 12V3a1 1 0 0 1 1-1h9l4 4v2"/></svg>
+        </div>
+        <div class="hiw-text-wrap">
+          <div class="hiw-step-title-row">
+            <span class="hiw-num">03</span>
+            <h3 class="hiw-title">Take the Next Step</h3>
+          </div>
+          <p class="hiw-desc">Connect with the brand and move forward.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING HERO BANNER ============ -->
+<section class="sec" style="padding: 0 0 clamp(48px, 6vw, 76px) 0;">
+  <div class="wrap">
+    <div class="closing-banner-box" style="background-image: url('assets/brighter-tomorrow-summit.jpg');">
+      <div class="closing-banner-overlay"></div>
+      <div class="closing-banner-content">
+        <h2>Your Business.<br/>A Brighter Tomorrow.</h2>
+      </div>
+      <div class="closing-banner-btn-wrap">
+        <a class="btn-primary-explore" href="book-consultation.html" style="font-size: 15.5px; padding: 14px 32px;">Start Your Journey &rarr;</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -837,214 +504,127 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.05, rootMargin: '0px 0px 50px' });
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-function filterCatalog(category, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-  const cards = document.querySelectorAll('.brand-detail-card');
-  cards.forEach(card => {
-    if (category === 'all' || card.dataset.category === category) {
-      card.style.display = 'grid';
-      card.classList.add('in');
-    } else {
-      card.style.display = 'none';
-    }
+// Hero Showcase Carousel Logic
+const heroSlides = [
+  {
+    img: "assets/brands/beyond_temptation_store.png",
+    alt: "Beyond Temptation Storefront",
+    script: "Turn Passion<br/><em>into a Business</em>"
+  },
+  {
+    img: "assets/brands/dunk-burgers.png",
+    alt: "Dunk Burgers QSR Store",
+    script: "Fast Casual<br/><em>Crave Culture</em>"
+  },
+  {
+    img: "assets/brands/mr-sandwich.png",
+    alt: "Mr. Sandwich Kiosk",
+    script: "High-Margin<br/><em>Quick Bites</em>"
+  },
+  {
+    img: "assets/brands/south-twist.png",
+    alt: "South Twist Outlet",
+    script: "Authentic Heritage<br/><em>Modern Scale</em>"
+  }
+];
+
+let curHeroSlide = 0;
+function updateHeroSlideUI() {
+  const img = document.getElementById('heroShowcaseImg');
+  const txt = document.getElementById('heroScriptOverlay');
+  const dots = document.querySelectorAll('.hero-dot');
+  
+  if (img) {
+    img.style.opacity = '0';
+    setTimeout(() => {
+      img.src = heroSlides[curHeroSlide].img;
+      img.alt = heroSlides[curHeroSlide].alt;
+      img.style.opacity = '1';
+    }, 200);
+  }
+  
+  if (txt) {
+    txt.innerHTML = heroSlides[curHeroSlide].script;
+  }
+  
+  dots.forEach((dot, idx) => {
+    dot.classList.toggle('active', idx === curHeroSlide);
   });
 }
-</script>
 
-<script>
-/* ============ INTERACTIVE FORMAT & BRAND ROI CALCULATOR ============ */
-const formatConfigs = {
-  kiosk: { name: 'Kiosk Format', baseInvest: 8, baseOrders: 160, baseAov: 120, opex: 120000 },
-  qsr: { name: 'QSR Format', baseInvest: 16, baseOrders: 220, baseAov: 180, opex: 180000 },
-  cloud: { name: 'Cloud Kitchen', baseInvest: 10, baseOrders: 170, baseAov: 240, opex: 130000 },
-  dine: { name: 'Dine-in Format', baseInvest: 50, baseOrders: 140, baseAov: 480, opex: 380000 }
-};
-
-const brandProfiles = {
-  general: {
-    name: 'Standard F&B',
-    foodCostPct: 0.34,
-    royaltyPct: 0.05,
-    tagline: 'Standard Industry Benchmark',
-    badge: 'Industry Average'
-  },
-  'beyond-temptation': {
-    name: 'Beyond Temptation',
-    foodCostPct: 0.32,
-    royaltyPct: 0.00,
-    aovBoost: 190,
-    investDefault: 15,
-    tagline: 'Cad-Bee Chocolate Shakes & Cafe',
-    badge: '32% Food Cost · 0% Royalty'
-  },
-  'dunk-burgers': {
-    name: 'Dunk Burgers',
-    foodCostPct: 0.30,
-    royaltyPct: 0.00,
-    aovBoost: 220,
-    investDefault: 18,
-    tagline: 'Dip-In Burgers & Loaded Sides',
-    badge: '30% Food Cost · 0% Royalty'
-  },
-  'mr-sandwich': {
-    name: 'Mr. Sandwich',
-    foodCostPct: 0.29,
-    royaltyPct: 0.00,
-    aovBoost: 160,
-    investDefault: 12,
-    tagline: 'European Subs & Grills (200+ Outlets)',
-    badge: '29% Food Cost · 41% Margin'
-  },
-  'south-twist': {
-    name: 'South Twist',
-    foodCostPct: 0.26,
-    royaltyPct: 0.00,
-    aovBoost: 130,
-    investDefault: 14,
-    tagline: 'Thatte Idli & Benne Dosa QSR',
-    badge: '26% Food Cost · Automated'
-  },
-  'cafe-choco-craze': {
-    name: 'Cafe Choco Craze',
-    foodCostPct: 0.31,
-    royaltyPct: 0.00,
-    aovBoost: 175,
-    investDefault: 13,
-    tagline: 'Chocolick B Cad-B & Shakes',
-    badge: '31% Food Cost · 80+ Outlets'
-  }
-};
-
-let currentFormat = 'kiosk';
-let currentBrand = 'general';
-
-function setCalcFormat(fmt) {
-  currentFormat = fmt;
-  document.querySelectorAll('.fmt-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-fmt') === fmt));
-  
-  const fCfg = formatConfigs[fmt];
-  const sliderInvest = document.getElementById('sliderInvestment');
-  const sliderOrders = document.getElementById('sliderOrders');
-  const sliderAOV = document.getElementById('sliderAOV');
-  
-  if (sliderInvest && fCfg) sliderInvest.value = fCfg.baseInvest;
-  if (sliderOrders && fCfg) sliderOrders.value = fCfg.baseOrders;
-  
-  if (currentBrand === 'general' && sliderAOV && fCfg) {
-    sliderAOV.value = fCfg.baseAov;
-  }
-  updateCalculator();
+function setHeroSlide(idx) {
+  curHeroSlide = idx;
+  updateHeroSlideUI();
 }
 
-function setCalcBrand(bKey) {
-  currentBrand = bKey;
-  document.querySelectorAll('.brand-pill-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-brand') === bKey));
-  
-  const bData = brandProfiles[bKey];
-  const badgeEl = document.getElementById('calcBrandBadge');
-  if (badgeEl && bData) badgeEl.textContent = bData.name;
-  
-  const sliderInvest = document.getElementById('sliderInvestment');
-  const sliderAOV = document.getElementById('sliderAOV');
-  
-  if (bKey !== 'general' && bData) {
-    if (bData.investDefault && sliderInvest) sliderInvest.value = bData.investDefault;
-    if (bData.aovBoost && sliderAOV) sliderAOV.value = bData.aovBoost;
-  }
-  updateCalculator();
+function nextHeroSlide() {
+  curHeroSlide = (curHeroSlide + 1) % heroSlides.length;
+  updateHeroSlideUI();
 }
 
-function updateCalculator() {
-  const fCfg = formatConfigs[currentFormat] || formatConfigs.kiosk;
-  const bData = brandProfiles[currentBrand] || brandProfiles.general;
+function prevHeroSlide() {
+  curHeroSlide = (curHeroSlide - 1 + heroSlides.length) % heroSlides.length;
+  updateHeroSlideUI();
+}
 
-  const sliderInvest = document.getElementById('sliderInvestment');
-  const sliderOrders = document.getElementById('sliderOrders');
-  const sliderAOV = document.getElementById('sliderAOV');
+// Auto advance slide every 5 seconds
+setInterval(nextHeroSlide, 5000);
 
-  if (!sliderInvest || !sliderOrders || !sliderAOV) return;
+// Featured Opportunities: View All / Show Less Toggle
+let showingAllOpps = false;
+function toggleAllBrands(e) {
+  if (e) e.preventDefault();
+  showingAllOpps = !showingAllOpps;
+  const extraCards = document.querySelectorAll('.extra-opp');
+  const btn = document.getElementById('featuredViewAllBtn');
+  extraCards.forEach(c => {
+    c.classList.toggle('show', showingAllOpps);
+    c.style.display = showingAllOpps ? 'flex' : 'none';
+  });
+  if (btn) {
+    btn.innerHTML = showingAllOpps ? 'Show Featured &larr;' : 'View All &rarr;';
+  }
+}
 
-  const investLakh = +sliderInvest.value;
-  const dailyOrders = +sliderOrders.value;
-  const aov = +sliderAOV.value;
-
-  const valInvestEl = document.getElementById('valInvestment');
-  const valOrdersEl = document.getElementById('valOrders');
-  const valAovEl = document.getElementById('valAOV');
-
-  if (valInvestEl) valInvestEl.textContent = '₹' + investLakh + ' Lakh';
-  if (valOrdersEl) valOrdersEl.textContent = dailyOrders + ' bills / day';
-  if (valAovEl) valAovEl.textContent = '₹' + aov + ' / bill';
-
-  // UI labels
-  const titleEl = document.getElementById('resModelTitle');
-  const marginTagEl = document.getElementById('resTagMargin');
-  const foodCostLabelEl = document.getElementById('labelFoodCost');
-
-  if (titleEl) titleEl.textContent = fCfg.name + ' · ' + bData.name;
-  if (marginTagEl) marginTagEl.textContent = bData.badge;
-  if (foodCostLabelEl) foodCostLabelEl.textContent = 'Raw Material Cost (~' + Math.round(bData.foodCostPct * 100) + '%)';
-
-  const monthlyTurnover = dailyOrders * aov * 30;
-  const foodCost = monthlyTurnover * bData.foodCostPct;
-  const royalty = monthlyTurnover * bData.royaltyPct;
-  const opexScaled = fCfg.opex * (1 + (investLakh - fCfg.baseInvest) * 0.025);
-  const netProfit = Math.max(monthlyTurnover - foodCost - royalty - opexScaled, 25000);
-
-  const totalCapInr = investLakh * 100000;
-  const paybackMonths = Math.max(2.5, Math.min(36, +(totalCapInr / netProfit).toFixed(1)));
-
-  const resRevEl = document.getElementById('resRevenue');
-  const resFoodEl = document.getElementById('resFoodCost');
-  const resOpexEl = document.getElementById('resOpex');
-  const resRoyaltyEl = document.getElementById('resRoyalty');
-  const resNetProfitEl = document.getElementById('resNetProfit');
-  const resPaybackEl = document.getElementById('resPayback');
-
-  if (resRevEl) resRevEl.textContent = '₹' + Math.round(monthlyTurnover).toLocaleString('en-IN');
-  if (resFoodEl) resFoodEl.textContent = '₹' + Math.round(foodCost).toLocaleString('en-IN');
-  if (resOpexEl) resOpexEl.textContent = '₹' + Math.round(opexScaled).toLocaleString('en-IN');
+// Category Filter Logic
+function filterCategory(cat, btn) {
+  const cards = document.querySelectorAll('#oppsGrid .opp-card');
+  const catBtns = document.querySelectorAll('.cat-card');
+  const emptyState = document.getElementById('noOppResults');
   
-  if (resRoyaltyEl) {
-    if (bData.royaltyPct === 0) {
-      resRoyaltyEl.innerHTML = '<span style="color:var(--pista)">₹0 (0% Royalty)</span>';
-    } else {
-      resRoyaltyEl.textContent = '₹' + Math.round(royalty).toLocaleString('en-IN') + ' (' + (bData.royaltyPct * 100) + '%)';
+  if (btn) {
+    const cardEl = btn.classList && btn.classList.contains('cat-card') ? btn : btn.closest('.cat-card');
+    if (cardEl) {
+      catBtns.forEach(b => b.classList.remove('active'));
+      cardEl.classList.add('active');
     }
   }
-
-  if (resNetProfitEl) resNetProfitEl.textContent = '₹' + Math.round(netProfit).toLocaleString('en-IN');
-  if (resPaybackEl) resPaybackEl.textContent = paybackMonths + ' Months';
-
-  const applyBtn = document.getElementById('calcApplyBtn');
-  if (applyBtn) {
-    if (currentBrand !== 'general') {
-      applyBtn.innerHTML = 'Apply For ' + bData.name + ' Franchise &rarr;';
+  
+  let visibleCount = 0;
+  cards.forEach(c => {
+    const matches = (cat === 'all' || c.getAttribute('data-category') === cat);
+    if (matches) {
+      if (c.classList.contains('extra-opp')) {
+        if (showingAllOpps || cat !== 'all') {
+          c.style.display = 'flex';
+          visibleCount++;
+        } else {
+          c.style.display = 'none';
+        }
+      } else {
+        c.style.display = 'flex';
+        visibleCount++;
+      }
     } else {
-      applyBtn.innerHTML = 'Apply For ' + fCfg.name + ' Franchise &rarr;';
+      c.style.display = 'none';
     }
-  }
-}
+  });
 
-function applyForCalculatedBudget() {
-  const sliderInvest = document.getElementById('sliderInvestment');
-  const investLakh = sliderInvest ? sliderInvest.value : 15;
-  const bData = brandProfiles[currentBrand] || brandProfiles.general;
-  const brandParam = currentBrand !== 'general' ? '&brand=' + encodeURIComponent(bData.name) : '';
-  window.location.href = 'book-consultation.html?intent=investor&budget=' + investLakh + 'L' + brandParam;
-}
-
-// Initial calculation kickoff
-document.addEventListener('DOMContentLoaded', () => {
-  if (document.getElementById('sliderInvestment')) {
-    updateCalculator();
+  if (emptyState) {
+    emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
   }
-});
-if (document.getElementById('sliderInvestment')) {
-  updateCalculator();
 }
 </script>
-
 </body>
+
 </html>
