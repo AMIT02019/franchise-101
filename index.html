@@ -182,114 +182,72 @@ p{margin:0}
 .rise:nth-child(5){animation-delay:.45s}
 @keyframes rise{to{opacity:1;transform:none}}
 
-/* ---- SIGNATURE: Multi-Card 3D Showcase / Coverflow ---- */
-.stage-container{
-  position:relative;width:100%;max-width:1280px;margin:12px auto 0;
-  display:flex;flex-direction:column;align-items:center;
-}
-.stage{
-  width:100%;height:clamp(380px,46vh,440px);perspective:1200px;perspective-origin:50% 45%;
+/* ---- SIGNATURE: 3D brand carousel ---- */
+.stage{width:100%;height:clamp(440px,50vh,490px);margin-top:clamp(20px,2.5vw,32px);margin-bottom:0;
+  perspective:1300px;perspective-origin:50% 42%;
   position:relative;cursor:grab;touch-action:pan-y;z-index:10;
-  display:flex;align-items:center;justify-content:center;overflow:visible;
 }
 .stage:active{cursor:grabbing}
 .stage::after{
-  content:"";position:absolute;left:50%;bottom:6px;transform:translateX(-50%);
-  width:min(920px,94%);height:46px;border-radius:50%;
-  background:radial-gradient(50% 50% at 50% 50%,rgba(15,23,42,0.14),transparent 72%);
-  filter:blur(14px);pointer-events:none;
+  content:"";position:absolute;left:50%;bottom:18px;transform:translateX(-50%);
+  width:min(750px,82%);height:54px;border-radius:50%;
+  background:radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,.65),transparent 72%);
+  filter:blur(12px);pointer-events:none;
 }
 .ring{
-  position:relative;width:100%;height:100%;transform-style:preserve-3d;
-  display:flex;align-items:center;justify-content:center;
+  position:absolute;inset:0;transform-style:preserve-3d;
+  transform:translateY(-40px) rotateX(-4deg) rotateY(var(--spin,0deg));
+  will-change:transform;
 }
 .tile{
-  position:absolute;top:50%;left:50%;width:240px;height:325px;margin:-162px 0 0 -120px;
-  border-radius:20px;overflow:hidden;cursor:pointer;
-  box-shadow:0 18px 42px -10px rgba(15,23,42,0.18), 0 4px 14px -2px rgba(15,23,42,0.06);
-  border:1.5px solid #E2E8F0;background:#FFFFFF;
+  position:absolute;top:50%;left:50%;width:210px;height:280px;margin:-140px 0 0 -105px;
+  border-radius:18px;overflow:hidden;cursor:pointer;
+  box-shadow:0 24px 50px -14px rgba(0,0,0,.85);
+  border:1.5px solid rgba(255,255,255,.24);
+  backface-visibility:hidden;
   transition:border-color .25s,box-shadow .25s;
-  user-select:none;-webkit-user-select:none;will-change:transform,opacity;
 }
 @media(max-width:680px){
-  .stage{height:320px}
-  .tile{width:195px;height:265px;margin:-132px 0 0 -97px;border-radius:16px}
+  .tile{width:170px;height:235px;margin:-117px 0 0 -85px;border-radius:14px}
 }
-.tile:hover{
-  border-color:#CF3C30;box-shadow:0 24px 50px -10px rgba(207,60,48,0.32), 0 6px 20px -2px rgba(15,23,42,0.12);
-}
-.tile.is-active{
-  border-color:rgba(207,60,48,0.45);
-  box-shadow:0 26px 56px -10px rgba(207,60,48,0.28), 0 8px 24px -4px rgba(15,23,42,0.14);
-}
-.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
-.tile::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(15,23,42,0.04) 0%,rgba(15,23,42,0.42) 48%,rgba(15,23,42,0.92) 88%);
-}
+.tile:hover{border-color:var(--kesar);box-shadow:0 0 35px rgba(207,60,48,.65)}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,8,37,.1) 0%,rgba(24,8,37,.45) 45%,rgba(24,8,37,.96) 88%)}
 .tile-in{
-  position:absolute;inset:0;z-index:2;padding:18px;
-  display:flex;flex-direction:column;justify-content:space-between;color:#FFFFFF;text-align:left;
+  position:absolute;inset:0;z-index:2;padding:16px;
+  display:flex;flex-direction:column;justify-content:space-between;color:var(--malai);text-align:left;
 }
 @media(max-width:680px){
   .tile-in{padding:12px}
 }
 .tile-mark{
-  font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.01em;line-height:1.22;
-  color:#FFFFFF;text-shadow:0 2px 8px rgba(0,0,0,.85);margin-bottom:2px;
+  font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.01em;line-height:1.2;
+  color:#F8FAFC;text-shadow:0 2px 8px rgba(0,0,0,.9);margin-bottom:2px;
 }
 @media(max-width:680px){
-  .tile-mark{font-size:16px}
+  .tile-mark{font-size:15px}
 }
 .tile-cat{
   font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
-  background:#CF3C30;color:#FFFFFF;padding:4px 10px;border-radius:999px;align-self:flex-start;font-weight:700;
-  box-shadow:0 2px 8px rgba(0,0,0,.3);
+  color:var(--jamun-deep);background:var(--kesar);padding:4px 10px;border-radius:999px;align-self:flex-start;font-weight:700;
+  box-shadow:0 2px 8px rgba(0,0,0,.4);
 }
 @media(max-width:680px){
-  .tile-cat{font-size:9px;padding:3px 8px}
+  .tile-cat{font-size:9px;padding:3px 7px}
 }
-.tile-num{font-family:var(--mono);font-size:14.5px;font-weight:800;color:#FFFFFF;margin-top:4px;text-shadow:0 2px 6px rgba(0,0,0,.8)}
-.tile-num span{display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.8);font-weight:600;margin-top:2px}
-
-/* Nav arrows on sides of stage */
-.stage-nav-btn{
-  position:absolute;top:50%;transform:translateY(-50%);z-index:40;
-  width:44px;height:44px;border-radius:50%;
-  background:#FFFFFF;border:1px solid #CBD5E1;color:#1E293B;
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,0.1);transition:all .2s ease;
-}
-.stage-nav-btn:hover{
-  background:#CF3C30;color:#FFFFFF;border-color:#CF3C30;
-  box-shadow:0 8px 24px rgba(207,60,48,0.35);transform:translateY(-50%) scale(1.08);
-}
-.stage-nav-btn.prev{left:clamp(4px, 1.8vw, 20px)}
-.stage-nav-btn.next{right:clamp(4px, 1.8vw, 20px)}
-
-/* Dot indicators */
-.stage-dots{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  margin-top:14px;z-index:30;position:relative;
-}
-.stage-dot{
-  width:10px;height:10px;border-radius:999px;background:#CBD5E1;
-  border:none;cursor:pointer;padding:0;transition:all .25s ease;
-}
-.stage-dot:hover{background:#94A3B8}
-.stage-dot.active{
-  width:28px;background:#CF3C30;box-shadow:0 2px 8px rgba(207,60,48,0.35);
-}
+.tile-num{font-family:var(--mono);font-size:14px;font-weight:800;color:var(--kesar);margin-top:4px;text-shadow:0 2px 6px rgba(0,0,0,.8)}
+.tile-num span{display:block;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(248,250,252,.75);font-weight:500;margin-top:2px}
 
 .drag-hint-wrap{
   display:flex;justify-content:center;align-items:center;
-  margin-top:14px;margin-bottom:20px;position:relative;z-index:15;
+  margin-top:clamp(36px, 4.5vw, 56px);margin-bottom:clamp(32px, 4vw, 48px);position:relative;z-index:150;
 }
 .drag-hint{
-  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
-  color:#64748B;display:inline-flex;align-items:center;gap:10px;
-  background:#FFFFFF;padding:7px 18px;border-radius:999px;
-  border:1px solid #E2E8F0;box-shadow:0 3px 12px rgba(0,0,0,0.04);white-space:nowrap;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(248,250,252,.85);display:inline-flex;align-items:center;gap:10px;
+  background:rgba(24,8,37,.7);padding:8px 20px;border-radius:999px;
+  border:1px solid rgba(248,250,252,.15);backdrop-filter:blur(8px);
+  box-shadow:0 6px 20px rgba(0,0,0,.35);white-space:nowrap;
 }
 .drag-hint::before,.drag-hint::after{content:"↔";color:var(--kesar)}
 
@@ -1171,85 +1129,66 @@ section[id],header[id]{scroll-margin-top:92px}
 
     </div>
 
-    <!-- 3D Multi-Card Brand Showcase Stage (Clean Light Mode) -->
-    <div class="stage-container" id="stageContainer">
-      <!-- Left / Right Nav Arrows -->
-      <button class="stage-nav-btn prev" id="stagePrev" aria-label="Previous Brand" title="Previous Brand">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <button class="stage-nav-btn next" id="stageNext" aria-label="Next Brand" title="Next Brand">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-
-      <div class="stage" id="stage">
-        <div class="ring" id="ring">
-          <div class="tile" data-index="0" data-href="beyond-temptation.html">
-            <img alt="Beyond Temptation" src="assets/brands/beyond_temptation_store.png"/>
-            <div class="tile-in">
-              <span class="tile-cat">Dessert Cafe</span>
-              <div>
-                <div class="tile-mark">Beyond Temptation</div>
-                <div class="tile-num">₹6L – ₹11L <span>Investment</span></div>
-              </div>
+    <!-- 3D Brand Carousel Stage (Clean Light Mode) -->
+    <div class="stage" id="stage" style="margin-top:0">
+      <div class="ring" id="ring">
+        <div class="tile" style="border:1.5px solid #E2E8F0;box-shadow:0 16px 36px -10px rgba(0,0,0,0.12)">
+          <img alt="Beyond Temptation" src="assets/brands/beyond_temptation_store.png"/>
+          <div class="tile-in">
+            <span class="tile-cat" style="background:#CF3C30;color:#FFFFFF">Dessert Cafe</span>
+            <div>
+              <div class="tile-mark" style="color:#FFFFFF;text-shadow:0 2px 8px rgba(0,0,0,0.85)">Beyond Temptation</div>
+              <div class="tile-num" style="color:#FFFFFF">₹6L – ₹11L <span>Investment</span></div>
             </div>
           </div>
-          <div class="tile" data-index="1" data-href="dunk-burgers.html">
-            <img alt="Dunk Burgers" src="assets/brands/dunk_burgers_cover.png"/>
-            <div class="tile-in">
-              <span class="tile-cat">Burgers &amp; QSR</span>
-              <div>
-                <div class="tile-mark">Dunk Burgers</div>
-                <div class="tile-num">₹14L – ₹22L <span>Investment</span></div>
-              </div>
+        </div>
+        <div class="tile" style="border:1.5px solid #E2E8F0;box-shadow:0 16px 36px -10px rgba(0,0,0,0.12)">
+          <img alt="Dunk Burgers" src="assets/brands/dunk_burgers_cover.png"/>
+          <div class="tile-in">
+            <span class="tile-cat" style="background:#CF3C30;color:#FFFFFF">Burgers &amp; QSR</span>
+            <div>
+              <div class="tile-mark" style="color:#FFFFFF;text-shadow:0 2px 8px rgba(0,0,0,0.85)">Dunk Burgers</div>
+              <div class="tile-num" style="color:#FFFFFF">₹14L – ₹22L <span>Investment</span></div>
             </div>
           </div>
-          <div class="tile" data-index="2" data-href="south-twist.html">
-            <img alt="South Twist" src="assets/brands/south_twist_cover.png"/>
-            <div class="tile-in">
-              <span class="tile-cat">South Indian QSR</span>
-              <div>
-                <div class="tile-mark">South Twist</div>
-                <div class="tile-num">₹15L – ₹25L <span>Investment</span></div>
-              </div>
+        </div>
+        <div class="tile" style="border:1.5px solid #E2E8F0;box-shadow:0 16px 36px -10px rgba(0,0,0,0.12)">
+          <img alt="South Twist" src="assets/brands/mr_sandwich_kiosk.png"/>
+          <div class="tile-in">
+            <span class="tile-cat" style="background:#CF3C30;color:#FFFFFF">South Indian QSR</span>
+            <div>
+              <div class="tile-mark" style="color:#FFFFFF;text-shadow:0 2px 8px rgba(0,0,0,0.85)">South Twist</div>
+              <div class="tile-num" style="color:#FFFFFF">₹15L – ₹25L <span>Investment</span></div>
             </div>
           </div>
-          <div class="tile" data-index="3" data-href="mr-sandwich.html">
-            <img alt="Mr. Sandwich" src="assets/brands/mr_sandwich_spread.png"/>
-            <div class="tile-in">
-              <span class="tile-cat">Sandwiches &amp; Cafe</span>
-              <div>
-                <div class="tile-mark">Mr. Sandwich</div>
-                <div class="tile-num">₹12L – ₹20L <span>Investment</span></div>
-              </div>
+        </div>
+        <div class="tile" style="border:1.5px solid #E2E8F0;box-shadow:0 16px 36px -10px rgba(0,0,0,0.12)">
+          <img alt="Mr. Sandwich" src="assets/brands/dunk_burgers_dip.png"/>
+          <div class="tile-in">
+            <span class="tile-cat" style="background:#CF3C30;color:#FFFFFF">Sandwiches &amp; Cafe</span>
+            <div>
+              <div class="tile-mark" style="color:#FFFFFF;text-shadow:0 2px 8px rgba(0,0,0,0.85)">Mr. Sandwich</div>
+              <div class="tile-num" style="color:#FFFFFF">₹12L – ₹20L <span>Investment</span></div>
             </div>
           </div>
-          <div class="tile" data-index="4" data-href="cafe-choco-craze.html">
-            <img alt="Cafe Choco Craze" src="assets/brands/beyond_temptation_food.png"/>
-            <div class="tile-in">
-              <span class="tile-cat">Beverage &amp; Cafe</span>
-              <div>
-                <div class="tile-mark">Cafe Choco Craze</div>
-                <div class="tile-num">₹10L – ₹18L <span>Investment</span></div>
-              </div>
+        </div>
+        <div class="tile" style="border:1.5px solid #E2E8F0;box-shadow:0 16px 36px -10px rgba(0,0,0,0.12)">
+          <img alt="Cafe Choco Craze" src="assets/brands/beyond_temptation_food.png"/>
+          <div class="tile-in">
+            <span class="tile-cat" style="background:#CF3C30;color:#FFFFFF">Beverage &amp; Cafe</span>
+            <div>
+              <div class="tile-mark" style="color:#FFFFFF;text-shadow:0 2px 8px rgba(0,0,0,0.85)">Cafe Choco Craze</div>
+              <div class="tile-num" style="color:#FFFFFF">₹10L – ₹18L <span>Investment</span></div>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Dots Indicators -->
-      <div class="stage-dots" id="stageDots">
-        <button class="stage-dot active" data-index="0" aria-label="Beyond Temptation"></button>
-        <button class="stage-dot" data-index="1" aria-label="Dunk Burgers"></button>
-        <button class="stage-dot" data-index="2" aria-label="South Twist"></button>
-        <button class="stage-dot" data-index="3" aria-label="Mr. Sandwich"></button>
-        <button class="stage-dot" data-index="4" aria-label="Cafe Choco Craze"></button>
-      </div>
     </div>
 
-    <!-- Drag / Click Hint -->
-    <div class="drag-hint-wrap">
-      <div class="drag-hint">
-        <span>&larr;</span> Drag or Click Arrows to Browse Brands <span>&rarr;</span>
+    <!-- Drag Hint -->
+    <div class="drag-hint-wrap" style="margin-top:20px;margin-bottom:12px">
+      <div class="drag-hint" style="background:#FFFFFF;color:#475569;border:1px solid #E2E8F0;box-shadow:0 4px 14px rgba(0,0,0,0.06)">
+        <span>&larr;</span> Drag to Rotate Brands <span>&rarr;</span>
       </div>
     </div>
 
@@ -1967,227 +1906,85 @@ if (navToggle && mobileDrawer) {
 const tRow = document.getElementById('tickerRow');
 if (tRow) tRow.innerHTML += tRow.innerHTML;
 
-/* ---- Multi-Card 3D Showcase & Orbit Logic ---- */
-(function(){
-  const ring = document.getElementById('ring');
-  if (!ring) return;
-  const tiles = [...ring.children];
-  const N = tiles.length;
-  if (N === 0) return;
+/* ---- 3D Ring Layout & Interactive Orbit ---- */
+const ring = document.getElementById('ring');
+const tiles = ring ? [...ring.children] : [];
+const N = tiles.length;
 
-  let currentPos = 0; // continuous position
-  let targetPos = 0;
-  let isDragging = false;
-  let startX = 0;
-  let dragDistance = 0;
-  let hasDragged = false;
-  let autoPlayTimer = null;
-  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let spin = 0, velocity = 0, dragging = false, lastX = 0;
 
-  const dotsContainer = document.getElementById('stageDots');
-  const dots = dotsContainer ? [...dotsContainer.children] : [];
-  const prevBtn = document.getElementById('stagePrev');
-  const nextBtn = document.getElementById('stageNext');
-  const stage = document.getElementById('stage');
-
-  function updateCards(){
-    const w = window.innerWidth;
-    const isMobile = w < 680;
-    const isTablet = w >= 680 && w < 1024;
-    
-    // Spacing between cards: wide enough to reveal multiple full cards side-by-side
-    const cardGap = isMobile ? 180 : isTablet ? 240 : 285;
-
-    tiles.forEach((tile, i) => {
-      // Find shortest wrapped distance from currentPos
-      let diff = i - currentPos;
-      while (diff > N / 2) diff -= N;
-      while (diff < -N / 2) diff += N;
-
-      const absDiff = Math.abs(diff);
-
-      // On mobile show 3 cards (center + 2 peeks), on desktop show all 5 cards
-      const maxVisible = isMobile ? 1.6 : 2.5;
-
-      if (absDiff > maxVisible) {
-        tile.style.visibility = 'hidden';
-        tile.style.opacity = '0';
-        tile.style.pointerEvents = 'none';
-        return;
-      }
-
-      tile.style.visibility = 'visible';
-      tile.style.pointerEvents = 'auto';
-
-      // 3D positioning
-      const x = diff * cardGap;
-      const z = -absDiff * (isMobile ? 30 : 42);
-      const rotateY = diff * (isMobile ? -8 : -14);
-      const scale = Math.max(0.72, 1 - absDiff * (isMobile ? 0.12 : 0.08));
-      const opacity = Math.max(0.2, 1 - absDiff * 0.22);
-      const zIndex = Math.round(100 - absDiff * 20);
-
-      tile.style.transform = `translateX(${x}px) translateZ(${z}px) rotateY(${rotateY}deg) scale(${scale})`;
-      tile.style.opacity = opacity;
-      tile.style.zIndex = zIndex;
-      tile.style.filter = absDiff < 0.35 ? 'brightness(1)' : 'brightness(0.92)';
-
-      if (absDiff < 0.45) {
-        tile.classList.add('is-active');
-      } else {
-        tile.classList.remove('is-active');
-      }
-    });
-
-    // Update active dot
-    const activeIndex = ((Math.round(targetPos) % N) + N) % N;
-    dots.forEach((dot, idx) => {
-      if (idx === activeIndex) dot.classList.add('active');
-      else dot.classList.remove('active');
-    });
+function renderRing(){
+  if (!ring || N === 0) return;
+  if (!dragging) {
+    spin += velocity;
+    velocity *= 0.94;
+    if (!reduce) spin += 0.07;
   }
+  const y = Math.min(window.scrollY, 900) * 0.04;
+  const currentSpin = spin + y;
+  ring.style.setProperty('--spin', currentSpin + 'deg');
 
-  function animate(){
-    if (!isDragging) {
-      // Smooth interpolation toward targetPos
-      currentPos += (targetPos - currentPos) * 0.12;
-      if (Math.abs(targetPos - currentPos) < 0.001) {
-        currentPos = targetPos;
-      }
+  const radius = innerWidth < 680 ? 260 : innerWidth < 1100 ? 350 : 430;
+  
+  tiles.forEach((t, i) => {
+    const baseAngle = i * (360 / N);
+    let relAngle = ((baseAngle + currentSpin) % 360 + 540) % 360 - 180;
+    const rad = relAngle * (Math.PI / 180);
+    const cosVal = Math.cos(rad);
+
+    t.style.transform = 'rotateY(' + baseAngle + 'deg) translateZ(' + radius + 'px)';
+
+    if (cosVal > 0.08) {
+      t.style.visibility = 'visible';
+      t.style.pointerEvents = 'auto';
+      t.style.opacity = Math.min(1, Math.max(0, (cosVal - 0.08) / 0.72));
+      t.style.zIndex = Math.round(cosVal * 100);
+      t.style.filter = 'brightness(' + (0.75 + 0.25 * cosVal) + ')';
+    } else {
+      t.style.visibility = 'hidden';
+      t.style.pointerEvents = 'none';
+      t.style.opacity = '0';
     }
-    updateCards();
-    requestAnimationFrame(animate);
-  }
-  requestAnimationFrame(animate);
-
-  function snapTo(index){
-    const normCurrent = ((currentPos % N) + N) % N;
-    let diff = index - normCurrent;
-    while (diff > N / 2) diff -= N;
-    while (diff < -N / 2) diff += N;
-    targetPos = currentPos + diff;
-  }
-
-  function nextCard(){
-    targetPos = Math.round(targetPos) + 1;
-  }
-  function prevCard(){
-    targetPos = Math.round(targetPos) - 1;
-  }
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      prevCard();
-      resetAutoPlay();
-    });
-  }
-  if (nextBtn) {
-    nextBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      nextCard();
-      resetAutoPlay();
-    });
-  }
-
-  dots.forEach((dot, idx) => {
-    dot.addEventListener('click', (e) => {
-      e.stopPropagation();
-      snapTo(idx);
-      resetAutoPlay();
-    });
   });
 
-  // Drag & Swipe handling
-  if (stage) {
-    const onStart = (clientX) => {
-      isDragging = true;
-      startX = clientX;
-      dragDistance = 0;
-      hasDragged = false;
-      stopAutoPlay();
-    };
+  requestAnimationFrame(renderRing);
+}
+renderRing();
 
-    const onMove = (clientX) => {
-      if (!isDragging) return;
-      const deltaX = clientX - startX;
-      dragDistance += Math.abs(deltaX);
-      if (dragDistance > 6) hasDragged = true;
-      const sensitivity = window.innerWidth < 680 ? 0.0048 : 0.0032;
-      currentPos -= deltaX * sensitivity;
-      targetPos = currentPos;
-      startX = clientX;
-    };
+const stage = document.getElementById('stage');
+if (stage) {
+  const grab = e => {
+    dragging = true;
+    lastX = (e.touches ? e.touches[0].clientX : e.clientX);
+    velocity = 0;
+  };
+  const move = e => {
+    if (!dragging) return;
+    const x = (e.touches ? e.touches[0].clientX : e.clientX);
+    const d = (x - lastX) * 0.32;
+    lastX = x;
+    spin += d;
+    velocity = d * 0.45;
+  };
+  const drop = () => { dragging = false; };
 
-    const onEnd = () => {
-      if (!isDragging) return;
-      isDragging = false;
-      targetPos = Math.round(targetPos);
-      startAutoPlay();
-    };
+  stage.addEventListener('mousedown', grab);
+  stage.addEventListener('touchstart', grab, { passive: true });
+  window.addEventListener('mousemove', move);
+  window.addEventListener('touchmove', move, { passive: true });
+  window.addEventListener('mouseup', drop);
+  window.addEventListener('touchend', drop);
 
-    stage.addEventListener('mousedown', e => {
-      if (e.target.closest('.stage-nav-btn')) return;
-      onStart(e.clientX);
-    });
-    window.addEventListener('mousemove', e => { if (isDragging) onMove(e.clientX); });
-    window.addEventListener('mouseup', () => { if (isDragging) onEnd(); });
-
-    stage.addEventListener('touchstart', e => {
-      if (e.target.closest('.stage-nav-btn')) return;
-      onStart(e.touches[0].clientX);
-    }, { passive: true });
-    window.addEventListener('touchmove', e => { if (isDragging) onMove(e.touches[0].clientX); }, { passive: true });
-    window.addEventListener('touchend', () => { if (isDragging) onEnd(); });
-
-    // Tile click behavior
-    tiles.forEach((tile, i) => {
-      tile.addEventListener('click', (e) => {
-        if (hasDragged) {
-          e.preventDefault();
-          return;
-        }
-        let diff = i - currentPos;
-        while (diff > N / 2) diff -= N;
-        while (diff < -N / 2) diff += N;
-
-        if (Math.abs(diff) > 0.45) {
-          // If clicked tile is on the left or right, bring it to center
-          e.preventDefault();
-          snapTo(i);
-          resetAutoPlay();
-        } else {
-          // If center card clicked, navigate to brand page
-          const href = tile.getAttribute('data-href');
-          if (href) window.location.href = href;
-        }
-      });
-    });
-
-    stage.addEventListener('mouseenter', stopAutoPlay);
-    stage.addEventListener('mouseleave', startAutoPlay);
-  }
-
-  // Gentle auto rotation every 4.5s
-  function startAutoPlay(){
-    if (reduce) return;
-    stopAutoPlay();
-    autoPlayTimer = setInterval(() => {
-      if (!document.hidden && !isDragging) {
-        nextCard();
+  // Click on tile to view modal
+  tiles.forEach(tile => {
+    tile.addEventListener('click', () => {
+      const brandKey = tile.getAttribute('data-brand');
+      if (brandKey && BRAND_DATA[brandKey]) {
+        openBrandModal(brandKey);
       }
-    }, 4500);
-  }
-  function stopAutoPlay(){
-    if (autoPlayTimer) clearInterval(autoPlayTimer);
-    autoPlayTimer = null;
-  }
-  function resetAutoPlay(){
-    stopAutoPlay();
-    startAutoPlay();
-  }
-  startAutoPlay();
-})();
+    });
+  });
+}
 
 /* ---- Reveal on Scroll ---- */
 const io = new IntersectionObserver((entries) => {
