@@ -243,6 +243,26 @@ em {
   display: inline-flex; align-items: center; gap: 8px; line-height: 1; color: var(--malai);
 }
 .logo .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--kesar); display: block; box-shadow: 0 0 10px var(--kesar); }
+
+.btn .dot,
+.btn-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FF3B30;
+  border: 1.5px solid #FFFFFF;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.85);
+  animation: btnDotPulse 2s infinite ease-in-out;
+  margin-right: 2px;
+}
+@keyframes btnDotPulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+  70% { transform: scale(1.1); box-shadow: 0 0 0 5px rgba(255, 255, 255, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
 .logo-mark {
   height: 34px;
   width: auto;
