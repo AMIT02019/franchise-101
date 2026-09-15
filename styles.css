@@ -3981,4 +3981,118 @@ html, body {
   border-radius: 2px;
 }
 
+/* ==========================================================================
+   INTERACTIVE SECTION & SCROLL APPEARING ANIMATIONS
+   ========================================================================== */
+
+/* 1. Page Load Entrance Animations (Hero) */
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroMosaicIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.home-hero-left {
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.home-hero-right {
+  animation: heroMosaicIn 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.15s backwards;
+}
+
+/* Floating animation on pushpin badge */
+@keyframes pinFloat {
+  0%, 100% {
+    transform: rotate(-6deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-5deg) translateY(-3.5px);
+  }
+}
+.mosaic-badge-pin {
+  animation: pinFloat 4s ease-in-out infinite;
+}
+
+/* 2. Scroll-Triggered Reveal Animations */
+.rv {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.rv.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rv-scale {
+  opacity: 0;
+  transform: scale(0.95) translateY(24px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.rv-scale.in {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Stagger Delays for Cards & Steps */
+.rv-stagger > *:nth-child(1) { transition-delay: 0.04s; }
+.rv-stagger > *:nth-child(2) { transition-delay: 0.14s; }
+.rv-stagger > *:nth-child(3) { transition-delay: 0.24s; }
+.rv-stagger > *:nth-child(4) { transition-delay: 0.34s; }
+.rv-stagger > *:nth-child(5) { transition-delay: 0.44s; }
+
+/* Dotted connector pulsing light */
+.journey-dotted-line {
+  position: relative;
+  overflow: hidden;
+}
+.journey-dotted-line::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #CF3C30, transparent);
+  animation: linePulse 3.2s infinite linear;
+}
+@keyframes linePulse {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rv, .rv-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .home-hero-left, .home-hero-right, .mosaic-badge-pin, .journey-dotted-line::after {
+    animation: none !important;
+  }
+}
+
+
 
