@@ -1674,8 +1674,8 @@ em {
   --line: #E2E8F0;
   --line-dark: #CBD5E1;
   --jamun: #0F172A;
-  --jamun-deep: #F8FAFC;
-  --jamun-soft: #FFFFFF;
+  --jamun-deep: #0B0F17;
+  --jamun-soft: #161A22;
 }
 
 body {
@@ -1818,4 +1818,273 @@ body {
 }
 .card-media-gradient {
   background: linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.3) 100%) !important;
+}
+
+
+/* ============ COMPREHENSIVE TEXT VISIBILITY & CONTRAST FIXES ============ */
+
+/* 1. Nav Links - Never White on Hover */
+.nav-links a {
+  color: #334155 !important;
+}
+.nav-links a:hover {
+  color: var(--kesar, #CF3C30) !important;
+  background: rgba(207, 60, 48, 0.08) !important;
+}
+.nav-links a.active {
+  color: var(--kesar, #CF3C30) !important;
+}
+
+/* 2. Mobile Drawer Text Visibility */
+.mobile-drawer-content {
+  background: #FFFFFF !important;
+  border-left: 1px solid #E2E8F0 !important;
+}
+.mobile-nav-link {
+  color: #0F172A !important;
+  font-weight: 600 !important;
+}
+.mobile-nav-link:hover, .mobile-nav-link.active {
+  color: var(--kesar, #CF3C30) !important;
+  background: #FEF2F2 !important;
+}
+.mobile-drawer-content p, .mobile-drawer-content small {
+  color: #64748B !important;
+}
+
+/* 3. Specs Labels & Values in Brand Cards */
+.specs {
+  background: #F1F5F9 !important;
+  border: 1px solid #E2E8F0 !important;
+}
+.spec {
+  background: #FFFFFF !important;
+}
+.spec dt {
+  color: #64748B !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.06em !important;
+}
+.spec dd {
+  color: #0F172A !important;
+  font-weight: 800 !important;
+  font-size: 14.5px !important;
+}
+
+/* 4. Brand Card Tag Badges */
+.tag {
+  background: #F1F5F9 !important;
+  color: #334155 !important;
+  border: 1px solid #E2E8F0 !important;
+  font-weight: 700 !important;
+}
+.tag.float {
+  background: rgba(15, 23, 42, 0.88) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  font-weight: 700 !important;
+}
+.tag.gold.float {
+  background: rgba(207, 60, 48, 0.9) !important;
+  color: #FFFFFF !important;
+}
+.tag.green.float {
+  background: rgba(5, 150, 105, 0.9) !important;
+  color: #FFFFFF !important;
+}
+.tag.hot.float {
+  background: rgba(220, 38, 38, 0.9) !important;
+  color: #FFFFFF !important;
+}
+
+/* 5. 3D Carousel Numbers & Labels */
+.tile-mark {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9) !important;
+  font-weight: 800 !important;
+}
+.tile-num {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9) !important;
+  font-weight: 800 !important;
+}
+.tile-num span {
+  color: rgba(255, 255, 255, 0.92) !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+  font-weight: 600 !important;
+}
+
+/* 6. Filter Controls & Pills */
+.marketplace-controls {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.05) !important;
+}
+.search-box input {
+  background: #F8FAFC !important;
+  color: #0F172A !important;
+  border: 1px solid #CBD5E1 !important;
+}
+.search-box input:focus {
+  background: #FFFFFF !important;
+  border-color: #CF3C30 !important;
+}
+.filter-select select {
+  background: #F8FAFC !important;
+  color: #0F172A !important;
+  border: 1px solid #CBD5E1 !important;
+}
+.pill-btn {
+  background: #F8FAFC !important;
+  color: #475569 !important;
+  border: 1px solid #CBD5E1 !important;
+  font-weight: 600 !important;
+}
+.pill-btn:hover {
+  background: #F1F5F9 !important;
+  color: #0F172A !important;
+  border-color: #94A3B8 !important;
+}
+.pill-btn.active {
+  background: #0F172A !important;
+  color: #FFFFFF !important;
+  border-color: #0F172A !important;
+}
+.filter-status-bar {
+  color: #64748B !important;
+  border-top: 1px solid #E2E8F0 !important;
+}
+
+/* 7. Card Foot Buttons */
+.btn-view-details {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1.5px solid #CBD5E1 !important;
+  font-weight: 700 !important;
+}
+.btn-view-details:hover {
+  background: #F8FAFC !important;
+  border-color: #0F172A !important;
+}
+.card-link {
+  color: #CF3C30 !important;
+  font-weight: 700 !important;
+}
+
+/* 8. Fix Subpage Heroes and Footer Elements */
+.page-hero.on-dark h1 {
+  color: #FFFFFF !important;
+}
+.page-hero.on-dark p {
+  color: rgba(248, 250, 252, 0.9) !important;
+}
+.foot.on-dark {
+  background: #F8FAFC !important;
+  color: #475569 !important;
+}
+.foot.on-dark .foot-contact-strip {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+}
+.foot.on-dark .foot-contact-strip strong {
+  color: #0F172A !important;
+}
+.foot.on-dark .foot-contact-strip small {
+  color: #64748B !important;
+}
+.foot.on-dark .foot-brand p {
+  color: #64748B !important;
+}
+.foot.on-dark .foot-col h4 {
+  color: #CF3C30 !important;
+}
+.foot.on-dark .foot-col ul li a {
+  color: #475569 !important;
+}
+.foot.on-dark .foot-bottom {
+  border-top: 1px solid #E2E8F0 !important;
+  color: #94A3B8 !important;
+}
+.foot.on-dark .foot-bottom a {
+  color: #94A3B8 !important;
+}
+
+
+/* ============ BULLETPROOF CONTRAST & VISIBILITY ============ */
+.case-study-box {
+  background: #0B0F17 !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 24px !important;
+}
+.case-study-box h3, .case-study-box h4 {
+  color: #FFFFFF !important;
+}
+.case-study-box p {
+  color: #E2E8F0 !important;
+}
+.case-study-box small {
+  color: #94A3B8 !important;
+}
+.case-study-box b {
+  color: #FFFFFF !important;
+}
+
+/* Consultation form intent buttons in light mode */
+.intent-tab-btn {
+  background: #FFFFFF !important;
+  border: 1.5px solid #CBD5E1 !important;
+  color: #0F172A !important;
+}
+.intent-tab-btn strong {
+  color: #0F172A !important;
+}
+.intent-tab-btn small {
+  color: #64748B !important;
+}
+.intent-tab-btn:hover {
+  border-color: #CF3C30 !important;
+  background: #FFFDF9 !important;
+}
+.intent-tab-btn.active {
+  border-color: #CF3C30 !important;
+  background: #FEF2F2 !important;
+  box-shadow: 0 8px 24px -6px rgba(207, 60, 48, 0.25) !important;
+}
+.intent-tab-btn.active strong {
+  color: #CF3C30 !important;
+}
+.intent-tab-btn.active small {
+  color: #991B1B !important;
+}
+
+/* PnL Card on Brand Pages */
+.pnl-card {
+  background: #0B0F17 !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+.pnl-row {
+  color: #E2E8F0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+.pnl-row strong {
+  color: #CF3C30 !important;
+}
+
+/* Ensure on-dark sections always have dark background */
+section.on-dark, header.on-dark, footer.on-dark {
+  background: #0B0F17;
+  color: #FFFFFF;
+}
+section.on-dark h1, section.on-dark h2, section.on-dark h3, section.on-dark h4,
+header.on-dark h1, header.on-dark h2, header.on-dark h3, header.on-dark h4 {
+  color: #FFFFFF !important;
+}
+section.on-dark p, header.on-dark p {
+  color: #CBD5E1 !important;
 }
