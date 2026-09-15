@@ -2151,8 +2151,9 @@ html, body {
     gap: 6px !important;
   }
   .logo-mark {
-    width: 26px !important;
-    height: 26px !important;
+    height: 28px !important;
+    width: auto !important;
+    max-width: 95px !important;
   }
   .nav-toggle {
     min-width: 44px !important;
