@@ -1,504 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel=\"icon\" type=\"image/png\" href=\"favicon.png\" />
-<title>Contact Us — Franchise 101</title>
-<meta name="description" content="Start a conversation with Franchise 101. Have questions about a franchise opportunity, your own business concept, or expansion? Connect with our team." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
-
-<style>
-/* ==========================================================================
-   ENHANCED CONTACT PAGE STYLES WITH SCROLL ANIMATIONS
-   ========================================================================== */
-
-:root {
-  --contact-glow: rgba(207, 60, 48, 0.15);
-}
-
-/* Page Hero Animations */
-.contact-hero {
-  position: relative;
-  background: radial-gradient(circle at 50% 20%, rgba(14, 18, 26, 0.6) 0%, #080B10 100%), #080B10;
-  padding: clamp(90px, 12vw, 140px) 0 clamp(40px, 6vw, 70px);
-  color: #FFFFFF !important;
-  overflow: hidden;
-  border-bottom: 1px solid var(--line-dark);
-}
-.contact-hero h1 {
-  color: #FFFFFF !important;
-  font-family: var(--font-editorial), var(--font-display), serif;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
-  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-}
-.contact-hero .page-hero-sub {
-  color: rgba(248, 250, 252, 0.88) !important;
-  font-size: clamp(16px, 1.8vw, 18.5px);
-  line-height: 1.65;
-}
-.contact-hero .badge-trust {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #FFFFFF !important;
-}
-
-.contact-hero::before {
-  content: "";
-  position: absolute;
-  top: -100px;
-  right: -100px;
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle, rgba(207, 60, 48, 0.12), transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: heroGlowPulse 8s ease-in-out infinite alternate;
-}
-
-@keyframes heroGlowPulse {
-  0% { transform: scale(1) translate(0, 0); opacity: 0.6; }
-  100% { transform: scale(1.25) translate(-30px, 30px); opacity: 1; }
-}
-
-.contact-stats-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-top: clamp(36px, 5vw, 54px);
-  padding-top: 28px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-@media (max-width: 768px) {
-  .contact-stats-strip {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-}
-.stat-pill {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.stat-pill b {
-  font-family: var(--font-display);
-  font-size: clamp(24px, 3vw, 32px);
-  color: var(--kesar);
-  font-weight: 800;
-  line-height: 1;
-}
-.stat-pill span {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  color: rgba(248, 250, 252, 0.75);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-/* Two-Column Interactive Layout */
-.contact-layout-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.25fr;
-  gap: clamp(32px, 5vw, 64px);
-  align-items: start;
-  position: relative;
-  margin-top: 10px;
-}
-@media (max-width: 960px) {
-  .contact-layout-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* STICKY CONSULTATION FORM CARD */
-.consult-form-box {
-  background: #0E121A;
-  color: var(--malai);
-  border-radius: clamp(24px, 4vw, 36px);
-  padding: clamp(28px, 4.5vw, 44px);
-  box-shadow: 0 24px 60px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(255, 255, 255, 0.12);
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  transition: box-shadow 0.35s ease, border-color 0.35s ease;
-}
-
-@media (min-width: 961px) {
-  .consult-form-box {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 96px;
-    z-index: 20;
-    will-change: transform;
-  }
-}
-
-.consult-form-box:hover {
-  box-shadow: 0 30px 70px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(207, 60, 48, 0.3);
-  border-color: rgba(207, 60, 48, 0.35);
-}
-
-.consult-form-box::after {
-  content: "";
-  position: absolute;
-  top: 0; right: 0;
-  width: 260px; height: 260px;
-  background: radial-gradient(circle, rgba(207, 60, 48,0.16), transparent 70%);
-  pointer-events: none;
-}
-
-/* Form Progress Indicator */
-.form-progress-bar-wrap {
-  margin-bottom: 24px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  height: 6px;
-  overflow: hidden;
-  position: relative;
-}
-.form-progress-bar-fill {
-  height: 100%;
-  width: 15%;
-  background: linear-gradient(90deg, var(--kesar), #FFD166);
-  border-radius: 999px;
-  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px 18px;
-}
-@media (max-width: 560px) {
-  .form {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  width: 100%;
-}
-.field.full {
-  grid-column: 1 / -1;
-}
-
-.field label {
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 600;
-  color: rgba(248, 250, 252, 0.9);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.field input,
-.field select,
-.field textarea {
-  font: inherit;
-  font-size: 14.5px;
-  color: var(--malai);
-  background: rgba(248, 250, 252, 0.07);
-  border: 1.5px solid rgba(248, 250, 252, 0.16);
-  border-radius: 12px;
-  padding: 12px 15px;
-  transition: all 0.25s ease;
-  width: 100%;
-  box-sizing: border-box;
-  outline: none;
-}
-
-.field textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-.field select option {
-  color: #F8FAFC;
-  background: #080B10;
-}
-
-.field input:hover,
-.field select:hover,
-.field textarea:hover {
-  background: rgba(248, 250, 252, 0.11);
-  border-color: rgba(207, 60, 48, 0.4);
-}
-
-.field input:focus,
-.field select:focus,
-.field textarea:focus {
-  outline: none;
-  border-color: var(--kesar);
-  background: rgba(248, 250, 252, 0.14);
-  box-shadow: 0 0 0 3px rgba(207, 60, 48, 0.2);
-}
-
-.field .err {
-  font-size: 12px;
-  color: #FF9C7A;
-  min-height: 16px;
-  line-height: 16px;
-}
-
-.brand-selected-badge {
-  grid-column: 1 / -1;
-  display: none;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(207, 60, 48,0.15);
-  border: 1px solid var(--kesar);
-  border-radius: 12px;
-  padding: 10px 16px;
-  font-size: 13.5px;
-  color: var(--malai);
-}
-.brand-selected-badge.show { display: flex; }
-.brand-selected-badge button {
-  background: none; border: 0; color: var(--kesar); cursor: pointer; font-weight: 700; font-size: 13px;
-}
-
-.sent {
-  grid-column: 1 / -1;
-  display: none;
-  flex-direction: column;
-  gap: 14px;
-  background: rgba(16,185,129,0.16);
-  border: 1.5px solid var(--pista);
-  border-radius: 16px;
-  padding: 24px;
-}
-.sent.show { display: flex; }
-.sent b {
-  font-family: var(--font-display);
-  font-size: 22px;
-  color: var(--pista);
-}
-
-/* ==========================================================================
-   SCROLL-TRIGGERED ONBOARDING JOURNEY (LEFT COLUMN)
-   ========================================================================== */
-
-.scroll-timeline {
-  position: relative;
-  padding-left: 32px;
-  margin-top: 24px;
-  margin-bottom: 36px;
-}
-
-.scroll-timeline::before {
-  content: "";
-  position: absolute;
-  left: 11px;
-  top: 14px;
-  bottom: 14px;
-  width: 2.5px;
-  background: var(--line);
-  border-radius: 2px;
-}
-
-.timeline-progress-line {
-  position: absolute;
-  left: 11px;
-  top: 14px;
-  width: 2.5px;
-  height: 0%;
-  background: linear-gradient(180deg, var(--kesar), var(--pista));
-  border-radius: 2px;
-  transition: height 0.2s ease-out;
-  z-index: 1;
-}
-
-.timeline-step-card {
-  position: relative;
-  background: #FFFFFF;
-  border: 1.5px solid var(--line);
-  border-radius: 20px;
-  padding: 22px 24px;
-  margin-bottom: 20px;
-  box-shadow: 0 8px 24px -8px rgba(14,18,26,0.06);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.timeline-step-card::before {
-  content: "";
-  position: absolute;
-  left: -32px;
-  top: 24px;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--paper-card);
-  border: 2px solid var(--line);
-  z-index: 2;
-  transition: all 0.35s ease;
-}
-
-.timeline-step-card.active-spy {
-  transform: translateX(8px);
-  border-color: var(--kesar);
-  box-shadow: 0 16px 36px -10px rgba(207, 60, 48, 0.2);
-}
-
-.timeline-step-card.active-spy::before {
-  background: var(--kesar);
-  border-color: var(--jamun-deep);
-  box-shadow: 0 0 0 4px rgba(207, 60, 48, 0.35);
-}
-
-.timeline-step-card h4 {
-  font-family: var(--font-display);
-  font-size: 17.5px;
-  color: var(--ink);
-  margin: 0 0 6px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.timeline-step-card p {
-  font-size: 14px;
-  color: var(--ink-60);
-  line-height: 1.55;
-  margin: 0;
-}
-
-.timeline-step-card .tag-indicator {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--kesar-hot);
-  font-weight: 700;
-  margin-top: 10px;
-  display: inline-block;
-}
-
-/* Regional Office Cards */
-.office-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  margin-top: 20px;
-}
-
-.office-card {
-  background: var(--paper-card);
-  border: 1.5px solid var(--line);
-  border-radius: 20px;
-  padding: 22px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-  box-shadow: 0 8px 20px -8px rgba(14,18,26,0.05);
-}
-
-.office-card::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 4.5px;
-  background: var(--kesar);
-  border-radius: 20px 0 0 20px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.office-card:hover, .office-card.active-office {
-  transform: translateY(-3px) translateX(4px);
-  border-color: var(--kesar);
-  background: #FFF;
-  box-shadow: 0 16px 36px -10px rgba(207, 60, 48, 0.2);
-}
-
-.office-card:hover::before, .office-card.active-office::before {
-  opacity: 1;
-}
-
-.office-card strong {
-  font-family: var(--font-display);
-  font-size: 18px;
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.office-card p {
-  font-size: 14px;
-  color: var(--ink-60);
-  line-height: 1.5;
-  margin: 0;
-}
-
-.office-card small {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--kesar-hot);
-  font-weight: 600;
-}
-
-.office-status-dot {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 11px;
-  font-family: var(--font-mono);
-  color: var(--pista-dark);
-  font-weight: 700;
-}
-
-.office-status-dot::before {
-  content: "";
-  width: 6.5px;
-  height: 6.5px;
-  border-radius: 50%;
-  background: var(--pista);
-  box-shadow: 0 0 8px var(--pista);
-}
-
-/* Floating WhatsApp Quick Action Button */
-.whatsapp-float-btn { 
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  background: #25D366;
-  color: #FFFFFF;
-  border-radius: 999px;
-  padding: 12px 22px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 700;
-  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
-  z-index: 100;
-  text-decoration: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
- max-width: calc(100vw - 32px); }
-.whatsapp-float-btn:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 16px 36px rgba(37, 211, 102, 0.55);
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <title>Contact Us — Franchise 101 | Ideas, Brands, Opportunities</title>
+  <meta name="description" content="Connect with the Franchise 101 advisory team. Reach us directly via phone, WhatsApp, email, or visit our corporate hubs in Mumbai BKC, Pune, Bengaluru, and Delhi NCR." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body style="overflow-x:hidden">
 
+<!-- Reading Progress Bar -->
 <div class="top-progress" id="topProgress"></div>
 
-<!-- ============ NAV ============ -->
+<!-- Top Sticky / Floating Navigation -->
 <nav class="nav" id="nav">
-  <a class="logo" href="index.html" aria-label="Franchise 101 Home"><img src="assets/logo-light.png" alt="Franchise 101" class="logo-mark" /></a>
+  <a aria-label="Franchise 101 Home" class="logo" href="index.html">
+    <img src="assets/logo-clean.png" alt="Franchise 101" class="logo-mark" />
+    FRANCHISE 101<span class="dot"></span>
+  </a>
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="franchises.html">Explore Franchises</a>
@@ -509,7 +33,6 @@
     <a href="contact.html" class="active">Contact</a>
   </div>
   <div class="nav-cta-wrap">
-    <a class="nav-contact-link active" href="contact.html">Contact</a>
     <a class="btn btn--kesar" href="book-consultation.html"><span class="dot"></span> Book a Consultation <span class="arw">&rarr;</span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -520,7 +43,7 @@
 <!-- Mobile Navigation Drawer -->
 <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
   <div class="mobile-drawer-content">
-    <div class="logo"><img src="assets/logo-light.png" alt="Franchise 101" class="logo-mark" /></div>
+    <div class="logo"><img src="assets/logo-clean.png" alt="Franchise 101" class="logo-mark" /></div>
     <nav>
       <a href="index.html" class="mobile-nav-link">Home</a>
       <a href="franchises.html" class="mobile-nav-link">Explore Franchises</a>
@@ -537,414 +60,524 @@
   </div>
 </div>
 
-<!-- ============ PAGE HERO ============ -->
-<header class="contact-hero on-dark">
+<!-- ==========================================================================
+     1. HERO SECTION (Dark Atmospheric Split)
+     ========================================================================== -->
+<section class="contact-hero-sec">
   <div class="wrap">
-    <div class="badge-trust rise"><span class="pulse"></span> Official Contact &middot; Direct Channels</div>
-    <h1 class="rise" style="font-size:clamp(32px, 4.4vw, 54px);margin-block:16px 14px;color:#FFFFFF!important">Start a Conversation with Franchise 101</h1>
-    <p class="page-hero-sub rise" style="max-width:64ch">Have a question about a franchise opportunity, your own business concept, expanding an existing brand or working with Franchise 101? Connect with our team.</p>
-    <div class="page-hero-meta rise" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
-      <a class="btn btn--kesar" href="book-consultation.html">Book a Consultation <span class="arw">&rarr;</span></a>
-      <a class="btn btn--ghost on-dark" href="https://wa.me/912240008899?text=Hi%20Franchise%20101,%20I%20would%20like%20to%20speak%20with%20your%20team." target="_blank">WhatsApp Us 💬</a>
-    </div>
-  </div>
-</header>
-
-<!-- ============ CONTACT DIRECTORY & OFFICES ============ -->
-<section class="sec" style="background:var(--paper)">
-  <div class="wrap">
-    
-    <div class="contact-layout-grid rv">
+    <div class="contact-hero-grid">
       
-      <!-- Left Column: Official Contact Directory -->
-      <div>
-        <div class="sec-head" style="margin-bottom:28px">
-          <p class="eyebrow"><span class="pulse"></span> Contact Channels</p>
-          <h2 style="font-size:clamp(24px, 3.2vw, 36px)">Get in Touch Directly</h2>
-          <p class="sec-note">Reach our team across dedicated investor, brand, and operations desks.</p>
+      <!-- Left Content Column -->
+      <div class="contact-hero-left rv">
+        <span class="contact-eyebrow-red">GET IN TOUCH</span>
+        <h1 class="contact-hero-title">
+          Let's Build<br />
+          <span class="title-accent">What's Next.</span>
+        </h1>
+        <p class="contact-hero-desc">
+          Have a question about a franchise opportunity, your own business concept, or expanding an existing brand? Connect with the Franchise 101 team — we're here to help.
+        </p>
+        
+        <div class="contact-hero-ctas">
+          <a class="btn-contact-primary" href="book-consultation.html">Book a Consultation <span class="arw">&rarr;</span></a>
+          <a class="btn-contact-whatsapp" href="https://wa.me/919820012345?text=Hi%20Franchise%20101%2C%20I%20would%20like%20to%20connect%20with%20your%20team." target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.073.376-.044.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
+            Chat on WhatsApp
+          </a>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px;margin-bottom:28px">
-          
-          <div style="background:#FFFFFF;border:1.5px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:8px">
-            <span style="font-size:22px">📞</span>
-            <strong style="color:var(--ink);font-size:16px">Phone Helpline</strong>
-            <p style="font-size:13.5px;color:var(--ink-60);margin:0">Direct Investor &amp; Advisory Desk</p>
-            <a href="tel:+912240008899" style="color:var(--kesar-hot);font-weight:700;font-family:var(--font-mono);font-size:15px;margin-top:auto">+91 22 4000 8899</a>
+        <!-- 4 Key Value Pillars Row -->
+        <div class="contact-hero-features">
+          <div class="contact-feature-item">
+            <svg class="contact-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-7 7c0 2.6 1.4 4.8 3.5 6h7c2.1-1.2 3.5-3.4 3.5-6a7 7 0 0 0-7-7z"/></svg>
+            <span class="contact-feature-label">New<br />Opportunities</span>
           </div>
-
-          <div style="background:#FFFFFF;border:1.5px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:8px">
-            <span style="font-size:22px">💬</span>
-            <strong style="color:var(--ink);font-size:16px">WhatsApp Concierge</strong>
-            <p style="font-size:13.5px;color:var(--ink-60);margin:0">Instant chat &amp; prompt response</p>
-            <a href="https://wa.me/912240008899?text=Hi%20Franchise%20101,%20I%20would%20like%20to%20speak%20with%20your%20team." target="_blank" style="color:var(--pista-dark);font-weight:700;font-family:var(--font-mono);font-size:15px;margin-top:auto">+91 98200 12345 &rarr;</a>
+          <div class="contact-feature-item">
+            <svg class="contact-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span class="contact-feature-label">Expert<br />Guidance</span>
           </div>
-
-          <div style="background:#FFFFFF;border:1.5px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:8px">
-            <span style="font-size:22px">✉️</span>
-            <strong style="color:var(--ink);font-size:16px">Official Email</strong>
-            <p style="font-size:13.5px;color:var(--ink-60);margin:0">For investors &amp; founders</p>
-            <a href="mailto:hello@franchise101.in" style="color:var(--kesar-hot);font-weight:700;font-family:var(--font-mono);font-size:15px;margin-top:auto">hello@franchise101.in</a>
+          <div class="contact-feature-item">
+            <svg class="contact-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+            <span class="contact-feature-label">Business<br />Growth</span>
           </div>
-
-          <div style="background:#FFFFFF;border:1.5px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:8px">
-            <span style="font-size:22px">⏰</span>
-            <strong style="color:var(--ink);font-size:16px">Business Hours</strong>
-            <p style="font-size:13.5px;color:var(--ink-60);margin:0">Monday to Saturday</p>
-            <span style="font-family:var(--font-mono);font-size:14px;color:var(--ink);font-weight:600;margin-top:auto">10:00 AM – 7:00 PM IST</span>
-          </div>
-
-        </div>
-
-        <!-- Social Media Channels -->
-        <div style="background:#FFFFFF;border:1.5px solid var(--line);border-radius:20px;padding:24px">
-          <span style="font-family:var(--font-mono);font-size:11.5px;font-weight:800;color:var(--kesar-hot);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:10px">Social Media Channels</span>
-          <div style="display:flex;gap:16px;flex-wrap:wrap;font-size:14.5px;font-weight:600">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style="color:var(--ink);display:inline-flex;align-items:center;gap:6px">📸 Instagram</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style="color:var(--ink);display:inline-flex;align-items:center;gap:6px">💼 LinkedIn</a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style="color:var(--ink);display:inline-flex;align-items:center;gap:6px">📘 Facebook</a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" style="color:var(--ink);display:inline-flex;align-items:center;gap:6px">▶️ YouTube</a>
-            <a href="https://x.com" target="_blank" rel="noopener noreferrer" style="color:var(--ink);display:inline-flex;align-items:center;gap:6px">✖️ X</a>
+          <div class="contact-feature-item">
+            <svg class="contact-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 0 0 1.4 0l6.6-6.6a2 2 0 0 0 0-2.8l-3.6-3.6a2 2 0 0 0-2.8 0L13 7"/><path d="m14 14-3 3-4-4 3-3"/></svg>
+            <span class="contact-feature-label">Long-Term<br />Partnerships</span>
           </div>
         </div>
 
       </div>
 
-      <!-- Right Column: Regional Hubs & Quick Action -->
-      <div>
-        <div class="sec-head" style="margin-bottom:28px">
-          <p class="eyebrow"><span class="pulse"></span> Presence</p>
-          <h2 style="font-size:clamp(24px, 3.2vw, 36px)">Corporate Hubs</h2>
-          <p class="sec-note">Meet our partners across key business centers.</p>
-        </div>
+      <!-- Right Visual Column -->
+      <div class="contact-hero-right rv">
+        <div class="contact-hero-visual">
+          <img src="assets/contact-hero-dining.jpg" alt="Atmospheric modern dining room with warm lighting" class="contact-hero-img" loading="eager" />
+          <div class="contact-hero-overlay-shadow" aria-hidden="true"></div>
+          
+          <!-- Back Wall Neon Typography -->
+          <div class="contact-hero-wall-text" aria-hidden="true">
+            GOOD<br />
+            FOOD<br />
+            BRANDS<br />
+            BRIGHTER<br />
+            FUTURES
+          </div>
 
-        <div style="display:flex;flex-direction:column;gap:14px">
-          <div style="background:#FFFFFF;border:1.5px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:6px">
-            <strong style="color:var(--ink);font-size:16px">📍 Mumbai Corporate HQ</strong>
-            <p style="font-size:13.5px;color:var(--ink-60);margin:0">Bandra Kurla Complex (BKC), G-Block, Bandra East, Mumbai 400051</p>
-          </div>
-          <div style="background:#FFFFFF;border:1.5px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:6px">
-            <strong style="color:var(--ink);font-size:16px">📍 Pune Regional Development Center</strong>
-            <p style="font-size:13.5px;color:var(--ink-60);margin:0">Senapati Bapat Road, Shivaji Nagar, Pune 411016</p>
-          </div>
-          <div style="background:#FFFFFF;border:1.5px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:6px">
-            <strong style="color:var(--ink);font-size:16px">📍 Bengaluru Innovation Office</strong>
-            <p style="font-size:13.5px;color:var(--ink-60);margin:0">Indiranagar 100ft Road, Bengaluru 560038</p>
-          </div>
-          <div style="background:#FFFFFF;border:1.5px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:6px">
-            <strong style="color:var(--ink);font-size:16px">📍 Delhi NCR Regional Desk</strong>
-            <p style="font-size:13.5px;color:var(--ink-60);margin:0">DLF Cyber City, Tower B, Phase II, Gurugram 122002</p>
+          <!-- Bottom Right Hand-Lettered Calligraphy Badge -->
+          <div class="contact-hero-script-badge">
+            <p class="contact-script-lines">Ideas.<br />People.<br />Partnerships.</p>
+            <svg class="contact-script-swoosh" viewBox="0 0 160 24" fill="none" aria-hidden="true">
+              <path d="M 5 18 C 45 4, 110 5, 155 12" stroke="#E2584D" stroke-width="4" stroke-linecap="round"/>
+            </svg>
           </div>
         </div>
-
-        <div style="margin-top:24px;background:#0E121A;border-radius:20px;padding:26px;color:#FFFFFF;display:flex;flex-direction:column;gap:12px">
-          <h4 style="color:var(--malai);font-size:18px;margin:0">Ready for a Strategic Discussion?</h4>
-          <p style="color:rgba(248,250,252,0.8);font-size:14px;line-height:1.55;margin:0">
-            Complete our consultation form to receive tailored opportunity recommendations or business development roadmaps.
-          </p>
-          <a href="book-consultation.html" class="btn btn--kesar" style="width:100%;text-align:center;margin-top:6px">Book a Consultation &rarr;</a>
-        </div>
-
       </div>
 
     </div>
-
   </div>
 </section>
 
-<!-- Floating WhatsApp Action -->
-<a href="https://wa.me/912240008899?text=Hi%20Franchise%20101,%20I%20would%20like%20to%20speak%20with%20a%20franchise%20advisor." target="_blank" class="whatsapp-float-btn" aria-label="Chat on WhatsApp">
-  <span>💬</span> Chat With Advisor
-</a>
+<!-- ==========================================================================
+     2. CHANNELS & CORPORATE HUBS SECTION (2-Column Main Section)
+     ========================================================================== -->
+<section class="contact-main-sec" id="contact-channels">
+  <div class="wrap">
+    <div class="contact-main-grid">
+      
+      <!-- Left Column: Reach Us Directly (5 Channel Cards) -->
+      <div class="contact-col-channels rv">
+        <span class="contact-eyebrow-red">CONTACT CHANNELS</span>
+        <h2 class="contact-sec-title">Reach Us Directly</h2>
+        <p class="contact-sec-sub">Our team is available across multiple channels to assist you.</p>
+        
+        <div class="contact-channels-list">
+          
+          <!-- Channel 1: Phone Helpline -->
+          <a href="tel:+912240008899" class="contact-channel-card">
+            <div class="channel-card-left">
+              <div class="channel-icon-circle bg-red">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="channel-card-details">
+                <span class="channel-title">Phone Helpline</span>
+                <span class="channel-desc">Direct Investor &amp; Advisory Desk</span>
+                <span class="channel-value text-red">+91 22 4000 8899</span>
+              </div>
+            </div>
+            <div class="channel-card-arrow" aria-hidden="true">&rarr;</div>
+          </a>
 
-<!-- ============ FOOTER ============ -->
-<footer class="foot on-dark">
+          <!-- Channel 2: WhatsApp Concierge -->
+          <a href="https://wa.me/919820012345?text=Hi%20Franchise%20101%2C%20I%20would%20like%20to%20connect%20with%20your%20team." target="_blank" rel="noopener" class="contact-channel-card">
+            <div class="channel-card-left">
+              <div class="channel-icon-circle bg-green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.073.376-.044.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
+              </div>
+              <div class="channel-card-details">
+                <span class="channel-title">WhatsApp Concierge</span>
+                <span class="channel-desc">Instant chat &amp; prompt response</span>
+                <span class="channel-value text-green">+91 98200 12345</span>
+              </div>
+            </div>
+            <div class="channel-card-arrow" aria-hidden="true">&rarr;</div>
+          </a>
+
+          <!-- Channel 3: Official Email -->
+          <a href="mailto:hello@franchise101.in" class="contact-channel-card">
+            <div class="channel-card-left">
+              <div class="channel-icon-circle bg-red">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div class="channel-card-details">
+                <span class="channel-title">Official Email</span>
+                <span class="channel-desc">For investors &amp; founders</span>
+                <span class="channel-value text-red">hello@franchise101.in</span>
+              </div>
+            </div>
+            <div class="channel-card-arrow" aria-hidden="true">&rarr;</div>
+          </a>
+
+          <!-- Channel 4: Business Hours -->
+          <div class="contact-channel-card" style="cursor:default">
+            <div class="channel-card-left">
+              <div class="channel-icon-circle bg-orange">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="channel-card-details">
+                <span class="channel-title">Business Hours</span>
+                <span class="channel-desc">Monday to Saturday</span>
+                <span class="channel-value text-dark">10:00 AM – 7:00 PM IST</span>
+              </div>
+            </div>
+            <div class="channel-card-arrow" aria-hidden="true">&rarr;</div>
+          </div>
+
+          <!-- Channel 5: Follow Us -->
+          <div class="contact-channel-card" style="cursor:default">
+            <div class="channel-card-left">
+              <div class="channel-icon-circle bg-red">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+              </div>
+              <div class="channel-card-details">
+                <span class="channel-title">Follow Us</span>
+                <span class="channel-desc">Stay updated on new opportunities</span>
+                <div class="channel-social-links">
+                  <a href="https://instagram.com" target="_blank" rel="noopener" class="channel-social-link" aria-label="Instagram">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                  </a>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener" class="channel-social-link" aria-label="LinkedIn">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                  </a>
+                  <a href="https://facebook.com" target="_blank" rel="noopener" class="channel-social-link" aria-label="Facebook">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                  </a>
+                  <a href="https://youtube.com" target="_blank" rel="noopener" class="channel-social-link" aria-label="YouTube">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><polygon points="10 15 15 12 10 9 10 15"/></svg>
+                  </a>
+                  <a href="https://x.com" target="_blank" rel="noopener" class="channel-social-link" aria-label="X">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="channel-card-arrow" aria-hidden="true">&rarr;</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Visit Our Corporate Hubs (2x2 Grid + Promo Card) -->
+      <div class="contact-col-hubs rv">
+        <span class="contact-eyebrow-red">OUR PRESENCE</span>
+        <h2 class="contact-sec-title">Visit Our Corporate Hubs</h2>
+        <p class="contact-sec-sub">Meet our team across key business centers.</p>
+        
+        <!-- 4 Office Location Cards in 2x2 Grid -->
+        <div class="contact-hubs-grid">
+          
+          <!-- Hub 1: Mumbai Corporate HQ -->
+          <div class="contact-hub-card">
+            <div class="hub-card-header">
+              <div class="hub-card-title-group">
+                <svg class="hub-pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div class="hub-title">Mumbai Corporate HQ</div>
+              </div>
+              <div class="hub-arrow" aria-hidden="true">&rarr;</div>
+            </div>
+            <p class="hub-address">
+              Bandra Kurla Complex (BKC),<br />
+              G- Block, Bandra East,<br />
+              Mumbai 400051
+            </p>
+          </div>
+
+          <!-- Hub 2: Pune Regional Office -->
+          <div class="contact-hub-card">
+            <div class="hub-card-header">
+              <div class="hub-card-title-group">
+                <svg class="hub-pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div class="hub-title">Pune Regional Office</div>
+              </div>
+              <div class="hub-arrow" aria-hidden="true">&rarr;</div>
+            </div>
+            <p class="hub-address">
+              Senapati Bapat Road,<br />
+              Shivaji Nagar,<br />
+              Pune 411016
+            </p>
+          </div>
+
+          <!-- Hub 3: Bengaluru Innovation Office -->
+          <div class="contact-hub-card">
+            <div class="hub-card-header">
+              <div class="hub-card-title-group">
+                <svg class="hub-pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div class="hub-title">Bengaluru Innovation Office</div>
+              </div>
+              <div class="hub-arrow" aria-hidden="true">&rarr;</div>
+            </div>
+            <p class="hub-address">
+              Indiranagar 100ft Road,<br />
+              Bengaluru 560038
+            </p>
+          </div>
+
+          <!-- Hub 4: Delhi NCR Regional Desk -->
+          <div class="contact-hub-card">
+            <div class="hub-card-header">
+              <div class="hub-card-title-group">
+                <svg class="hub-pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div class="hub-title">Delhi NCR Regional Desk</div>
+              </div>
+              <div class="hub-arrow" aria-hidden="true">&rarr;</div>
+            </div>
+            <p class="hub-address">
+              DLF Cyber City, Tower B,<br />
+              Phase II, Gurugram 122002
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Strategic Discussion Promo Card -->
+        <div class="contact-discussion-box">
+          <div class="discussion-img-wrap">
+            <img src="assets/contact-discussion-cafe.jpg" alt="Modern cozy cafe interior" class="discussion-img" loading="lazy" />
+            <div class="discussion-script-overlay">
+              <p class="discussion-script-text">
+                Great<br />
+                Brands<br />
+                Start<br />
+                with Great<br />
+                Conversations.
+              </p>
+            </div>
+          </div>
+          <div class="discussion-content-wrap">
+            <span class="discussion-eyebrow">READY FOR A STRATEGIC DISCUSSION?</span>
+            <p class="discussion-text">
+              Complete our consultation form to receive tailored opportunity recommendations or business development roadmaps.
+            </p>
+            <a href="book-consultation.html" class="btn-contact-primary">Book a Consultation <span class="arw">&rarr;</span></a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     3. QUICK ANSWERS (FAQ SPLIT SECTION)
+     ========================================================================== -->
+<section class="contact-faq-sec" id="faqs">
+  <div class="wrap">
+    <div class="contact-faq-grid">
+      
+      <!-- Left Column Visual: Culinary Appetizer with Calligraphy Overlay -->
+      <div class="contact-faq-left rv">
+        <div class="contact-faq-imgbox">
+          <img src="assets/contact-faq-dish.jpg" alt="Gourmet glazed appetizer on dark slate" class="contact-faq-img" loading="lazy" />
+          <div class="faq-script-overlay">
+            <p class="faq-script-text">
+              More<br />
+              Than<br />
+              Franchises.<br />
+              A Better<br />
+              Tomorrow.
+            </p>
+            <svg class="faq-script-swoosh" viewBox="0 0 160 24" fill="none" aria-hidden="true">
+              <path d="M 5 18 C 45 4, 110 5, 155 12" stroke="#E2584D" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Quick Answers Accordion -->
+      <div class="contact-faq-right rv">
+        <div class="faq-header-bar">
+          <div>
+            <span class="contact-eyebrow-red">FAQS</span>
+            <h2 class="contact-sec-title">Quick Answers</h2>
+            <p class="contact-sec-sub" style="margin-bottom:0">Find answers to common questions or reach out to our team directly.</p>
+          </div>
+          <a href="faqs.html" class="btn-outline-pill">View All FAQs &rarr;</a>
+        </div>
+
+        <div class="contact-faq-list" id="faqAccordion">
+          
+          <!-- Accordion Item 1 -->
+          <div class="contact-faq-item active">
+            <button class="faq-trigger" type="button" aria-expanded="true">
+              <span>How do I schedule a consultation?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <p>
+                You can book a consultation directly through our online booking page, or reach out to our direct advisory desk via phone (+91 22 4000 8899) or WhatsApp. Our franchise advisors will review your investment criteria and schedule a dedicated strategic session.
+              </p>
+            </div>
+          </div>
+
+          <!-- Accordion Item 2 -->
+          <div class="contact-faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false">
+              <span>Can I discuss my own business concept?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <p>
+                Yes, absolutely. We work closely with founders, restaurateurs, and culinary innovators to evaluate model viability, brand positioning, kitchen unit economics, operational SOPs, and scalable franchise readiness.
+              </p>
+            </div>
+          </div>
+
+          <!-- Accordion Item 3 -->
+          <div class="contact-faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false">
+              <span>Do you work with international brands?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <p>
+                Yes. We represent global food &amp; beverage brands seeking master franchise partners, multi-unit operators, or regional area developers in India, as well as Indian heritage concepts expanding overseas.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     GLOBAL FOOTER & DIRECT ADVISORY DESK STRIP
+     ========================================================================== -->
+<footer class="foot" style="background:#FFFFFF;border-top:1px solid #E2E8F0;padding:clamp(48px, 6vw, 72px) 0 32px">
   <div class="wrap">
     
-    <!-- Direct Contact Strip -->
-    <div class="foot-contact-strip" style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,0.12);margin-bottom:36px">
+    <!-- Direct Advisory Desk Contact Strip -->
+    <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:16px;padding:20px 28px;margin-bottom:48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px">
       <div style="display:flex;align-items:center;gap:12px">
         <span style="font-size:22px">📞</span>
         <div>
-          <small style="display:block;font-family:var(--font-mono, monospace);font-size:11px;color:rgba(248,250,252,0.6);text-transform:uppercase;letter-spacing:0.08em">Direct Advisory Desk</small>
-          <strong style="color:#FFFFFF;font-size:14.5px">+91 22 4000 8899</strong>
+          <small style="display:block;font-family:var(--font-mono, monospace);font-size:11px;color:#64748B;text-transform:uppercase;letter-spacing:0.08em">Direct Advisory Desk</small>
+          <strong style="color:#0F172A;font-size:14.5px">+91 22 4000 8899</strong>
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:12px">
         <span style="font-size:22px">💬</span>
         <div>
-          <small style="display:block;font-family:var(--font-mono, monospace);font-size:11px;color:rgba(248,250,252,0.6);text-transform:uppercase;letter-spacing:0.08em">WhatsApp Concierge</small>
-          <strong style="color:#FFFFFF;font-size:14.5px">+91 98200 12345</strong>
+          <small style="display:block;font-family:var(--font-mono, monospace);font-size:11px;color:#64748B;text-transform:uppercase;letter-spacing:0.08em">WhatsApp Support</small>
+          <strong style="color:#0F172A;font-size:14.5px">+91 98200 12345</strong>
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:12px">
         <span style="font-size:22px">✉️</span>
         <div>
-          <small style="display:block;font-family:var(--font-mono, monospace);font-size:11px;color:rgba(248,250,252,0.6);text-transform:uppercase;letter-spacing:0.08em">Official Inquiries</small>
-          <strong style="color:#FFFFFF;font-size:14.5px">hello@franchise101.in</strong>
+          <small style="display:block;font-family:var(--font-mono, monospace);font-size:11px;color:#64748B;text-transform:uppercase;letter-spacing:0.08em">Email Inquiries</small>
+          <strong style="color:#0F172A;font-size:14.5px">hello@franchise101.in</strong>
         </div>
       </div>
       <div style="display:flex;gap:10px;align-items:center">
-        <a href="book-consultation.html" class="btn btn--kesar btn--sm">Book a Consultation &rarr;</a>
+        <a href="book-consultation.html" class="btn btn--kesar btn--sm"><span class="dot"></span> Book Advisory Call &rarr;</a>
       </div>
     </div>
 
-    <!-- 4-Column Main Grid -->
-    <div class="foot-grid" style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(28px, 4vw, 48px)">
+    <!-- 4-Column Main Grid Matching Mockup -->
+    <div class="foot-grid" style="display:grid;grid-template-columns:1.3fr 0.9fr 1fr 1fr 1.1fr;gap:clamp(24px, 3.5vw, 40px)">
       
-      <!-- Col 1: Brand & Identity -->
-      <div class="foot-brand" style="display:flex;flex-direction:column;gap:14px">
-        <a class="logo" href="index.html" aria-label="Franchise 101 Home" style="font-size:24px;color:var(--malai)">FRANCHISE 101<span class="dot"></span></a>
-        <p style="color:rgba(248,250,252,.75);font-size:14px;line-height:1.6;margin:0">
+      <!-- Col 1: Brand & Bio -->
+      <div class="foot-brand">
+        <a aria-label="Franchise 101 Home" class="logo" href="index.html" style="color:#0F172A">
+          <img src="assets/logo-clean.png" alt="Franchise 101" class="logo-mark" style="height:36px;width:auto;display:inline-block;vertical-align:middle;margin-right:8px" />
+          FRANCHISE 101<span class="dot"></span>
+        </a>
+        <div style="font-family:var(--font-mono, monospace);font-size:10.5px;letter-spacing:0.1em;color:#94A3B8;text-transform:uppercase;margin-top:6px">IDEAS &bull; BRANDS &bull; OPPORTUNITIES</div>
+        <p style="color:#64748B;font-size:13.5px;line-height:1.65;margin:12px 0 16px">
           A trusted franchise and business solutions ecosystem helping investors discover the right opportunities, entrepreneurs build businesses from concept to launch, and brands franchise and scale.
         </p>
-        <div style="font-family:var(--font-mono);font-size:12.5px;color:rgba(248,250,252,0.65);margin-top:4px">
-          <div>BKC, Mumbai &middot; Pune &middot; Bengaluru &middot; Delhi NCR</div>
+        <div style="display:flex;gap:12px;color:#64748B">
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" style="color:#64748B">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="channel-social-link" aria-label="Instagram" style="color:#64748B">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          </a>
+          <a href="https://youtube.com" target="_blank" rel="noopener" class="channel-social-link" aria-label="YouTube" style="color:#64748B">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><polygon points="10 15 15 12 10 9 10 15"/></svg>
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener" class="channel-social-link" aria-label="X" style="color:#64748B">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
         </div>
       </div>
 
-      <!-- Col 2: The 3 Verticals -->
+      <!-- Col 2: Quick Links -->
       <div class="foot-col">
-        <h4 style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--kesar);margin:0 0 14px;font-weight:700">The Ecosystem</h4>
-        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:14px">
-          <li><a href="franchises.html" style="color:rgba(248,250,252,.75)">Explore Franchises</a></li>
-          <li><a href="develop-brand.html" style="color:rgba(248,250,252,.75)">Build Your Brand</a></li>
-          <li><a href="develop-scale.html" style="color:rgba(248,250,252,.75)">Franchise &amp; Scale</a></li>
-          <li><a href="franchise-marketing.html" style="color:rgba(248,250,252,.75)">Franchise Marketing</a></li>
-          <li><a href="about.html" style="color:rgba(248,250,252,.75)">Our Mission &amp; Approach</a></li>
+        <h4 style="color:#CF3C30;font-size:14px;font-weight:700;margin-bottom:14px">Quick Links</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px">
+          <li><a href="index.html" style="color:#475569;font-size:13.5px">Home</a></li>
+          <li><a href="franchises.html" style="color:#475569;font-size:13.5px">Explore Franchises</a></li>
+          <li><a href="develop-brand.html" style="color:#475569;font-size:13.5px">Build Your Brand</a></li>
+          <li><a href="develop-scale.html" style="color:#475569;font-size:13.5px">Franchise &amp; Scale</a></li>
+          <li><a href="franchise-marketing.html" style="color:#475569;font-size:13.5px">Franchise Marketing</a></li>
+          <li><a href="about.html" style="color:#475569;font-size:13.5px">About Us</a></li>
+          <li><a href="contact.html" style="color:#CF3C30;font-weight:600;font-size:13.5px">Contact</a></li>
         </ul>
       </div>
 
       <!-- Col 3: Investor Tools -->
       <div class="foot-col">
-        <h4 style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--kesar);margin:0 0 14px;font-weight:700">Investor Tools</h4>
-        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:14px">
-          <li><a href="find-franchise.html" style="color:rgba(248,250,252,.75)">Find the Right Franchise</a></li>
-          <li><a href="franchises.html" style="color:rgba(248,250,252,.75)">Curated Opportunities</a></li>
-          <li><a href="index.html#calculator" style="color:rgba(248,250,252,.75)">ROI &amp; Payback Calculator</a></li>
-          <li><a href="index.html#how-it-works" style="color:rgba(248,250,252,.75)">How It Works</a></li>
-          <li><a href="index.html#faq" style="color:rgba(248,250,252,.75)">Frequently Asked Questions</a></li>
+        <h4 style="color:#CF3C30;font-size:14px;font-weight:700;margin-bottom:14px">Investor Tools</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px">
+          <li><a href="find-franchise.html" style="color:#475569;font-size:13.5px">Find the Right Franchise</a></li>
+          <li><a href="franchises.html" style="color:#475569;font-size:13.5px">Curated Opportunities</a></li>
+          <li><a href="franchises.html#roi-calc" style="color:#475569;font-size:13.5px">ROI &amp; Payback Calculator</a></li>
+          <li><a href="how-it-works.html" style="color:#475569;font-size:13.5px">How It Works</a></li>
+          <li><a href="faqs.html" style="color:#475569;font-size:13.5px">Frequently Asked Questions</a></li>
         </ul>
       </div>
 
-      <!-- Col 4: Legal & Direct Document Link -->
+      <!-- Col 4: Legal & Support -->
       <div class="foot-col">
-        <h4 style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--kesar);margin:0 0 14px;font-weight:700">Legal &amp; Connect</h4>
-        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:14px">
-          <li><a href="contact.html" style="color:rgba(248,250,252,.75)">Contact Us</a></li>
-          <li><a href="book-consultation.html" style="color:rgba(248,250,252,.75)">Book a Consultation</a></li>
-          <li><a href="privacy-policy.html" style="color:rgba(248,250,252,.75)">Privacy Policy</a></li>
-          <li><a href="terms.html" style="color:rgba(248,250,252,.75)">Terms &amp; Conditions</a></li>
-          <li><a href="disclaimer.html" style="color:rgba(248,250,252,.75)">Investment &amp; ROI Disclaimer</a></li>
-          <li><a href="https://docs.google.com/document/d/1NfoCC8elulRjO4ZTRbq5fRba9yLghGOwMBq6kwDucQU/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style="color:var(--kesar);font-weight:600">Legal Document Form &nearr;</a></li>
+        <h4 style="color:#CF3C30;font-size:14px;font-weight:700;margin-bottom:14px">Legal &amp; Support</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px">
+          <li><a href="privacy-policy.html" style="color:#475569;font-size:13.5px">Privacy Policy</a></li>
+          <li><a href="terms.html" style="color:#475569;font-size:13.5px">Terms &amp; Conditions</a></li>
+          <li><a href="terms.html#disclaimer" style="color:#475569;font-size:13.5px">Investment &amp; ROI Disclaimer</a></li>
+          <li><a href="terms.html#documents" style="color:#475569;font-size:13.5px">Legal Document Form</a></li>
         </ul>
+      </div>
+
+      <!-- Col 5: Stay Updated -->
+      <div class="foot-col">
+        <h4 style="color:#CF3C30;font-size:14px;font-weight:700;margin-bottom:14px">Stay Updated</h4>
+        <p style="color:#64748B;font-size:13px;line-height:1.5;margin-bottom:12px">Get the latest insights and opportunities.</p>
+        <form onsubmit="event.preventDefault();alert('Thank you for subscribing!');" style="display:flex;gap:6px">
+          <input type="email" placeholder="Your email address" required style="flex:1;padding:10px 12px;border:1px solid #D1D5DB;border-radius:8px;font-size:13px;font-family:inherit" />
+          <button type="submit" style="background:#D33D31;border:none;color:#FFF;padding:0 14px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center" aria-label="Subscribe">&rarr;</button>
+        </form>
       </div>
 
     </div>
 
-    <!-- Official Disclaimers Block (Section 10 in Doc) -->
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:22px;margin-top:36px">
-      <p style="font-size:12.5px;color:rgba(248,250,252,0.65);line-height:1.65;margin:0 0 10px">
-        <strong>Franchise &amp; Investment Disclaimer:</strong> Franchise and business investments involve commercial and financial risk. Franchise 101 does not guarantee revenue, profit, ROI, payback period, business success, franchise approval or territory availability. Prospective investors should conduct independent due diligence and obtain appropriate professional advice before making an investment decision.
-      </p>
-      <p style="font-size:12.5px;color:rgba(248,250,252,0.65);line-height:1.65;margin:0 0 10px">
-        <strong>Financial / ROI Disclaimer:</strong> Any investment estimates, sales, profit margins, or financial projections displayed on the website or marketing material are indicative, projected or supplied by respective brand franchisors and must not be represented as a guarantee of future performance.
-      </p>
-      <p style="font-size:12.5px;color:rgba(248,250,252,0.65);line-height:1.65;margin:0">
-        <strong>Third-Party Brand Disclaimer:</strong> Listed franchise brands are independently owned. All brand names, logos and trademarks remain the property of their respective owners. Listing a brand does not imply endorsement or warranty of future business performance.
-      </p>
-    </div>
-
-    <!-- Bottom Copyright Bar -->
-    <div class="foot-base" style="display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.1);margin-top:24px;padding-top:20px;font-size:12.5px;color:rgba(248,250,252,0.6);font-family:var(--font-mono)">
-      <div>&copy; 2026 Franchise 101 Growth Partners LLP. All rights reserved.</div>
-      <div style="display:flex;gap:16px;flex-wrap:wrap">
-        <a href="privacy-policy.html" style="color:rgba(248,250,252,0.65)">Privacy</a>
-        <a href="terms.html" style="color:rgba(248,250,252,0.65)">Terms</a>
-        <a href="disclaimer.html" style="color:rgba(248,250,252,0.65)">Disclaimers</a>
-        <a href="contact.html" style="color:rgba(248,250,252,0.65)">Contact</a>
+    <!-- Foot Bottom Bar -->
+    <div style="border-top:1px solid #E2E8F0;margin-top:40px;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:#94A3B8">
+      <div>&copy; 2024 Franchise 101. All rights reserved.</div>
+      <div style="display:flex;gap:20px;flex-wrap:wrap">
+        <span>Mumbai, India</span>
+        <a href="mailto:hello@franchise101.in" style="color:#94A3B8;text-decoration:none">hello@franchise101.in</a>
+        <a href="tel:+912240008899" style="color:#94A3B8;text-decoration:none">+91 22 4000 8899</a>
       </div>
     </div>
 
   </div>
 </footer>
 
-<button class="back-to-top" id="btnBackToTop" aria-label="Back to top">&#8593;</button>
+<button class="floating-up" id="btnBackToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
 
-<!-- ============ JAVASCRIPT ============ -->
+<!-- ==========================================================================
+     SCRIPTS (Nav, Scroll Reveal, FAQ Accordions)
+     ========================================================================== -->
 <script>
-// Prefill from query params
-window.addEventListener('DOMContentLoaded', () => {
-  const params = new URLSearchParams(window.location.search);
-  const brand = params.get('brand');
-  const service = params.get('service');
-  const budget = params.get('budget');
-
-  if (brand) {
-    prefillBrand(brand);
-  } else if (service) {
-    const noteField = document.getElementById('fnote');
-    if (noteField) noteField.value = `Enquiring for food brand growth service: ${service}.`;
-  }
-  if (budget) {
-    const bSel = document.getElementById('fbudget');
-    if (bSel) bSel.value = budget;
-  }
-  updateFormProgress();
-});
-
-let selectedBrandName = null;
-function prefillBrand(brandName) {
-  selectedBrandName = brandName;
-  const badge = document.getElementById('brandBadge');
-  const badgeName = document.getElementById('brandBadgeName');
-  if (badge && badgeName) {
-    badgeName.textContent = brandName;
-    badge.classList.add('show');
-  }
-  const noteField = document.getElementById('fnote');
-  if (noteField && !noteField.value.includes(brandName)) {
-    noteField.value = `Enquiring specifically for ${brandName} franchise opportunity. ` + noteField.value;
-  }
-}
-
-function clearSelectedBrand() {
-  selectedBrandName = null;
-  const badge = document.getElementById('brandBadge');
-  if (badge) badge.classList.remove('show');
-}
-
-// Form validation & progress
-const formRules = {
-  fname: v => v.trim().length >= 2 || 'Please enter your full name',
-  fphone: v => /^[6-9]\d{9}$/.test(v.replace(/\D/g, '').slice(-10)) || 'Please enter a valid 10-digit mobile number',
-  femail: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) || 'Please enter a valid email address',
-  fcity: v => v.trim().length >= 2 || 'Please enter your target city or area',
-  fbudget: v => !!v || 'Please choose your investment budget bracket',
-  fspace: v => !!v || 'Please select your property status'
-};
-
-function updateFormProgress() {
-  let filled = 0;
-  const total = Object.keys(formRules).length;
-  for (const id in formRules) {
-    const el = document.getElementById(id);
-    if (el && el.value.trim().length > 0) filled++;
-  }
-  const pct = Math.max(15, Math.round((filled / total) * 100));
-  const fillBar = document.getElementById('formProgressFill');
-  const stepTag = document.getElementById('formStepTag');
-  if (fillBar) fillBar.style.width = pct + '%';
-  if (stepTag) {
-    if (filled <= 1) stepTag.textContent = 'Step 1 of 4';
-    else if (filled <= 3) stepTag.textContent = 'Step 2 of 4';
-    else if (filled < total) stepTag.textContent = 'Step 3 of 4';
-    else stepTag.textContent = 'Ready to Send 🚀';
-  }
-}
-
-for (const id in formRules) {
-  const el = document.getElementById(id);
-  if (el) {
-    el.addEventListener('input', () => {
-      const slot = document.querySelector(`.err[data-for="${id}"]`);
-      if (slot) slot.textContent = '';
-      el.style.borderColor = '';
-    });
-    el.addEventListener('change', () => {
-      const slot = document.querySelector(`.err[data-for="${id}"]`);
-      if (slot) slot.textContent = '';
-      el.style.borderColor = '';
-    });
-  }
-}
-
-const sendBtn = document.getElementById('send');
-if (sendBtn) {
-  sendBtn.addEventListener('click', () => {
-    let ok = true, firstInvalid = null;
-
-    for (const id in formRules) {
-      const el = document.getElementById(id);
-      const msg = formRules[id](el ? el.value : '');
-      const slot = document.querySelector(`.err[data-for="${id}"]`);
-      if (msg !== true) {
-        if (slot) slot.textContent = msg;
-        if (el) el.style.borderColor = '#FF9C7A';
-        ok = false;
-        if (!firstInvalid) firstInvalid = el;
-      } else {
-        if (slot) slot.textContent = '';
-        if (el) el.style.borderColor = '';
-      }
-    }
-
-    if (!ok) {
-      if (firstInvalid) firstInvalid.focus();
-      return;
-    }
-
-    sendBtn.disabled = true;
-    sendBtn.innerHTML = `<span>Submitting Application...</span>`;
-
-    setTimeout(() => {
-      const tokenNum = Math.floor(1000 + Math.random() * 9000);
-      const tokenDisplay = document.getElementById('tokenDisplay');
-      if (tokenDisplay) tokenDisplay.textContent = `#F101-${tokenNum}`;
-
-      document.getElementById('sent').classList.add('show');
-      sendBtn.style.display = 'none';
-
-      for (const id in formRules) {
-        const el = document.getElementById(id);
-        if (el) el.value = '';
-      }
-      document.getElementById('fnote').value = '';
-      clearSelectedBrand();
-      updateFormProgress();
-
-      document.getElementById('sent').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 650);
-  });
-}
-
-function resetForm() {
-  document.getElementById('sent').classList.remove('show');
-  if (sendBtn) {
-    sendBtn.style.display = 'inline-flex';
-    sendBtn.disabled = false;
-    sendBtn.innerHTML = `<span>Send My Application</span> <span class="arw">&rarr;</span>`;
-  }
-  updateFormProgress();
-}
-
-function openWhatsAppChat() {
-  const phone = '912240008899';
-  const text = encodeURIComponent('Hi Franchise 101, I submitted a food franchise application and would like to review the unit economics sheet.');
-  window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
-}
-
-// ==========================================================================
-// SCROLL-SPY & SCROLL ANIMATIONS
-// ==========================================================================
-
+// Auto-hide navigation on scroll
 const nav = document.getElementById('nav');
 const topProgress = document.getElementById('topProgress');
 const btnBackToTop = document.getElementById('btnBackToTop');
 const navToggle = document.getElementById('navToggle');
 const mobileDrawer = document.getElementById('mobileDrawer');
-const timelineProgressLine = document.getElementById('timelineProgressLine');
-const timelineElement = document.getElementById('scrollTimeline');
 
 let lastScrollY = window.scrollY;
-
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY;
   const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
   if (topProgress) topProgress.style.width = ((scrolled / maxScroll) * 100) + '%';
   if (btnBackToTop) btnBackToTop.classList.toggle('show', scrolled > 400);
 
-  // Auto-hide navigation on scroll
   if (nav) {
     nav.classList.toggle('stuck', scrolled > 20);
     const isDrawerOpen = mobileDrawer && mobileDrawer.classList.contains('open');
@@ -959,43 +592,7 @@ window.addEventListener('scroll', () => {
     }
   }
   lastScrollY = Math.max(scrolled, 0);
-
-  // Timeline Progress Line Scroll Animation
-  if (timelineElement && timelineProgressLine) {
-    const rect = timelineElement.getBoundingClientRect();
-    const windowH = window.innerHeight;
-    if (rect.top < windowH && rect.bottom > 0) {
-      const progress = Math.min(Math.max((windowH * 0.7 - rect.top) / rect.height, 0), 1);
-      timelineProgressLine.style.height = (progress * 100) + '%';
-    }
-  }
 }, { passive: true });
-
-// IntersectionObserver for Timeline Steps & Offices
-const stepObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('active-spy');
-    }
-  });
-}, { threshold: 0.5, rootMargin: '0px 0px -10% 0px' });
-
-document.querySelectorAll('.timeline-step-card').forEach(step => {
-  stepObserver.observe(step);
-});
-
-const officeObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      document.querySelectorAll('.office-card').forEach(c => c.classList.remove('active-office'));
-      entry.target.classList.add('active-office');
-    }
-  });
-}, { threshold: 0.6, rootMargin: '0px 0px -15% 0px' });
-
-document.querySelectorAll('.office-card').forEach(off => {
-  officeObserver.observe(off);
-});
 
 function toggleMobileNav() {
   const isOpen = mobileDrawer.classList.contains('open');
@@ -1009,16 +606,47 @@ if (navToggle && mobileDrawer) {
   mobileDrawer.addEventListener('click', e => { if (e.target === mobileDrawer) toggleMobileNav(); });
 }
 
-// Reveal on scroll animation
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('in');
-      io.unobserve(e.target);
+// Reveal on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.05, rootMargin: '0px 0px 50px' });
-document.querySelectorAll('.rv').forEach(el => io.observe(el));
+}, { threshold: 0.02, rootMargin: '0px 0px 100px 0px' });
+
+document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+
+function checkReveals() {
+  document.querySelectorAll('.rv:not(.in)').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 1.15) {
+      el.classList.add('in');
+    }
+  });
+}
+window.addEventListener('DOMContentLoaded', checkReveals);
+window.addEventListener('scroll', checkReveals, { passive: true });
+setTimeout(checkReveals, 100);
+setTimeout(checkReveals, 400);
+
+// Interactive FAQ Accordions
+document.querySelectorAll('.faq-trigger').forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const item = trigger.closest('.contact-faq-item');
+    const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+    
+    // Toggle clicked item
+    if (isExpanded) {
+      item.classList.remove('active');
+      trigger.setAttribute('aria-expanded', 'false');
+    } else {
+      item.classList.add('active');
+      trigger.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
 </script>
 </body>
 </html>
