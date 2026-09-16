@@ -556,77 +556,68 @@
   </div>
 </header>
 
-<!-- ============ DYNAMIC INTENT CONSULTATION SECTION ============ -->
+<!-- ============ DYNAMIC CONSULTATION SECTION (INVESTOR & BRAND/BUSINESS FORMS) ============ -->
 <section class="sec" style="background:var(--paper);padding-top:clamp(40px, 6vw, 70px)">
   <div class="wrap">
     
-    <!-- Intent Tabs (Question 1) -->
-    <div style="max-width:960px;margin:0 auto 36px" class="rv">
-      <div style="text-align:center;margin-bottom:20px">
+    <!-- Form Selection Header (ODT Section 7) -->
+    <div style="max-width:860px;margin:0 auto 36px" class="rv">
+      <div style="text-align:center;margin-bottom:24px">
         <span style="font-family:var(--font-mono);font-size:12px;font-weight:800;color:var(--kesar-hot);text-transform:uppercase;letter-spacing:0.08em">Question 1</span>
-        <h2 style="font-size:clamp(24px, 3.2vw, 36px);color:var(--ink);margin:6px 0 10px">How can we help you?</h2>
-        <p style="font-size:15px;color:var(--ink-60)">Select your primary objective to view the relevant consultation questions.</p>
+        <h2 style="font-size:clamp(26px, 3.5vw, 38px);color:var(--ink);margin:6px 0 10px">How can we help you?</h2>
+        <p style="font-size:15.5px;color:var(--ink-60);max-width:54ch;margin:0 auto">Select your profile to load the relevant consultation form.</p>
       </div>
 
-      <div class="intent-tabs-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:12px">
-        <button type="button" class="intent-tab-btn active" data-intent="investor" onclick="switchIntent('investor')">
-          <span class="tab-icon">💼</span>
-          <strong>Invest in a Franchise</strong>
-          <small>Explore Opportunities</small>
+      <!-- 2 Main Form Selection Cards (ODT Lines 587-621) -->
+      <div class="form-selector-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:16px;max-width:760px;margin:0 auto">
+        <button type="button" class="intent-tab-btn active" id="tab-investor" onclick="switchConsultForm('investor')">
+          <span class="tab-icon" style="font-size:32px">💼</span>
+          <div style="text-align:left">
+            <strong style="font-size:17px;display:block;margin-bottom:4px">Investor Form</strong>
+            <small style="font-size:12.5px;line-height:1.4;display:block">I want to explore and invest in curated franchise opportunities</small>
+          </div>
         </button>
-        <button type="button" class="intent-tab-btn" data-intent="brand" onclick="switchIntent('brand')">
-          <span class="tab-icon">💡</span>
-          <strong>Build My Own Brand</strong>
-          <small>Concept to Launch</small>
-        </button>
-        <button type="button" class="intent-tab-btn" data-intent="scale" onclick="switchIntent('scale')">
-          <span class="tab-icon">🚀</span>
-          <strong>Franchise &amp; Scale</strong>
-          <small>Existing Business</small>
-        </button>
-        <button type="button" class="intent-tab-btn" data-intent="marketing" onclick="switchIntent('marketing')">
-          <span class="tab-icon">📈</span>
-          <strong>Franchise Marketing</strong>
-          <small>Investor Acquisition</small>
-        </button>
-        <button type="button" class="intent-tab-btn" data-intent="general" onclick="switchIntent('general')">
-          <span class="tab-icon">🤝</span>
-          <strong>Other Business Service</strong>
-          <small>General Enquiry</small>
+
+        <button type="button" class="intent-tab-btn" id="tab-brand" onclick="switchConsultForm('brand')">
+          <span class="tab-icon" style="font-size:32px">🚀</span>
+          <div style="text-align:left">
+            <strong style="font-size:17px;display:block;margin-bottom:4px">Brand / Business Form</strong>
+            <small style="font-size:12.5px;line-height:1.4;display:block">I want to develop my own brand, franchise, scale, or need marketing</small>
+          </div>
         </button>
       </div>
     </div>
 
-        <!-- Direct WhatsApp Consultation Card (ODT Section 7 lines 622-636) -->
-    <div style="max-width:960px;margin:32px auto 0;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:18px;padding:22px 28px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap" class="rv">
+    <!-- Direct WhatsApp Consultation Banner (ODT Section 7 lines 622-636) -->
+    <div style="max-width:860px;margin:0 auto 32px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:18px;padding:20px 26px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap" class="rv">
       <div style="display:flex;align-items:center;gap:14px">
-        <span style="font-size:32px">💬</span>
+        <span style="font-size:30px">💬</span>
         <div>
-          <strong style="display:block;font-size:16px;color:#166534">Prefer an Instant Conversation? Chat with Franchise 101</strong>
+          <strong style="display:block;font-size:15.5px;color:#166534">Prefer an Instant Conversation? Chat with Franchise 101</strong>
           <p style="font-size:13.5px;color:#15803D;margin:2px 0 0">Connect directly with our senior franchise advisors on WhatsApp.</p>
         </div>
       </div>
-      <a href="https://wa.me/912240008899?text=Hi%20Franchise%20101,%20I'm%20interested%20in%20exploring%20a%20business/franchise%20opportunity%20and%20would%20like%20to%20speak%20with%20your%20team." target="_blank" class="btn" style="background:#25D366;color:#FFF;border-radius:999px;padding:12px 24px;font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:8px">
-        Chat with Franchise 101 &rarr;
+      <a href="https://wa.me/912240008899?text=Hi%20Franchise%20101,%20I'm%20interested%20in%20exploring%20a%20business/franchise%20opportunity%20and%20would%20like%20to%20speak%20with%20your%20team." target="_blank" class="btn" style="background:#25D366;color:#FFF;border-radius:999px;padding:11px 22px;font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:8px">
+        Chat on WhatsApp &rarr;
       </a>
     </div>
 
-    <!-- Main Form Container -->
-    <div style="max-width:960px;margin:0 auto">
+    <!-- Main Consultation Form Card -->
+    <div style="max-width:860px;margin:0 auto">
       <div class="consult-form-box" style="position:static">
         
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:10px">
           <h3 id="formTitle" style="color:var(--malai);font-size:clamp(22px, 2.5vw, 28px);margin:0">Investor Consultation Form</h3>
           <span class="tag gold" id="formBadge">Investor Track</span>
         </div>
-        <p id="formSubtitle" style="color:rgba(248,250,252,.75);font-size:14px;line-height:1.5;margin-bottom:24px">
-          Tell us about your capital budget, preferred location, and category interests to receive curated franchise matches.
+        <p id="formSubtitle" style="color:rgba(248,250,252,.75);font-size:14px;line-height:1.55;margin-bottom:24px">
+          Tell us about your investment budget, preferred location, and category interests to receive curated franchise matches.
         </p>
 
-        <form id="dynamicConsultForm" onsubmit="return handleConsultSubmit(event)">
+        <form id="consultForm" onsubmit="return handleConsultSubmit(event)">
 
-          <!-- Common Top Fields: Name, Mobile, Email -->
-          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:16px;margin-bottom:16px">
+          <!-- Common Identification Fields (Name, Mobile, Email) -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px;margin-bottom:16px">
             <div class="field">
               <label for="c_name">Full Name *</label>
               <input type="text" id="c_name" required placeholder="e.g. Rohan Redekar" />
@@ -641,13 +632,17 @@
             </div>
           </div>
 
-          <!-- Dynamic Panel 1: INVESTOR -->
-          <div class="intent-panel" id="panel-investor">
-            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:16px;margin-bottom:16px">
+          <!-- ================= FORM 1: INVESTOR FORM (ODT Lines 597-609) ================= -->
+          <div id="panel-investor" class="consult-panel">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px;margin-bottom:16px">
+              
+              <!-- City/State -->
               <div class="field">
                 <label for="inv_city">City / State *</label>
                 <input type="text" id="inv_city" placeholder="e.g. Pune, Maharashtra" />
               </div>
+
+              <!-- Investment Budget -->
               <div class="field">
                 <label for="inv_budget">Investment Budget *</label>
                 <select id="inv_budget">
@@ -661,13 +656,15 @@
                   <option value="Not decided yet">Not decided yet</option>
                 </select>
               </div>
+
+              <!-- Preferred Business Category -->
               <div class="field">
                 <label for="inv_category">Preferred Business Category *</label>
                 <select id="inv_category">
                   <option value="">Select category</option>
                   <option value="QSR / Fast Food">QSR / Fast Food</option>
                   <option value="Café / Beverages">Café / Beverages</option>
-                  <option value="Restaurants">Restaurants</option>
+                  <option value="Casual Dining">Casual Dining Restaurant</option>
                   <option value="Desserts / Bakery">Desserts / Bakery</option>
                   <option value="Cloud Kitchen">Cloud Kitchen</option>
                   <option value="Retail">Retail</option>
@@ -675,19 +672,17 @@
                   <option value="Open to recommendations">Open to recommendations</option>
                 </select>
               </div>
+
+              <!-- Preferred Investment Location -->
               <div class="field">
-                <label for="inv_involve">Desired Level of Involvement *</label>
-                <select id="inv_involve">
-                  <option value="">Select involvement</option>
-                  <option value="Operate myself">I want to operate the business myself</option>
-                  <option value="Appoint manager">I intend to appoint a manager/team</option>
-                  <option value="Investor only">Primarily looking as an investor</option>
-                  <option value="Not sure yet">Not sure yet</option>
-                </select>
+                <label for="inv_location">Preferred Investment Location *</label>
+                <input type="text" id="inv_location" placeholder="e.g. Baner, Pune or Western Mumbai" />
               </div>
+
+              <!-- Business Experience -->
               <div class="field">
-                <label for="inv_exp">Business Experience *</label>
-                <select id="inv_exp">
+                <label for="inv_experience">Business Experience *</label>
+                <select id="inv_experience">
                   <option value="">Select background</option>
                   <option value="Existing business owner">Existing business owner</option>
                   <option value="Previous franchise experience">Previous franchise experience</option>
@@ -696,6 +691,20 @@
                   <option value="Other">Other</option>
                 </select>
               </div>
+
+              <!-- Desired Involvement -->
+              <div class="field">
+                <label for="inv_involvement">Desired Level of Involvement *</label>
+                <select id="inv_involvement">
+                  <option value="">Select operational role</option>
+                  <option value="Operate myself">I want to operate the business myself</option>
+                  <option value="Appoint manager">I intend to appoint a manager/team</option>
+                  <option value="Investor only">Primarily looking as an investor</option>
+                  <option value="Not sure yet">Not sure yet</option>
+                </select>
+              </div>
+
+              <!-- Investment Timeline -->
               <div class="field">
                 <label for="inv_timeline">Investment Timeline *</label>
                 <select id="inv_timeline">
@@ -707,244 +716,142 @@
                   <option value="Exploring for now">Exploring for now</option>
                 </select>
               </div>
+
+              <!-- Existing Commercial Location: Yes/No -->
               <div class="field">
                 <label for="inv_space">Existing Commercial Location? *</label>
                 <select id="inv_space">
-                  <option value="">Select location status</option>
-                  <option value="Yes">Yes (Owned / Rented)</option>
+                  <option value="">Select commercial property status</option>
+                  <option value="Yes - Owned">Yes (Owned property)</option>
+                  <option value="Yes - Rented">Yes (Rented / Leased)</option>
                   <option value="No">No</option>
                   <option value="Currently searching">Currently searching</option>
                 </select>
               </div>
+
             </div>
-            <div class="field full" style="margin-bottom:16px">
-              <label for="inv_notes">Additional Comments</label>
-              <textarea id="inv_notes" placeholder="Tell us if you have specific brands in mind or specific questions..."></textarea>
+
+            <!-- Additional Comments -->
+            <div class="field full" style="margin-bottom:18px">
+              <label for="inv_comments">Additional Comments / Specific Brand Interest</label>
+              <textarea id="inv_comments" placeholder="Tell us if you have specific brands in mind (e.g., Beyond Temptation, Dunk Burgers, Mr. Sandwich, South Twist, Cafe Choco Craze) or questions..."></textarea>
             </div>
           </div>
 
-          <!-- Dynamic Panel 2: BUILD YOUR BRAND -->
-          <div class="intent-panel" id="panel-brand" style="display:none">
-            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:16px;margin-bottom:16px">
+          <!-- ================= FORM 2: BRAND / BUSINESS FORM (ODT Lines 610-621) ================= -->
+          <div id="panel-brand" class="consult-panel" style="display:none">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px;margin-bottom:16px">
+              
+              <!-- Brand / Business Name -->
               <div class="field">
-                <label for="b_city">City *</label>
-                <input type="text" id="b_city" placeholder="e.g. Pune / Mumbai" />
+                <label for="b_name">Brand / Business Name *</label>
+                <input type="text" id="b_name" placeholder="e.g. Spice & Co. or Concept Idea" />
               </div>
+
+              <!-- Website / Social Media -->
               <div class="field">
-                <label for="b_concept">Concept / Business Idea *</label>
-                <input type="text" id="b_concept" placeholder="e.g. Artisanal sourdough bakery / QSR biryani" />
+                <label for="b_web">Website / Social Media Link</label>
+                <input type="text" id="b_web" placeholder="e.g. instagram.com/mybrand or website.com" />
               </div>
+
+              <!-- Current Number of Outlets -->
+              <div class="field">
+                <label for="b_outlets">Current Number of Outlets *</label>
+                <select id="b_outlets">
+                  <option value="">Select outlet count</option>
+                  <option value="Concept Stage / 0">Concept Stage (0 Outlets - New Brand)</option>
+                  <option value="1 Outlet">1 Operational Flagship Outlet</option>
+                  <option value="2–5 Outlets">2–5 Operational Outlets</option>
+                  <option value="6–15 Outlets">6–15 Outlets</option>
+                  <option value="15+ Outlets">15+ Outlets (Established Regional Network)</option>
+                </select>
+              </div>
+
+              <!-- Current Locations -->
+              <div class="field">
+                <label for="b_locations">Current Locations *</label>
+                <input type="text" id="b_locations" placeholder="e.g. Pune, Mumbai, or Target Launch City" />
+              </div>
+
+              <!-- Industry / Category -->
               <div class="field">
                 <label for="b_category">Industry / Category *</label>
                 <select id="b_category">
                   <option value="">Select category</option>
                   <option value="QSR / Fast Food">QSR / Fast Food</option>
-                  <option value="Café / Coffee / Tea">Café / Coffee / Tea</option>
-                  <option value="Desserts & Bakery">Desserts &amp; Bakery</option>
+                  <option value="Café / Coffee / Beverages">Café / Coffee / Beverages</option>
                   <option value="Casual Dining Restaurant">Casual Dining Restaurant</option>
+                  <option value="Desserts & Bakery">Desserts &amp; Bakery</option>
                   <option value="Cloud Kitchen">Cloud Kitchen</option>
-                  <option value="Retail / Packaged Goods">Retail / Packaged Goods</option>
-                  <option value="Other">Other</option>
+                  <option value="Retail / Packaged Foods">Retail / Packaged Goods</option>
+                  <option value="Services / Other">Services / Other Business</option>
                 </select>
               </div>
-              <div class="field">
-                <label for="b_stage">Current Stage *</label>
-                <select id="b_stage">
-                  <option value="">Select stage</option>
-                  <option value="Idea stage">Early idea stage</option>
-                  <option value="Recipe / Product ready">Recipe / Product tested</option>
-                  <option value="Operating 1 outlet">Already operating 1 unit</option>
-                  <option value="Rebranding existing">Rebranding existing business</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="b_budget">Approximate Project Budget *</label>
-                <select id="b_budget">
-                  <option value="">Select budget</option>
-                  <option value="₹10–20 Lakhs">₹10–20 Lakhs</option>
-                  <option value="₹20–35 Lakhs">₹20–35 Lakhs</option>
-                  <option value="₹35–50 Lakhs">₹35–50 Lakhs</option>
-                  <option value="₹50 Lakhs+">₹50 Lakhs+</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="b_timeline">Expected Launch Timeline *</label>
-                <select id="b_timeline">
-                  <option value="">Select timeline</option>
-                  <option value="Within 1–2 months">Within 1–2 months</option>
-                  <option value="Within 3–4 months">Within 3–4 months</option>
-                  <option value="Within 6 months">Within 6 months</option>
-                  <option value="Exploring planning">Exploring &amp; planning</option>
-                </select>
-              </div>
-            </div>
-            <div class="field full" style="margin-bottom:16px">
-              <label for="b_services">Services Required (Check all that apply)</label>
-              <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:8px;margin-top:6px;font-size:13.5px">
-                <label><input type="checkbox" name="b_srv" value="Concept & Business Plan" /> Concept &amp; Business Planning</label>
-                <label><input type="checkbox" name="b_srv" value="Branding & Identity" /> Brand Naming &amp; Identity</label>
-                <label><input type="checkbox" name="b_srv" value="Menu Engineering & SOPs" /> Menu Engineering &amp; SOPs</label>
-                <label><input type="checkbox" name="b_srv" value="Interior & Architecture" /> Outlet &amp; Interior Design</label>
-                <label><input type="checkbox" name="b_srv" value="Kitchen Layout & Equipment" /> Kitchen Layout &amp; Equipment</label>
-                <label><input type="checkbox" name="b_srv" value="Turnkey Launch Solution" /> Full Turnkey Concept-to-Launch</label>
-              </div>
-            </div>
-          </div>
 
-          <!-- Dynamic Panel 3: FRANCHISE & SCALE -->
-          <div class="intent-panel" id="panel-scale" style="display:none">
-            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:16px;margin-bottom:16px">
+              <!-- What Support is Required? -->
               <div class="field">
-                <label for="s_brand">Brand Name *</label>
-                <input type="text" id="s_brand" placeholder="e.g. My Food Brand" />
-              </div>
-              <div class="field">
-                <label for="s_links">Website or Social Links</label>
-                <input type="text" id="s_links" placeholder="e.g. instagram.com/mybrand or website.com" />
-              </div>
-              <div class="field">
-                <label for="s_category">Industry / Category *</label>
-                <input type="text" id="s_category" placeholder="e.g. QSR Burgers, South Indian Cafe" />
-              </div>
-              <div class="field">
-                <label for="s_outlets">Current Operational Outlets *</label>
-                <select id="s_outlets">
-                  <option value="">Select outlet count</option>
-                  <option value="1 outlet">1 flagship outlet</option>
-                  <option value="2–5 outlets">2–5 outlets</option>
-                  <option value="6–10 outlets">6–10 outlets</option>
-                  <option value="10+ outlets">10+ outlets</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="s_locations">Current Cities / Locations *</label>
-                <input type="text" id="s_locations" placeholder="e.g. Pune, Mumbai, Nashik" />
-              </div>
-              <div class="field">
-                <label for="s_years">Years Operational *</label>
-                <select id="s_years">
-                  <option value="">Select operational age</option>
-                  <option value="Under 1 year">Under 1 year</option>
-                  <option value="1–3 years">1–3 years</option>
-                  <option value="3–5 years">3–5 years</option>
-                  <option value="5+ years">5+ years</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="s_target_markets">Target Expansion Markets *</label>
-                <input type="text" id="s_target_markets" placeholder="e.g. Maharashtra, Gujarat, South India" />
-              </div>
-              <div class="field">
-                <label for="s_support">Primary Expansion Support Needed *</label>
-                <select id="s_support">
+                <label for="b_support">What Support is Required? *</label>
+                <select id="b_support">
                   <option value="">Select required support</option>
-                  <option value="Franchise Model Structuring">Franchise Model Structuring &amp; Legal</option>
-                  <option value="Investor Lead Generation">Investor Acquisition &amp; Lead Generation</option>
-                  <option value="Operations & SOP Scaling">Operations &amp; Central Kitchen SOPs</option>
-                  <option value="Complete Turnkey Scaling">Comprehensive Franchise &amp; Scale Suite</option>
+                  <option value="Build My Own Brand (Concept-to-Launch)">Build My Own Brand (Concept-to-Launch)</option>
+                  <option value="Franchise & Scale (SOPs & Expansion)">Franchise &amp; Scale (SOPs &amp; Expansion Framework)</option>
+                  <option value="Franchise Marketing (Investor Acquisition)">Franchise Marketing (Investor Acquisition &amp; Leads)</option>
+                  <option value="Outlet Fit-Out & Kitchen Planning">Outlet Fit-Out &amp; Kitchen Planning</option>
+                  <option value="Complete Turnkey Ecosystem">Complete Turnkey Ecosystem Support</option>
                 </select>
               </div>
+
+              <!-- Expansion Objective -->
+              <div class="field full" style="grid-column: 1 / -1">
+                <label for="b_objective">Expansion Objective *</label>
+                <select id="b_objective">
+                  <option value="">Select business expansion goal</option>
+                  <option value="Launch First Flagship Outlet">Launch First Flagship Outlet (Proof of Concept)</option>
+                  <option value="Expand from 1 to 5 Outlets">Expand from 1 to 5 Outlets Locally</option>
+                  <option value="Multi-City State-Level Expansion">Multi-City / State-Level Expansion</option>
+                  <option value="National Pan-India Franchising">National Pan-India Franchising</option>
+                  <option value="Master Franchise & International Partnerships">Master Franchise &amp; Strategic Partnerships</option>
+                </select>
+              </div>
+
+            </div>
+
+            <!-- Additional Comments -->
+            <div class="field full" style="margin-bottom:18px">
+              <label for="b_comments">Additional Comments / Project Notes</label>
+              <textarea id="b_comments" placeholder="Describe your concept, vision, target timeline, or specific challenges you want to discuss..."></textarea>
             </div>
           </div>
 
-          <!-- Dynamic Panel 4: FRANCHISE MARKETING -->
-          <div class="intent-panel" id="panel-marketing" style="display:none">
-            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:16px;margin-bottom:16px">
-              <div class="field">
-                <label for="m_brand">Brand Name *</label>
-                <input type="text" id="m_brand" placeholder="e.g. My Franchise Brand" />
-              </div>
-              <div class="field">
-                <label for="m_links">Website or Social Media Links</label>
-                <input type="text" id="m_links" placeholder="e.g. instagram.com/mybrand" />
-              </div>
-              <div class="field">
-                <label for="m_presence">Current Franchise Presence *</label>
-                <input type="text" id="m_presence" placeholder="e.g. 15 outlets across 3 states" />
-              </div>
-              <div class="field">
-                <label for="m_locations">Target Expansion Locations *</label>
-                <input type="text" id="m_locations" placeholder="e.g. Tier-1 metros, Gujarat, North India" />
-              </div>
-              <div class="field">
-                <label for="m_current_activity">Current Marketing Activity *</label>
-                <select id="m_current_activity">
-                  <option value="">Select current marketing setup</option>
-                  <option value="No active ads">No active marketing campaigns running</option>
-                  <option value="In-house ads">Running Meta/Google ads in-house</option>
-                  <option value="Using agency">Working with digital agency</option>
-                  <option value="Expos only">Expos and broker network only</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="m_leads_req">Monthly Lead Requirement *</label>
-                <select id="m_leads_req">
-                  <option value="">Target qualified inquiries per month</option>
-                  <option value="25–50 leads">25–50 qualified leads/mo</option>
-                  <option value="50–100 leads">50–100 qualified leads/mo</option>
-                  <option value="100–250 leads">100–250 qualified leads/mo</option>
-                  <option value="250+ leads">250+ enterprise leads/mo</option>
-                </select>
-              </div>
-            </div>
-            <div class="field full" style="margin-bottom:16px">
-              <label for="m_notes">Desired Support / Challenges</label>
-              <textarea id="m_notes" placeholder="Tell us about your target investor profile, current cost per lead, or campaign goals..."></textarea>
-            </div>
-          </div>
-
-          <!-- Dynamic Panel 5: GENERAL ENQUIRY -->
-          <div class="intent-panel" id="panel-general" style="display:none">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
-              <div class="field">
-                <label for="g_city">City / State *</label>
-                <input type="text" id="g_city" placeholder="e.g. Mumbai, Maharashtra" />
-              </div>
-              <div class="field">
-                <label for="g_req">Nature of Requirement *</label>
-                <select id="g_req">
-                  <option value="">Select requirement</option>
-                  <option value="Partnership / Alliance">Partnership / Alliance</option>
-                  <option value="Vendor / Supplier Connect">Vendor / Supplier Registration</option>
-                  <option value="Commercial Real Estate Space">Commercial Real Estate Space</option>
-                  <option value="Media / Press Inquiry">Media / Press Inquiry</option>
-                  <option value="Other">Other Business Requirement</option>
-                </select>
-              </div>
-            </div>
-            <div class="field full" style="margin-bottom:16px">
-              <label for="g_notes">Details of Requirement *</label>
-              <textarea id="g_notes" placeholder="Please describe how Franchise 101 can assist you..."></textarea>
-            </div>
-          </div>
-
-          <!-- Consent Checkbox -->
-          <div class="field full" style="margin-bottom:20px">
-            <label style="display:flex;align-items:flex-start;gap:10px;font-size:12.5px;color:rgba(248,250,252,0.85);cursor:pointer">
+          <!-- Mandatory Form Consent (ODT Section 10.G lines 1054-1060) -->
+          <div class="field full" style="margin-bottom:14px">
+            <label style="display:flex;align-items:flex-start;gap:10px;font-size:12.5px;color:rgba(248,250,252,0.85);cursor:pointer;line-height:1.6">
               <input type="checkbox" id="c_consent" required checked style="width:18px;height:18px;margin-top:2px;accent-color:var(--kesar);flex-shrink:0" />
-              <span>By submitting this form, I consent to Franchise 101 contacting me regarding my enquiry through telephone, WhatsApp, SMS, email or other communication channels in accordance with its <a href="privacy-policy.html" target="_blank" style="color:var(--kesar);text-decoration:underline">Privacy Policy</a>.</span>
+              <span>By submitting this form, I consent to Franchise 101 Growth Partners LLP contacting me regarding my enquiry through telephone, WhatsApp, SMS, email or other communication channels and processing the information provided for consultation, franchise matching and related services in accordance with its <a href="privacy-policy.html" target="_blank" style="color:var(--kesar);text-decoration:underline">Privacy Policy</a>.</span>
             </label>
           </div>
 
-                      <label style="display:flex;align-items:flex-start;gap:10px;font-size:12.5px;color:rgba(248,250,252,0.85);cursor:pointer;margin-top:8px">
+          <!-- Optional Communications Consent (ODT Section 7) -->
+          <div class="field full" style="margin-bottom:22px">
+            <label style="display:flex;align-items:flex-start;gap:10px;font-size:12.5px;color:rgba(248,250,252,0.85);cursor:pointer;line-height:1.6">
               <input type="checkbox" id="c_updates" style="width:18px;height:18px;margin-top:2px;accent-color:var(--kesar);flex-shrink:0" />
               <span>I would also like to receive updates about new franchise/business opportunities and Franchise 101 services.</span>
             </label>
           </div>
 
-          <!-- Submit Button & Guarantee -->
+          <!-- Submit Button Strip -->
           <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
-            <button class="btn btn--kesar" id="submitConsultBtn" type="submit">
-              <span id="submitBtnText">Find Opportunities for Me</span> <span class="arw">&rarr;</span>
+            <button class="btn btn--kesar" id="submitConsultBtn" type="submit" style="padding:14px 28px;font-size:15px">
+              <span id="submitBtnText">Submit Investor Consultation Request</span> <span class="arw">&rarr;</span>
             </button>
-            <span style="font-family:var(--font-mono);font-size:12px;color:rgba(248,250,252,.6)">🔒 Confidential &middot; 24-Hour SLA</span>
+            <span style="font-family:var(--font-mono);font-size:12px;color:rgba(248,250,252,.6)">🔒 Confidential &middot; 24-Hour SLA &middot; Free Advisory</span>
           </div>
 
-          <!-- Success Confirmation -->
-          <div class="sent" id="consultSent" style="display:none;margin-top:20px;background:rgba(0,229,153,0.1);border:1px solid rgba(0,229,153,0.3);border-radius:16px;padding:24px;text-align:center">
-            <b style="color:var(--pista);font-size:18px;display:block;margin-bottom:8px">Consultation Request Submitted Successfully!</b>
-            <p style="color:var(--malai);font-size:14.5px;line-height:1.6;margin:0 0 16px">
-              Thank you for connecting with Franchise 101. Your enquiry reference number is <strong id="consultToken" style="color:var(--kesar);font-family:var(--font-mono)">#F101-7291</strong>. Our advisory team will review your requirements and reach out within 24 hours.
+          <!-- Submission Confirmation Card -->
+          <div class="sent" id="consultSent" style="display:none;margin-top:24px;background:rgba(0,229,153,0.1);border:1px solid rgba(0,229,153,0.3);border-radius:16px;padding:26px;text-align:center">
+            <b style="color:var(--pista);font-size:19px;display:block;margin-bottom:8px">Consultation Request Submitted Successfully!</b>
+            <p style="color:var(--malai);font-size:14.5px;line-height:1.6;margin:0 0 18px">
+              Thank you for connecting with Franchise 101. Your enquiry reference number is <strong id="consultToken" style="color:var(--kesar);font-family:var(--font-mono)">#F101-8392</strong>. Our advisory team will review your requirements and connect with you within 24 business hours.
             </p>
             <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
               <a href="https://wa.me/912240008899?text=Hi%20Franchise%20101,%20I%20just%20submitted%20a%20consultation%20request." target="_blank" class="btn btn--kesar btn--sm">Chat on WhatsApp Now 💬</a>
@@ -959,112 +866,52 @@
   </div>
 </section>
 
-<style>
-.intent-tab-btn {
-  background: #FFFFFF;
-  border: 1.5px solid var(--line);
-  border-radius: 18px;
-  padding: 16px 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  text-align: center;
-}
-.intent-tab-btn .tab-icon {
-  font-size: 22px;
-}
-.intent-tab-btn strong {
-  font-size: 14px;
-  color: var(--ink);
-  line-height: 1.2;
-}
-.intent-tab-btn small {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--ink-60);
-}
-.intent-tab-btn:hover {
-  border-color: var(--kesar);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px -6px rgba(207, 60, 48,0.3);
-}
-.intent-tab-btn.active {
-  border-color: var(--kesar);
-  background: #0E121A;
-  box-shadow: 0 10px 24px -6px rgba(14,18,26,0.25);
-}
-.intent-tab-btn.active strong {
-  color: var(--malai);
-}
-.intent-tab-btn.active small {
-  color: var(--kesar);
-}
-</style>
-
 <script>
-const intentConfig = {
-  investor: {
-    title: "Investor Consultation Form",
-    badge: "Investor Track",
-    subtitle: "Tell us about your capital budget, preferred location, and category interests to receive curated franchise matches.",
-    btnText: "Find Opportunities for Me"
-  },
-  brand: {
-    title: "Build Your Brand Form",
-    badge: "Entrepreneur Track",
-    subtitle: "Tell us about your concept or culinary idea to explore our Concept-to-Launch development capabilities.",
-    btnText: "Discuss My Business Idea"
-  },
-  scale: {
-    title: "Franchise & Scale Form",
-    badge: "Brand Expansion Track",
-    subtitle: "Share details of your operating business to explore our multi-city franchise expansion and scaling frameworks.",
-    btnText: "Discuss My Expansion Plan"
-  },
-  marketing: {
-    title: "Franchise Marketing Form",
-    badge: "B2B Marketing Track",
-    subtitle: "Connect with our specialist investor acquisition team to build a predictable, qualified franchise pipeline.",
-    btnText: "Discuss Franchise Marketing"
-  },
-  general: {
-    title: "General Business Consultation",
-    badge: "Ecosystem Track",
-    subtitle: "Share your business enquiry and our team will connect with you regarding the appropriate next step.",
-    btnText: "Submit Enquiry"
+let activeFormType = 'investor';
+
+function switchConsultForm(type) {
+  activeFormType = type;
+  
+  const isInvestor = (type === 'investor');
+  
+  // Toggle tab buttons
+  document.getElementById('tab-investor').classList.toggle('active', isInvestor);
+  document.getElementById('tab-brand').classList.toggle('active', !isInvestor);
+
+  // Toggle Panels
+  document.getElementById('panel-investor').style.display = isInvestor ? 'block' : 'none';
+  document.getElementById('panel-brand').style.display = isInvestor ? 'none' : 'block';
+
+  // Update Headers & CTA Text
+  if (isInvestor) {
+    document.getElementById('formTitle').textContent = 'Investor Consultation Form';
+    document.getElementById('formBadge').textContent = 'Investor Track';
+    document.getElementById('formSubtitle').textContent = 'Tell us about your investment budget, preferred location, and category interests to receive curated franchise matches.';
+    document.getElementById('submitBtnText').textContent = 'Submit Investor Consultation Request';
+  } else {
+    document.getElementById('formTitle').textContent = 'Brand & Business Consultation Form';
+    document.getElementById('formBadge').textContent = 'Brand & Business Track';
+    document.getElementById('formSubtitle').textContent = 'Share details of your brand or business concept to explore development, franchising, marketing, or expansion support.';
+    document.getElementById('submitBtnText').textContent = 'Submit Brand Consultation Request';
   }
-};
-
-let currentIntent = 'investor';
-
-function switchIntent(intent) {
-  currentIntent = intent;
-  document.querySelectorAll('.intent-tab-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-intent') === intent);
-  });
-
-  document.querySelectorAll('.intent-panel').forEach(panel => {
-    panel.style.display = 'none';
-  });
-  const targetPanel = document.getElementById('panel-' + intent);
-  if (targetPanel) targetPanel.style.display = 'block';
-
-  const cfg = intentConfig[intent] || intentConfig.investor;
-  document.getElementById('formTitle').textContent = cfg.title;
-  document.getElementById('formBadge').textContent = cfg.badge;
-  document.getElementById('formSubtitle').textContent = cfg.subtitle;
-  document.getElementById('submitBtnText').textContent = cfg.btnText;
 }
 
-// Check URL params for pre-selected intent
+// URL parameters routing (e.g. ?intent=brand or ?service=scale)
 window.addEventListener('DOMContentLoaded', () => {
   const urlParams = new URLSearchParams(window.location.search);
-  const paramIntent = urlParams.get('intent') || urlParams.get('service');
-  if (paramIntent && intentConfig[paramIntent]) {
-    switchIntent(paramIntent);
+  const param = urlParams.get('intent') || urlParams.get('service') || '';
+  if (param.includes('brand') || param.includes('scale') || param.includes('marketing') || param.includes('business')) {
+    switchConsultForm('brand');
+    
+    // Auto-set the support dropdown if specific
+    const supportSelect = document.getElementById('b_support');
+    if (supportSelect) {
+      if (param.includes('brand')) supportSelect.value = 'Build My Own Brand (Concept-to-Launch)';
+      else if (param.includes('scale')) supportSelect.value = 'Franchise & Scale (SOPs & Expansion)';
+      else if (param.includes('marketing')) supportSelect.value = 'Franchise Marketing (Investor Acquisition)';
+    }
+  } else {
+    switchConsultForm('investor');
   }
 });
 
@@ -1075,30 +922,29 @@ function handleConsultSubmit(e) {
   const email = document.getElementById('c_email').value.trim();
 
   if (!name || !mobile || !email) {
-    alert('Please complete all required fields.');
-    return;
+    alert('Please fill in your Name, Mobile Number, and Email Address.');
+    return false;
   }
 
+  // Generate Reference Token
   const token = '#F101-' + Math.floor(1000 + Math.random() * 9000);
   document.getElementById('consultToken').textContent = token;
 
+  // Show Success Card & Hide Submit Button
   document.getElementById('consultSent').style.display = 'block';
   document.getElementById('submitConsultBtn').style.display = 'none';
+  document.getElementById('consultSent').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  return false;
 }
 
 function resetConsultForm() {
-  document.getElementById('dynamicConsultForm').reset();
+  document.getElementById('consultForm').reset();
   document.getElementById('consultSent').style.display = 'none';
   document.getElementById('submitConsultBtn').style.display = 'inline-flex';
 }
 </script>
 
-<!-- Floating WhatsApp Action -->
-<a href="https://wa.me/912240008899?text=Hi%20Franchise%20101,%20I%20would%20like%20to%20speak%20with%20a%20franchise%20advisor." target="_blank" class="whatsapp-float-btn" aria-label="Chat on WhatsApp">
-  <span>💬</span> Chat With Advisor
-</a>
-
-<!-- ============ FOOTER ============ -->
 <footer class="foot" style="background:#F8FAFC;border-top:1px solid #E2E8F0;padding:clamp(48px, 6vw, 72px) 0 32px">
   <div class="wrap">
     <!-- Contact Strip -->
