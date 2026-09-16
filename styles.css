@@ -3440,17 +3440,19 @@ html, body {
 }
 .pop-brand-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.5vw, 28px);
 }
-@media (max-width: 1040px) {
+@media (max-width: 960px) {
   .pop-brand-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 @media (max-width: 600px) {
   .pop-brand-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
 
