@@ -62,7 +62,9 @@
       <!-- Left: Headline, Subtitle, Actions, Trust Badges -->
       <div class="explore-hero-left">
         <h1 class="explore-hero-h1">Find a Business Opportunity That Fits You</h1>
-        <p class="explore-hero-sub">Curated franchise opportunities. Real businesses. A brighter tomorrow.</p>
+        <p class="explore-hero-sub" style="font-size:16px;line-height:1.7;color:#475569;margin-bottom:28px">
+          Explore curated franchise opportunities across different concepts, investment ranges and business formats. Go beyond the brand name to understand the concept, investment, space requirement, operating model and support behind each opportunity. Not sure what fits? Tell us what you're looking for and let our team help you narrow the options.
+        </p>
         
         <div class="explore-hero-actions">
           <a class="btn-primary-explore" href="#featured-opportunities">Explore Opportunities &rarr;</a>
@@ -212,6 +214,11 @@
         <p style="font-size:14px;color:#64748B;margin:0 0 18px;max-width:520px;margin-left:auto;margin-right:auto">Our franchise advisory team is vetting live unit economics, brand operational manuals, and territory rights for shortlisted operators in this sector.</p>
         <a href="book-consultation.html" class="btn btn--kesar btn--sm">Inquire for Unlisted Brands &rarr;</a>
       </div>
+      <!-- Compact Financial / ROI Disclaimer (ODT Section 10.D) -->
+      <div style="grid-column:1/-1;margin-top:20px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:14px 20px;display:flex;align-items:center;gap:12px;font-size:12.5px;color:#64748B;line-height:1.5">
+        <span style="font-size:18px">ℹ️</span>
+        <span><strong>Note on Financial Figures:</strong> Financial figures are indicative and based on information supplied by the respective brand. Actual results may vary based on location, operations and market conditions. No returns or profitability are guaranteed.</span>
+      </div>
     </div>
   </div>
 </section>
@@ -221,9 +228,15 @@
   <div class="wrap">
     <div class="guidance-banner-card">
       <div class="guidance-content">
-        <h2>Not sure which franchise is right for you?</h2>
-        <p>Talk to our team and get personalised guidance.</p>
-        <a class="btn-primary-explore" href="book-consultation.html">Book a Free Consultation &rarr;</a>
+        <span style="display:inline-block;font-family:var(--font-mono, monospace);font-size:11.5px;font-weight:700;letter-spacing:0.08em;color:#CF3C30;text-transform:uppercase;margin-bottom:6px">FRANCHISE ENQUIRY</span>
+        <h2 style="margin:0 0 10px;font-size:clamp(22px, 3.5vw, 30px);font-weight:800;color:#0F172A">Interested in These Opportunities?</h2>
+        <p style="font-size:15px;line-height:1.65;color:#475569;margin:0 0 20px">Tell us your preferred location, investment range and timeline, and our team will connect with you to discuss the opportunity further.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn-primary-explore" href="book-consultation.html">Enquire About This Franchise &rarr;</a>
+          <a class="btn" href="https://wa.me/912240008899?text=Hi%20Franchise%20101,%20I'm%20interested%20in%20exploring%20a%20franchise%20opportunity%20and%20would%20like%20to%20speak%20with%20a%20consultant." target="_blank" style="background:#25D366;color:#FFFFFF;border-radius:999px;padding:12px 22px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:6px">
+            💬 WhatsApp a Consultant
+          </a>
+        </div>
       </div>
       <div class="guidance-img-box">
         <img class="guidance-img" src="assets/guidance-desk.jpg" alt="Franchise advisory notes, coffee cup with Ideas Franchises Growth and planning notebook" />
@@ -308,8 +321,7 @@
 <!-- ============ FOOTER ============ -->
 <footer class="foot" style="background:#F8FAFC;border-top:1px solid #E2E8F0;padding:clamp(48px, 6vw, 72px) 0 32px">
   <div class="wrap">
-    
-    <!-- Contact Strip (Clean Light Cards) -->
+    <!-- Contact Strip -->
     <div class="foot-contact-strip" style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:18px;padding:16px 22px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:36px;box-shadow:0 4px 16px -4px rgba(0,0,0,0.04)">
       <div style="display:flex;align-items:center;gap:12px">
         <span style="font-size:22px">📞</span>
@@ -339,10 +351,15 @@
 
     <!-- 4-Column Main Grid -->
     <div class="foot-grid" style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(28px, 4vw, 48px)">
-      <!-- Col 1: Brand & Contacts -->
+      <!-- Col 1: Brand & Official Mission Statement -->
       <div class="foot-brand">
-        <a aria-label="Franchise 101 Home" class="logo" href="index.html" style="color:#0F172A"><img src="assets/logo-clean.png" alt="Franchise 101" class="logo-mark" style="height:36px;width:auto;display:inline-block;vertical-align:middle;margin-right:8px" />FRANCHISE 101<span class="dot"></span></a>
-        <p style="color:#64748B;font-size:14px;line-height:1.65;margin:12px 0 0">India's curated food franchise discovery and investment platform. We verify real unit economics, secure territorial exclusivity, and guide investors from application to grand opening.</p>
+        <a aria-label="Franchise 101 Home" class="logo" href="index.html" style="color:#0F172A">
+          <img src="assets/logo-clean.png" alt="Franchise 101" class="logo-mark" style="height:36px;width:auto;display:inline-block;vertical-align:middle;margin-right:8px" />
+          FRANCHISE 101<span class="dot"></span>
+        </a>
+        <p style="color:#64748B;font-size:14px;line-height:1.65;margin:12px 0 0">
+          Franchise 101 is a trusted franchise and business solutions ecosystem helping investors discover the right opportunities, entrepreneurs build businesses from concept to launch, and brands franchise and scale.
+        </p>
       </div>
 
       <!-- Col 2: Pathways -->
@@ -360,8 +377,8 @@
       <div class="foot-col">
         <h4 style="color:#CF3C30">Tools &amp; Insights</h4>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px">
-          <li><a href="find-franchise.html" style="color:#475569">8–Step Matcher Quiz</a></li>
-          <li><a href="book-consultation.html" style="color:#475569">Book Advisory Call</a></li>
+          <li><a href="index.html#find-franchise" style="color:#475569">8–Step Opportunity Matcher</a></li>
+          <li><a href="book-consultation.html" style="color:#475569">Book a Consultation</a></li>
           <li><a href="about.html" style="color:#475569">About Franchise 101</a></li>
           <li><a href="contact.html" style="color:#475569">Contact Us</a></li>
         </ul>
@@ -369,27 +386,33 @@
 
       <!-- Col 4: Top Brands -->
       <div class="foot-col">
-        <h4 style="color:#CF3C30">Featured Brands</h4>
+        <h4 style="color:#CF3C30">Curated Brands</h4>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px">
           <li><a href="beyond-temptation.html" style="color:#475569">Beyond Temptation</a></li>
           <li><a href="dunk-burgers.html" style="color:#475569">Dunk Burgers</a></li>
-          <li><a href="south-twist.html" style="color:#475569">South Twist</a></li>
           <li><a href="mr-sandwich.html" style="color:#475569">Mr. Sandwich</a></li>
+          <li><a href="south-twist.html" style="color:#475569">South Twist</a></li>
           <li><a href="cafe-choco-craze.html" style="color:#475569">Cafe Choco Craze</a></li>
         </ul>
       </div>
+    </div>
 
+    <!-- Official Statutory Footer Disclaimer (ODT Section 10.H) -->
+    <div style="margin-top:36px;padding-top:20px;border-top:1px solid #E2E8F0;font-size:12px;line-height:1.65;color:#94A3B8">
+      <p style="margin:0">
+        <strong>Statutory Notice:</strong> Franchise 101 Growth Partners LLP provides franchise consulting, business-development and related services. Franchise and business investments involve risk. Franchise 101 does not guarantee returns, profitability or business success. Brand-specific commercial and financial information may be supplied by the respective franchisor and should be independently verified before investment.
+      </p>
     </div>
 
     <!-- Foot Bottom -->
-    <div style="border-top:1px solid #E2E8F0;margin-top:36px;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:#94A3B8">
-      <div>&copy; 2026 Franchise 101. All rights reserved.</div>
-      <div style="display:flex;gap:16px">
-        <a href="terms.html" style="color:#94A3B8">Terms of Service</a>
+    <div style="border-top:1px solid #E2E8F0;margin-top:16px;padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:#94A3B8">
+      <div>&copy; 2026 Franchise 101 Growth Partners LLP. All rights reserved.</div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
         <a href="privacy-policy.html" style="color:#94A3B8">Privacy Policy</a>
+        <a href="terms.html" style="color:#94A3B8">Terms &amp; Conditions</a>
+        <a href="disclaimer.html" style="color:#94A3B8">Franchise &amp; ROI Disclaimers</a>
       </div>
     </div>
-
   </div>
 </footer>
 

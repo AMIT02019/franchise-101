@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel=\"icon\" type=\"image/png\" href=\"favicon.png\" />
-<title>Terms & Conditions — Franchise 101</title>
-<meta name="description" content="Official Website Terms of Service for Franchise 101 Growth Partners LLP in linked document form." />
+<link rel="icon" type="image/png" href="favicon.png" />
+<title>Terms & Conditions | Franchise 101</title>
+<meta name="description" content="Official Website Terms & Conditions for Franchise 101 Growth Partners LLP governing platform use, advisory scopes, and liability." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
@@ -26,280 +26,387 @@
     <a href="contact.html">Contact</a>
   </div>
   <div class="nav-cta-wrap">
-    <a class="btn btn--kesar" href="book-consultation.html"><span class="dot"></span> Book a Consultation <span class="arw">&rarr;</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <a class="btn btn--kesar" href="book-consultation.html"><span class="dot"></span>Book Consultation</a>
   </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- Mobile Navigation Drawer -->
-<div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
-  <div class="mobile-drawer-content">
-    <div class="logo"><img src="assets/logo-light.png" alt="Franchise 101" class="logo-mark" /></div>
-    <nav>
-      <a href="index.html" class="mobile-nav-link">Home</a>
-      <a href="franchises.html" class="mobile-nav-link">Explore Franchises</a>
-      <a href="develop-brand.html" class="mobile-nav-link">Build Your Brand</a>
-      <a href="develop-scale.html" class="mobile-nav-link">Franchise &amp; Scale</a>
-      <a href="franchise-marketing.html" class="mobile-nav-link">Franchise Marketing</a>
-      <a href="about.html" class="mobile-nav-link">About Us</a>
-      <a href="contact.html" class="mobile-nav-link">Contact</a>
-    </nav>
-    <div style="margin-top:auto;display:flex;flex-direction:column;gap:12px">
-      <a class="btn btn--kesar" href="contact.html" style="width:100%;text-align:center">Book a Consultation &rarr;</a>
-      <p style="font-family:var(--font-mono, monospace);font-size:12px;color:rgba(248,250,252,.6);text-align:center">Zero fee &middot; Direct brand connect</p>
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="mobile-drawer-inner">
+    <a href="index.html" onclick="toggleMobileNav()">Home</a>
+    <a href="franchises.html" onclick="toggleMobileNav()">Explore Franchises</a>
+    <a href="develop-brand.html" onclick="toggleMobileNav()">Build Your Brand</a>
+    <a href="develop-scale.html" onclick="toggleMobileNav()">Franchise &amp; Scale</a>
+    <a href="franchise-marketing.html" onclick="toggleMobileNav()">Franchise Marketing</a>
+    <a href="about.html" onclick="toggleMobileNav()">About Us</a>
+    <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
+    <div style="margin-top:20px">
+      <a class="btn btn--kesar" style="width:100%;justify-content:center" href="book-consultation.html" onclick="toggleMobileNav()"><span class="dot"></span>Book Consultation</a>
     </div>
   </div>
 </div>
 
-<!-- MAIN LEGAL DOCUMENT FORM -->
-<main class="doc-hub-page">
-  <div class="wrap" style="max-width:960px">
+<!-- MAIN LEGAL CONTENT WRAPPER -->
+<main class="legal-page-wrap">
+  <div class="wrap" style="max-width:920px">
     
-    <!-- Top Header -->
-    <div style="margin-bottom:36px;text-align:center">
-      <span class="tag gold" style="margin-bottom:12px;display:inline-block">Official Governance &amp; Compliance</span>
-      <h1 style="font-size:clamp(30px, 4.5vw, 48px);color:var(--ink);margin:0 0 14px">Legal &amp; Regulatory Documentation</h1>
-      <p style="font-size:16px;color:var(--ink-60);max-width:64ch;margin:0 auto;line-height:1.6">
-        Franchise 101 Growth Partners LLP maintains its comprehensive, live legal disclosures, DPDP Act 2023 compliance, terms of service, and risk disclosures directly in official document form.
+    <!-- Legal Page Header -->
+    <div class="legal-header">
+      <span class="legal-badge-pill">Website Terms of Service &middot; Indian Law Governed</span>
+      <h1 style="font-size:clamp(30px, 4.5vw, 44px);color:#0F172A;margin:8px 0 12px;font-family:var(--font-editorial, Georgia, serif)">Terms &amp; Conditions</h1>
+      <p style="font-size:15px;color:#64748B;margin:0 auto;max-width:60ch;line-height:1.6">
+        Franchise 101 Growth Partners LLP &middot; Last Updated: September 2026
       </p>
-    </div>
-
-    <!-- Featured Official Document Card -->
-    <div class="doc-card-featured">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap">
-        <span class="doc-badge-live">
-          <span class="pulse" style="background:var(--kesar)"></span> Official Document Form
-        </span>
-        <span style="font-family:var(--font-mono, monospace);font-size:12px;color:rgba(255,255,255,0.65)">
-          Live Version &middot; Updated September 2026 &middot; Google Docs
-        </span>
+      <!-- Quick Navigation Tabs -->
+      <div class="legal-nav-tabs">
+        <a href="privacy-policy.html" class="legal-nav-tab ">Privacy Policy</a>
+        <a href="terms.html" class="legal-nav-tab active">Terms &amp; Conditions</a>
+        <a href="disclaimer.html" class="legal-nav-tab ">Franchise &amp; ROI Disclaimers</a>
       </div>
 
-      <h2 style="color:#FFFFFF;font-size:clamp(22px, 3.2vw, 32px);margin:0 0 12px;font-family:var(--font-editorial, Georgia, serif)">
-        Franchise 101 &mdash; Section 10: Legal &amp; Other Website Information
-      </h2>
-      <p style="color:rgba(248,250,252,0.85);font-size:15px;line-height:1.65;margin:0 0 28px;max-width:70ch">
-        To ensure complete legal transparency and avoid lengthy website text, the full, unabridged text of our Privacy Policy, Website Terms &amp; Conditions, Franchise Investment &amp; ROI Disclaimers, and LLP Governance Information is hosted as an accessible, verifiable document.
-      </p>
-
-      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
-        <a href="https://docs.google.com/document/d/1NfoCC8elulRjO4ZTRbq5fRba9yLghGOwMBq6kwDucQU/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn--kesar" style="font-size:14.5px;padding:12px 26px">
-          Open Official Legal Document (Google Docs) <span class="arw">&rarr;</span>
-        </a>
-        <a href="https://docs.google.com/document/d/1NfoCC8elulRjO4ZTRbq5fRba9yLghGOwMBq6kwDucQU/export?format=pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost on-dark" style="font-size:14px;padding:12px 22px">
-          Download as PDF &darr;
-        </a>
+    </div>
+    <!-- Official Document Reference Box -->
+    <div class="doc-card-featured" style="margin-bottom:28px;padding:24px 30px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px">
+        <div>
+          <span style="font-family:var(--font-mono, monospace);font-size:11.5px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:4px">Official Governance Reference</span>
+          <strong style="color:#FFFFFF;font-size:16px">Franchise 101 Legal &amp; Compliance Master Documentation</strong>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <a href="https://docs.google.com/document/d/1NfoCC8elulRjO4ZTRbq5fRba9yLghGOwMBq6kwDucQU/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn--kesar" style="font-size:13px;padding:8px 18px">
+            Open Google Doc &nearr;
+          </a>
+          <a href="https://docs.google.com/document/d/1NfoCC8elulRjO4ZTRbq5fRba9yLghGOwMBq6kwDucQU/export?format=pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost on-dark" style="font-size:13px;padding:8px 16px">
+            Download PDF &darr;
+          </a>
+        </div>
       </div>
     </div>
 
-    <!-- Quick Reference Digest -->
-    <div style="margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
-      <h3 style="font-size:22px;color:var(--ink);margin:0">Executive Summary by Section</h3>
-      <span style="font-family:var(--font-mono, monospace);font-size:12px;color:var(--ink-60)">Click any section to view in the official document</span>
-    </div>
 
-    <div class="doc-digest-grid">
+    <!-- Main White Card with Full Terms & Conditions -->
+    <div class="legal-card">
       
-      <!-- 1. Privacy Policy -->
-      <div class="doc-digest-card ">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <span style="font-family:var(--font-mono);font-size:11px;color:var(--kesar-hot);text-transform:uppercase;font-weight:700">Section 10.A</span>
-          
-        </div>
-        <h3>Privacy Policy (DPDP Act, 2023)</h3>
-        <p>
-          Governs how Franchise 101 collects, processes, and protects your personal and investor requirement details. We maintain strict confidentiality and <strong>never sell personal information to third-party data brokers</strong>.
+      <!-- Preamble -->
+      <div class="legal-section">
+        <p style="font-size:15.5px;line-height:1.75;color:#1E293B">
+          These Terms &amp; Conditions govern access to and use of the website operated by <strong>Franchise 101 Growth Partners LLP</strong>, under the brand name <strong>“Franchise 101”</strong> (“Franchise 101”, “we”, “us” or “our”).
         </p>
-        <a href="https://docs.google.com/document/d/1NfoCC8elulRjO4ZTRbq5fRba9yLghGOwMBq6kwDucQU/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="doc-action-link">
-          Read Privacy Policy in Document &nearr;
-        </a>
+        <p>
+          By accessing or using this website, submitting an enquiry, booking a consultation, or interacting with the advisory services offered through this website, you acknowledge that you have read, understood, and agreed to be bound by these Terms.
+        </p>
       </div>
 
-      <!-- 2. Terms & Conditions -->
-      <div class="doc-digest-card active-card">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <span style="font-family:var(--font-mono);font-size:11px;color:var(--kesar-hot);text-transform:uppercase;font-weight:700">Section 10.B</span>
-          <span style="background:var(--kesar);color:var(--jamun-deep);font-size:10px;padding:2px 8px;border-radius:99px;font-weight:800;text-transform:uppercase">Viewing</span>
-        </div>
-        <h3>Website Terms of Service</h3>
+      <!-- Clause 1 -->
+      <div class="legal-section">
+        <h2>1. Nature of Franchise 101's Services</h2>
+        <p>Franchise 101 operates as a franchise and business solutions ecosystem providing consulting, discovery, and business-support services that may include:</p>
+        <ul class="legal-list">
+          <li>Investor and franchise consulting</li>
+          <li>Franchise opportunity discovery, evaluation, and matching</li>
+          <li>Business and restaurant development (concept-to-launch)</li>
+          <li>Brand identity, architectural design, and menu engineering</li>
+          <li>Franchise development, operations manual drafting, and SOP systemisation</li>
+          <li>Investor lead generation, digital performance marketing, and franchise acquisition campaigns</li>
+          <li>Content, social media, and investor outreach services</li>
+          <li>Outlet turnkey execution and project-management support</li>
+          <li>Other allied consulting and business-growth services</li>
+        </ul>
         <p>
-          Outlines platform usage rules, non-exclusive advisory facilitation, proprietary tools, intellectual property covenants, and limitations of liability for Franchise 101 Growth Partners LLP.
+          Specific services, commercial scopes, fees, deliverables, and timelines are governed by separate written agreements executed between Franchise 101 and the relevant client, investor, brand, or entrepreneur.
         </p>
-        <a href="https://docs.google.com/document/d/1NfoCC8elulRjO4ZTRbq5fRba9yLghGOwMBq6kwDucQU/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="doc-action-link">
-          Read Terms of Service in Document &nearr;
-        </a>
       </div>
 
-      <!-- 3. Franchise & ROI Disclaimer -->
-      <div class="doc-digest-card ">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <span style="font-family:var(--font-mono);font-size:11px;color:var(--kesar-hot);text-transform:uppercase;font-weight:700">Section 10.C</span>
-          
-        </div>
-        <h3>Franchise &amp; ROI Disclaimers</h3>
+      <!-- Clause 2 -->
+      <div class="legal-section">
+        <h2>2. Franchise Opportunities &amp; Third-Party Brand Data</h2>
         <p>
-          Franchise opportunities involve business and market risks. All figures, unit economics, payback periods, and margins are indicative assumptions. <strong>Past performance does not guarantee future results</strong>, and independent diligence is mandatory.
+          Franchise opportunities appearing on this website are owned and operated by independent third-party brands and franchisors. Information relating to any franchise opportunity may include:
         </p>
-        <a href="https://docs.google.com/document/d/1NfoCC8elulRjO4ZTRbq5fRba9yLghGOwMBq6kwDucQU/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="doc-action-link">
-          Read Disclaimers in Document &nearr;
-        </a>
+        <ul class="legal-list">
+          <li>Total investment range and franchise setup costs</li>
+          <li>Brand franchise fees and ongoing royalties</li>
+          <li>Commercial space, carpet area, and frontage requirements</li>
+          <li>Operational outlet count and geographical presence</li>
+          <li>Target expansion territories and master franchise availability</li>
+          <li>Business models (FOFO, FOCO, COCO)</li>
+          <li>Unit economics, average sales figures, and projected payback periods</li>
+          <li>Franchisor operational training, supply chain, and marketing support</li>
+        </ul>
+        <p>
+          Such information is supplied directly by the respective franchisor or derived from data made available to Franchise 101 and is subject to continuous change without prior notice.
+        </p>
+        <div class="legal-alert-box">
+          <strong>Mandatory Independent Diligence:</strong> Users must independently verify all material commercial, legal, operational, and financial assumptions directly with the relevant franchisor and their personal legal and financial advisors before executing agreements or committing investment capital.
+        </div>
       </div>
 
-      <!-- 4. Entity & Governance -->
-      <div class="doc-digest-card ">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <span style="font-family:var(--font-mono);font-size:11px;color:var(--kesar-hot);text-transform:uppercase;font-weight:700">Section 10.D</span>
-          
-        </div>
-        <h3>Corporate &amp; Grievance Contacts</h3>
+      <!-- Clause 3 -->
+      <div class="legal-section">
+        <h2>3. No Guarantee of Franchise Availability or Approval</h2>
+        <p>The showcase of a brand or opportunity on the Franchise 101 website does not constitute a guarantee that:</p>
+        <ul class="legal-list">
+          <li>A franchise is currently available in a specific city, pin code, or territory</li>
+          <li>The franchisor will approve a particular applicant or profile</li>
+          <li>Commercial terms, franchise fees, or royalty structures will remain unchanged</li>
+          <li>A proposed retail property or commercial space will be accepted by the brand</li>
+          <li>A prospective franchise transaction will ultimately be completed or executed</li>
+        </ul>
+        <p>Final franchise approval, territory allocation, and contractual execution remain under the sole discretion of the respective franchisor.</p>
+      </div>
+
+      <!-- Clause 4 -->
+      <div class="legal-section">
+        <h2>4. Investor Consultation and Opportunity Matching</h2>
         <p>
-          Corporate entity: <strong>Franchise 101 Growth Partners LLP</strong>. Includes grievance redressal contacts, communication opt-out channels, and dispute resolution jurisdiction (Mumbai, India).
+          Franchise 101 considers investor preferences including investment capacity, target geography, sector interests, past experience, operational involvement level, and timelines to identify curated franchise opportunities that may align with their stated criteria.
         </p>
-        <a href="https://docs.google.com/document/d/1NfoCC8elulRjO4ZTRbq5fRba9yLghGOwMBq6kwDucQU/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="doc-action-link">
-          Read Governance in Document &nearr;
-        </a>
+        <div class="legal-alert-box" style="border-color:#D97706;background:#FFFBEB">
+          <strong style="color:#B45309">Non-Advisory Notice:</strong> Any recommendation, match, shortlist, or introduction provided by Franchise 101 is strictly <strong>consultative facilitation and not financial, investment, legal, tax, or commercial profitability advice</strong>. The ultimate decision to acquire or invest in a franchise remains solely with the investor.
+        </div>
+      </div>
+
+      <!-- Clause 5 -->
+      <div class="legal-section">
+        <h2>5. Accuracy and Timeliness of Website Content</h2>
+        <p>
+          While Franchise 101 endeavours to maintain useful, authentic, and reasonably updated website information, franchise terms, investment figures, territory statuses, and menu pricing change frequently in the market.
+        </p>
+        <p>
+          Franchise 101 does not warrant that all website information will at all times be complete, error-free, or current. Users must confirm all material particulars directly prior to making commercial decisions.
+        </p>
+      </div>
+
+      <!-- Clause 6 -->
+      <div class="legal-section">
+        <h2>6. Intellectual Property Rights</h2>
+        <p>
+          Unless otherwise stated, the Franchise 101 brand name, logo, website design, original copy, graphics, illustrations, proprietary frameworks, and marketing assets are owned by or licensed to <strong>Franchise 101 Growth Partners LLP</strong>.
+        </p>
+        <p>
+          Third-party brand names, registered trademarks, logos, photographs, and marketing assets displayed on the website remain the exclusive property of their respective owners and are displayed under authorization or for informative reference. Nothing on this website confers any right, title, or licence over such intellectual property.
+        </p>
+      </div>
+
+      <!-- Clause 7 -->
+      <div class="legal-section">
+        <h2>7. Prohibited User Conduct</h2>
+        <p>Users accessing this website agree not to:</p>
+        <ul class="legal-list">
+          <li>Misuse, impair, or disrupt the operation or security of the website</li>
+          <li>Attempt unauthorised access to admin portals, servers, or connected databases</li>
+          <li>Introduce malware, viruses, worms, or malicious code</li>
+          <li>Scrape, crawl, harvest, or reproduce website content or listings for commercial purposes without prior written authorization</li>
+          <li>Impersonate any individual, brand representative, or corporate entity</li>
+          <li>Submit fraudulent, deceptive, or misleading inquiry information</li>
+          <li>Use the platform for any unlawful, defamatory, or anti-competitive activity</li>
+        </ul>
+      </div>
+
+      <!-- Clause 8 -->
+      <div class="legal-section">
+        <h2>8. Third-Party Links and Integrated Platforms</h2>
+        <p>
+          The website integrates with or contains links to third-party services including Google Ads, Meta (Facebook/Instagram), WhatsApp Business, external brand portals, Google Maps, and CRM systems. Franchise 101 does not control independent third-party platforms and bears no responsibility for their content, uptime, data policies, or security.
+        </p>
+      </div>
+
+      <!-- Clause 9 -->
+      <div class="legal-section">
+        <h2>9. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by applicable Indian law, Franchise 101 Growth Partners LLP, its partners, consultants, and affiliates shall not be liable for losses or damages arising from:</p>
+        <ul class="legal-list">
+          <li>Independent investment, business, lease, or capital decisions made by users</li>
+          <li>Commercial underperformance, operational challenges, or failure of an independently run franchise outlet</li>
+          <li>Representations, breaches, defaults, or delays by third-party franchisors or brands</li>
+          <li>Macroeconomic shifts, regulatory changes, or local market dynamics</li>
+          <li>Inaccurate or outdated information supplied by third parties</li>
+          <li>Downtime, interruptions, or faults on third-party service provider networks</li>
+          <li>Events beyond Franchise 101's reasonable operational control (Force Majeure)</li>
+        </ul>
+      </div>
+
+      <!-- Clause 10 -->
+      <div class="legal-section">
+        <h2>10. Separate Formal Commercial Agreements</h2>
+        <p>
+          Where Franchise 101 is formally engaged by a brand or investor for brand development, franchise expansion, fit-out execution, performance marketing, or advisory services, the specific deliverables, commercial terms, fees, and liabilities will be governed by a separate written agreement. In the event of a conflict between these website terms and an executed contract, the specific executed contract shall prevail.
+        </p>
+      </div>
+
+      <!-- Clause 11 -->
+      <div class="legal-section">
+        <h2>11. Governing Law &amp; Dispute Resolution</h2>
+        <p>
+          These Terms &amp; Conditions are governed by and construed in accordance with the laws of India. Any dispute, claim, or controversy arising out of or relating to website use or these Terms shall be subject to the exclusive jurisdiction of the competent courts in <strong>Mumbai, Maharashtra, India</strong>.
+        </p>
+      </div>
+
+      <!-- Clause 12 -->
+      <div class="legal-section">
+        <h2>12. Corporate &amp; Legal Contact Information</h2>
+        <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:16px;padding:24px;margin-top:14px">
+          <p style="margin:0 0 6px;font-size:14.5px;color:#334155">
+            <strong>Entity:</strong> Franchise 101 Growth Partners LLP<br />
+            <strong>Brand:</strong> Franchise 101<br />
+            <strong>Registered / Operational Base:</strong> Mumbai, Maharashtra, India<br />
+            <strong>Official Advisory Email:</strong> <a href="mailto:partners@franchise101.in" style="color:#CF3C30;text-decoration:none;font-weight:600">partners@franchise101.in</a><br />
+            <strong>Direct Advisory Phone:</strong> <a href="tel:+912240008899" style="color:#CF3C30;text-decoration:none;font-weight:600">+91 22 4000 8899</a>
+          </p>
+        </div>
       </div>
 
     </div>
 
-    <!-- Need Consultation Box -->
-    <div style="background:#FFFFFF;border:1px solid var(--line);border-radius:20px;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px">
+    <!-- Bottom Action Banner -->
+    <div style="background:#FFFFFF;border:1px solid rgba(14, 18, 26, 0.08);border-radius:20px;padding:26px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;box-shadow:0 8px 24px -8px rgba(14,18,26,0.06)">
       <div>
-        <h4 style="margin:0 0 6px;color:var(--ink);font-size:18px">Have a compliance or legal inquiry?</h4>
-        <p style="margin:0;color:var(--ink-60);font-size:14.5px">Our legal and compliance desk responds to all investor and brand inquiries within 48 business hours.</p>
+        <h4 style="margin:0 0 4px;color:#0F172A;font-size:17.5px">Interested in Partnering with Us?</h4>
+        <p style="margin:0;color:#64748B;font-size:14px">Book an advisory consultation to explore customized brand development or franchise acquisition.</p>
       </div>
-      <a href="contact.html" class="btn btn--kesar btn--sm">Contact Legal Desk &rarr;</a>
+      <a href="book-consultation.html" class="btn btn--kesar btn--sm">Schedule Consultation &rarr;</a>
     </div>
 
   </div>
 </main>
 
-<!-- FOOTER -->
+<!-- UNIVERSAL FOOTER -->
 <footer class="foot on-dark">
   <div class="wrap">
     
     <!-- Direct Contact Strip -->
     <div class="foot-contact-strip" style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,0.12);margin-bottom:36px">
       <div style="display:flex;align-items:center;gap:12px">
-        <span style="font-size:22px">📞</span>
+        <span style="font-size:24px">&#128222;</span>
         <div>
-          <small style="display:block;font-family:var(--font-mono, monospace);font-size:11px;color:rgba(248,250,252,0.6);text-transform:uppercase;letter-spacing:0.08em">Direct Advisory Desk</small>
-          <strong style="color:#FFFFFF;font-size:14.5px">+91 22 4000 8899</strong>
+          <small style="display:block;font-family:var(--font-mono, monospace);font-size:11px;color:#64748B;text-transform:uppercase;letter-spacing:0.08em">Direct Advisory Line</small>
+          <strong style="color:#0F172A;font-size:14.5px">+91 22 4000 8899</strong>
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:12px">
-        <span style="font-size:22px">💬</span>
+        <span style="font-size:24px">&#9993;</span>
         <div>
-          <small style="display:block;font-family:var(--font-mono, monospace);font-size:11px;color:rgba(248,250,252,0.6);text-transform:uppercase;letter-spacing:0.08em">WhatsApp Concierge</small>
-          <strong style="color:#FFFFFF;font-size:14.5px">+91 98200 12345</strong>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:12px">
-        <span style="font-size:22px">✉️</span>
-        <div>
-          <small style="display:block;font-family:var(--font-mono, monospace);font-size:11px;color:rgba(248,250,252,0.6);text-transform:uppercase;letter-spacing:0.08em">Official Inquiries</small>
-          <strong style="color:#FFFFFF;font-size:14.5px">hello@franchise101.in</strong>
+          <small style="display:block;font-family:var(--font-mono, monospace);font-size:11px;color:#64748B;text-transform:uppercase;letter-spacing:0.08em">Email Inquiries</small>
+          <strong style="color:#0F172A;font-size:14.5px">partners@franchise101.in</strong>
         </div>
       </div>
       <div style="display:flex;gap:10px;align-items:center">
-        <a href="book-consultation.html" class="btn btn--kesar btn--sm">Book a Consultation &rarr;</a>
+        <a href="contact.html" class="btn btn--kesar btn--sm">Contact Us &rarr;</a>
       </div>
     </div>
 
     <!-- 4-Column Main Grid -->
     <div class="foot-grid" style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(28px, 4vw, 48px)">
-      
-      <!-- Col 1: Brand & Identity -->
-      <div class="foot-brand" style="display:flex;flex-direction:column;gap:14px">
-        <a class="logo" href="index.html" aria-label="Franchise 101 Home" style="font-size:24px;color:var(--malai)">FRANCHISE 101<span class="dot"></span></a>
-        <p style="color:rgba(248,250,252,.75);font-size:14px;line-height:1.6;margin:0">
-          A trusted franchise and business solutions ecosystem helping investors discover the right opportunities, entrepreneurs build businesses from concept to launch, and brands franchise and scale.
+      <!-- Col 1: Brand & Official Mission Statement -->
+      <div class="foot-brand">
+        <a aria-label="Franchise 101 Home" class="logo" href="index.html" style="color:#0F172A">
+          <img src="assets/logo-clean.png" alt="Franchise 101" class="logo-mark" style="height:36px;width:auto;display:inline-block;vertical-align:middle;margin-right:8px" />
+          FRANCHISE 101<span class="dot"></span>
+        </a>
+        <p style="color:#64748B;font-size:14px;line-height:1.65;margin:12px 0 0">
+          Franchise 101 is a trusted franchise and business solutions ecosystem helping investors discover the right opportunities, entrepreneurs build businesses from concept to launch, and brands franchise and scale.
         </p>
-        <div style="font-family:var(--font-mono);font-size:12.5px;color:rgba(248,250,252,0.65);margin-top:4px">
-          <div>BKC, Mumbai &middot; Pune &middot; Bengaluru &middot; Delhi NCR</div>
-        </div>
       </div>
 
-      <!-- Col 2: The 3 Verticals -->
+      <!-- Col 2: Pathways -->
       <div class="foot-col">
-        <h4 style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--kesar);margin:0 0 14px;font-weight:700">The Ecosystem</h4>
-        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:14px">
-          <li><a href="franchises.html" style="color:rgba(248,250,252,.75)">Explore Franchises</a></li>
-          <li><a href="develop-brand.html" style="color:rgba(248,250,252,.75)">Build Your Brand</a></li>
-          <li><a href="develop-scale.html" style="color:rgba(248,250,252,.75)">Franchise &amp; Scale</a></li>
-          <li><a href="franchise-marketing.html" style="color:rgba(248,250,252,.75)">Franchise Marketing</a></li>
-          <li><a href="about.html" style="color:rgba(248,250,252,.75)">Our Mission &amp; Approach</a></li>
+        <h4 style="color:#CF3C30">Pathways</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px">
+          <li><a href="franchises.html" style="color:#475569">Explore Franchises</a></li>
+          <li><a href="develop-brand.html" style="color:#475569">Build Your Brand</a></li>
+          <li><a href="develop-scale.html" style="color:#475569">Franchise &amp; Scale</a></li>
+          <li><a href="franchise-marketing.html" style="color:#475569">Franchise Marketing</a></li>
         </ul>
       </div>
 
-      <!-- Col 3: Investor Tools -->
+      <!-- Col 3: Tools & Resources -->
       <div class="foot-col">
-        <h4 style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--kesar);margin:0 0 14px;font-weight:700">Investor Tools</h4>
-        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:14px">
-          <li><a href="find-franchise.html" style="color:rgba(248,250,252,.75)">Find the Right Franchise</a></li>
-          <li><a href="franchises.html" style="color:rgba(248,250,252,.75)">Curated Opportunities</a></li>
-          <li><a href="index.html#calculator" style="color:rgba(248,250,252,.75)">ROI &amp; Payback Calculator</a></li>
-          <li><a href="index.html#how-it-works" style="color:rgba(248,250,252,.75)">How It Works</a></li>
-          <li><a href="index.html#faq" style="color:rgba(248,250,252,.75)">Frequently Asked Questions</a></li>
+        <h4 style="color:#CF3C30">Tools &amp; Insights</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px">
+          <li><a href="index.html#find-franchise" style="color:#475569">8–Step Opportunity Matcher</a></li>
+          <li><a href="book-consultation.html" style="color:#475569">Book a Consultation</a></li>
+          <li><a href="about.html" style="color:#475569">About Franchise 101</a></li>
+          <li><a href="contact.html" style="color:#475569">Contact Us</a></li>
         </ul>
       </div>
 
-      <!-- Col 4: Legal & Direct Document Link -->
+      <!-- Col 4: Top Brands -->
       <div class="foot-col">
-        <h4 style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--kesar);margin:0 0 14px;font-weight:700">Legal &amp; Connect</h4>
-        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:14px">
-          <li><a href="contact.html" style="color:rgba(248,250,252,.75)">Contact Us</a></li>
-          <li><a href="book-consultation.html" style="color:rgba(248,250,252,.75)">Book a Consultation</a></li>
-          <li><a href="privacy-policy.html" style="color:rgba(248,250,252,.75)">Privacy Policy</a></li>
-          <li><a href="terms.html" style="color:rgba(248,250,252,.75)">Terms &amp; Conditions</a></li>
-          <li><a href="disclaimer.html" style="color:rgba(248,250,252,.75)">Investment &amp; ROI Disclaimer</a></li>
-          <li><a href="https://docs.google.com/document/d/1NfoCC8elulRjO4ZTRbq5fRba9yLghGOwMBq6kwDucQU/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style="color:var(--kesar);font-weight:600">Legal Document Form &nearr;</a></li>
+        <h4 style="color:#CF3C30">Curated Brands</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px">
+          <li><a href="beyond-temptation.html" style="color:#475569">Beyond Temptation</a></li>
+          <li><a href="dunk-burgers.html" style="color:#475569">Dunk Burgers</a></li>
+          <li><a href="mr-sandwich.html" style="color:#475569">Mr. Sandwich</a></li>
+          <li><a href="south-twist.html" style="color:#475569">South Twist</a></li>
+          <li><a href="cafe-choco-craze.html" style="color:#475569">Cafe Choco Craze</a></li>
         </ul>
       </div>
-
     </div>
 
-    <!-- Official Disclaimers Block (Section 10 in Doc) -->
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:22px;margin-top:36px">
-      <p style="font-size:12.5px;color:rgba(248,250,252,0.65);line-height:1.65;margin:0 0 10px">
-        <strong>Franchise &amp; Investment Disclaimer:</strong> Franchise and business investments involve commercial and financial risk. Franchise 101 does not guarantee revenue, profit, ROI, payback period, business success, franchise approval or territory availability. Prospective investors should conduct independent due diligence and obtain appropriate professional advice before making an investment decision.
-      </p>
-      <p style="font-size:12.5px;color:rgba(248,250,252,0.65);line-height:1.65;margin:0 0 10px">
-        <strong>Financial / ROI Disclaimer:</strong> Any investment estimates, sales, profit margins, or financial projections displayed on the website or marketing material are indicative, projected or supplied by respective brand franchisors and must not be represented as a guarantee of future performance.
-      </p>
-      <p style="font-size:12.5px;color:rgba(248,250,252,0.65);line-height:1.65;margin:0">
-        <strong>Third-Party Brand Disclaimer:</strong> Listed franchise brands are independently owned. All brand names, logos and trademarks remain the property of their respective owners. Listing a brand does not imply endorsement or warranty of future business performance.
+    <!-- Official Statutory Footer Disclaimer (ODT Section 10.H) -->
+    <div style="margin-top:36px;padding-top:20px;border-top:1px solid #E2E8F0;font-size:12px;line-height:1.65;color:#94A3B8">
+      <p style="margin:0">
+        <strong>Statutory Notice:</strong> Franchise 101 Growth Partners LLP provides franchise consulting, business-development and related services. Franchise and business investments involve risk. Franchise 101 does not guarantee returns, profitability or business success. Brand-specific commercial and financial information may be supplied by the respective franchisor and should be independently verified before investment.
       </p>
     </div>
 
-    <!-- Bottom Copyright Bar -->
-    <div class="foot-base" style="display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.1);margin-top:24px;padding-top:20px;font-size:12.5px;color:rgba(248,250,252,0.6);font-family:var(--font-mono)">
+    <!-- Foot Bottom -->
+    <div style="border-top:1px solid #E2E8F0;margin-top:16px;padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:#94A3B8">
       <div>&copy; 2026 Franchise 101 Growth Partners LLP. All rights reserved.</div>
       <div style="display:flex;gap:16px;flex-wrap:wrap">
-        <a href="privacy-policy.html" style="color:rgba(248,250,252,0.65)">Privacy</a>
-        <a href="terms.html" style="color:rgba(248,250,252,0.65)">Terms</a>
-        <a href="disclaimer.html" style="color:rgba(248,250,252,0.65)">Disclaimers</a>
-        <a href="contact.html" style="color:rgba(248,250,252,0.65)">Contact</a>
+        <a href="privacy-policy.html" style="color:#94A3B8">Privacy Policy</a>
+        <a href="terms.html" style="color:#94A3B8">Terms &amp; Conditions</a>
+        <a href="disclaimer.html" style="color:#94A3B8">Franchise &amp; ROI Disclaimers</a>
       </div>
     </div>
-
   </div>
 </footer>
 
+<button class="floating-up" id="btnBackToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+
 <script>
 const nav = document.getElementById('nav');
+const topProgress = document.getElementById('topProgress');
+const btnBackToTop = document.getElementById('btnBackToTop');
 const navToggle = document.getElementById('navToggle');
 const mobileDrawer = document.getElementById('mobileDrawer');
+
+let lastScrollY = window.scrollY;
 window.addEventListener('scroll', () => {
-  if (nav) nav.classList.toggle('stuck', window.scrollY > 20);
-});
+  const scrolled = window.scrollY;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  if (topProgress) topProgress.style.width = ((scrolled / maxScroll) * 100) + '%';
+  if (btnBackToTop) btnBackToTop.classList.toggle('show', scrolled > 400);
+
+  if (nav) {
+    nav.classList.toggle('stuck', scrolled > 20);
+    const isDrawerOpen = mobileDrawer && mobileDrawer.classList.contains('open');
+    if (!isDrawerOpen) {
+      if (scrolled <= 30) {
+        nav.classList.remove('nav--hidden');
+      } else if (scrolled > lastScrollY + 8 && scrolled > 80) {
+        nav.classList.add('nav--hidden');
+      } else if (scrolled < lastScrollY - 8) {
+        nav.classList.remove('nav--hidden');
+      }
+    }
+  }
+  lastScrollY = Math.max(scrolled, 0);
+}, { passive: true });
+
+function toggleMobileNav() {
+  const isOpen = mobileDrawer.classList.contains('open');
+  mobileDrawer.classList.toggle('open', !isOpen);
+  navToggle.classList.toggle('open', !isOpen);
+  document.body.style.overflow = !isOpen ? 'hidden' : '';
+}
+
 if (navToggle && mobileDrawer) {
-  navToggle.addEventListener('click', () => {
-    const isOpen = mobileDrawer.classList.toggle('open');
-    navToggle.classList.toggle('open', isOpen);
-  });
+  navToggle.addEventListener('click', toggleMobileNav);
+  mobileDrawer.addEventListener('click', e => { if (e.target === mobileDrawer) toggleMobileNav(); });
 }
 </script>
 </body>
