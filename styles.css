@@ -30,7 +30,7 @@
   --r: 18px;
   --r-sm: 10px;
   --r-pill: 999px;
-  --pad: clamp(18px, 4vw, 44px);
+  --pad: clamp(14px, 2vw, 24px);
   --ease: cubic-bezier(0.25, 1, 0.35, 1);
 
   /* Typography */
@@ -60,6 +60,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--paper);
+  color: var(--ink);
 }
 
 img { max-width: 100%; display: block; }
@@ -67,16 +68,16 @@ a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 :focus-visible { outline: 3px solid var(--kesar); outline-offset: 3px; border-radius: 6px; }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-editorial);
-  font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  line-height: 1.15;
   color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
-h1 { font-size: clamp(38px, 5.8vw, 76px); font-weight: 800; }
-h2 { font-size: clamp(28px, 3.8vw, 50px); }
-h3 { font-size: clamp(22px, 2.4vw, 32px); }
+h1 { font-size: clamp(38px, 4.8vw, 68px); letter-spacing: -0.03em; }
+h2 { font-size: clamp(28px, 3.4vw, 46px); }
+h3 { font-size: clamp(20px, 2.2vw, 30px); }
 h4 { font-size: clamp(18px, 1.6vw, 24px); }
 h5 { font-size: clamp(15px, 1.2vw, 18px); }
 
@@ -88,7 +89,8 @@ em {
 }
 
 .wrap {
-  width: min(1220px, 100%);
+  width: min(1320px, calc(100% - 28px));
+  max-width: 1320px;
   margin-inline: auto;
   padding-inline: var(--pad);
 }
@@ -220,7 +222,7 @@ em {
 /* FLOATING PILL CAPSULE NAV */
 .nav {
   position: fixed; top: 16px; left: 50%; z-index: 80;
-  width: min(1200px, calc(100% - 32px));
+  width: min(1320px, calc(100% - 28px));
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
   padding: 10px 14px 10px 24px;
   background: rgba(13, 15, 18, 0.94); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
