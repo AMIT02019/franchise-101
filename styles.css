@@ -342,7 +342,7 @@ em {
 .page-hero {
   background: radial-gradient(110% 90% at 50% 0%, var(--jamun-soft) 0%, var(--jamun-deep) 70%);
   color: var(--malai);
-  padding: clamp(120px, 16vh, 160px) 0 clamp(52px, 6vw, 76px);
+  padding: clamp(140px, 18vh, 180px) 0 clamp(52px, 6vw, 76px);
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--line-dark);
@@ -1758,7 +1758,7 @@ body {
 .hero {
   background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%) !important;
   color: #0F172A !important;
-  padding: clamp(100px, 13vh, 140px) 0 44px !important;
+  padding: clamp(140px, 17vh, 180px) 0 44px !important;
   border-bottom: 1px solid #E2E8F0 !important;
 }
 .hero::before, .hero::after {
@@ -2389,7 +2389,7 @@ html, body {
 
 /* 1. Hero Section */
 .explore-hero {
-  padding: clamp(100px, 13vh, 140px) 0 clamp(44px, 5vw, 64px);
+  padding: clamp(140px, 17vh, 180px) 0 clamp(44px, 5vw, 64px);
   background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
   position: relative;
   overflow: hidden;
@@ -3058,7 +3058,7 @@ html, body {
    =================================================== */
 
 .home-hero {
-  padding: clamp(100px, 13vh, 140px) 0 clamp(44px, 5vw, 64px);
+  padding: clamp(140px, 17vh, 180px) 0 clamp(44px, 5vw, 64px);
   background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
   position: relative;
   overflow: hidden;
@@ -7208,7 +7208,7 @@ html, body {
 .contact-hero-sec {
   background: #081712;
   color: #FFFFFF;
-  padding: clamp(90px, 10vw, 130px) 0 clamp(60px, 7vw, 90px);
+  padding: clamp(135px, 16vh, 175px) 0 clamp(60px, 7vw, 90px);
   position: relative;
   overflow: hidden;
 }
