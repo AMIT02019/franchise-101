@@ -1164,7 +1164,21 @@ em {
 }
 
 /* 5. Mobile Toggle & Drawer Animation */
-@media (max-width: 1140px) {
+@media (max-width: 1260px) {
+  .nav-links {
+    gap: clamp(8px, 1.1vw, 16px) !important;
+  }
+  .nav-links a {
+    font-size: 13px !important;
+    padding: 6px 2px !important;
+  }
+  .nav .btn--kesar {
+    padding: 9px 18px !important;
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 1180px) {
   .nav-links {
     display: none !important;
   }
