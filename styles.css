@@ -4880,18 +4880,20 @@ html, body {
   text-transform: uppercase;
   margin-bottom: 10px;
 }
+.byb-closing-dark h2,
 .byb-closing-title {
   font-family: var(--font-editorial, 'Fraunces', serif);
   font-size: clamp(28px, 3.8vw, 44px);
   font-weight: 700;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   line-height: 1.15;
   margin: 0 0 14px 0;
 }
+.byb-closing-dark p,
 .byb-closing-sub {
   font-size: 15px;
   line-height: 1.6;
-  color: #CBD5E1;
+  color: #CBD5E1 !important;
   margin: 0;
 }
 .byb-closing-cta {
