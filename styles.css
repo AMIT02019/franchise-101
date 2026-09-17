@@ -265,16 +265,40 @@ em {
   70% { transform: scale(1.1); box-shadow: 0 0 0 5px rgba(255, 255, 255, 0); }
   100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
+/* HEADER & FOOTER LOGO SIZING */
 .logo-mark {
-  height: 34px;
+  height: 44px;
   width: auto;
   display: inline-block;
   vertical-align: middle;
   border-radius: 4px;
   flex-shrink: 0;
+  transition: transform 0.2s var(--ease);
+}
+.nav .logo-mark {
+  height: 44px;
+  max-width: none;
+}
+.mobile-drawer .logo-mark {
+  height: 42px;
+}
+.foot .logo-mark,
+.foot-brand .logo-mark {
+  height: 54px !important;
+  width: auto !important;
+  max-width: none !important;
+  display: block;
+  margin-bottom: 12px;
+  border-radius: 6px;
+}
+@media (max-width: 1020px) {
+  .nav .logo-mark { height: 40px; }
 }
 @media (max-width: 680px) {
-  .logo-mark { height: 28px; }
+  .logo-mark { height: 36px; }
+  .nav .logo-mark { height: 36px; }
+  .foot .logo-mark,
+  .foot-brand .logo-mark { height: 46px !important; }
 }
 
 .nav-links { display: flex; gap: 20px; font-size: 14px; font-weight: 600; align-items: center; }
@@ -2166,10 +2190,10 @@ html, body {
     font-size: 16.5px !important;
     gap: 6px !important;
   }
-  .logo-mark {
-    height: 28px !important;
+  .nav .logo-mark {
+    height: 38px !important;
     width: auto !important;
-    max-width: 95px !important;
+    max-width: none !important;
   }
   .nav-toggle {
     min-width: 44px !important;
