@@ -6546,7 +6546,7 @@ html, body {
   transform: rotate(-1deg);
 }
 
-/* 2. Section: 4-Item Metrics Strip */
+/* 2. Section: 5-Item Metrics Strip */
 .about-metrics-strip {
   background: #FFFFFF;
   border-top: 1px solid #E5E7EB;
@@ -6555,56 +6555,50 @@ html, body {
 }
 .about-metrics-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(12px, 1.6vw, 24px);
+  align-items: start;
 }
-@media (max-width: 860px) {
-  .about-metrics-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px 20px;
-  }
-}
-@media (max-width: 480px) {
+@media (max-width: 720px) {
   .about-metrics-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
   }
 }
 .about-metric-item {
-  padding-left: clamp(12px, 2vw, 24px);
+  padding-left: clamp(10px, 1.4vw, 20px);
   border-left: 1px solid #E5E7EB;
 }
 .about-metrics-grid > .about-metric-item:first-child {
   border-left: none;
   padding-left: 0;
 }
-@media (max-width: 860px) {
-  .about-metrics-grid > .about-metric-item:nth-child(2n+1) {
-    border-left: none;
-    padding-left: 0;
-  }
-}
-@media (max-width: 480px) {
+@media (max-width: 720px) {
   .about-metric-item {
     border-left: none;
     padding-left: 0;
     border-bottom: 1px solid #F3F4F6;
     padding-bottom: 14px;
   }
+  .about-metrics-grid > .about-metric-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
 }
 .about-metric-val {
   font-family: var(--font-editorial, 'Fraunces', serif);
-  font-size: clamp(34px, 3.8vw, 46px);
+  font-size: clamp(30px, 3.4vw, 44px);
   font-weight: 700;
   color: #111827;
   line-height: 1;
   margin: 0 0 6px;
 }
 .about-metric-lbl {
-  font-size: 14px;
+  font-size: clamp(12.5px, 1.05vw, 14px);
   color: #6B7280;
   font-weight: 500;
   margin: 0;
+  line-height: 1.35;
 }
 
 /* 3. Section: "Why We Exist" - Our Purpose */
