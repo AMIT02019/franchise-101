@@ -779,8 +779,8 @@ em {
 
   /* Floating Up Button */
   .floating-up {
-    bottom: 215px;
-    right: 18px;
+    bottom: 172px;
+    right: 14px;
     left: auto;
     width: 36px;
     height: 36px;
@@ -8313,12 +8313,6 @@ html, body {
   background: #CF3C30;
   transform: translateY(-3px);
 }
-.float-btn-consult svg {
-  width: 17px;
-  height: 17px;
-  fill: currentColor;
-  flex-shrink: 0;
-}
 
 /* Mobile Persistent Bottom Action Bar (Screens <= 768px) */
 .mobile-sticky-bar {
@@ -8369,15 +8363,17 @@ html, body {
 }
 
 @media (max-width: 768px) {
-  /* Enable floating CTA stack on mobile, optimized size */
+  /* Enable floating CTA stack on mobile, optimized pill size */
   .floating-cta-desktop.floating-cta-stack {
     display: flex !important;
     bottom: 14px;
     right: 12px;
+    align-items: flex-end;
   }
 
   .floating-advisor-wrap {
     margin-bottom: -5px;
+    align-items: flex-end;
   }
 
   .floating-advisor-img {
@@ -8400,76 +8396,29 @@ html, body {
     bottom: -3px;
   }
 
-  /* Center floating stack on mobile */
-  .floating-cta-desktop.floating-cta-stack {
-    display: flex !important;
-    bottom: 14px;
-    right: 14px;
-    align-items: center;
-  }
-
-  .floating-advisor-wrap {
-    align-items: center;
-    margin-bottom: -4px;
-  }
-
-  .floating-advisor-img {
-    width: 56px;
-    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.16));
-  }
-
-  .advisor-speech-bubble {
-    font-size: 9px;
-    padding: 3px 8px;
-    margin-right: 0;
-    margin-bottom: 2px;
-    gap: 4px;
-  }
-
-  .advisor-speech-bubble::after {
-    right: 50%;
-    transform: translateX(50%) rotate(45deg);
-    width: 6px;
-    height: 6px;
-    bottom: -3px;
+  .advisor-bubble-dot {
+    width: 5px;
+    height: 5px;
   }
 
   .floating-cta-buttons {
-    align-items: center;
-    gap: 8px;
+    align-items: flex-end;
+    gap: 6px;
   }
 
-  /* Make buttons round logo/icon buttons on mobile */
   .floating-cta-stack .float-btn-wa,
   .floating-cta-stack .float-btn-consult {
-    width: 44px;
-    height: 44px;
-    min-width: unset !important;
-    padding: 0 !important;
-    border-radius: 50% !important;
-    display: grid !important;
-    place-items: center !important;
-    box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.3) !important;
-  }
-
-  /* Hide button text on mobile so only the logo/icon is shown */
-  .floating-cta-stack .float-btn-wa span,
-  .floating-cta-stack .float-btn-consult span {
-    display: none !important;
+    min-width: 138px;
+    padding: 6.5px 11px;
+    font-size: 11px;
+    gap: 6px;
+    box-shadow: 0 6px 14px -3px rgba(0, 0, 0, 0.25);
+    border-radius: 999px;
   }
 
   .floating-cta-stack .float-btn-wa svg {
-    width: 22px;
-    height: 22px;
-    display: block;
-    margin: 0;
-  }
-
-  .floating-cta-stack .float-btn-consult svg {
-    width: 20px;
-    height: 20px;
-    display: block;
-    margin: 0;
+    width: 14px;
+    height: 14px;
   }
 
   /* Hide the old flat mobile sticky bar */
