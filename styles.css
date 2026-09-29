@@ -3138,6 +3138,65 @@ html, body {
   color: #0F172A;
   margin: 0 0 16px;
   letter-spacing: -0.025em;
+  min-height: 3.25em;
+}
+
+@media (max-width: 960px) {
+  .home-hero-h1 {
+    min-height: 3.3em;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-hero-h1 {
+    min-height: 4.35em;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-hero-h1 {
+    min-height: 5.4em;
+  }
+}
+
+/* Dynamic Hero Typewriter Effect */
+.tw-accent {
+  color: #CF3C30;
+  font-style: italic;
+  font-weight: 800;
+  display: inline;
+  transition: color 0.25s ease;
+}
+
+.tw-cursor {
+  display: inline-block;
+  width: 3.5px;
+  height: 0.86em;
+  background: #CF3C30;
+  margin-left: 5px;
+  vertical-align: -0.05em;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(207, 60, 48, 0.45);
+  animation: twBlink 0.9s ease-in-out infinite;
+}
+
+.tw-cursor.tw-typing {
+  animation: none;
+  opacity: 1;
+}
+
+@keyframes twBlink {
+  0%, 45% { opacity: 1; transform: scaleY(1); }
+  50%, 95% { opacity: 0; transform: scaleY(0.9); }
+  100% { opacity: 1; transform: scaleY(1); }
+}
+
+@media (max-width: 768px) {
+  .tw-cursor {
+    width: 2.5px;
+    height: 0.82em;
+    margin-left: 3px;
+  }
 }
 
 .home-hero-sub {
@@ -8336,4 +8395,66 @@ html, body {
   color: #64748B;
   margin: 0;
 }
+
+/* ============ 8-STEP INTERACTIVE INVESTOR QUESTIONNAIRE ============ */
+.quiz-card-box {
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-radius: clamp(20px, 3.5vw, 32px);
+  padding: clamp(28px, 4.5vw, 48px);
+  box-shadow: 0 16px 45px -15px rgba(14, 18, 26, 0.08);
+  position: relative;
+}
+
+.quiz-pill-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14.5px;
+  color: #0F172A;
+}
+
+.quiz-pill-label:hover {
+  border-color: #CF3C30;
+  background: rgba(207, 60, 48, 0.05);
+}
+
+.quiz-pill-label input[type="radio"],
+.quiz-pill-label input[type="checkbox"] {
+  accent-color: #CF3C30;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.quiz-pill-label.selected-pill {
+  border-color: #CF3C30;
+  background: rgba(207, 60, 48, 0.08);
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .quiz-grid-2col,
+  .quiz-grid-3col {
+    grid-template-columns: 1fr !important;
+  }
+  .quiz-nav-actions {
+    flex-direction: column-reverse;
+    gap: 12px;
+    align-items: stretch !important;
+  }
+  .quiz-nav-actions button {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
 

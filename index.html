@@ -66,7 +66,145 @@
       <!-- Left Column: Copy & CTAs -->
       <div class="home-hero-left">
         <span class="home-hero-eyebrow">TRUSTED FRANCHISE &amp; BUSINESS ECOSYSTEM</span>
-        <h1 class="home-hero-h1">Discover the Right Business. Build It Right. Grow with Confidence.</h1>
+        <h1 class="home-hero-h1" id="heroHeadline" aria-label="Discover the Right Business. Build It Right. Grow with Confidence."><span id="twTarget">Discover the Right Business. Build It Right. Grow with <span class="tw-accent">Confidence.</span></span><span class="tw-cursor" id="twCursor" aria-hidden="true"></span></h1>
+        <script>
+        (function() {
+          var target = document.getElementById('twTarget');
+          var cursor = document.getElementById('twCursor');
+          if (!target || !cursor) return;
+
+          var baseP1 = "Discover the Right Business. ";
+          var baseP2 = "Build It Right. ";
+          var baseP3 = "Grow with ";
+          var fullBase = baseP1 + baseP2 + baseP3;
+
+          var dynamicWords = [
+            "Confidence.",
+            "Audited Returns.",
+            "Turnkey Support.",
+            "Zero Brokerage.",
+            "Proven Systems.",
+            "Nationwide Scale."
+          ];
+
+          var wordIndex = 0;
+          var isInitial = true;
+          var cycleTimer = null;
+          var activeTimeout = null;
+
+          function setTyping(typing) {
+            if (cursor) {
+              if (typing) cursor.classList.add('tw-typing');
+              else cursor.classList.remove('tw-typing');
+            }
+          }
+
+          function typeFullInitial(onComplete) {
+            setTyping(true);
+            target.textContent = '';
+            var i = 0;
+            var fullText = fullBase;
+
+            function typeChar() {
+              if (i < fullText.length) {
+                target.textContent = fullText.slice(0, i + 1);
+                i++;
+                var delay = 25 + Math.random() * 14;
+                if (fullText[i - 1] === '.') delay = 210;
+                else if (fullText[i - 1] === ' ') delay = 36;
+                activeTimeout = setTimeout(typeChar, delay);
+              } else {
+                typeAccentWord(dynamicWords[0], function() {
+                  setTyping(false);
+                  isInitial = false;
+                  if (onComplete) onComplete();
+                });
+              }
+            }
+            typeChar();
+          }
+
+          function typeAccentWord(word, onComplete) {
+            setTyping(true);
+            var j = 0;
+            var accentSpan = document.createElement('span');
+            accentSpan.className = 'tw-accent';
+            target.appendChild(accentSpan);
+
+            function typeAccentChar() {
+              if (j < word.length) {
+                accentSpan.textContent += word[j];
+                j++;
+                activeTimeout = setTimeout(typeAccentChar, 34 + Math.random() * 18);
+              } else {
+                setTyping(false);
+                if (onComplete) onComplete();
+              }
+            }
+            typeAccentChar();
+          }
+
+          function backspaceAccent(onComplete) {
+            setTyping(true);
+            var accentSpan = target.querySelector('.tw-accent');
+            if (!accentSpan) {
+              if (onComplete) onComplete();
+              return;
+            }
+
+            function removeChar() {
+              var current = accentSpan.textContent;
+              if (current.length > 0) {
+                accentSpan.textContent = current.slice(0, -1);
+                activeTimeout = setTimeout(removeChar, 22);
+              } else {
+                accentSpan.remove();
+                setTyping(false);
+                activeTimeout = setTimeout(onComplete, 160);
+              }
+            }
+            removeChar();
+          }
+
+          function cycleNextWord() {
+            clearTimeout(cycleTimer);
+            cycleTimer = setTimeout(function() {
+              backspaceAccent(function() {
+                wordIndex = (wordIndex + 1) % dynamicWords.length;
+                typeAccentWord(dynamicWords[wordIndex], function() {
+                  cycleNextWord();
+                });
+              });
+            }, 2600);
+          }
+
+          // Pre-clear target right as this script runs
+          target.textContent = '';
+          activeTimeout = setTimeout(function() {
+            typeFullInitial(function() {
+              cycleNextWord();
+            });
+          }, 80);
+
+          var headline = document.getElementById('heroHeadline');
+          if (headline) {
+            headline.style.cursor = 'pointer';
+            headline.title = 'Click to cycle highlights';
+            headline.addEventListener('click', function() {
+              if (!isInitial) {
+                clearTimeout(cycleTimer);
+                clearTimeout(activeTimeout);
+                backspaceAccent(function() {
+                  wordIndex = (wordIndex + 1) % dynamicWords.length;
+                  typeAccentWord(dynamicWords[wordIndex], function() {
+                    cycleNextWord();
+                  });
+                });
+              }
+            });
+          }
+        })();
+        </script>
         <p class="home-hero-sub">Franchise 101 brings investors, entrepreneurs and expanding brands together through informed consulting, concept-to-launch business development and strategic franchise growth across food, retail, commercial laundry, EV mobility and high-growth services.</p>
 
         <div class="home-hero-actions">
@@ -584,48 +722,191 @@
   </div>
 </section>
 
-<!-- ============ SECTION 7: FIND YOUR RIGHT FRANCHISE (MATCHER & CONSULTATION TEASER) ============ -->
-<section class="sec-wrap" id="find-franchise" style="padding:clamp(54px, 7vw, 84px) 0; background:#FFFFFF; border-top:1px solid #E2E8F0">
+<!-- ============ SECTION 7: FIND YOUR RIGHT FRANCHISE (8-STEP INTERACTIVE QUESTIONNAIRE) ============ -->
+<section class="sec-wrap" id="find-franchise" style="padding:clamp(54px, 7vw, 84px) 0; background:var(--paper, #F8FAFC); border-top:1px solid #E2E8F0; border-bottom:1px solid #E2E8F0">
   <div class="wrap">
-    <div class="sec-center-head rv">
-      <span class="sec-eyebrow-red">INVESTOR MATCHING</span>
-      <h2 class="sec-title-serif">Let’s find what fits for you.</h2>
-      <p class="sec-sub-slate" style="max-width:720px;margin:0 auto">Every investor is different. Tell us a little about your goals, preferences and investment capacity, and our advisory desk will use this information to curate high-fit business opportunities.</p>
-    </div>
-
-    <!-- Sleek Questionnaire Card -->
-    <div style="max-width:860px;margin:40px auto 0;background:linear-gradient(135deg, #FFFDFB 0%, #F8FAFC 100%);border:1.5px solid #E2E8F0;border-radius:24px;padding:clamp(32px, 5vw, 56px);box-shadow:0 12px 36px -12px rgba(0,0,0,0.06);text-align:center" class="rv">
-      
-      <!-- Feature Badges -->
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:28px">
-        <span style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:999px;padding:8px 18px;font-size:13.5px;font-weight:600;color:#0F172A;box-shadow:0 2px 6px rgba(0,0,0,0.03);display:inline-flex;align-items:center;gap:6px">💼 ₹10L to ₹1Cr+ Budgets</span>
-        <span style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:999px;padding:8px 18px;font-size:13.5px;font-weight:600;color:#0F172A;box-shadow:0 2px 6px rgba(0,0,0,0.03);display:inline-flex;align-items:center;gap:6px">📍 All-India Locations</span>
-        <span style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:999px;padding:8px 18px;font-size:13.5px;font-weight:600;color:#0F172A;box-shadow:0 2px 6px rgba(0,0,0,0.03);display:inline-flex;align-items:center;gap:6px">🏢 Food, Retail, Laundry &amp; EV</span>
-        <span style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:999px;padding:8px 18px;font-size:13.5px;font-weight:600;color:#0F172A;box-shadow:0 2px 6px rgba(0,0,0,0.03);display:inline-flex;align-items:center;gap:6px">⏱️ 2–Minute Intake Flow</span>
+    <div style="max-width:880px;margin:0 auto">
+      <div class="sec-center-head rv" style="text-align:center;margin-bottom:32px">
+        <span class="sec-eyebrow-red"><span class="pulse"></span> 8-STEP INTERACTIVE MATCHER</span>
+        <h2 class="sec-title-serif">Let’s Find What Fits You.</h2>
+        <p class="sec-sub-slate" style="margin:0 auto;max-width:64ch">
+          Every investor is different. Tell us about your investment range, location, interests and business objectives, and our team will use this information to understand which opportunities may be worth exploring with you.
+        </p>
       </div>
 
-      <p style="font-size:16px;line-height:1.65;color:#475569;max-width:640px;margin:0 auto 32px">
-        Complete our brief 2-minute questionnaire to receive curated business and franchise opportunities matched to your investment budget, target territory, operating background and risk appetite.
-      </p>
+      <!-- Quiz Card Container -->
+      <div class="quiz-card-box rv" style="background:#FFFFFF;border:1.5px solid #E2E8F0;border-radius:clamp(20px, 3.5vw, 32px);padding:clamp(28px, 4.5vw, 48px);box-shadow:0 16px 45px -15px rgba(14,18,26,0.08);position:relative">
+        
+        <!-- Progress Bar -->
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <span style="font-family:var(--font-mono, monospace);font-size:12px;font-weight:700;color:var(--kesar-hot, #DC2626);text-transform:uppercase;letter-spacing:0.08em" id="quizStepIndicator">Step 1 of 8</span>
+          <span style="font-family:var(--font-mono, monospace);font-size:12px;color:var(--ink-60, #64748B)" id="quizPercentIndicator">12% Completed</span>
+        </div>
+        <div style="height:6px;background:#F1F5F9;border-radius:999px;overflow:hidden;margin-bottom:28px;border:1px solid #E2E8F0">
+          <div id="quizProgressBar" style="height:100%;width:12.5%;background:linear-gradient(90deg, #CF3C30, #FFD166);border-radius:999px;transition:width 0.35s ease"></div>
+        </div>
 
-      <!-- Action Buttons -->
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;align-items:center">
-        <a href="find-franchise.html" class="btn btn--kesar" style="font-size:15px;padding:15px 32px;font-weight:700;display:inline-flex;align-items:center;gap:8px">
-          Start Questionnaire &rarr;
-        </a>
-        <a href="book-consultation.html" class="btn-outline-pill" style="font-size:15px;padding:14px 28px;font-weight:600;display:inline-flex;align-items:center;gap:8px">
-          Book 1-on-1 Consultation &rarr;
-        </a>
+        <form id="quizForm" onsubmit="return false">
+
+          <!-- Step 1: Investment Budget -->
+          <div class="quiz-step active-quiz-step" data-step="1">
+            <h3 style="font-size:22px;color:#0F172A;margin:0 0 8px">1. What is your approximate investment budget?</h3>
+            <p style="font-size:14.5px;color:#64748B;margin-bottom:20px">Select your planned initial capital allocation.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:12px;margin-bottom:28px">
+              <label class="quiz-pill-label"><input type="radio" name="q_budget" value="Under ₹10 Lakhs" onclick="quizSelectOption(this)" /> <span>Under ₹10 Lakhs</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_budget" value="₹10–20 Lakhs" onclick="quizSelectOption(this)" /> <span>₹10–20 Lakhs</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_budget" value="₹20–35 Lakhs" onclick="quizSelectOption(this)" /> <span>₹20–35 Lakhs</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_budget" value="₹35–50 Lakhs" onclick="quizSelectOption(this)" /> <span>₹35–50 Lakhs</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_budget" value="₹50 Lakhs–₹1 Crore" onclick="quizSelectOption(this)" /> <span>₹50 Lakhs–₹1 Crore</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_budget" value="₹1 Crore+" onclick="quizSelectOption(this)" /> <span>₹1 Crore+</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_budget" value="Not decided yet" onclick="quizSelectOption(this)" /> <span>Not decided yet</span></label>
+            </div>
+          </div>
+
+          <!-- Step 2: Location -->
+          <div class="quiz-step" data-step="2" style="display:none">
+            <h3 style="font-size:22px;color:#0F172A;margin:0 0 8px">2. Where would you like to start your business?</h3>
+            <p style="font-size:14.5px;color:#64748B;margin-bottom:20px">Specify your target expansion city and state.</p>
+            <div class="quiz-grid-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px">
+              <div>
+                <label style="display:block;font-size:13px;font-weight:700;color:#0F172A;margin-bottom:6px">City *</label>
+                <input type="text" id="q_city" placeholder="e.g. Pune / Mumbai / Bengaluru" style="width:100%;padding:14px;border:1.5px solid #E2E8F0;border-radius:12px;font-size:15px;outline:none;background:#F8FAFC" />
+              </div>
+              <div>
+                <label style="display:block;font-size:13px;font-weight:700;color:#0F172A;margin-bottom:6px">State *</label>
+                <input type="text" id="q_state" placeholder="e.g. Maharashtra / Karnataka" style="width:100%;padding:14px;border:1.5px solid #E2E8F0;border-radius:12px;font-size:15px;outline:none;background:#F8FAFC" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Categories -->
+          <div class="quiz-step" data-step="3" style="display:none">
+            <h3 style="font-size:22px;color:#0F172A;margin:0 0 8px">3. Which business categories interest you?</h3>
+            <p style="font-size:14.5px;color:#64748B;margin-bottom:20px">Choose one or more areas of interest.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:12px;margin-bottom:28px">
+              <label class="quiz-pill-label"><input type="checkbox" name="q_cat" value="QSR / Fast Food" /> <span>QSR / Fast Food</span></label>
+              <label class="quiz-pill-label"><input type="checkbox" name="q_cat" value="Café / Beverages" /> <span>Café / Beverages</span></label>
+              <label class="quiz-pill-label"><input type="checkbox" name="q_cat" value="Restaurants" /> <span>Restaurants</span></label>
+              <label class="quiz-pill-label"><input type="checkbox" name="q_cat" value="Desserts / Bakery" /> <span>Desserts / Bakery</span></label>
+              <label class="quiz-pill-label"><input type="checkbox" name="q_cat" value="Cloud Kitchen" /> <span>Cloud Kitchen</span></label>
+              <label class="quiz-pill-label"><input type="checkbox" name="q_cat" value="Retail &amp; Convenience" /> <span>Retail &amp; Convenience</span></label>
+              <label class="quiz-pill-label"><input type="checkbox" name="q_cat" value="Commercial Laundry / Laundromat" /> <span>Commercial Laundry / Laundromat</span></label>
+              <label class="quiz-pill-label"><input type="checkbox" name="q_cat" value="EV Mobility / CleanTech Services" /> <span>EV Mobility / Services</span></label>
+              <label class="quiz-pill-label"><input type="checkbox" name="q_cat" value="Open to recommendations" /> <span>Open to recommendations</span></label>
+            </div>
+          </div>
+
+          <!-- Step 4: Involvement Level -->
+          <div class="quiz-step" data-step="4" style="display:none">
+            <h3 style="font-size:22px;color:#0F172A;margin:0 0 8px">4. How involved would you like to be?</h3>
+            <p style="font-size:14.5px;color:#64748B;margin-bottom:20px">Your intended operational involvement.</p>
+            <div style="display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:28px">
+              <label class="quiz-pill-label"><input type="radio" name="q_involve" value="I want to operate the business myself" onclick="quizSelectOption(this)" /> <span><strong>Owner-Operator:</strong> I want to operate the business myself (Hands-on)</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_involve" value="I intend to appoint a manager/team" onclick="quizSelectOption(this)" /> <span><strong>Manager-Run:</strong> I intend to appoint a manager / store team</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_involve" value="Primarily looking as an investor" onclick="quizSelectOption(this)" /> <span><strong>Investor:</strong> Primarily looking as a financial investor (FOCO / Passive)</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_involve" value="Not sure yet" onclick="quizSelectOption(this)" /> <span><strong>Undecided:</strong> Open to recommendations based on concept</span></label>
+            </div>
+          </div>
+
+          <!-- Step 5: Business Background -->
+          <div class="quiz-step" data-step="5" style="display:none">
+            <h3 style="font-size:22px;color:#0F172A;margin:0 0 8px">5. What is your business background?</h3>
+            <p style="font-size:14.5px;color:#64748B;margin-bottom:20px">Helps us curate the right training and franchisor match.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:12px;margin-bottom:28px">
+              <label class="quiz-pill-label"><input type="radio" name="q_bg" value="Existing business owner" onclick="quizSelectOption(this)" /> <span>Existing business owner</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_bg" value="Previous franchise experience" onclick="quizSelectOption(this)" /> <span>Previous franchise experience</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_bg" value="Professional / salaried" onclick="quizSelectOption(this)" /> <span>Professional / salaried</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_bg" value="First-time entrepreneur" onclick="quizSelectOption(this)" /> <span>First-time entrepreneur</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_bg" value="Other" onclick="quizSelectOption(this)" /> <span>Other</span></label>
+            </div>
+          </div>
+
+          <!-- Step 6: Timeline -->
+          <div class="quiz-step" data-step="6" style="display:none">
+            <h3 style="font-size:22px;color:#0F172A;margin:0 0 8px">6. When are you looking to invest?</h3>
+            <p style="font-size:14.5px;color:#64748B;margin-bottom:20px">Your intended horizon to deploy capital and begin setup.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:12px;margin-bottom:28px">
+              <label class="quiz-pill-label"><input type="radio" name="q_timeline" value="Immediately" onclick="quizSelectOption(this)" /> <span>Immediately</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_timeline" value="Within 1–3 months" onclick="quizSelectOption(this)" /> <span>Within 1–3 months</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_timeline" value="Within 3–6 months" onclick="quizSelectOption(this)" /> <span>Within 3–6 months</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_timeline" value="Within 6–12 months" onclick="quizSelectOption(this)" /> <span>Within 6–12 months</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_timeline" value="Exploring for now" onclick="quizSelectOption(this)" /> <span>Exploring for now</span></label>
+            </div>
+          </div>
+
+          <!-- Step 7: Commercial Location Status -->
+          <div class="quiz-step" data-step="7" style="display:none">
+            <h3 style="font-size:22px;color:#0F172A;margin:0 0 8px">7. Do you already have a commercial location?</h3>
+            <p style="font-size:14.5px;color:#64748B;margin-bottom:20px">Site availability impacts brand approval speed.</p>
+            <div class="quiz-grid-3col" style="display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;margin-bottom:28px">
+              <label class="quiz-pill-label"><input type="radio" name="q_loc" value="Yes" onclick="quizSelectOption(this)" /> <span>Yes (Owned / Leased)</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_loc" value="No" onclick="quizSelectOption(this)" /> <span>No (Need location)</span></label>
+              <label class="quiz-pill-label"><input type="radio" name="q_loc" value="Currently searching" onclick="quizSelectOption(this)" /> <span>Currently searching</span></label>
+            </div>
+          </div>
+
+          <!-- Step 8: Additional Notes & Contact Information -->
+          <div class="quiz-step" data-step="8" style="display:none">
+            <h3 style="font-size:22px;color:#0F172A;margin:0 0 8px">8. Anything else we should know?</h3>
+            <p style="font-size:14.5px;color:#64748B;margin-bottom:16px">Share any specific thoughts, followed by your contact details to receive matches.</p>
+            
+            <div style="margin-bottom:18px">
+              <label style="display:block;font-size:13px;font-weight:700;color:#0F172A;margin-bottom:6px">Additional Comments (Optional)</label>
+              <textarea id="q_notes" placeholder="Tell us if you have specific brands in mind, questions about ROI, or commercial requirements..." style="width:100%;padding:14px;border:1.5px solid #E2E8F0;border-radius:12px;font-size:14.5px;min-height:75px;outline:none;background:#F8FAFC;font-family:inherit"></textarea>
+            </div>
+
+            <div class="quiz-grid-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px">
+              <div>
+                <label style="display:block;font-size:13px;font-weight:700;color:#0F172A;margin-bottom:6px">Full Name *</label>
+                <input type="text" id="q_name" placeholder="e.g. Rohan Redekar" style="width:100%;padding:12px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:14.5px;outline:none;background:#F8FAFC" />
+              </div>
+              <div>
+                <label style="display:block;font-size:13px;font-weight:700;color:#0F172A;margin-bottom:6px">Mobile Number *</label>
+                <input type="tel" id="q_mobile" placeholder="e.g. 9820012345" style="width:100%;padding:12px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:14.5px;outline:none;background:#F8FAFC" />
+              </div>
+              <div>
+                <label style="display:block;font-size:13px;font-weight:700;color:#0F172A;margin-bottom:6px">Email Address *</label>
+                <input type="email" id="q_email" placeholder="e.g. rohan@example.com" style="width:100%;padding:12px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:14.5px;outline:none;background:#F8FAFC" />
+              </div>
+              <div>
+                <label style="display:block;font-size:13px;font-weight:700;color:#0F172A;margin-bottom:6px">Preferred Contact Method *</label>
+                <select id="q_pref_contact" style="width:100%;padding:12px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:14.5px;outline:none;background:#F8FAFC;cursor:pointer">
+                  <option value="WhatsApp">WhatsApp</option>
+                  <option value="Phone Call">Phone Call</option>
+                  <option value="Email">Email</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="font-size:12.5px;color:#64748B;line-height:1.5;margin-bottom:20px">
+              By submitting this questionnaire, you consent to Franchise 101 contacting you regarding your enquiry through telephone, WhatsApp, SMS, email in accordance with our <a href="privacy-policy.html" target="_blank" style="color:#CF3C30;text-decoration:underline">Privacy Policy</a>.
+            </div>
+          </div>
+
+          <!-- Success State -->
+          <div class="quiz-success-state" id="quizSuccessState" style="display:none;text-align:center;padding:24px 12px">
+            <div style="width:64px;height:64px;border-radius:50%;background:rgba(0,229,153,0.15);color:#00B377;font-size:32px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">&check;</div>
+            <h3 style="font-size:26px;color:#0F172A;margin:0 0 10px">Matching Request Received!</h3>
+            <p style="font-size:15.5px;color:#64748B;max-width:54ch;margin:0 auto 20px;line-height:1.6">
+              Thank you! Our advisory team is reviewing your budget, location, and interests. We will curate the most suitable brand opportunities and connect via your preferred method within 24 hours.
+            </p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+              <a href="https://wa.me/919820012345?text=Hi%20Franchise%20101,%20I%20just%20completed%20the%20Find%20the%20Right%20Franchise%20questionnaire." target="_blank" class="btn btn--kesar">Chat on WhatsApp Now &rarr;</a>
+              <button type="button" class="btn btn--ghost" onclick="resetQuiz()">Restart Questionnaire</button>
+            </div>
+          </div>
+
+          <!-- Navigation Controls -->
+          <div class="quiz-nav-actions" id="quizNavActions" style="display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid #E2E8F0">
+            <button type="button" class="btn btn--ghost btn--sm" id="quizPrevBtn" onclick="quizPrevStep()" style="visibility:hidden">&larr; Previous</button>
+            <div style="display:flex;gap:12px;align-items:center">
+              <span style="font-size:12.5px;color:#64748B" id="quizHintText">Select an option to proceed</span>
+              <button type="button" class="btn btn--kesar" id="quizNextBtn" onclick="quizNextStep()">Next Step &rarr;</button>
+            </div>
+          </div>
+
+        </form>
       </div>
-
-      <div style="margin-top:28px;font-size:12.5px;color:#94A3B8;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap">
-        <span>🔒 100% Confidential</span>
-        <span>•</span>
-        <span>⚡ Direct Advisory Team Evaluation</span>
-        <span>•</span>
-        <span>🤝 Zero Brokerage Bias</span>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1032,6 +1313,112 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.rv, .rv-scale').forEach(el => io.observe(el));
+
+// ============ 8-STEP INVESTOR QUESTIONNAIRE LOGIC ============
+let currentQuizStep = 1;
+const totalQuizSteps = 8;
+
+function updateQuizUI() {
+  document.querySelectorAll('.quiz-step').forEach(step => {
+    const s = parseInt(step.getAttribute('data-step'), 10);
+    step.style.display = (s === currentQuizStep) ? 'block' : 'none';
+  });
+  
+  const pct = Math.round((currentQuizStep / totalQuizSteps) * 100);
+  const prog = document.getElementById('quizProgressBar');
+  if (prog) prog.style.width = pct + '%';
+  
+  const stepInd = document.getElementById('quizStepIndicator');
+  if (stepInd) stepInd.textContent = `Step ${currentQuizStep} of ${totalQuizSteps}`;
+  
+  const pctInd = document.getElementById('quizPercentIndicator');
+  if (pctInd) pctInd.textContent = `${pct}% Completed`;
+
+  const prevBtn = document.getElementById('quizPrevBtn');
+  if (prevBtn) {
+    prevBtn.style.visibility = (currentQuizStep > 1) ? 'visible' : 'hidden';
+  }
+
+  const nextBtn = document.getElementById('quizNextBtn');
+  if (nextBtn) {
+    if (currentQuizStep === totalQuizSteps) {
+      nextBtn.innerHTML = 'Find Opportunities for Me &rarr;';
+    } else {
+      nextBtn.innerHTML = 'Next Step &rarr;';
+    }
+  }
+}
+
+function quizNextStep() {
+  if (currentQuizStep === totalQuizSteps) {
+    // Validate Step 8 inputs
+    const name = document.getElementById('q_name')?.value.trim();
+    const mobile = document.getElementById('q_mobile')?.value.trim();
+    const email = document.getElementById('q_email')?.value.trim();
+
+    if (!name || !mobile || !email) {
+      alert('Please provide your name, mobile number and email to receive your curated opportunities.');
+      return;
+    }
+
+    // Submit quiz
+    document.querySelectorAll('.quiz-step').forEach(s => s.style.display = 'none');
+    const navActions = document.getElementById('quizNavActions');
+    if (navActions) navActions.style.display = 'none';
+    const success = document.getElementById('quizSuccessState');
+    if (success) success.style.display = 'block';
+    return;
+  }
+
+  // Validate step 2
+  if (currentQuizStep === 2) {
+    const city = document.getElementById('q_city')?.value.trim();
+    const state = document.getElementById('q_state')?.value.trim();
+    if (!city || !state) {
+      alert('Please enter your preferred City and State.');
+      return;
+    }
+  }
+
+  currentQuizStep++;
+  updateQuizUI();
+}
+
+function quizPrevStep() {
+  if (currentQuizStep > 1) {
+    currentQuizStep--;
+    updateQuizUI();
+  }
+}
+
+function quizSelectOption(input) {
+  const container = input.closest('.quiz-step');
+  if (container) {
+    container.querySelectorAll('.quiz-pill-label').forEach(lbl => lbl.classList.remove('selected-pill'));
+    const parent = input.closest('.quiz-pill-label');
+    if (parent) parent.classList.add('selected-pill');
+  }
+}
+
+function resetQuiz() {
+  currentQuizStep = 1;
+  const form = document.getElementById('quizForm');
+  if (form) form.reset();
+  document.querySelectorAll('.quiz-pill-label').forEach(lbl => lbl.classList.remove('selected-pill'));
+  const success = document.getElementById('quizSuccessState');
+  if (success) success.style.display = 'none';
+  const navActions = document.getElementById('quizNavActions');
+  if (navActions) navActions.style.display = 'flex';
+  updateQuizUI();
+}
+
+// Checkbox selection listener for Step 3
+document.querySelectorAll('.quiz-step[data-step="3"] input[type="checkbox"]').forEach(cb => {
+  cb.addEventListener('change', () => {
+    const lbl = cb.closest('.quiz-pill-label');
+    if (lbl) lbl.classList.toggle('selected-pill', cb.checked);
+  });
+});
 </script>
 
 </body>
