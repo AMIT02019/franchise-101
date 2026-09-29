@@ -1138,18 +1138,25 @@ function resetConsultForm() {
 <button class="back-to-top floating-up" id="btnBackToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
 
 <!-- Persistent Desktop Floating Action Buttons -->
-<div class="floating-cta-desktop float-left" aria-label="WhatsApp Support">
-  <a href="https://wa.me/919820012345?text=Hi%20Franchise%20101%2C%20I%20would%20like%20to%20connect%20with%20an%20advisor." target="_blank" rel="noopener noreferrer" class="float-btn-wa" aria-label="Chat on WhatsApp">
-    <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.07-1.745-.39-1.419-.588-2.337-2.023-2.408-2.117-.07-.094-.576-.767-.576-1.464 0-.697.362-1.04.49-1.183.129-.144.281-.179.375-.179.094 0 .188.001.27.006.086.005.201-.033.314.24.118.283.403.985.438 1.057.036.072.06.156.012.25-.048.095-.072.155-.144.24-.072.083-.153.187-.218.25-.072.071-.147.148-.063.292.084.144.373.616.802.998.552.492 1.018.644 1.162.716.144.071.229.06.314-.037.085-.096.363-.424.46-.57.097-.145.194-.12.327-.072.133.048.847.399.992.472.145.072.241.108.277.169.036.06.036.35-.108.755zM12 2C6.477 2 2 6.477 2 12c0 1.891.527 3.66 1.444 5.176L2 22l4.981-1.309A9.954 9.954 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.636 0-3.155-.47-4.444-1.284l-.319-.2-2.955.775.789-2.88-.207-.33A8.167 8.167 0 013.8 12c0-4.521 3.679-8.2 8.2-8.2s8.2 3.679 8.2 8.2-3.679 8.2-8.2 8.2z"/></svg>
-    <span>Chat on WhatsApp</span>
+<!-- Persistent Desktop Floating Action Buttons with Advisor Character -->
+<div class="floating-cta-desktop floating-cta-stack" aria-label="Quick Actions">
+  <a href="book-consultation.html" class="floating-advisor-wrap" aria-label="Talk to our Franchise Advisor">
+    <div class="advisor-speech-bubble">
+      <span class="advisor-bubble-dot"></span>
+      <span>Talk to our Advisor 👇</span>
+    </div>
+    <img src="assets/advisor-guide.png" alt="Franchise Advisor" class="floating-advisor-img" width="125" height="190" />
   </a>
-</div>
-
-<div class="floating-cta-desktop float-right" aria-label="Book Consultation">
-  <a href="#consultation-tabs" class="float-btn-consult" aria-label="Jump to Consultation Form">
-    <span>Jump to Form</span>
-    <span>&darr;</span>
-  </a>
+  <div class="floating-cta-buttons">
+    <a href="https://wa.me/919820012345?text=Hi%20Franchise%20101%2C%20I%20would%20like%20to%20know%20more%20about%20franchise%20opportunities." target="_blank" rel="noopener noreferrer" class="float-btn-wa" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.07-1.745-.39-1.419-.588-2.337-2.023-2.408-2.117-.07-.094-.576-.767-.576-1.464 0-.697.362-1.04.49-1.183.129-.144.281-.179.375-.179.094 0 .188.001.27.006.086.005.201-.033.314.24.118.283.403.985.438 1.057.036.072.06.156.012.25-.048.095-.072.155-.144.24-.072.083-.153.187-.218.25-.072.071-.147.148-.063.292.084.144.373.616.802.998.552.492 1.018.644 1.162.716.144.071.229.06.314-.037.085-.096.363-.424.46-.57.097-.145.194-.12.327-.072.133.048.847.399.992.472.145.072.241.108.277.169.036.06.036.35-.108.755zM12 2C6.477 2 2 6.477 2 12c0 1.891.527 3.66 1.444 5.176L2 22l4.981-1.309A9.954 9.954 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.636 0-3.155-.47-4.444-1.284l-.319-.2-2.955.775.789-2.88-.207-.33A8.167 8.167 0 013.8 12c0-4.521 3.679-8.2 8.2-8.2s8.2 3.679 8.2 8.2-3.679 8.2-8.2 8.2z"/></svg>
+      <span>Chat on WhatsApp</span>
+    </a>
+    <a href="book-consultation.html" class="float-btn-consult" aria-label="Book a Consultation">
+      <span>Book a Consultation</span>
+      <span>&rarr;</span>
+    </a>
+  </div>
 </div>
 
 <!-- Mobile Persistent Bottom Sticky Action Bar (<= 768px) -->
