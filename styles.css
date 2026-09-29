@@ -779,12 +779,12 @@ em {
 
   /* Floating Up Button */
   .floating-up {
-    bottom: 14px;
-    left: 12px;
-    right: auto;
-    width: 38px;
-    height: 38px;
-    font-size: 16px;
+    bottom: 172px;
+    right: 14px;
+    left: auto;
+    width: 36px;
+    height: 36px;
+    font-size: 15px;
   }
 }
 
@@ -3150,13 +3150,16 @@ html, body {
 
 @media (max-width: 640px) {
   .home-hero-h1 {
-    min-height: 4.35em;
+    font-size: clamp(27px, 6.6vw, 35px);
+    line-height: 1.12;
+    min-height: 2.45em;
+    margin-bottom: 14px;
   }
 }
 
 @media (max-width: 420px) {
   .home-hero-h1 {
-    min-height: 5.4em;
+    min-height: 2.65em;
   }
 }
 
@@ -3309,6 +3312,50 @@ html, body {
   font-size: 12px;
   color: #64748B;
   font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .home-hero-actions {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+  .home-stat-strip {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+    padding-top: 18px !important;
+    text-align: center;
+  }
+  .home-stat-badge {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 4px !important;
+  }
+  .home-stat-icon {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 14px !important;
+  }
+  .home-stat-info strong {
+    font-size: 14px !important;
+    line-height: 1.15 !important;
+  }
+  .home-stat-info span {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    display: block !important;
+  }
 }
 
 /* Right Mosaic Collage */
@@ -8379,6 +8426,37 @@ html, body {
   }
   .hide-on-mobile {
     display: none !important;
+  }
+
+  /* Automatically hide floating actions and back-to-top when mobile drawer menu is opened */
+  body.drawer-open .floating-cta-desktop,
+  body.drawer-open .floating-up,
+  .mobile-drawer.open ~ .floating-cta-desktop,
+  .mobile-drawer.open ~ .floating-up {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    transform: translateY(16px) !important;
+  }
+
+  /* 8-Step Questionnaire Card on Mobile */
+  .quiz-card-box {
+    padding: 22px 16px !important;
+    border-radius: 20px !important;
+  }
+  .quiz-step h3 {
+    font-size: 18px !important;
+    line-height: 1.3 !important;
+  }
+  .quiz-pill-label {
+    padding: 10px 14px !important;
+    font-size: 13.5px !important;
+    min-height: 44px;
+  }
+
+  /* Footer Bottom Spacing on Mobile */
+  footer.foot, .foot-base {
+    padding-bottom: 40px !important;
   }
 }
 

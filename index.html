@@ -1180,6 +1180,16 @@ if (navToggle && mobileDrawer) {
     navToggle.classList.toggle('open', isOpen);
     navToggle.setAttribute('aria-expanded', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
+    document.body.classList.toggle('drawer-open', isOpen);
+  });
+
+  mobileDrawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileDrawer.classList.remove('open');
+      navToggle.classList.remove('open');
+      document.body.style.overflow = '';
+      document.body.classList.remove('drawer-open');
+    });
   });
 }
 
