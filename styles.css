@@ -8600,6 +8600,62 @@ html, body {
   margin-top: 2px;
 }
 
+/* Comprehensive Development Services Cards (develop-brand.html) */
+.service-dev-card {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 18px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+  position: relative;
+  min-height: 122px;
+  box-sizing: border-box;
+}
+.service-dev-card:hover,
+.service-dev-card.expanded,
+.service-dev-card:focus-within {
+  background: #FFFFFF;
+  border-color: #CF3C30;
+  box-shadow: 0 12px 28px -6px rgba(207, 60, 48, 0.12);
+  transform: translateY(-2px);
+}
+.service-dev-eyebrow {
+  font-family: var(--font-mono, monospace);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #CF3C30;
+  letter-spacing: 0.04em;
+  display: block;
+}
+.service-dev-title {
+  font-size: 17.5px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0;
+  line-height: 1.35;
+}
+.service-dev-desc {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #64748B;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin-top 0.25s ease;
+}
+.service-dev-card:hover .service-dev-desc,
+.service-dev-card.expanded .service-dev-desc,
+.service-dev-card:focus-within .service-dev-desc {
+  max-height: 250px;
+  opacity: 1;
+  margin-top: 4px;
+}
+
 /* 4. Side-by-Side Measurable Expected Outcomes */
 .outcomes-side-by-side {
   display: grid;

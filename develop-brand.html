@@ -182,95 +182,75 @@
     </div>
 
     <!-- 10 Services Grid (Point-wise & Scannable) -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:20px;margin-top:40px" class="rv-stagger">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:20px;margin-top:40px;align-items:start" class="rv-stagger">
       <!-- 01 -->
-      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:8px" class="rv">
-        <span style="font-family:var(--font-mono, monospace);font-size:12px;font-weight:700;color:#CF3C30">01. CONCEPT &amp; BUSINESS DEVELOPMENT</span>
-        <h3 style="font-size:18px;font-weight:700;color:#0F172A;margin:0 0 4px">Concept &amp; Business Development</h3>
-        <p style="font-size:14px;color:#64748B;line-height:1.6;margin:0">
-          Concept development, business-model planning, positioning and strategic inputs.
-        </p>
+      <div class="service-dev-card rv" onclick="this.classList.toggle('expanded')">
+        <span class="service-dev-eyebrow">01. CONCEPT &amp; BUSINESS DEVELOPMENT</span>
+        <h3 class="service-dev-title">Concept &amp; Business Development</h3>
+        <p class="service-dev-desc">Concept development, business-model planning, positioning and strategic inputs.</p>
       </div>
 
       <!-- 02 -->
-      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:8px" class="rv">
-        <span style="font-family:var(--font-mono, monospace);font-size:12px;font-weight:700;color:#CF3C30">02. BRAND DEVELOPMENT</span>
-        <h3 style="font-size:18px;font-weight:700;color:#0F172A;margin:0 0 4px">Brand Development</h3>
-        <p style="font-size:14px;color:#64748B;line-height:1.6;margin:0">
-          Naming, brand strategy, positioning, visual identity, guidelines and website.
-        </p>
+      <div class="service-dev-card rv" onclick="this.classList.toggle('expanded')">
+        <span class="service-dev-eyebrow">02. BRAND DEVELOPMENT</span>
+        <h3 class="service-dev-title">Brand Development</h3>
+        <p class="service-dev-desc">Naming, brand strategy, positioning, visual identity, guidelines and website.</p>
       </div>
 
       <!-- 03 -->
-      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:8px" class="rv">
-        <span style="font-family:var(--font-mono, monospace);font-size:12px;font-weight:700;color:#CF3C30">03. MENU &amp; PRODUCT DEVELOPMENT</span>
-        <h3 style="font-size:18px;font-weight:700;color:#0F172A;margin:0 0 4px">Menu &amp; Product Development</h3>
-        <p style="font-size:14px;color:#64748B;line-height:1.6;margin:0">
-          Menu conceptualisation, curation, engineering, design, recipe standardisation and SOP development.
-        </p>
+      <div class="service-dev-card rv" onclick="this.classList.toggle('expanded')">
+        <span class="service-dev-eyebrow">03. MENU &amp; PRODUCT DEVELOPMENT</span>
+        <h3 class="service-dev-title">Menu &amp; Product Development</h3>
+        <p class="service-dev-desc">Menu conceptualisation, curation, engineering, design, recipe standardisation and SOP development.</p>
       </div>
 
       <!-- 04 -->
-      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:8px" class="rv">
-        <span style="font-family:var(--font-mono, monospace);font-size:12px;font-weight:700;color:#CF3C30">04. OUTLET &amp; INTERIOR DEVELOPMENT</span>
-        <h3 style="font-size:18px;font-weight:700;color:#0F172A;margin:0 0 4px">Outlet &amp; Interior Development</h3>
-        <p style="font-size:14px;color:#64748B;line-height:1.6;margin:0">
-          Architecture, space planning, outlet design, interiors and fit-out execution.
-        </p>
+      <div class="service-dev-card rv" onclick="this.classList.toggle('expanded')">
+        <span class="service-dev-eyebrow">04. OUTLET &amp; INTERIOR DEVELOPMENT</span>
+        <h3 class="service-dev-title">Outlet &amp; Interior Development</h3>
+        <p class="service-dev-desc">Architecture, space planning, outlet design, interiors and fit-out execution.</p>
       </div>
 
       <!-- 05 -->
-      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:8px" class="rv">
-        <span style="font-family:var(--font-mono, monospace);font-size:12px;font-weight:700;color:#CF3C30">05. KITCHEN DEVELOPMENT</span>
-        <h3 style="font-size:18px;font-weight:700;color:#0F172A;margin:0 0 4px">Kitchen Development</h3>
-        <p style="font-size:14px;color:#64748B;line-height:1.6;margin:0">
-          Kitchen planning, workflow, equipment requirements and setup coordination.
-        </p>
+      <div class="service-dev-card rv" onclick="this.classList.toggle('expanded')">
+        <span class="service-dev-eyebrow">05. KITCHEN DEVELOPMENT</span>
+        <h3 class="service-dev-title">Kitchen Development</h3>
+        <p class="service-dev-desc">Kitchen planning, workflow, equipment requirements and setup coordination.</p>
       </div>
 
       <!-- 06 -->
-      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:8px" class="rv">
-        <span style="font-family:var(--font-mono, monospace);font-size:12px;font-weight:700;color:#CF3C30">06. OPERATIONS</span>
-        <h3 style="font-size:18px;font-weight:700;color:#0F172A;margin:0 0 4px">Operations</h3>
-        <p style="font-size:14px;color:#64748B;line-height:1.6;margin:0">
-          Store SOPs, training frameworks, operational guidelines and process development.
-        </p>
+      <div class="service-dev-card rv" onclick="this.classList.toggle('expanded')">
+        <span class="service-dev-eyebrow">06. OPERATIONS</span>
+        <h3 class="service-dev-title">Operations</h3>
+        <p class="service-dev-desc">Store SOPs, training frameworks, operational guidelines and process development.</p>
       </div>
 
       <!-- 07 -->
-      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:8px" class="rv">
-        <span style="font-family:var(--font-mono, monospace);font-size:12px;font-weight:700;color:#CF3C30">07. PROCUREMENT &amp; VENDOR SUPPORT</span>
-        <h3 style="font-size:18px;font-weight:700;color:#0F172A;margin:0 0 4px">Procurement &amp; Vendor Support</h3>
-        <p style="font-size:14px;color:#64748B;line-height:1.6;margin:0">
-          Raw-material planning, vendor identification, equipment and procurement coordination.
-        </p>
+      <div class="service-dev-card rv" onclick="this.classList.toggle('expanded')">
+        <span class="service-dev-eyebrow">07. PROCUREMENT &amp; VENDOR SUPPORT</span>
+        <h3 class="service-dev-title">Procurement &amp; Vendor Support</h3>
+        <p class="service-dev-desc">Raw-material planning, vendor identification, equipment and procurement coordination.</p>
       </div>
 
       <!-- 08 -->
-      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:8px" class="rv">
-        <span style="font-family:var(--font-mono, monospace);font-size:12px;font-weight:700;color:#CF3C30">08. TECHNOLOGY &amp; POS</span>
-        <h3 style="font-size:18px;font-weight:700;color:#0F172A;margin:0 0 4px">Technology &amp; POS</h3>
-        <p style="font-size:14px;color:#64748B;line-height:1.6;margin:0">
-          POS and relevant business technology setup through specialist partners.
-        </p>
+      <div class="service-dev-card rv" onclick="this.classList.toggle('expanded')">
+        <span class="service-dev-eyebrow">08. TECHNOLOGY &amp; POS</span>
+        <h3 class="service-dev-title">Technology &amp; POS</h3>
+        <p class="service-dev-desc">POS and relevant business technology setup through specialist partners.</p>
       </div>
 
       <!-- 09 -->
-      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:8px" class="rv">
-        <span style="font-family:var(--font-mono, monospace);font-size:12px;font-weight:700;color:#CF3C30">09. CONTENT &amp; MARKETING</span>
-        <h3 style="font-size:18px;font-weight:700;color:#0F172A;margin:0 0 4px">Content &amp; Marketing</h3>
-        <p style="font-size:14px;color:#64748B;line-height:1.6;margin:0">
-          Content production, social media, campaign development, digital marketing and performance marketing.
-        </p>
+      <div class="service-dev-card rv" onclick="this.classList.toggle('expanded')">
+        <span class="service-dev-eyebrow">09. CONTENT &amp; MARKETING</span>
+        <h3 class="service-dev-title">Content &amp; Marketing</h3>
+        <p class="service-dev-desc">Content production, social media, campaign development, digital marketing and performance marketing.</p>
       </div>
 
       <!-- 10 -->
-      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:8px" class="rv">
-        <span style="font-family:var(--font-mono, monospace);font-size:12px;font-weight:700;color:#CF3C30">10. FRANCHISE READINESS &amp; EXPANSION</span>
-        <h3 style="font-size:18px;font-weight:700;color:#0F172A;margin:0 0 4px">Franchise Readiness &amp; Expansion</h3>
-        <p style="font-size:14px;color:#64748B;line-height:1.6;margin:0">
-          Financial/business modelling, franchise proposition development, franchise marketing material and expansion preparation where applicable.
-        </p>
+      <div class="service-dev-card rv" onclick="this.classList.toggle('expanded')">
+        <span class="service-dev-eyebrow">10. FRANCHISE READINESS &amp; EXPANSION</span>
+        <h3 class="service-dev-title">Franchise Readiness &amp; Expansion</h3>
+        <p class="service-dev-desc">Financial/business modelling, franchise proposition development, franchise marketing material and expansion preparation where applicable.</p>
       </div>
     </div>
   </div>
@@ -286,7 +266,7 @@
     </div>
 
     <!-- 8 Interactive Process Steps Grid -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:20px;margin-top:40px" class="rv-stagger">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:20px;margin-top:40px;align-items:start" class="rv-stagger">
       <!-- Stage 01 -->
       <div class="interactive-step-card rv" onclick="this.classList.toggle('expanded')">
         <div class="step-card-head">
