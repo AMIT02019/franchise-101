@@ -588,24 +588,51 @@
       <p style="font-size:15px;color:var(--ink-60);max-width:52ch;margin:0 auto;line-height:1.5">Select your profile to load the relevant consultation form.</p>
     </div>
 
-    <!-- 2 Main Form Selection Cards (Symmetrical Grid) -->
-    <div class="form-choice-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:20px;max-width:860px;margin:0 auto 28px" class="rv">
+    <!-- 5 Selection Cards for "How can we help you?" (Doc Section 7) -->
+    <div class="form-choice-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px;max-width:860px;margin:0 auto 28px" class="rv">
       
-      <!-- Card 1: Investor Form -->
-      <button type="button" class="form-choice-card active" id="tab-investor" onclick="switchConsultForm('investor')">
+      <!-- Option 1: Invest in a franchise -->
+      <button type="button" class="form-choice-card active" id="opt-invest" onclick="selectConsultTrack('invest')">
         <div class="choice-icon">💼</div>
         <div class="choice-text">
-          <strong class="choice-title">Investor Form</strong>
+          <strong class="choice-title">Invest in a Franchise</strong>
           <span class="choice-desc">I want to explore and invest in curated franchise opportunities</span>
         </div>
       </button>
 
-      <!-- Card 2: Brand / Business Form -->
-      <button type="button" class="form-choice-card" id="tab-brand" onclick="switchConsultForm('brand')">
-        <div class="choice-icon">🚀</div>
+      <!-- Option 2: Develop own brand -->
+      <button type="button" class="form-choice-card" id="opt-brand" onclick="selectConsultTrack('brand')">
+        <div class="choice-icon">💡</div>
         <div class="choice-text">
-          <strong class="choice-title">Brand / Business Form</strong>
-          <span class="choice-desc">I want to develop my own brand, franchise, scale, or need marketing</span>
+          <strong class="choice-title">Develop My Own Brand</strong>
+          <span class="choice-desc">I want to build a new business concept from idea to launch</span>
+        </div>
+      </button>
+
+      <!-- Option 3: Franchise/scale existing business -->
+      <button type="button" class="form-choice-card" id="opt-scale" onclick="selectConsultTrack('scale')">
+        <div class="choice-icon">📈</div>
+        <div class="choice-text">
+          <strong class="choice-title">Franchise &amp; Scale</strong>
+          <span class="choice-desc">I want to franchise/scale my existing business</span>
+        </div>
+      </button>
+
+      <!-- Option 4: Franchise marketing -->
+      <button type="button" class="form-choice-card" id="opt-marketing" onclick="selectConsultTrack('marketing')">
+        <div class="choice-icon">📣</div>
+        <div class="choice-text">
+          <strong class="choice-title">Franchise Marketing</strong>
+          <span class="choice-desc">I need specialized investor acquisition and marketing funnels</span>
+        </div>
+      </button>
+
+      <!-- Option 5: Another business service -->
+      <button type="button" class="form-choice-card" id="opt-service" onclick="selectConsultTrack('service')">
+        <div class="choice-icon">⚙️</div>
+        <div class="choice-text">
+          <strong class="choice-title">Other Business Service</strong>
+          <span class="choice-desc">I need advisory, turnkey setup or operational development</span>
         </div>
       </button>
 
@@ -962,20 +989,21 @@
 <script>
 let activeFormType = 'investor';
 
-function switchConsultForm(type) {
-  activeFormType = type;
-  
-  const isInvestor = (type === 'investor');
-  
-  // Toggle tab buttons
-  document.getElementById('tab-investor').classList.toggle('active', isInvestor);
-  document.getElementById('tab-brand').classList.toggle('active', !isInvestor);
+function selectConsultTrack(track) {
+  const options = ['invest', 'brand', 'scale', 'marketing', 'service'];
+  options.forEach(opt => {
+    const el = document.getElementById('opt-' + opt);
+    if (el) el.classList.toggle('active', opt === track);
+  });
 
-  // Toggle Panels
+  const isInvestor = (track === 'invest');
+  activeFormType = isInvestor ? 'investor' : 'brand';
+
   document.getElementById('panel-investor').style.display = isInvestor ? 'block' : 'none';
   document.getElementById('panel-brand').style.display = isInvestor ? 'none' : 'block';
 
-  // Update Headers & CTA Text
+  const supportSelect = document.getElementById('b_support');
+
   if (isInvestor) {
     document.getElementById('formTitle').textContent = 'Investor Consultation Form';
     document.getElementById('formBadge').textContent = 'Investor Track';
@@ -986,25 +1014,34 @@ function switchConsultForm(type) {
     document.getElementById('formBadge').textContent = 'Brand & Business Track';
     document.getElementById('formSubtitle').textContent = 'Share details of your brand or business concept to explore development, franchising, marketing, or expansion support.';
     document.getElementById('submitBtnText').textContent = 'Submit Brand Consultation Request';
+
+    if (supportSelect) {
+      if (track === 'brand') supportSelect.value = 'Build My Own Brand (Concept-to-Launch)';
+      else if (track === 'scale') supportSelect.value = 'Franchise & Scale (SOPs & Expansion)';
+      else if (track === 'marketing') supportSelect.value = 'Franchise Marketing (Investor Acquisition)';
+      else if (track === 'service') supportSelect.value = 'Complete Turnkey Ecosystem';
+    }
   }
+}
+
+function switchConsultForm(type) {
+  selectConsultTrack(type === 'investor' || type === 'invest' ? 'invest' : 'brand');
 }
 
 // URL parameters routing (e.g. ?intent=brand or ?service=scale)
 window.addEventListener('DOMContentLoaded', () => {
   const urlParams = new URLSearchParams(window.location.search);
   const param = urlParams.get('intent') || urlParams.get('service') || '';
-  if (param.includes('brand') || param.includes('scale') || param.includes('marketing') || param.includes('business')) {
-    switchConsultForm('brand');
-    
-    // Auto-set the support dropdown if specific
-    const supportSelect = document.getElementById('b_support');
-    if (supportSelect) {
-      if (param.includes('brand')) supportSelect.value = 'Build My Own Brand (Concept-to-Launch)';
-      else if (param.includes('scale')) supportSelect.value = 'Franchise & Scale (SOPs & Expansion)';
-      else if (param.includes('marketing')) supportSelect.value = 'Franchise Marketing (Investor Acquisition)';
-    }
+  if (param.includes('brand')) {
+    selectConsultTrack('brand');
+  } else if (param.includes('scale')) {
+    selectConsultTrack('scale');
+  } else if (param.includes('marketing')) {
+    selectConsultTrack('marketing');
+  } else if (param.includes('service') || param.includes('business')) {
+    selectConsultTrack('service');
   } else {
-    switchConsultForm('investor');
+    selectConsultTrack('invest');
   }
 });
 
