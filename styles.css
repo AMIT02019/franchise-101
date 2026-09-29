@@ -267,7 +267,7 @@ em {
 }
 /* HEADER & FOOTER LOGO SIZING */
 .logo-mark {
-  height: 42px;
+  height: 32px;
   width: auto;
   display: inline-block;
   vertical-align: middle;
@@ -276,12 +276,12 @@ em {
   transition: transform 0.2s var(--ease);
 }
 .nav .logo-mark {
-  height: 42px;
+  height: 32px;
   width: auto;
   max-width: none;
 }
 .mobile-drawer .logo-mark {
-  height: 38px;
+  height: 30px;
   width: auto;
 }
 .foot .logo-mark,
@@ -294,11 +294,11 @@ em {
   border-radius: 6px;
 }
 @media (max-width: 1020px) {
-  .nav .logo-mark { height: 40px; }
+  .nav .logo-mark { height: 30px; }
 }
 @media (max-width: 680px) {
-  .logo-mark { height: 36px; }
-  .nav .logo-mark { height: 36px; }
+  .logo-mark { height: 28px; }
+  .nav .logo-mark { height: 28px; }
   .foot .logo-mark,
   .foot-brand .logo-mark { height: 46px !important; }
 }
@@ -536,7 +536,7 @@ em {
     flex-shrink: 0;
   }
   .logo-mark {
-    height: 38px !important;
+    height: 28px !important;
   }
   .nav-cta-wrap {
     display: flex;
@@ -2214,7 +2214,7 @@ html, body {
     gap: 6px !important;
   }
   .nav .logo-mark {
-    height: 38px !important;
+    height: 28px !important;
     width: auto !important;
     max-width: none !important;
   }
@@ -2234,7 +2234,7 @@ html, body {
     top: 8px !important;
   }
   .nav .logo-mark {
-    height: 33px !important;
+    height: 25px !important;
     width: auto !important;
   }
   .logo {
