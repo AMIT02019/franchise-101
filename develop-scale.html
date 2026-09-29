@@ -166,10 +166,10 @@
 <section class="scale-who-sec" id="who-it-is-for">
   <div class="wrap">
     
-    <!-- Executive 2-Column Split Dossier Layout -->
+    <!-- Executive 2-Column Split Dossier Layout with Sticky Scroll -->
     <div class="scale-dossier-layout">
       <!-- Left Column: Sticky Anchor & Imagery -->
-      <div class="scale-dossier-sidebar rv">
+      <div class="scale-dossier-sidebar">
         <div>
           <span class="scale-sec-eyebrow">WHO IT IS FOR</span>
           <h2 class="scale-sec-title">Built for Operating Businesses Ready to Expand</h2>
@@ -178,16 +178,35 @@
           </p>
         </div>
 
-        <div class="scale-dossier-visual rv-scale">
+        <!-- Interactive Sticky Progress Tracker -->
+        <div class="scale-scroll-tracker" aria-label="Expansion profile progress">
+          <div class="scale-tracker-info">
+            <span class="scale-tracker-label">Expansion Focus</span>
+            <span class="scale-tracker-count">Profile <b id="scaleActiveNum">01</b> of 06</span>
+          </div>
+          <div class="scale-tracker-bar">
+            <div class="scale-tracker-fill" id="scaleTrackerFill" style="width: 16.66%;"></div>
+          </div>
+          <div class="scale-tracker-pills">
+            <button type="button" class="scale-step-pill is-active" data-step="0" aria-label="Go to Profile 01">01</button>
+            <button type="button" class="scale-step-pill" data-step="1" aria-label="Go to Profile 02">02</button>
+            <button type="button" class="scale-step-pill" data-step="2" aria-label="Go to Profile 03">03</button>
+            <button type="button" class="scale-step-pill" data-step="3" aria-label="Go to Profile 04">04</button>
+            <button type="button" class="scale-step-pill" data-step="4" aria-label="Go to Profile 05">05</button>
+            <button type="button" class="scale-step-pill" data-step="5" aria-label="Go to Profile 06">06</button>
+          </div>
+        </div>
+
+        <div class="scale-dossier-visual">
           <img src="assets/scale-who-interior.jpg" alt="Operating business ready for franchise scale" class="scale-who-img" />
           <div class="scale-hero-overlay"></div>
           <div class="scale-visual-badge">
-            <span>PROVEN CONCEPT</span>
-            <span>EXPANSION READY</span>
+            <span id="scaleBadgeTop">PROVEN CONCEPT</span>
+            <span id="scaleBadgeBottom">EXPANSION READY</span>
           </div>
           <div class="scale-visual-stat-pill">
-            <span class="stat-dot"></span>
-            <span>Turnkey Scalability Framework</span>
+            <span class="stat-dot pulse"></span>
+            <span id="scaleActiveProfilePill">Profile 01: Replication Blueprint</span>
           </div>
         </div>
 
@@ -203,8 +222,8 @@
       </div>
 
       <!-- Right Column: 6 Stacked Horizontal Profile Rows -->
-      <div class="scale-profile-stack rv-stagger">
-        <div class="scale-profile-row rv">
+      <div class="scale-profile-stack" id="scaleProfileStack">
+        <div class="scale-profile-row is-active" data-profile="0">
           <div class="scale-profile-badge">
             <span class="scale-profile-num">01</span>
             <span class="scale-profile-icon">🏬</span>
@@ -218,7 +237,7 @@
           </div>
         </div>
 
-        <div class="scale-profile-row rv">
+        <div class="scale-profile-row" data-profile="1">
           <div class="scale-profile-badge">
             <span class="scale-profile-num">02</span>
             <span class="scale-profile-icon">📍</span>
@@ -232,7 +251,7 @@
           </div>
         </div>
 
-        <div class="scale-profile-row rv">
+        <div class="scale-profile-row" data-profile="2">
           <div class="scale-profile-badge">
             <span class="scale-profile-num">03</span>
             <span class="scale-profile-icon">🍽️</span>
@@ -246,7 +265,7 @@
           </div>
         </div>
 
-        <div class="scale-profile-row rv">
+        <div class="scale-profile-row" data-profile="3">
           <div class="scale-profile-badge">
             <span class="scale-profile-num">04</span>
             <span class="scale-profile-icon">💼</span>
@@ -260,7 +279,7 @@
           </div>
         </div>
 
-        <div class="scale-profile-row rv">
+        <div class="scale-profile-row" data-profile="4">
           <div class="scale-profile-badge">
             <span class="scale-profile-num">05</span>
             <span class="scale-profile-icon">🚀</span>
@@ -274,7 +293,7 @@
           </div>
         </div>
 
-        <div class="scale-profile-row rv">
+        <div class="scale-profile-row" data-profile="5">
           <div class="scale-profile-badge">
             <span class="scale-profile-num">06</span>
             <span class="scale-profile-icon">🎯</span>
@@ -651,6 +670,113 @@ window.addEventListener('DOMContentLoaded', checkReveals);
 window.addEventListener('scroll', checkReveals, { passive: true });
 setTimeout(checkReveals, 100);
 setTimeout(checkReveals, 400);
+
+// ============ STICKY SCROLL ANIMATION: SECTION 4 (WHO IT IS FOR) ============
+(function initScaleStickyScroll() {
+  const profileRows = document.querySelectorAll('.scale-profile-row');
+  const trackerPills = document.querySelectorAll('.scale-step-pill');
+  const activeNumEl = document.getElementById('scaleActiveNum');
+  const activePillEl = document.getElementById('scaleActiveProfilePill');
+  const trackerFill = document.getElementById('scaleTrackerFill');
+  const badgeTop = document.getElementById('scaleBadgeTop');
+  const badgeBottom = document.getElementById('scaleBadgeBottom');
+
+  if (!profileRows.length) return;
+
+  const profileData = [
+    { num: '01', pill: 'Profile 01: Replication Blueprint', badgeTop: 'PROVEN CONCEPT', badgeBottom: 'EXPANSION READY' },
+    { num: '02', pill: 'Profile 02: Multi-City Rollout', badgeTop: 'MULTI-OUTLET', badgeBottom: 'REGIONAL SCALE' },
+    { num: '03', pill: 'Profile 03: Franchise Margins & Central Supply', badgeTop: 'F&B EXCELLENCE', badgeBottom: 'CENTRAL KITCHEN' },
+    { num: '04', pill: 'Profile 04: Commercial & Territory Structuring', badgeTop: 'STRUCTURING', badgeBottom: 'LEGAL FRAMEWORK' },
+    { num: '05', pill: 'Profile 05: Expansion Velocity & Pipeline', badgeTop: 'ACCELERATION', badgeBottom: 'FASTER GROWTH' },
+    { num: '06', pill: 'Profile 06: Investor Acquisition & Decks', badgeTop: 'MARKETING READY', badgeBottom: 'QUALIFIED LEADS' }
+  ];
+
+  function setActiveProfile(idx, smoothScroll) {
+    if (idx < 0 || idx >= profileRows.length) return;
+
+    // Toggle active class on rows
+    profileRows.forEach((row, i) => {
+      row.classList.toggle('is-active', i === idx);
+    });
+
+    // Toggle active class on step pills
+    trackerPills.forEach((pill, i) => {
+      pill.classList.toggle('is-active', i === idx);
+    });
+
+    // Update fill bar percentage
+    if (trackerFill) {
+      const pct = ((idx + 1) / profileRows.length) * 100;
+      trackerFill.style.width = pct + '%';
+    }
+
+    // Update text and status pill
+    if (activeNumEl) activeNumEl.textContent = profileData[idx].num;
+    if (activePillEl) activePillEl.textContent = profileData[idx].pill;
+    if (badgeTop) badgeTop.textContent = profileData[idx].badgeTop;
+    if (badgeBottom) badgeBottom.textContent = profileData[idx].badgeBottom;
+
+    if (smoothScroll) {
+      const row = profileRows[idx];
+      const navOffset = 110;
+      const targetTop = row.getBoundingClientRect().top + window.scrollY - navOffset;
+      window.scrollTo({ top: targetTop, behavior: 'smooth' });
+    }
+  }
+
+  // Click on step pills
+  trackerPills.forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      e.preventDefault();
+      const step = parseInt(pill.getAttribute('data-step'), 10);
+      setActiveProfile(step, true);
+    });
+  });
+
+  // Click on profile card
+  profileRows.forEach((row, idx) => {
+    row.addEventListener('click', () => {
+      setActiveProfile(idx, true);
+    });
+  });
+
+  // IntersectionObserver Scroll-Spy spotlight
+  if ('IntersectionObserver' in window) {
+    const spyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const idx = parseInt(entry.target.getAttribute('data-profile'), 10);
+          if (!isNaN(idx)) {
+            setActiveProfile(idx, false);
+          }
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '-20% 0px -40% 0px',
+      threshold: 0.2
+    });
+
+    profileRows.forEach(row => spyObserver.observe(row));
+  } else {
+    // Fallback scroll listener
+    window.addEventListener('scroll', () => {
+      const mid = window.innerHeight * 0.45;
+      let closestIdx = 0;
+      let minDiff = Infinity;
+      profileRows.forEach((row, idx) => {
+        const rect = row.getBoundingClientRect();
+        const diff = Math.abs(rect.top - mid);
+        if (diff < minDiff) {
+          minDiff = diff;
+          closestIdx = idx;
+        }
+      });
+      setActiveProfile(closestIdx, false);
+    }, { passive: true });
+  }
+})();
 </script>
 </body>
 </html>
