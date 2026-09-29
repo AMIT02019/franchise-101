@@ -690,16 +690,6 @@
           <!-- Step 1: Investment Budget -->
           <div class="quiz-step active-quiz-step" data-step="1">
             <h3 style="font-size:22px;color:#0F172A;margin:0 0 8px">1. What is your approximate investment budget?</h3>
-            <p style="font-size:14.5px;color:#64748B;margin-bottom:20px">Select your planned initial capital allocation.</p>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:12px;margin-bottom:28px">
-              <label class="quiz-pill-label"><input type="radio" name="q_budget" value="Under ₹10 Lakhs" onclick="quizSelectOption(this)" /> <span>Under ₹10 Lakhs</span></label>
-              <label class="quiz-pill-label"><input type="radio" name="q_budget" value="₹10–20 Lakhs" onclick="quizSelectOption(this)" /> <span>₹10–20 Lakhs</span></label>
-              <label class="quiz-pill-label"><input type="radio" name="q_budget" value="₹20–35 Lakhs" onclick="quizSelectOption(this)" /> <span>₹20–35 Lakhs</span></label>
-              <label class="quiz-pill-label"><input type="radio" name="q_budget" value="₹35–50 Lakhs" onclick="quizSelectOption(this)" /> <span>₹35–50 Lakhs</span></label>
-              <label class="quiz-pill-label"><input type="radio" name="q_budget" value="₹50 Lakhs–₹1 Crore" onclick="quizSelectOption(this)" /> <span>₹50 Lakhs–₹1 Crore</span></label>
-          <!-- Step 1: Investment Budget -->
-          <div class="quiz-step active-quiz-step" data-step="1">
-            <h3 style="font-size:22px;color:#0F172A;margin:0 0 8px">1. What is your approximate investment budget?</h3>
             <p style="font-size:14.5px;color:#64748B;margin-bottom:20px">Select your planned investment capacity.</p>
             <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:12px;margin-bottom:28px">
               <label class="quiz-pill-label"><input type="radio" name="q_budget" value="Under ₹10 Lakhs" onclick="quizSelectOption(this)" /> <span>Under ₹10 Lakhs</span></label>
@@ -873,7 +863,8 @@
 </section>
 
 <!-- ============ SECTION 8: FREQUENTLY ASKED QUESTIONS (9 OFFICIAL QUESTIONS) ============ -->
-<section class="sec-wrap" id="faqs" style="padding:clamp(54px, 7vw, 84px) 0; background:#FFFFFF; border-top:1px solid #E2E8F0">
+<section class="sec-wrap" id="faq" style="padding:clamp(54px, 7vw, 84px) 0; background:#FFFFFF; border-top:1px solid #E2E8F0">
+  <span id="faqs" style="position:relative;top:-100px;display:block;visibility:hidden"></span>
   <div class="wrap">
     <div class="faq-sec-head rv">
       <div>
@@ -1252,7 +1243,7 @@ function toggleFaq(btn) {
     const body = item.querySelector('.faq-body');
     if (icon) icon.innerHTML = '&minus;';
     if (body) {
-      body.style.maxHeight = '260px';
+      body.style.maxHeight = (body.scrollHeight + 32) + 'px';
       body.style.paddingBottom = '22px';
     }
   }

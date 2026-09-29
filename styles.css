@@ -4025,7 +4025,7 @@ html, body {
   color: #64748B;
 }
 .faq-item.active .faq-body {
-  max-height: 250px;
+  max-height: 500px;
   padding-bottom: 22px;
 }
 
@@ -7987,17 +7987,17 @@ html, body {
   transform: rotate(45deg);
   color: #D33D31;
 }
-.faq-body {
+.contact-faq-item .faq-body {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 0 22px;
 }
 .contact-faq-item.active .faq-body {
-  max-height: 200px;
+  max-height: 280px;
   padding-bottom: 20px;
 }
-.faq-body p {
+.contact-faq-item .faq-body p {
   margin: 0;
   font-size: 14px;
   line-height: 1.6;
