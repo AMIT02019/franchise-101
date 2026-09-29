@@ -9035,8 +9035,9 @@ footer,
   margin-top: 4px;
 }
 
-/* Franchise & Scale Services Suite Cards (develop-scale.html Section 5) */
-.scale-service-card {
+/* Franchise & Scale Services Suite Cards & Franchise Marketing Services Cards */
+.scale-service-card,
+.mkt-service-card {
   background: #F8FAFC;
   border: 1.5px solid #E2E8F0;
   border-radius: 18px;
@@ -9052,13 +9053,17 @@ footer,
 }
 .scale-service-card:hover,
 .scale-service-card.expanded,
-.scale-service-card:focus-within {
+.scale-service-card:focus-within,
+.mkt-service-card:hover,
+.mkt-service-card.expanded,
+.mkt-service-card:focus-within {
   background: #FFFFFF;
   border-color: #CF3C30;
   box-shadow: 0 12px 28px -6px rgba(207, 60, 48, 0.12);
   transform: translateY(-2px);
 }
-.scale-service-num {
+.scale-service-num,
+.mkt-service-num {
   font-family: var(--font-mono, monospace);
   font-size: 12px;
   font-weight: 700;
@@ -9066,14 +9071,16 @@ footer,
   letter-spacing: 0.04em;
   display: block;
 }
-.scale-service-title {
+.scale-service-title,
+.mkt-service-title {
   font-size: 18px;
   font-weight: 700;
   color: #0F172A;
   margin: 0;
   line-height: 1.35;
 }
-.scale-service-desc {
+.scale-service-desc,
+.mkt-service-desc {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
@@ -9085,7 +9092,10 @@ footer,
 }
 .scale-service-card:hover .scale-service-desc,
 .scale-service-card.expanded .scale-service-desc,
-.scale-service-card:focus-within .scale-service-desc {
+.scale-service-card:focus-within .scale-service-desc,
+.mkt-service-card:hover .mkt-service-desc,
+.mkt-service-card.expanded .mkt-service-desc,
+.mkt-service-card:focus-within .mkt-service-desc {
   max-height: 250px;
   opacity: 1;
   margin-top: 4px;
