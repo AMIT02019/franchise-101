@@ -178,25 +178,6 @@
           </p>
         </div>
 
-        <!-- Interactive Sticky Progress Tracker -->
-        <div class="scale-scroll-tracker" aria-label="Expansion profile progress">
-          <div class="scale-tracker-info">
-            <span class="scale-tracker-label">Expansion Focus</span>
-            <span class="scale-tracker-count">Profile <b id="scaleActiveNum">01</b> of 06</span>
-          </div>
-          <div class="scale-tracker-bar">
-            <div class="scale-tracker-fill" id="scaleTrackerFill" style="width: 16.66%;"></div>
-          </div>
-          <div class="scale-tracker-pills">
-            <button type="button" class="scale-step-pill is-active" data-step="0" aria-label="Go to Profile 01">01</button>
-            <button type="button" class="scale-step-pill" data-step="1" aria-label="Go to Profile 02">02</button>
-            <button type="button" class="scale-step-pill" data-step="2" aria-label="Go to Profile 03">03</button>
-            <button type="button" class="scale-step-pill" data-step="3" aria-label="Go to Profile 04">04</button>
-            <button type="button" class="scale-step-pill" data-step="4" aria-label="Go to Profile 05">05</button>
-            <button type="button" class="scale-step-pill" data-step="5" aria-label="Go to Profile 06">06</button>
-          </div>
-        </div>
-
         <div class="scale-dossier-visual">
           <img src="assets/scale-who-interior.jpg" alt="Operating business ready for franchise scale" class="scale-who-img" />
           <div class="scale-hero-overlay"></div>
@@ -674,10 +655,7 @@ setTimeout(checkReveals, 400);
 // ============ STICKY SCROLL ANIMATION: SECTION 4 (WHO IT IS FOR) ============
 (function initScaleStickyScroll() {
   const profileRows = document.querySelectorAll('.scale-profile-row');
-  const trackerPills = document.querySelectorAll('.scale-step-pill');
-  const activeNumEl = document.getElementById('scaleActiveNum');
   const activePillEl = document.getElementById('scaleActiveProfilePill');
-  const trackerFill = document.getElementById('scaleTrackerFill');
   const badgeTop = document.getElementById('scaleBadgeTop');
   const badgeBottom = document.getElementById('scaleBadgeBottom');
 
@@ -700,19 +678,7 @@ setTimeout(checkReveals, 400);
       row.classList.toggle('is-active', i === idx);
     });
 
-    // Toggle active class on step pills
-    trackerPills.forEach((pill, i) => {
-      pill.classList.toggle('is-active', i === idx);
-    });
-
-    // Update fill bar percentage
-    if (trackerFill) {
-      const pct = ((idx + 1) / profileRows.length) * 100;
-      trackerFill.style.width = pct + '%';
-    }
-
-    // Update text and status pill
-    if (activeNumEl) activeNumEl.textContent = profileData[idx].num;
+    // Update image status pill & badges
     if (activePillEl) activePillEl.textContent = profileData[idx].pill;
     if (badgeTop) badgeTop.textContent = profileData[idx].badgeTop;
     if (badgeBottom) badgeBottom.textContent = profileData[idx].badgeBottom;
@@ -725,16 +691,7 @@ setTimeout(checkReveals, 400);
     }
   }
 
-  // Click on step pills
-  trackerPills.forEach(pill => {
-    pill.addEventListener('click', (e) => {
-      e.preventDefault();
-      const step = parseInt(pill.getAttribute('data-step'), 10);
-      setActiveProfile(step, true);
-    });
-  });
-
-  // Click on profile card
+  // Click on profile card to focus
   profileRows.forEach((row, idx) => {
     row.addEventListener('click', () => {
       setActiveProfile(idx, true);

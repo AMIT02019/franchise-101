@@ -5376,7 +5376,7 @@ html, body {
 .scale-dossier-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   align-self: start;
 }
 @media (min-width: 981px) {
@@ -5422,88 +5422,13 @@ html, body {
   margin: 0;
 }
 
-/* Sticky Scroll Interactive Progress Tracker */
-.scale-scroll-tracker {
-  background: #FFFFFF;
-  border: 1.5px solid #E2E8F0;
-  border-radius: 16px;
-  padding: 14px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
-}
-.scale-tracker-info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.scale-tracker-label {
-  font-family: var(--font-mono, monospace);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #64748B;
-}
-.scale-tracker-count {
-  font-size: 13px;
-  color: #0F172A;
-  font-weight: 600;
-}
-.scale-tracker-count b {
-  color: #CF3C30;
-  font-size: 15px;
-}
-.scale-tracker-bar {
-  width: 100%;
-  height: 4px;
-  background: #F1F5F9;
-  border-radius: 999px;
-  overflow: hidden;
-}
-.scale-tracker-fill {
-  height: 100%;
-  background: #CF3C30;
-  border-radius: 999px;
-  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.scale-tracker-pills {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 6px;
-}
-.scale-step-pill {
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
-  border-radius: 8px;
-  padding: 4px 0;
-  font-family: var(--font-mono, monospace);
-  font-size: 11px;
-  font-weight: 700;
-  color: #64748B;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: center;
-}
-.scale-step-pill:hover {
-  border-color: #CF3C30;
-  color: #CF3C30;
-  background: #FFF1F0;
-}
-.scale-step-pill.is-active {
-  background: #CF3C30;
-  border-color: #CF3C30;
-  color: #FFFFFF;
-}
-
 /* Sticky Visual Card */
 .scale-dossier-visual {
   position: relative;
-  border-radius: 18px;
+  border-radius: 20px;
   overflow: hidden;
-  height: 190px;
-  box-shadow: 0 14px 36px -12px rgba(0, 0, 0, 0.14);
+  height: clamp(210px, 20vw, 240px);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.14);
 }
 .scale-dossier-visual img {
   width: 100%;
