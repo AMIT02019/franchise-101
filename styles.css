@@ -267,20 +267,22 @@ em {
 }
 /* HEADER & FOOTER LOGO SIZING */
 .logo-mark {
-  height: 44px;
+  height: 42px;
   width: auto;
   display: inline-block;
   vertical-align: middle;
-  border-radius: 4px;
+  object-fit: contain;
   flex-shrink: 0;
   transition: transform 0.2s var(--ease);
 }
 .nav .logo-mark {
-  height: 44px;
+  height: 42px;
+  width: auto;
   max-width: none;
 }
 .mobile-drawer .logo-mark {
-  height: 42px;
+  height: 38px;
+  width: auto;
 }
 .foot .logo-mark,
 .foot-brand .logo-mark {
@@ -2230,6 +2232,10 @@ html, body {
     width: calc(100% - 16px) !important;
     padding: 6px 10px 6px 12px !important;
     top: 8px !important;
+  }
+  .nav .logo-mark {
+    height: 33px !important;
+    width: auto !important;
   }
   .logo {
     font-size: 14.5px !important;
