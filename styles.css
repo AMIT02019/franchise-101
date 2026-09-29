@@ -779,12 +779,12 @@ em {
 
   /* Floating Up Button */
   .floating-up {
-    bottom: 80px;
-    right: 16px;
-    left: auto;
-    width: 42px;
-    height: 42px;
-    font-size: 18px;
+    bottom: 14px;
+    left: 12px;
+    right: auto;
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
   }
 }
 
@@ -8316,14 +8316,66 @@ html, body {
 }
 
 @media (max-width: 768px) {
-  .floating-cta-desktop {
+  /* Enable floating CTA stack on mobile, optimized size */
+  .floating-cta-desktop.floating-cta-stack {
+    display: flex !important;
+    bottom: 14px;
+    right: 12px;
+  }
+
+  .floating-advisor-wrap {
+    margin-bottom: -5px;
+  }
+
+  .floating-advisor-img {
+    width: 62px;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.16));
+  }
+
+  .advisor-speech-bubble {
+    font-size: 9.5px;
+    padding: 3.5px 8px;
+    margin-right: 6px;
+    gap: 4px;
+    margin-bottom: 2px;
+  }
+
+  .advisor-speech-bubble::after {
+    right: 18px;
+    width: 6px;
+    height: 6px;
+    bottom: -3px;
+  }
+
+  .advisor-bubble-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .floating-cta-buttons {
+    gap: 6px;
+  }
+
+  .floating-cta-stack .float-btn-wa,
+  .floating-cta-stack .float-btn-consult {
+    min-width: 138px;
+    padding: 6.5px 11px;
+    font-size: 11px;
+    gap: 6px;
+    box-shadow: 0 6px 14px -3px rgba(0, 0, 0, 0.25);
+  }
+
+  .floating-cta-stack .float-btn-wa svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Hide the old flat mobile sticky bar */
+  .mobile-sticky-bar {
     display: none !important;
   }
-  .mobile-sticky-bar {
-    display: block;
-  }
   body {
-    padding-bottom: 72px; /* Prevent floating bar from obscuring footer text */
+    padding-bottom: 0;
   }
   .hide-on-mobile {
     display: none !important;
