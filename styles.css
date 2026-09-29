@@ -5411,47 +5411,192 @@ html, body {
   object-fit: cover;
   display: block;
 }
-.scale-who-grid {
+.scale-audience-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  gap: 20px;
+  margin-top: 36px;
 }
-@media (max-width: 960px) {
-  .scale-who-grid {
+@media (max-width: 980px) {
+  .scale-audience-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (max-width: 600px) {
-  .scale-who-grid {
+  .scale-audience-grid {
     grid-template-columns: 1fr;
   }
 }
-.scale-who-card {
+
+.scale-audience-card {
   background: #FFFFFF;
-  border: 1.5px solid #F1F5F9;
-  border-radius: 18px;
-  padding: 26px 22px;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 26px 24px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  gap: 10px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.03);
+  position: relative;
 }
-.scale-who-card:hover {
-  border-color: #E2E8F0;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.07);
+.scale-audience-card:hover {
+  border-color: #CF3C30;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -10px rgba(207, 60, 48, 0.14);
 }
-.scale-who-card h3 {
-  font-size: 16.5px;
+
+.scale-audience-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.scale-audience-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  transition: transform 0.25s ease;
+}
+.scale-audience-card:hover .scale-audience-icon-box {
+  transform: scale(1.1);
+}
+.scale-audience-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  color: #94A3B8;
+  letter-spacing: 0.05em;
+}
+
+.scale-audience-title {
+  font-size: 17px;
   font-weight: 700;
   color: #0F172A;
   margin: 0;
+  line-height: 1.35;
 }
-.scale-who-card p {
+.scale-audience-desc {
   font-size: 13.8px;
+  line-height: 1.6;
   color: #64748B;
-  line-height: 1.55;
   margin: 0;
+  flex: 1;
+}
+.scale-audience-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-top: 6px;
+  width: fit-content;
+  transition: all 0.2s ease;
+}
+.scale-audience-card:hover .scale-audience-tag {
+  border-color: #CBD5E1;
+  background: #FFFFFF;
+  color: #0F172A;
+}
+
+/* Executive Expansion Challenge Banner */
+.scale-solution-banner {
+  margin-top: 36px;
+  background: linear-gradient(135deg, #0E121A 0%, #1A2232 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+  padding: clamp(26px, 3.5vw, 36px) clamp(28px, 4vw, 42px);
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  gap: clamp(24px, 3.5vw, 40px);
+  align-items: center;
+  box-shadow: 0 18px 40px -12px rgba(14, 18, 26, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.scale-solution-banner::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(207, 60, 48, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+@media (max-width: 900px) {
+  .scale-solution-banner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+.scale-solution-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  background: rgba(207, 60, 48, 0.18);
+  border: 1px solid rgba(207, 60, 48, 0.35);
+  border-radius: 999px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  color: #FF8F87;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.solution-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #CF3C30;
+  box-shadow: 0 0 8px #CF3C30;
+}
+.scale-solution-title {
+  font-family: var(--font-editorial, 'Fraunces', Georgia, serif);
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin: 0;
+}
+.scale-solution-text {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: rgba(248, 250, 252, 0.82);
+  margin: 0 0 16px 0;
+}
+.scale-solution-text strong {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+.scale-solution-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.scale-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #F8FAFC;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 6px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
 }
 
 /* 4. Section: Franchise & Scale Services Suite (9-card Suite) */
