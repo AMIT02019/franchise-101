@@ -1756,7 +1756,7 @@ em {
   --paper-card: #FFFFFF;
   --ink: #0F172A;
   --ink-80: #334155;
-  --ink-60: #475569;
+  --ink-60: #334155;
   --ink-30: #94A3B8;
   --line: #E2E8F0;
   --line-dark: #CBD5E1;
@@ -1796,7 +1796,7 @@ body {
   color: var(--kesar, #CF3C30) !important;
 }
 .nav-contact-link {
-  color: #475569 !important;
+  color: #334155 !important;
 }
 .nav-contact-link:hover {
   color: var(--kesar, #CF3C30) !important;
@@ -1822,7 +1822,7 @@ body {
   color: #0F172A !important;
 }
 .hero-sub {
-  color: #475569 !important;
+  color: #334155 !important;
 }
 
 /* 3D Carousel Light Theme */
@@ -1839,23 +1839,23 @@ body {
 }
 .drag-hint {
   background: #FFFFFF !important;
-  color: #475569 !important;
+  color: #334155 !important;
   border: 1px solid #E2E8F0 !important;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06) !important;
 }
 
 /* Clean Cards & Sections */
 .sec-note {
-  color: #475569 !important;
+  color: #334155 !important;
 }
 .eyebrow {
-  color: #64748B !important;
+  color: #334155 !important;
 }
 
 /* Light Footer */
 .foot {
   background: #F8FAFC !important;
-  color: #475569 !important;
+  color: #334155 !important;
   border-top: 1px solid #E2E8F0 !important;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.02) !important;
 }
@@ -1866,13 +1866,13 @@ body {
   color: #0F172A !important;
 }
 .foot-brand p {
-  color: #64748B !important;
+  color: #334155 !important;
 }
 .foot-col h4 {
   color: #CF3C30 !important;
 }
 .foot-col ul li a {
-  color: #475569 !important;
+  color: #334155 !important;
 }
 .foot-col ul li a:hover {
   color: #CF3C30 !important;
@@ -1890,7 +1890,7 @@ body {
   color: #0F172A !important;
 }
 .foot-contact-strip small {
-  color: #64748B !important;
+  color: #334155 !important;
 }
 
 /* Card Media Banners in Light Mode */
@@ -1936,7 +1936,7 @@ body {
   background: #FEF2F2 !important;
 }
 .mobile-drawer-content p, .mobile-drawer-content small {
-  color: #64748B !important;
+  color: #334155 !important;
 }
 
 /* 3. Specs Labels & Values in Brand Cards */
@@ -1948,7 +1948,7 @@ body {
   background: #FFFFFF !important;
 }
 .spec dt {
-  color: #64748B !important;
+  color: #334155 !important;
   font-weight: 700 !important;
   font-size: 11px !important;
   letter-spacing: 0.06em !important;
@@ -2027,7 +2027,7 @@ body {
 }
 .pill-btn {
   background: #F8FAFC !important;
-  color: #475569 !important;
+  color: #334155 !important;
   border: 1px solid #CBD5E1 !important;
   font-weight: 600 !important;
 }
@@ -2042,7 +2042,7 @@ body {
   border-color: #0F172A !important;
 }
 .filter-status-bar {
-  color: #64748B !important;
+  color: #334155 !important;
   border-top: 1px solid #E2E8F0 !important;
 }
 
@@ -2071,7 +2071,7 @@ body {
 }
 .foot.on-dark {
   background: #F8FAFC !important;
-  color: #475569 !important;
+  color: #334155 !important;
 }
 .foot.on-dark .foot-contact-strip {
   background: #FFFFFF !important;
@@ -2081,16 +2081,16 @@ body {
   color: #0F172A !important;
 }
 .foot.on-dark .foot-contact-strip small {
-  color: #64748B !important;
+  color: #334155 !important;
 }
 .foot.on-dark .foot-brand p {
-  color: #64748B !important;
+  color: #334155 !important;
 }
 .foot.on-dark .foot-col h4 {
   color: #CF3C30 !important;
 }
 .foot.on-dark .foot-col ul li a {
-  color: #475569 !important;
+  color: #334155 !important;
 }
 .foot.on-dark .foot-bottom {
   border-top: 1px solid #E2E8F0 !important;
@@ -2131,7 +2131,7 @@ body {
   color: #0F172A !important;
 }
 .intent-tab-btn small {
-  color: #64748B !important;
+  color: #334155 !important;
 }
 .intent-tab-btn:hover {
   border-color: #CF3C30 !important;
@@ -2784,7 +2784,7 @@ html, body {
 }
 .opps-sec-head p {
   font-size: 14.5px;
-  color: #64748B;
+  color: #334155;
   margin: 4px 0 0;
 }
 
@@ -2860,7 +2860,7 @@ html, body {
   align-self: flex-start;
   font-size: 11px;
   font-weight: 600;
-  color: #64748B;
+  color: #334155;
   background: #F1F5F9;
   padding: 4px 9px;
   border-radius: 6px;
@@ -2879,7 +2879,7 @@ html, body {
 
 .opp-category-sub {
   font-size: 13.5px;
-  color: #64748B;
+  color: #334155;
   margin-bottom: 16px;
 }
 
@@ -2892,7 +2892,7 @@ html, body {
 .opp-range-label {
   display: block;
   font-size: 11.5px;
-  color: #64748B;
+  color: #334155;
   margin-bottom: 2px;
 }
 
@@ -2948,7 +2948,7 @@ html, body {
 }
 .guidance-content p {
   font-size: 15.5px;
-  color: #64748B;
+  color: #334155;
   line-height: 1.55;
   margin-bottom: 24px;
 }
@@ -2985,7 +2985,7 @@ html, body {
 }
 .hiw-sec-head p {
   font-size: 14.5px;
-  color: #64748B;
+  color: #334155;
   margin: 0;
 }
 
@@ -3053,7 +3053,7 @@ html, body {
 }
 .hiw-desc {
   font-size: 13.5px;
-  color: #64748B;
+  color: #334155;
   line-height: 1.45;
   margin: 0;
 }
@@ -3484,7 +3484,7 @@ html, body {
   font-family: 'Caveat', cursive;
   font-size: 22px;
   font-weight: 700;
-  color: #475569;
+  color: #334155;
   transform: rotate(8deg);
   line-height: 1.1;
   pointer-events: none;
@@ -3518,10 +3518,11 @@ html, body {
   margin: 0 0 10px;
   line-height: 1.18;
 }
-.sec-sub-slate {
+.sec-sub-slate,
+.sub-slate {
   font-size: 15px;
-  color: #64748B;
-  line-height: 1.55;
+  color: #334155 !important;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -3602,7 +3603,7 @@ html, body {
 }
 .format-desc {
   font-size: 13.5px;
-  color: #64748B;
+  color: #334155;
   line-height: 1.5;
   margin: 0 0 18px;
 }
@@ -3731,7 +3732,7 @@ html, body {
 }
 .pop-brand-sub {
   font-size: 12.5px;
-  color: #64748B;
+  color: #334155;
   display: block;
   margin-top: 2px;
 }
@@ -3748,7 +3749,7 @@ html, body {
 .pop-metric-item small {
   display: block;
   font-size: 11px;
-  color: #64748B;
+  color: #334155;
   margin-bottom: 2px;
 }
 .pop-metric-item strong {
@@ -3827,7 +3828,7 @@ html, body {
 }
 .journey-step-desc {
   font-size: 13px;
-  color: #64748B;
+  color: #334155;
   line-height: 1.45;
   margin: 0;
   max-width: 170px;
@@ -3951,7 +3952,7 @@ html, body {
 }
 .success-author-title {
   font-size: 13.5px;
-  color: #64748B;
+  color: #334155;
   margin: 0;
 }
 .success-arrow-right {
@@ -4036,7 +4037,7 @@ html, body {
 }
 .faq-icon {
   font-size: 22px;
-  color: #64748B;
+  color: #334155;
   transition: transform 0.25s ease, color 0.25s ease;
   flex-shrink: 0;
   font-weight: 400;
@@ -4050,7 +4051,7 @@ html, body {
   transition: max-height 0.35s ease, padding 0.35s ease;
   font-size: 14.5px;
   line-height: 1.6;
-  color: #64748B;
+  color: #334155;
 }
 .faq-item.active .faq-body {
   max-height: 500px;
@@ -4591,7 +4592,7 @@ html, body {
 .byb-persona-desc {
   font-size: 13.5px;
   line-height: 1.55;
-  color: #64748B;
+  color: #334155;
   margin: 0;
 }
 
@@ -4728,7 +4729,7 @@ html, body {
   max-width: 440px;
   font-size: 14.5px;
   line-height: 1.55;
-  color: #64748B;
+  color: #334155;
 }
 
 .byb-overview-steps-row {
@@ -4786,7 +4787,7 @@ html, body {
 }
 .byb-overview-step-content p {
   font-size: 13.5px;
-  color: #64748B;
+  color: #334155;
   line-height: 1.45;
   margin: 0;
 }
@@ -4872,7 +4873,7 @@ html, body {
 }
 .byb-service-info p {
   font-size: 13.5px;
-  color: #64748B;
+  color: #334155;
   line-height: 1.45;
   margin: 0;
 }
@@ -4990,7 +4991,7 @@ html, body {
 }
 .byb-timeline-step p {
   font-size: 13px;
-  color: #64748B;
+  color: #334155;
   line-height: 1.45;
   margin: 0;
 }
@@ -5078,7 +5079,7 @@ html, body {
 }
 .byb-case-body p {
   font-size: 13.5px;
-  color: #64748B;
+  color: #334155;
   line-height: 1.45;
   margin: 0 0 20px 0;
 }
@@ -5099,7 +5100,7 @@ html, body {
 }
 .byb-case-metric-label {
   font-size: 12.5px;
-  color: #64748B;
+  color: #334155;
   line-height: 1.35;
 }
 
@@ -5384,7 +5385,7 @@ html, body {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #64748B;
+  color: #334155;
   margin-top: 4px;
   display: block;
 }
@@ -5460,7 +5461,7 @@ html, body {
 .scale-sec-desc {
   font-size: clamp(14px, 1.05vw, 15.5px);
   line-height: 1.6;
-  color: #64748B;
+  color: #334155;
   margin: 0;
 }
 
@@ -5548,7 +5549,7 @@ html, body {
 }
 .scale-cta-text span {
   font-size: 12.5px;
-  color: #64748B;
+  color: #334155;
   line-height: 1.45;
 }
 
@@ -5689,7 +5690,7 @@ html, body {
 .scale-profile-desc {
   font-size: 14px;
   line-height: 1.55;
-  color: #64748B;
+  color: #334155;
   margin: 0;
 }
 
@@ -5717,7 +5718,7 @@ html, body {
   align-items: center;
   gap: 8px;
   background: #F1F5F9;
-  color: #475569;
+  color: #334155;
   font-family: var(--font-mono, monospace);
   font-size: 11.5px;
   font-weight: 700;
@@ -5744,7 +5745,7 @@ html, body {
 .scale-solution-text {
   font-size: 14.5px;
   line-height: 1.6;
-  color: #64748B;
+  color: #334155;
   margin: 0 0 14px 0;
 }
 .scale-solution-tags {
@@ -6020,7 +6021,7 @@ html, body {
   font-family: var(--font-mono, monospace);
   font-size: 12px;
   font-weight: 600;
-  color: #64748B;
+  color: #334155;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-style: normal;
@@ -6066,7 +6067,7 @@ html, body {
 }
 .scale-support-card p {
   font-size: 13.8px;
-  color: #64748B;
+  color: #334155;
   line-height: 1.55;
   margin: 0;
 }
@@ -6346,7 +6347,7 @@ html, body {
 }
 .mkt-laptop-sub {
   font-size: 11.5px;
-  color: #64748B;
+  color: #334155;
   font-family: var(--font-mono, monospace);
   margin: 0;
 }
@@ -6418,7 +6419,7 @@ html, body {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #64748B;
+  color: #334155;
 }
 
 /* 3. Section: Designed for Growth-Stage Franchisors */
@@ -6642,7 +6643,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #64748B;
+  color: #334155;
   flex-shrink: 0;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
@@ -6731,7 +6732,7 @@ html, body {
 }
 .mkt-step-desc {
   font-size: 12px;
-  color: #64748B;
+  color: #334155;
   line-height: 1.45;
   margin: 0;
 }
@@ -6882,7 +6883,7 @@ html, body {
 .mkt-test-role {
   font-family: var(--font-mono, monospace);
   font-size: 11.5px;
-  color: #64748B;
+  color: #334155;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin: 0;
@@ -7182,7 +7183,7 @@ html, body {
 }
 .about-metric-lbl {
   font-size: clamp(12.5px, 1.05vw, 14px);
-  color: #6B7280;
+  color: #334155;
   font-weight: 500;
   margin: 0;
   line-height: 1.35;
@@ -7322,7 +7323,7 @@ html, body {
 }
 .about-milestones-sub {
   font-size: 15.5px;
-  color: #6B7280;
+  color: #334155;
   margin: 0;
 }
 .about-milestones-layout {
@@ -7395,7 +7396,7 @@ html, body {
 .about-milestone-desc {
   font-size: 13px;
   line-height: 1.55;
-  color: #6B7280;
+  color: #334155;
   margin: 0;
 }
 .about-milestones-visual {
@@ -7546,7 +7547,7 @@ html, body {
 }
 .about-team-focus {
   font-size: 12.5px;
-  color: #6B7280;
+  color: #334155;
   font-weight: 500;
   margin: 0;
 }
@@ -7662,7 +7663,7 @@ html, body {
 }
 .about-impact-lbl {
   font-size: 13px;
-  color: #6B7280;
+  color: #334155;
   font-weight: 500;
   margin: 0;
 }
@@ -7780,7 +7781,7 @@ html, body {
 .contact-sec-sub {
   font-size: clamp(14.5px, 1.1vw, 16px);
   line-height: 1.55;
-  color: #6B7280;
+  color: #334155;
   margin: 0 0 28px;
   max-width: 54ch;
 }
@@ -8088,7 +8089,7 @@ html, body {
 }
 .channel-desc {
   font-size: 12.5px;
-  color: #6B7280;
+  color: #334155;
   line-height: 1.3;
 }
 .channel-value {
@@ -8130,7 +8131,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #6B7280;
+  color: #334155;
   font-size: 15px;
   flex-shrink: 0;
   transition: all 0.2s ease;
@@ -8202,7 +8203,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #6B7280;
+  color: #334155;
   font-size: 13px;
   flex-shrink: 0;
   transition: all 0.2s ease;
@@ -8215,7 +8216,7 @@ html, body {
 .hub-address {
   font-size: 12.5px;
   line-height: 1.5;
-  color: #6B7280;
+  color: #334155;
   margin: 0;
 }
 
@@ -8418,7 +8419,7 @@ html, body {
 .faq-toggle-icon {
   font-size: 20px;
   font-weight: 400;
-  color: #6B7280;
+  color: #334155;
   line-height: 1;
   transition: transform 0.25s ease;
   flex-shrink: 0;
@@ -8479,7 +8480,7 @@ html, body {
   text-decoration: none;
   background: #FFFFFF;
   border: 1px solid rgba(14, 18, 26, 0.12);
-  color: #475569;
+  color: #334155;
   transition: all 0.2s ease;
 }
 .legal-nav-tab:hover {
@@ -8529,7 +8530,7 @@ html, body {
 .legal-section p {
   font-size: 15px;
   line-height: 1.75;
-  color: #475569;
+  color: #334155;
   margin: 0 0 14px;
 }
 .legal-section p:last-child {
@@ -8538,7 +8539,7 @@ html, body {
 .legal-list {
   margin: 10px 0 16px 20px;
   padding: 0;
-  color: #475569;
+  color: #334155;
   font-size: 14.5px;
   line-height: 1.7;
 }
@@ -8984,7 +8985,7 @@ footer,
   margin: 0;
   font-size: 14px;
   line-height: 1.6;
-  color: #64748B;
+  color: #334155;
   transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin-top 0.25s ease;
 }
 .interactive-step-card:hover .step-short-desc,
@@ -9051,7 +9052,7 @@ footer,
   margin: 0;
   font-size: 14px;
   line-height: 1.55;
-  color: #64748B;
+  color: #334155;
   transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin-top 0.25s ease;
 }
 .diff-card:hover .diff-desc,
@@ -9107,7 +9108,7 @@ footer,
   margin: 0;
   font-size: 14px;
   line-height: 1.6;
-  color: #64748B;
+  color: #334155;
   transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin-top 0.25s ease;
 }
 .service-dev-card:hover .service-dev-desc,
@@ -9170,7 +9171,7 @@ footer,
   margin: 0;
   font-size: 14px;
   line-height: 1.6;
-  color: #64748B;
+  color: #334155;
   transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin-top 0.25s ease;
 }
 .scale-service-card:hover .scale-service-desc,
@@ -9218,7 +9219,7 @@ footer,
 .outcome-box-desc {
   font-size: 13.5px;
   line-height: 1.6;
-  color: #64748B;
+  color: #334155;
   margin: 0;
 }
 
