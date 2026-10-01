@@ -366,7 +366,7 @@ em {
 
 /* PAGE HERO (SUB-PAGES) & ANIMATIONS */
 .page-hero {
-  background: #13161A;
+  background: #0B0D11;
   color: #FFFFFF;
   padding: clamp(140px, 18vh, 180px) 0 clamp(52px, 6vw, 76px);
   position: relative;
@@ -2445,7 +2445,7 @@ html, body {
 /* 1. Hero Section */
 .explore-hero {
   padding: clamp(140px, 17vh, 180px) 0 clamp(44px, 5vw, 64px);
-  background: #13161A;
+  background: #0B0D11;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -3125,7 +3125,7 @@ html, body {
 
 .home-hero {
   padding: clamp(140px, 17vh, 180px) 0 clamp(44px, 5vw, 64px);
-  background: #13161A;
+  background: #0B0D11;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -4305,7 +4305,7 @@ html, body {
 
 /* 1. Hero Section */
 .byb-hero-wrap {
-  background: #13161A;
+  background: #0B0D11;
   padding: clamp(100px, 11vw, 140px) 0 clamp(64px, 7vw, 90px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
@@ -5179,10 +5179,11 @@ html, body {
 
 /* 1. Hero Section */
 .scale-hero-sec {
-  background: #13161A;
+  background: #0B0D11;
   padding: clamp(100px, 11vw, 140px) 0 clamp(64px, 7vw, 90px);
   position: relative;
   overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .scale-hero-sec::before {
   content: "";
@@ -5290,7 +5291,7 @@ html, body {
 .scale-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(19, 22, 26, 0.1) 0%, rgba(19, 22, 26, 0.6) 100%);
+  background: linear-gradient(135deg, rgba(11, 13, 17, 0.1) 0%, rgba(11, 13, 17, 0.6) 100%);
   pointer-events: none;
 }
 .scale-visual-badge {
@@ -6141,7 +6142,7 @@ html, body {
 
 /* 1. Light Split Hero Section */
 .mkt-hero-sec {
-  background: #13161A;
+  background: #0B0D11;
   padding: clamp(100px, 11vw, 140px) 0 clamp(64px, 7vw, 90px);
   position: relative;
   overflow: hidden;
@@ -6293,7 +6294,7 @@ html, body {
 .mkt-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(19, 22, 26, 0.1) 0%, rgba(19, 22, 26, 0.6) 100%);
+  background: linear-gradient(135deg, rgba(11, 13, 17, 0.1) 0%, rgba(11, 13, 17, 0.6) 100%);
   pointer-events: none;
 }
 .mkt-visual-neon {
@@ -6952,7 +6953,7 @@ html, body {
 
 /* 1. Section: Light Split Hero */
 .about-hero-sec {
-  background: #13161A;
+  background: #0B0D11;
   padding: clamp(100px, 11vw, 140px) 0 clamp(64px, 7vw, 90px);
   position: relative;
   overflow: hidden;
@@ -7083,7 +7084,7 @@ html, body {
   position: absolute;
   bottom: 0;
   right: 0;
-  background: #13161A;
+  background: #0B0D11;
   border-top-left-radius: 28px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   border-left: 1px solid rgba(255, 255, 255, 0.12);
@@ -7786,7 +7787,7 @@ html, body {
 
 /* 1. HERO SECTION (Dark Atmospheric Split) */
 .contact-hero-sec {
-  background: #13161A;
+  background: #0B0D11;
   color: #FFFFFF;
   padding: clamp(135px, 16vh, 175px) 0 clamp(60px, 7vw, 90px);
   position: relative;
@@ -7960,7 +7961,7 @@ html, body {
 .contact-hero-overlay-shadow {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(19, 22, 26, 0.15) 0%, rgba(19, 22, 26, 0.65) 100%);
+  background: linear-gradient(180deg, rgba(11, 13, 17, 0.15) 0%, rgba(11, 13, 17, 0.65) 100%);
   pointer-events: none;
 }
 .contact-hero-wall-text {
