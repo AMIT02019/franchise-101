@@ -6242,20 +6242,20 @@ html, body {
 
 .mkt-trust-strip {
   display: flex;
-  gap: 24px;
-  align-items: center;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
   margin-top: 36px;
   padding-top: 26px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  flex-wrap: wrap;
 }
 .mkt-trust-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 13px;
+  gap: 12px;
+  font-size: 14px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.88);
 }
 .mkt-trust-icon {
   width: 32px;
