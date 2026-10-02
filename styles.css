@@ -345,17 +345,18 @@ em {
 }
 .nav-toggle-label {
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: #FFFFFF !important;
+  background: transparent !important;
   text-transform: uppercase;
   line-height: 1;
   display: inline-block;
   user-select: none;
 }
 .nav-toggle-bars {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -363,6 +364,7 @@ em {
   width: 15px;
   height: 13px;
   flex-shrink: 0;
+  background: transparent !important;
 }
 .nav-toggle-bars span {
   display: block;
@@ -1873,7 +1875,7 @@ body {
 .nav-contact-link:hover {
   color: var(--kesar, #CF3C30) !important;
 }
-.nav-toggle span {
+.nav-toggle-bars span {
   background: #FFFFFF !important;
 }
 
