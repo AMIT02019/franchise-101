@@ -4682,37 +4682,32 @@ html, body {
   transform: translateY(-4px);
   box-shadow: 0 14px 30px -8px rgba(207, 60, 48, 0.14);
 }
+.byb-persona-header,
 .byb-persona-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 14px;
   margin-bottom: 14px;
 }
 .byb-persona-icon-box {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 22px;
+  flex-shrink: 0;
   transition: transform 0.25s ease;
 }
 .byb-persona-card:hover .byb-persona-icon-box {
-  transform: scale(1.1);
-}
-.byb-persona-num {
-  font-family: var(--font-mono, monospace);
-  font-size: 11px;
-  font-weight: 700;
-  color: #94A3B8;
-  letter-spacing: 0.05em;
+  transform: scale(1.08);
 }
 .byb-persona-title {
   font-size: 16px;
   font-weight: 700;
   color: #0F172A;
-  margin: 0 0 8px;
+  margin: 0;
   line-height: 1.35;
 }
 .byb-persona-desc {
