@@ -8220,6 +8220,214 @@ html, body {
   margin: 0;
 }
 
+/* Pune HQ Featured Card */
+.contact-hq-card {
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 22px 24px;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.contact-hq-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #CF3C30;
+}
+.contact-hq-card:hover {
+  transform: translateY(-2px);
+  border-color: #CF3C30;
+  box-shadow: 0 10px 24px -4px rgba(207, 60, 48, 0.12);
+}
+.hq-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #F1F5F9;
+}
+.hq-card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hq-pin-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #FEF2F2;
+  color: #CF3C30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.hq-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.2;
+}
+.hq-entity {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #CF3C30;
+  margin-top: 3px;
+}
+.hq-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #FEE2E2;
+  color: #B91C1C;
+  border: 1px solid #FECACA;
+  flex-shrink: 0;
+}
+.hq-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.hq-address {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #334155;
+  margin: 0;
+}
+.hq-address strong {
+  color: #0F172A;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.hq-map-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #CF3C30;
+  text-decoration: none;
+  padding: 8px 14px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+.hq-map-btn:hover {
+  background: #CF3C30;
+  color: #FFFFFF;
+  border-color: #CF3C30;
+}
+
+/* Upcoming Offices Container */
+.contact-upcoming-wrap {
+  margin-top: 16px;
+  background: #F8FAFC;
+  border: 1.5px dashed #CBD5E1;
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+.upcoming-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.upcoming-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.upcoming-radar-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #CF3C30;
+  box-shadow: 0 0 0 3px rgba(207, 60, 48, 0.2);
+  display: inline-block;
+}
+.upcoming-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #0F172A;
+}
+.upcoming-subtitle {
+  font-size: 11.5px;
+  color: #64748B;
+  font-weight: 500;
+}
+.upcoming-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+@media (max-width: 540px) {
+  .upcoming-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.upcoming-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+}
+.upcoming-card:hover {
+  border-color: #CF3C30;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+.upcoming-card-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #F1F5F9;
+  color: #CF3C30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.upcoming-card-info {
+  display: flex;
+  flex-direction: column;
+}
+.upcoming-city {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0F172A;
+  line-height: 1.2;
+}
+.upcoming-status {
+  font-size: 11px;
+  color: #64748B;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
 /* Strategic Discussion Promo Card */
 .contact-discussion-box {
   margin-top: 20px;
