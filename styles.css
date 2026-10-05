@@ -8017,7 +8017,7 @@ html, body {
 .contact-hero-sec {
   background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
   color: #0F172A;
-  padding: clamp(135px, 16vh, 175px) 0 clamp(60px, 7vw, 90px);
+  padding: clamp(120px, 14vh, 175px) 0 clamp(48px, 6vw, 90px);
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid #E2E8F0;
@@ -8046,9 +8046,9 @@ html, body {
 }
 .contact-hero-title {
   font-family: var(--font-editorial, 'Fraunces', Georgia, serif);
-  font-size: clamp(38px, 5.2vw, 64px);
+  font-size: clamp(30px, 5.2vw, 64px);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.15;
   color: #0F172A;
   margin: 0 0 18px;
   letter-spacing: -0.02em;
@@ -8179,7 +8179,31 @@ html, body {
 }
 @media (max-width: 960px) {
   .contact-hero-visual {
-    min-height: 420px;
+    min-height: 380px;
+  }
+}
+@media (max-width: 560px) {
+  .contact-hero-sec {
+    padding: 108px 0 40px;
+  }
+  .contact-hero-visual {
+    min-height: 320px;
+    border-radius: 16px;
+  }
+  .contact-hero-wall-text {
+    font-size: 19px;
+    top: 14%;
+    right: 8%;
+  }
+  .contact-hero-script-badge {
+    bottom: 18px;
+    right: 18px;
+  }
+  .contact-script-lines {
+    font-size: 26px;
+  }
+  .contact-script-swoosh {
+    width: 130px;
   }
 }
 .contact-hero-img {
@@ -8374,6 +8398,35 @@ html, body {
   color: #FFFFFF;
 }
 
+@media (max-width: 560px) {
+  .contact-channel-card {
+    padding: 14px 16px;
+    gap: 12px;
+    border-radius: 12px;
+  }
+  .channel-card-left {
+    gap: 12px;
+    min-width: 0;
+    flex: 1;
+  }
+  .channel-icon-circle {
+    width: 42px;
+    height: 42px;
+  }
+  .channel-title {
+    font-size: 14px;
+  }
+  .channel-desc {
+    font-size: 12px;
+  }
+  .channel-value {
+    font-size: 13.5px;
+  }
+  .channel-social-links {
+    gap: 10px;
+  }
+}
+
 /* Right: Corporate Hubs 2x2 Grid */
 .contact-hubs-grid {
   display: grid;
@@ -8566,6 +8619,39 @@ html, body {
   border-color: #CF3C30;
 }
 
+@media (max-width: 600px) {
+  .contact-hq-card {
+    padding: 18px 16px;
+    border-radius: 14px;
+  }
+  .hq-card-top {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .hq-card-title-group {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 10px;
+  }
+  .hq-pin-icon-wrap {
+    width: 38px;
+    height: 38px;
+  }
+  .hq-title {
+    font-size: 17px;
+  }
+  .hq-entity {
+    font-size: 13px;
+  }
+  .hq-badge {
+    align-self: flex-start;
+  }
+  .hq-map-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* Upcoming Offices Container */
 .contact-upcoming-wrap {
   margin-top: 16px;
@@ -8612,7 +8698,15 @@ html, body {
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
-@media (max-width: 540px) {
+@media (max-width: 600px) {
+  .contact-upcoming-wrap {
+    padding: 14px 14px;
+  }
+  .upcoming-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
   .upcoming-grid {
     grid-template-columns: 1fr;
   }
@@ -8672,6 +8766,17 @@ html, body {
 @media (max-width: 600px) {
   .contact-discussion-box {
     grid-template-columns: 1fr;
+    border-radius: 14px;
+  }
+  .discussion-img-wrap {
+    min-height: 180px;
+  }
+  .discussion-content-wrap {
+    padding: 22px 18px;
+  }
+  .discussion-content-wrap .btn-contact-primary {
+    width: 100%;
+    justify-content: center;
   }
 }
 .discussion-img-wrap {
@@ -8743,7 +8848,42 @@ html, body {
 @media (max-width: 960px) {
   .contact-faq-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
+  }
+  .contact-faq-left,
+  .contact-faq-right {
+    min-width: 0;
+    width: 100%;
+  }
+  .contact-faq-left {
+    order: 2;
+  }
+  .contact-faq-right {
+    order: 1;
+  }
+  .contact-faq-imgbox {
+    min-height: 0 !important;
+    width: 100% !important;
+    aspect-ratio: 16/10 !important;
+    max-height: 260px !important;
+    border-radius: 16px;
+  }
+  .faq-script-overlay {
+    bottom: 20px;
+    right: 20px;
+  }
+  .faq-script-text {
+    font-size: 26px;
+  }
+  .faq-script-swoosh {
+    width: 130px;
+  }
+  .faq-header-bar {
+    margin-bottom: 20px;
+  }
+  .btn-outline-pill {
+    width: 100%;
+    justify-content: center;
   }
 }
 .contact-faq-imgbox {
@@ -8754,12 +8894,6 @@ html, body {
   min-height: 420px;
   height: 100%;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
-}
-@media (max-width: 960px) {
-  .contact-faq-imgbox {
-    min-height: 320px;
-    aspect-ratio: 16/11;
-  }
 }
 .contact-faq-img {
   width: 100%;
@@ -8875,7 +9009,7 @@ html, body {
   padding: 0 22px;
 }
 .contact-faq-item.active .faq-body {
-  max-height: 280px;
+  max-height: 420px;
   padding-bottom: 20px;
 }
 .contact-faq-item .faq-body p {
@@ -8883,6 +9017,20 @@ html, body {
   font-size: 14px;
   line-height: 1.6;
   color: #4B5563;
+}
+
+@media (max-width: 560px) {
+  .faq-trigger {
+    padding: 16px 16px;
+    font-size: 14.5px;
+    gap: 12px;
+  }
+  .contact-faq-item .faq-body {
+    padding: 0 16px;
+  }
+  .contact-faq-item.active .faq-body {
+    padding-bottom: 16px;
+  }
 }
 
 
@@ -9285,6 +9433,22 @@ html, body {
   .foot,
   .foot-base {
     padding-bottom: clamp(70px, 8vw, 88px) !important;
+  }
+
+  /* Contact Strip on Mobile */
+  .foot-contact-strip {
+    padding: 18px 16px !important;
+    gap: 16px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .foot-contact-strip > div:last-child {
+    width: 100% !important;
+  }
+  .foot-contact-strip > div:last-child .btn {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
   }
 }
 
