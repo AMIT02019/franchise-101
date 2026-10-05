@@ -286,11 +286,11 @@ em {
 }
 .foot .logo-mark,
 .foot-brand .logo-mark {
-  height: 68px !important;
+  height: 100px !important;
   width: auto !important;
   max-width: none !important;
   display: block;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 @media (max-width: 1020px) {
   .nav .logo-mark { height: 30px; }
@@ -299,7 +299,7 @@ em {
   .logo-mark { height: 28px; }
   .nav .logo-mark { height: 28px; }
   .foot .logo-mark,
-  .foot-brand .logo-mark { height: 58px !important; }
+  .foot-brand .logo-mark { height: 82px !important; }
 }
 
 .nav-links { display: flex; gap: 20px; font-size: 14px; font-weight: 600; align-items: center; }
