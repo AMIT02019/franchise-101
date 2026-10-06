@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -157,15 +157,32 @@
           <!-- Step 2: Location -->
           <div class="quiz-step" data-step="2" style="display:none">
             <h3 style="font-size:22px;color:var(--ink);margin:0 0 8px">2. Where would you like to start your business?</h3>
-            <p style="font-size:14.5px;color:var(--ink-60);margin-bottom:20px">Specify your target expansion city and state.</p>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px">
+            <p style="font-size:14.5px;color:var(--ink-60);margin-bottom:20px">Specify your target State, District, and City.</p>
+            <div class="quiz-grid-3col" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px;margin-bottom:28px">
               <div>
-                <label style="display:block;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px">City *</label>
-                <input type="text" id="q_city" placeholder="e.g. Pune / Mumbai / Bengaluru" style="width:100%;padding:14px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;outline:none;background:var(--paper)" />
+                <label for="q_state" style="display:block;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px">State *</label>
+                <div class="quiz-select-wrap">
+                  <select id="q_state" class="quiz-select-field">
+                    <option value="">Select Target State *</option>
+                  </select>
+                </div>
               </div>
               <div>
-                <label style="display:block;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px">State *</label>
-                <input type="text" id="q_state" placeholder="e.g. Maharashtra / Karnataka" style="width:100%;padding:14px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;outline:none;background:var(--paper)" />
+                <label for="q_district" style="display:block;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px">District / Zone *</label>
+                <div class="quiz-select-wrap">
+                  <select id="q_district" class="quiz-select-field" disabled>
+                    <option value="">Select State first</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label for="q_city" style="display:block;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px">City / Area *</label>
+                <div class="quiz-select-wrap">
+                  <select id="q_city" class="quiz-select-field" disabled>
+                    <option value="">Select District first</option>
+                  </select>
+                </div>
+                <input type="text" id="q_city_custom" class="quiz-custom-input" placeholder="Type your specific City / Locality" style="display:none" />
               </div>
             </div>
           </div>
@@ -394,10 +411,30 @@ function quizNextStep() {
 
   // Validate step 2
   if (currentQuizStep === 2) {
-    const city = document.getElementById('q_city')?.value.trim();
-    const state = document.getElementById('q_state')?.value.trim();
-    if (!city || !state) {
-      alert('Please enter your preferred City and State.');
+    const loc = typeof getQuizLocationData === 'function' ? getQuizLocationData('q_') : {
+      state: document.getElementById('q_state')?.value.trim(),
+      district: document.getElementById('q_district')?.value.trim(),
+      city: document.getElementById('q_city')?.value.trim()
+    };
+
+    if (!loc.state) {
+      alert('Please select your preferred State.');
+      document.getElementById('q_state')?.focus();
+      return;
+    }
+    if (!loc.district) {
+      alert('Please select your preferred District / Zone.');
+      document.getElementById('q_district')?.focus();
+      return;
+    }
+    if (!loc.city || loc.city === 'Other') {
+      alert('Please select or specify your preferred City / Commercial Area.');
+      const customInp = document.getElementById('q_city_custom');
+      if (customInp && customInp.style.display !== 'none') {
+        customInp.focus();
+      } else {
+        document.getElementById('q_city')?.focus();
+      }
       return;
     }
   }
@@ -425,6 +462,9 @@ function resetQuiz() {
   currentQuizStep = 1;
   const form = document.getElementById('quizForm');
   if (form) form.reset();
+  if (typeof resetQuizLocationFields === 'function') {
+    resetQuizLocationFields('q_');
+  }
   document.querySelectorAll('.quiz-pill-label').forEach(lbl => lbl.classList.remove('selected-pill'));
   const success = document.getElementById('quizSuccessState');
   if (success) success.style.display = 'none';
@@ -433,6 +473,7 @@ function resetQuiz() {
   updateQuizUI();
 }
 </script>
+<script src="quiz-locations.js"></script>
 
 <!-- ============ FOOTER ============ -->
 <footer class="foot" style="background:#F8FAFC;border-top:1px solid #E2E8F0;padding:clamp(48px, 6vw, 72px) 0 32px">
