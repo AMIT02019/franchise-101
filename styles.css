@@ -1584,7 +1584,26 @@ em {
 /* ============ LEGAL & DOCUMENT FORM STYLES ============ */
 .doc-hub-page {
   padding: clamp(100px, 12vw, 140px) 0 80px;
-  background: var(--paper, #F6F7F9);
+  background: #0B0D11;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+.doc-hub-page::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  right: 20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(207, 60, 48, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.doc-hub-page h1 {
+  color: #FFFFFF !important;
+}
+.doc-hub-page p {
+  color: rgba(248, 250, 252, 0.88) !important;
 }
 .doc-card-featured {
   background: var(--jamun-deep, #080B10);
@@ -3259,10 +3278,10 @@ html, body {
 
 .home-hero {
   padding: clamp(140px, 17vh, 180px) 0 clamp(44px, 5vw, 64px);
-  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+  background: #0B0D11;
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid #E2E8F0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .home-hero::before {
   content: "";
@@ -3271,7 +3290,7 @@ html, body {
   right: 20%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(207, 60, 48, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(207, 60, 48, 0.14) 0%, transparent 70%);
   pointer-events: none;
 }
 .home-hero-grid {
@@ -3288,7 +3307,7 @@ html, body {
 }
 
 .home-hero-eyebrow {
-  color: #CF3C30;
+  color: #E05347;
   font-size: 11.5px;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -3302,7 +3321,7 @@ html, body {
   font-size: clamp(36px, 4.4vw, 56px);
   font-weight: 800;
   line-height: 1.08;
-  color: #0F172A;
+  color: #FFFFFF;
   margin: 0 0 16px;
   letter-spacing: -0.025em;
   min-height: 3.25em;
@@ -3346,7 +3365,7 @@ html, body {
   margin-left: 5px;
   vertical-align: -0.05em;
   border-radius: 2px;
-  box-shadow: 0 0 10px rgba(207, 60, 48, 0.35);
+  box-shadow: 0 0 10px rgba(207, 60, 48, 0.5);
   animation: twBlink 0.9s ease-in-out infinite;
 }
 
@@ -3372,7 +3391,7 @@ html, body {
 .home-hero-sub {
   font-size: clamp(15.5px, 1.3vw, 17px);
   line-height: 1.65;
-  color: #1E293B;
+  color: rgba(248, 250, 252, 0.92) !important;
   margin-bottom: 16px;
   max-width: 520px;
 }
@@ -3389,7 +3408,7 @@ html, body {
 }
 
 .btn-hero-primary {
-  background: #CF3C30;
+  background: linear-gradient(135deg, #CF3C30 0%, #DC2626 50%, #B91C1C 100%);
   color: #FFFFFF !important;
   padding: 13px 26px;
   border-radius: 999px;
@@ -3400,20 +3419,20 @@ html, body {
   gap: 8px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 8px 24px -4px rgba(207,60,48,0.38);
+  box-shadow: 0 8px 24px -4px rgba(207,60,48,0.45);
   transition: all 0.25s ease;
   text-decoration: none;
 }
 .btn-hero-primary:hover {
-  background: #B91C1C;
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px -6px rgba(207,60,48,0.5);
+  box-shadow: 0 12px 28px -6px rgba(207,60,48,0.6);
 }
 
 .btn-hero-secondary {
-  background: #FFFFFF;
-  color: #0F172A !important;
-  border: 1.5px solid #CBD5E1;
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
   padding: 12px 24px;
   border-radius: 999px;
   font-weight: 700;
@@ -3424,11 +3443,12 @@ html, body {
   cursor: pointer;
   transition: all 0.25s ease;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 .btn-hero-secondary:hover {
-  border-color: #0F172A;
-  background: #F8FAFC;
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.14);
+  color: #FFFFFF !important;
   transform: translateY(-2px);
 }
 
@@ -3436,8 +3456,8 @@ html, body {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: rgba(207, 60, 48, 0.12);
-  color: #CF3C30;
+  background: rgba(207, 60, 48, 0.18);
+  color: #FF6B5B;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -3450,7 +3470,7 @@ html, body {
   gap: clamp(16px, 2.5vw, 32px);
   flex-wrap: wrap;
   padding-top: 24px;
-  border-top: 1px solid #E2E8F0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .home-stat-badge {
@@ -3462,25 +3482,26 @@ html, body {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: #FEE2E2;
-  color: #CF3C30;
+  background: rgba(207, 60, 48, 0.18);
+  color: #FF6B5B;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   font-size: 17px;
+  border: 1px solid rgba(207, 60, 48, 0.3);
 }
 .home-stat-info strong {
   font-family: var(--font-editorial, 'Fraunces', Georgia, serif);
   font-size: 19px;
   font-weight: 800;
-  color: #0F172A;
+  color: #FFFFFF;
   display: block;
   line-height: 1.1;
 }
 .home-stat-info span {
   font-size: 12px;
-  color: #1E293B;
+  color: rgba(248, 250, 252, 0.75);
   font-weight: 500;
 }
 
@@ -3539,16 +3560,16 @@ html, body {
   top: -18px;
   left: 20px;
   z-index: 3;
-  background: #FFFFFF;
+  background: rgba(15, 23, 42, 0.92);
   padding: 6px 14px;
   border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   font-family: 'Caveat', cursive;
   font-size: 18px;
   font-weight: 700;
-  color: #0F172A;
+  color: #F8FAFC;
   transform: rotate(-6deg);
-  border: 1px solid #E2E8F0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -3576,9 +3597,9 @@ html, body {
   position: relative;
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.12);
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.5);
+  background: #161B22;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 .mosaic-card img {
   width: 100%;
@@ -3598,19 +3619,20 @@ html, body {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(4px);
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 13px;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 .mosaic-fav-heart:hover {
   background: #CF3C30;
+  border-color: #CF3C30;
   transform: scale(1.1);
 }
 
@@ -3621,7 +3643,8 @@ html, body {
   font-family: 'Caveat', cursive;
   font-size: 22px;
   font-weight: 700;
-  color: #1E293B;
+  color: #F8FAFC;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
   transform: rotate(8deg);
   line-height: 1.1;
   pointer-events: none;
@@ -7106,13 +7129,13 @@ html, body {
    Matches layout & aesthetic of media_1789544963323.png
    ========================================================================== */
 
-/* 1. Section: Light Split Hero (About Us) */
+/* 1. Section: Dark Split Hero (About Us) */
 .about-hero-sec {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);
-  padding: clamp(100px, 11vw, 140px) 0 clamp(64px, 7vw, 90px);
+  background: #0B0D11;
+  padding: clamp(140px, 17vh, 180px) 0 clamp(64px, 7vw, 90px);
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid #E2E8F0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .about-hero-sec::before {
   content: "";
@@ -7121,7 +7144,7 @@ html, body {
   right: 20%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(207, 60, 48, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(207, 60, 48, 0.12) 0%, transparent 70%);
   pointer-events: none;
 }
 .about-hero-grid {
@@ -7144,7 +7167,7 @@ html, body {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #CF3C30;
+  color: #E05347;
   margin-bottom: 16px;
 }
 .about-eyebrow::before {
@@ -7158,19 +7181,19 @@ html, body {
   font-family: var(--font-editorial, 'Fraunces', Georgia, serif);
   font-size: clamp(36px, 4.6vw, 58px);
   font-weight: 700;
-  color: #0F172A;
+  color: #FFFFFF;
   line-height: 1.08;
   margin: 0 0 20px;
 }
 .about-hero-title em {
   font-style: italic;
   font-weight: 600;
-  color: #CF3C30;
+  color: #E05347;
 }
 .about-hero-sub {
   font-size: clamp(15px, 1.2vw, 17px);
   line-height: 1.65;
-  color: #1E293B;
+  color: rgba(248, 250, 252, 0.92) !important;
   margin: 0 0 16px;
   max-width: 48ch;
 }
@@ -7178,7 +7201,7 @@ html, body {
   margin-bottom: 24px;
 }
 .about-hero-sec p {
-  color: #1E293B;
+  color: rgba(248, 250, 252, 0.92) !important;
 }
 .about-hero-actions {
   display: flex;
@@ -7192,31 +7215,31 @@ html, body {
   justify-content: center;
   padding: 12px 26px;
   border-radius: 999px;
-  border: 1.5px solid #CBD5E1;
-  background: #FFFFFF;
-  color: #0F172A !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF !important;
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.25s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 .btn--ghost-dark:hover {
-  background: #F8FAFC;
-  border-color: #0F172A;
-  color: #0F172A;
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #FFFFFF !important;
   transform: translateY(-2px);
 }
 .about-hero-visual {
   position: relative;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.12);
-  border: 1px solid #E2E8F0;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   aspect-ratio: 4/3.2;
   min-height: 360px;
-  background: #F1F5F9;
+  background: #161B22;
 }
 .about-hero-img {
   width: 100%;
@@ -7243,12 +7266,12 @@ html, body {
   position: absolute;
   bottom: 0;
   right: 0;
-  background: #FFFFFF;
+  background: rgba(15, 23, 42, 0.92);
   border-top-left-radius: 28px;
-  border-top: 1px solid #E2E8F0;
-  border-left: 1px solid #E2E8F0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
   padding: 18px 24px 14px;
-  box-shadow: -6px -6px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: -6px -6px 20px rgba(0, 0, 0, 0.4);
   text-align: right;
 }
 @media (max-width: 768px) {
@@ -7278,7 +7301,7 @@ html, body {
   font-family: 'Caveat', cursive, sans-serif;
   font-size: clamp(22px, 2.4vw, 30px);
   line-height: 1.15;
-  color: #0F172A;
+  color: #F8FAFC;
   margin: 0;
 }
 .about-script-flourish {
@@ -7944,14 +7967,14 @@ html, body {
   max-width: 54ch;
 }
 
-/* 1. HERO SECTION (Light Clean Split - Contact Us) */
+/* 1. HERO SECTION (Dark Atmospheric Split - Contact Us) */
 .contact-hero-sec {
-  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
-  color: #0F172A;
+  background: #0B0D11;
+  color: #FFFFFF;
   padding: clamp(120px, 14vh, 175px) 0 clamp(48px, 6vw, 90px);
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid #E2E8F0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .contact-hero-sec::before {
   content: "";
@@ -7960,7 +7983,7 @@ html, body {
   right: 20%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(207, 60, 48, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(207, 60, 48, 0.12) 0%, transparent 70%);
   pointer-events: none;
 }
 .contact-hero-grid {
@@ -7980,18 +8003,18 @@ html, body {
   font-size: clamp(30px, 5.2vw, 64px);
   font-weight: 700;
   line-height: 1.15;
-  color: #0F172A;
+  color: #FFFFFF;
   margin: 0 0 18px;
   letter-spacing: -0.02em;
 }
 .contact-hero-title .title-accent {
-  color: #CF3C30;
+  color: #E05347;
   font-style: normal;
 }
 .contact-hero-desc {
   font-size: clamp(15.5px, 1.25vw, 17.5px);
   line-height: 1.65;
-  color: #1E293B;
+  color: rgba(248, 250, 252, 0.92) !important;
   margin: 0 0 16px;
   max-width: 52ch;
 }
@@ -8031,9 +8054,9 @@ html, body {
   align-items: center;
   justify-content: center;
   gap: 9px;
-  background: #FFFFFF;
-  border: 1.5px solid #CBD5E1;
-  color: #0F172A !important;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  color: #FFFFFF !important;
   font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
   font-size: 15px;
   font-weight: 600;
@@ -8041,12 +8064,12 @@ html, body {
   border-radius: 999px;
   text-decoration: none;
   transition: all 0.25s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 .btn-contact-whatsapp:hover {
-  background: #F0FDF4;
+  background: rgba(37, 211, 102, 0.15);
   border-color: #25D366;
-  color: #15803D !important;
+  color: #FFFFFF !important;
   transform: translateY(-2px);
 }
 .btn-contact-whatsapp svg {
@@ -8071,7 +8094,7 @@ html, body {
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   padding-top: 24px;
-  border-top: 1px solid #E2E8F0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 @media (max-width: 560px) {
   .contact-hero-features {
@@ -8088,13 +8111,13 @@ html, body {
 .contact-feature-icon {
   width: 24px;
   height: 24px;
-  color: #CF3C30;
+  color: #E05347;
 }
 .contact-feature-label {
   font-size: 13px;
   font-weight: 600;
   line-height: 1.35;
-  color: #0F172A;
+  color: #F8FAFC;
 }
 
 /* Hero Right Visual */
@@ -8102,9 +8125,9 @@ html, body {
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.12);
-  border: 1px solid #E2E8F0;
-  background: #F1F5F9;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #151921;
   min-height: 500px;
   height: 100%;
 }
@@ -8976,11 +8999,31 @@ html, body {
 /* ============ LEGAL DOCUMENTATION PAGES STYLES ============ */
 .legal-page-wrap {
   padding: clamp(100px, 12vw, 130px) 0 80px;
-  background: var(--paper, #F8FAFC);
+  background: #0B0D11;
+  position: relative;
+  overflow: hidden;
+}
+.legal-page-wrap::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  right: 20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(207, 60, 48, 0.12) 0%, transparent 70%);
+  pointer-events: none;
 }
 .legal-header {
   text-align: center;
   margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+}
+.legal-header h1 {
+  color: #FFFFFF !important;
+}
+.legal-header p {
+  color: rgba(248, 250, 252, 0.88) !important;
 }
 .legal-nav-tabs {
   display: flex;
@@ -8997,20 +9040,20 @@ html, body {
   font-size: 13.5px;
   font-weight: 600;
   text-decoration: none;
-  background: #FFFFFF;
-  border: 1px solid rgba(14, 18, 26, 0.12);
-  color: #1E293B;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
   transition: all 0.2s ease;
 }
 .legal-nav-tab:hover {
-  border-color: #CF3C30;
-  color: #CF3C30;
+  border-color: #E05347;
+  color: #E05347;
 }
 .legal-nav-tab.active {
-  background: #0F172A;
+  background: #CF3C30;
   color: #FFFFFF;
-  border-color: #0F172A;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+  border-color: #CF3C30;
+  box-shadow: 0 4px 14px rgba(207, 60, 48, 0.4);
 }
 .legal-card {
   background: #FFFFFF;
@@ -9080,9 +9123,9 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #FEF2F2;
-  color: #991B1B;
-  border: 1px solid #FECACA;
+  background: rgba(207, 60, 48, 0.15);
+  color: #FFA59E;
+  border: 1px solid rgba(207, 60, 48, 0.35);
   padding: 4px 12px;
   border-radius: 999px;
   font-size: 12px;
