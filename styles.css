@@ -6412,13 +6412,21 @@ html, body {
 }
 
 .mkt-trust-strip {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 14px 40px;
+  align-items: center;
   margin-top: 36px;
-  padding-top: 26px;
+  padding-top: 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+@media (max-width: 600px) {
+  .mkt-trust-strip {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 20px;
+  }
 }
 .mkt-trust-item {
   display: flex;
