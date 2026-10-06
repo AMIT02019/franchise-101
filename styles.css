@@ -1974,9 +1974,25 @@ body {
 }
 .foot-contact-strip strong {
   color: #0F172A !important;
+  transition: color 0.2s ease;
 }
 .foot-contact-strip small {
   color: #1E293B !important;
+}
+.foot-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
+}
+.foot-contact-item:hover {
+  transform: translateY(-2px);
+}
+.foot-contact-item:hover strong {
+  color: #CF3C30 !important;
 }
 
 /* Card Media Banners in Light Mode */
