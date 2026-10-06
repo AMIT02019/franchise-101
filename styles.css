@@ -1983,72 +1983,56 @@ body {
 
 /* ============ COMPREHENSIVE TEXT VISIBILITY & CONTRAST FIXES ============ */
 
-/* 1. Nav Links - Services in Darker Red (#B91C1C), Home / About / Contact in Black (#0F172A) */
+/* 1. Desktop Nav Links: Uniform, Professional & Consistent */
 .nav-links a {
   color: #0F172A !important;
   font-weight: 600 !important;
-  transition: color 0.2s ease, background 0.2s ease;
+  font-size: 13.5px !important;
+  padding: 8px 10px !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  position: relative !important;
+  display: inline-block !important;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease !important;
 }
 
-/* Services: Explore Franchises, Build Your Brand, Franchise & Scale, Franchise Marketing */
-.nav-links a[href*="franchises"],
-.nav-links a[href*="develop-brand"],
-.nav-links a[href*="develop-scale"],
-.nav-links a[href*="franchise-marketing"] {
-  color: #B91C1C !important;
-  font-weight: 700 !important;
-}
-.nav-links a[href*="franchises"]::after,
-.nav-links a[href*="develop-brand"]::after,
-.nav-links a[href*="develop-scale"]::after,
-.nav-links a[href*="franchise-marketing"]::after {
-  background: #B91C1C !important;
-}
-
-/* General / Company Links: Home, About Us, Contact */
-.nav-links a[href*="index"],
-.nav-links a[href="/"],
-.nav-links a[href*="about"],
-.nav-links a[href*="contact"] {
-  color: #0F172A !important;
-  font-weight: 700 !important;
-}
-.nav-links a[href*="index"]::after,
-.nav-links a[href="/"]::after,
-.nav-links a[href*="about"]::after,
-.nav-links a[href*="contact"]::after {
-  background: #0F172A !important;
+.nav-links a::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 10px !important;
+  right: 10px !important;
+  bottom: 2px !important;
+  height: 2.5px !important;
+  width: auto !important;
+  background: var(--kesar, #CF3C30) !important;
+  border-radius: 99px !important;
+  transform: scaleX(0) !important;
+  transform-origin: center !important;
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  box-shadow: 0 0 8px rgba(207, 60, 48, 0.4) !important;
 }
 
 .nav-links a:hover {
-  background: rgba(15, 23, 42, 0.05) !important;
-}
-.nav-links a[href*="franchises"]:hover,
-.nav-links a[href*="develop-brand"]:hover,
-.nav-links a[href*="develop-scale"]:hover,
-.nav-links a[href*="franchise-marketing"]:hover {
-  color: #991B1B !important;
-  background: rgba(185, 28, 28, 0.08) !important;
-}
-.nav-links a[href*="index"]:hover,
-.nav-links a[href="/"]:hover,
-.nav-links a[href*="about"]:hover,
-.nav-links a[href*="contact"]:hover {
-  color: #0F172A !important;
-  background: rgba(15, 23, 42, 0.06) !important;
+  color: var(--kesar, #CF3C30) !important;
+  background: rgba(207, 60, 48, 0.05) !important;
+  transform: translateY(-1px) !important;
 }
 
-.nav-links a[href*="franchises"].active,
-.nav-links a[href*="develop-brand"].active,
-.nav-links a[href*="develop-scale"].active,
-.nav-links a[href*="franchise-marketing"].active {
-  color: #991B1B !important;
+.nav-links a:hover::after {
+  transform: scaleX(1) !important;
 }
-.nav-links a[href*="index"].active,
-.nav-links a[href="/"].active,
-.nav-links a[href*="about"].active,
-.nav-links a[href*="contact"].active {
-  color: #0F172A !important;
+
+/* ONLY the active page link is highlighted with brand red & underline */
+.nav-links a.active {
+  color: var(--kesar, #CF3C30) !important;
+  font-weight: 700 !important;
+  background: rgba(207, 60, 48, 0.06) !important;
+}
+
+.nav-links a.active::after {
+  transform: scaleX(1) !important;
+  background: var(--kesar, #CF3C30) !important;
+  box-shadow: 0 0 10px rgba(207, 60, 48, 0.6) !important;
 }
 
 /* 2. Mobile Drawer Navigation */
@@ -2059,80 +2043,27 @@ body {
 .mobile-nav-link,
 .mobile-drawer nav a {
   color: #0F172A !important;
-  font-weight: 700 !important;
-  border-radius: 10px;
-  padding: 10px 14px !important;
-  transition: all 0.2s ease;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  border-radius: 10px !important;
+  padding: 12px 16px !important;
+  transition: all 0.2s ease !important;
+  display: block !important;
+  text-decoration: none !important;
 }
 
-/* Mobile Services: Darker Red */
-.mobile-nav-link[href*="franchises"],
-.mobile-nav-link[href*="develop-brand"],
-.mobile-nav-link[href*="develop-scale"],
-.mobile-nav-link[href*="franchise-marketing"],
-.mobile-drawer nav a[href*="franchises"],
-.mobile-drawer nav a[href*="develop-brand"],
-.mobile-drawer nav a[href*="develop-scale"],
-.mobile-drawer nav a[href*="franchise-marketing"] {
-  color: #B91C1C !important;
-  font-weight: 700 !important;
-}
-.mobile-nav-link[href*="franchises"]:hover,
-.mobile-nav-link[href*="develop-brand"]:hover,
-.mobile-nav-link[href*="develop-scale"]:hover,
-.mobile-nav-link[href*="franchise-marketing"]:hover,
-.mobile-drawer nav a[href*="franchises"]:hover,
-.mobile-drawer nav a[href*="develop-brand"]:hover,
-.mobile-drawer nav a[href*="develop-scale"]:hover,
-.mobile-drawer nav a[href*="franchise-marketing"]:hover {
-  color: #991B1B !important;
+.mobile-nav-link:hover,
+.mobile-drawer nav a:hover {
+  color: var(--kesar, #CF3C30) !important;
   background: #FEF2F2 !important;
 }
-.mobile-nav-link[href*="franchises"].active,
-.mobile-nav-link[href*="develop-brand"].active,
-.mobile-nav-link[href*="develop-scale"].active,
-.mobile-nav-link[href*="franchise-marketing"].active,
-.mobile-drawer nav a[href*="franchises"].active,
-.mobile-drawer nav a[href*="develop-brand"].active,
-.mobile-drawer nav a[href*="develop-scale"].active,
-.mobile-drawer nav a[href*="franchise-marketing"].active {
-  color: #991B1B !important;
-  background: #FEE2E2 !important;
-}
 
-/* Mobile General / Company: Home, About Us, Contact in Crisp Black */
-.mobile-nav-link[href*="index"],
-.mobile-nav-link[href="/"],
-.mobile-nav-link[href*="about"],
-.mobile-nav-link[href*="contact"],
-.mobile-drawer nav a[href*="index"],
-.mobile-drawer nav a[href="/"],
-.mobile-drawer nav a[href*="about"],
-.mobile-drawer nav a[href*="contact"] {
-  color: #0F172A !important;
+.mobile-nav-link.active,
+.mobile-drawer nav a.active {
+  color: var(--kesar, #CF3C30) !important;
   font-weight: 700 !important;
-}
-.mobile-nav-link[href*="index"]:hover,
-.mobile-nav-link[href="/"]:hover,
-.mobile-nav-link[href*="about"]:hover,
-.mobile-nav-link[href*="contact"]:hover,
-.mobile-drawer nav a[href*="index"]:hover,
-.mobile-drawer nav a[href="/"]:hover,
-.mobile-drawer nav a[href*="about"]:hover,
-.mobile-drawer nav a[href*="contact"]:hover {
-  color: #0F172A !important;
-  background: #F1F5F9 !important;
-}
-.mobile-nav-link[href*="index"].active,
-.mobile-nav-link[href="/"].active,
-.mobile-nav-link[href*="about"].active,
-.mobile-nav-link[href*="contact"].active,
-.mobile-drawer nav a[href*="index"].active,
-.mobile-drawer nav a[href="/"].active,
-.mobile-drawer nav a[href*="about"].active,
-.mobile-drawer nav a[href*="contact"].active {
-  color: #0F172A !important;
-  background: #F1F5F9 !important;
+  background: rgba(207, 60, 48, 0.08) !important;
+  border-left: 3px solid var(--kesar, #CF3C30) !important;
 }
 .mobile-drawer-content p, .mobile-drawer-content small {
   color: #1E293B !important;
