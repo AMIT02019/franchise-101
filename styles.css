@@ -1897,24 +1897,18 @@ body {
   background: #FFFFFF !important;
 }
 
-/* Bright Light Hero */
+/* Unified Dark Hero */
 .hero {
-  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%) !important;
-  color: #0F172A !important;
+  background: #0B0D11 !important;
+  color: #FFFFFF !important;
   padding: clamp(140px, 17vh, 180px) 0 44px !important;
-  border-bottom: 1px solid #E2E8F0 !important;
-}
-.hero::before, .hero::after {
-  display: none !important;
-}
-.hero-video-wrap {
-  display: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 .hero h1 {
-  color: #0F172A !important;
+  color: #FFFFFF !important;
 }
 .hero-sub {
-  color: #1E293B !important;
+  color: rgba(248, 250, 252, 0.92) !important;
 }
 
 /* 3D Carousel Light Theme */
