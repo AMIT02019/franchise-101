@@ -3368,6 +3368,43 @@ html, body {
   }
 }
 
+/* Hero 3 Core Pillars Typography Highlights */
+.hero-h1-row {
+  display: block;
+}
+@media (max-width: 640px) {
+  .hero-h1-row {
+    display: inline;
+  }
+}
+
+.hero-highlight-verb {
+  color: #CF3C30;
+  font-style: italic;
+  font-weight: 800;
+  position: relative;
+  display: inline-block;
+  letter-spacing: -0.015em;
+  padding: 0 4px 0 1px;
+}
+.hero-highlight-verb::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: rgba(207, 60, 48, 0.16);
+  border-radius: 3px;
+  z-index: -1;
+  transform: rotate(-0.5deg);
+}
+
+.hero-sub-hl {
+  color: #CF3C30;
+  font-weight: 700;
+}
+
 /* Dynamic Hero Typewriter Effect */
 .tw-accent {
   color: #CF3C30;
@@ -9478,6 +9515,171 @@ footer,
     padding-right: clamp(24px, 10vw, 160px) !important;
     padding-left: clamp(16px, 4vw, 40px) !important;
   }
+}
+
+/* ==========================================================================
+   THE 3 CORE PILLARS SHOWCASE: DISCOVER • BUILD • GROW
+   ========================================================================== */
+.home-pillars-sec {
+  background: #FFFFFF;
+  padding: clamp(48px, 6vw, 76px) 0;
+  border-bottom: 1px solid #E2E8F0;
+  position: relative;
+}
+.home-pillars-badge-row {
+  text-align: center;
+  margin-bottom: clamp(32px, 4vw, 44px);
+}
+.pillars-main-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FEF2F2;
+  color: #CF3C30;
+  font-family: var(--font-mono, monospace);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(207, 60, 48, 0.2);
+  margin-bottom: 10px;
+}
+.pillars-main-title {
+  font-family: var(--font-editorial, 'Fraunces', serif);
+  font-size: clamp(24px, 3.2vw, 36px);
+  color: #0F172A;
+  font-weight: 800;
+  margin: 0;
+}
+.home-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 32px);
+}
+@media (max-width: 900px) {
+  .home-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+.home-pillar-card {
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 20px;
+  padding: clamp(24px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 8px 24px -6px rgba(15, 23, 42, 0.05);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.home-pillar-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #E2E8F0;
+  transition: background 0.25s;
+}
+.home-pillar-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -12px rgba(207, 60, 48, 0.14);
+  border-color: #CF3C30;
+}
+.pillar-card--discover:hover::before { background: #CF3C30; }
+.pillar-card--build:hover::before { background: #D97706; }
+.pillar-card--grow:hover::before { background: #16A34A; }
+
+.pillar-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.pillar-step-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 14px;
+  font-weight: 800;
+  color: #CF3C30;
+}
+.pillar-step-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #64748B;
+  background: #F1F5F9;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+.pillar-card-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #FEF2F2;
+  color: #CF3C30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+.home-pillar-card:hover .pillar-card-icon-box {
+  transform: scale(1.08);
+}
+.pillar-card--build .pillar-card-icon-box {
+  background: #FFFBEB;
+  color: #D97706;
+}
+.pillar-card--grow .pillar-card-icon-box {
+  background: #F0FDF4;
+  color: #16A34A;
+}
+
+.pillar-card-title {
+  font-family: var(--font-editorial, 'Fraunces', serif);
+  font-size: 22px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 10px;
+  line-height: 1.25;
+}
+.pillar-verb-accent {
+  color: #CF3C30;
+  font-style: italic;
+}
+.pillar-card--build .pillar-verb-accent {
+  color: #D97706;
+}
+.pillar-card--grow .pillar-verb-accent {
+  color: #16A34A;
+}
+.pillar-card-desc {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 20px;
+  flex-grow: 1;
+}
+.pillar-card-link {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #CF3C30;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s;
+}
+.pillar-card--build .pillar-card-link { color: #D97706; }
+.pillar-card--grow .pillar-card-link { color: #16A34A; }
+.home-pillar-card:hover .pillar-card-link {
+  gap: 10px;
 }
 
 /* 2. Horizontal Carousel / Scroll for Curated Brands */

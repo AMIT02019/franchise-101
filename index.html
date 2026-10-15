@@ -66,17 +66,16 @@
     <div class="home-hero-grid">
       <!-- Left Column: Copy & CTAs -->
       <div class="home-hero-left">
-        <h1 class="home-hero-h1" id="heroHeadline" aria-label="Discover the Right Business. Build It Right. Grow with Confidence."><span id="twTarget">Discover the Right Business. Build It Right. Grow with <span class="tw-accent">Confidence.</span></span><span class="tw-cursor" id="twCursor" aria-hidden="true"></span></h1>
+        <h1 class="home-hero-h1" id="heroHeadline" aria-label="Discover the Right Business. Build It Right. Grow with Confidence.">
+          <span class="hero-h1-row"><span class="hero-highlight-verb">Discover</span> the Right Business.</span>
+          <span class="hero-h1-row"><span class="hero-highlight-verb">Build</span> It Right.</span>
+          <span class="hero-h1-row"><span class="hero-highlight-verb">Grow</span> with <span class="tw-accent" id="twTarget">Confidence.</span><span class="tw-cursor" id="twCursor" aria-hidden="true"></span></span>
+        </h1>
         <script>
         (function() {
           var target = document.getElementById('twTarget');
           var cursor = document.getElementById('twCursor');
           if (!target || !cursor) return;
-
-          var baseP1 = "Discover the Right Business. ";
-          var baseP2 = "Build It Right. ";
-          var baseP3 = "Grow with ";
-          var fullBase = baseP1 + baseP2 + baseP3;
 
           var dynamicWords = [
             "Confidence.",
@@ -88,7 +87,6 @@
           ];
 
           var wordIndex = 0;
-          var isInitial = true;
           var cycleTimer = null;
           var activeTimeout = null;
 
@@ -99,43 +97,18 @@
             }
           }
 
-          function typeFullInitial(onComplete) {
-            setTyping(true);
-            target.textContent = '';
-            var i = 0;
-            var fullText = fullBase;
-
-            function typeChar() {
-              if (i < fullText.length) {
-                target.textContent = fullText.slice(0, i + 1);
-                i++;
-                var delay = 25 + Math.random() * 14;
-                if (fullText[i - 1] === '.') delay = 210;
-                else if (fullText[i - 1] === ' ') delay = 36;
-                activeTimeout = setTimeout(typeChar, delay);
-              } else {
-                typeAccentWord(dynamicWords[0], function() {
-                  setTyping(false);
-                  isInitial = false;
-                  if (onComplete) onComplete();
-                });
-              }
-            }
-            typeChar();
-          }
-
           function typeAccentWord(word, onComplete) {
             setTyping(true);
+            target.textContent = '';
             var j = 0;
-            var accentSpan = document.createElement('span');
-            accentSpan.className = 'tw-accent';
-            target.appendChild(accentSpan);
 
             function typeAccentChar() {
               if (j < word.length) {
-                accentSpan.textContent += word[j];
+                target.textContent += word[j];
                 j++;
-                activeTimeout = setTimeout(typeAccentChar, 34 + Math.random() * 18);
+                var delay = 34 + Math.random() * 18;
+                if (word[j - 1] === '.') delay = 220;
+                activeTimeout = setTimeout(typeAccentChar, delay);
               } else {
                 setTyping(false);
                 if (onComplete) onComplete();
@@ -146,21 +119,14 @@
 
           function backspaceAccent(onComplete) {
             setTyping(true);
-            var accentSpan = target.querySelector('.tw-accent');
-            if (!accentSpan) {
-              if (onComplete) onComplete();
-              return;
-            }
-
             function removeChar() {
-              var current = accentSpan.textContent;
+              var current = target.textContent;
               if (current.length > 0) {
-                accentSpan.textContent = current.slice(0, -1);
-                activeTimeout = setTimeout(removeChar, 22);
+                target.textContent = current.slice(0, -1);
+                activeTimeout = setTimeout(removeChar, 24);
               } else {
-                accentSpan.remove();
                 setTyping(false);
-                activeTimeout = setTimeout(onComplete, 160);
+                activeTimeout = setTimeout(onComplete, 180);
               }
             }
             removeChar();
@@ -175,37 +141,32 @@
                   cycleNextWord();
                 });
               });
-            }, 2600);
+            }, 2800);
           }
 
-          // Pre-clear target right as this script runs
-          target.textContent = '';
-          activeTimeout = setTimeout(function() {
-            typeFullInitial(function() {
-              cycleNextWord();
-            });
-          }, 80);
+          // Start loop after initial word pause
+          cycleTimer = setTimeout(function() {
+            cycleNextWord();
+          }, 2400);
 
           var headline = document.getElementById('heroHeadline');
           if (headline) {
             headline.style.cursor = 'pointer';
             headline.title = 'Click to cycle highlights';
             headline.addEventListener('click', function() {
-              if (!isInitial) {
-                clearTimeout(cycleTimer);
-                clearTimeout(activeTimeout);
-                backspaceAccent(function() {
-                  wordIndex = (wordIndex + 1) % dynamicWords.length;
-                  typeAccentWord(dynamicWords[wordIndex], function() {
-                    cycleNextWord();
-                  });
+              clearTimeout(cycleTimer);
+              clearTimeout(activeTimeout);
+              backspaceAccent(function() {
+                wordIndex = (wordIndex + 1) % dynamicWords.length;
+                typeAccentWord(dynamicWords[wordIndex], function() {
+                  cycleNextWord();
                 });
-              }
+              });
             });
           }
         })();
         </script>
-        <p class="home-hero-sub">Franchise 101 is a trusted franchise and business solutions ecosystem helping investors discover the right opportunities, entrepreneurs build businesses from concept to launch, and brands franchise and scale.</p>
+        <p class="home-hero-sub">Franchise 101 is a trusted franchise and business solutions ecosystem helping investors <strong class="hero-sub-hl">discover</strong> the right opportunities, entrepreneurs <strong class="hero-sub-hl">build</strong> businesses from concept to launch, and brands <strong class="hero-sub-hl">scale &amp; grow</strong>.</p>
 
         <div class="home-hero-actions">
           <a href="#find-franchise" class="btn-hero-primary">Find Your Franchise <span class="arw">&rarr;</span></a>
@@ -273,6 +234,61 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 CORE HIGHLIGHT PILLARS: DISCOVER • BUILD • GROW ============ -->
+<section class="home-pillars-sec rv" id="core-pillars">
+  <div class="wrap">
+    <div class="home-pillars-badge-row">
+      <span class="pillars-main-tag"><span class="pulse"></span> THE 3 PILLARS OF FRANCHISE 101</span>
+      <h2 class="pillars-main-title">How We Empower Your Journey</h2>
+    </div>
+    <div class="home-pillars-grid">
+      
+      <!-- Pillar 1: DISCOVER -->
+      <a href="franchises.html" class="home-pillar-card pillar-card--discover">
+        <div class="pillar-card-top">
+          <span class="pillar-step-num">01</span>
+          <span class="pillar-step-badge">INVESTOR FOCUS</span>
+        </div>
+        <div class="pillar-card-icon-box">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+        <h3 class="pillar-card-title"><span class="pillar-verb-accent">Discover</span> Franchises</h3>
+        <p class="pillar-card-desc">Curated profitable food &amp; business concepts. Audited Capex sheets, transparent ROI models and zero brokerage for investors.</p>
+        <div class="pillar-card-link">Explore Opportunities <span class="arw">&rarr;</span></div>
+      </a>
+
+      <!-- Pillar 2: BUILD -->
+      <a href="develop-brand.html" class="home-pillar-card pillar-card--build">
+        <div class="pillar-card-top">
+          <span class="pillar-step-num">02</span>
+          <span class="pillar-step-badge">FOUNDER FOCUS</span>
+        </div>
+        <div class="pillar-card-icon-box">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3 class="pillar-card-title"><span class="pillar-verb-accent">Build</span> Your Brand</h3>
+        <p class="pillar-card-desc">End-to-end concept development: brand strategy, 3D CAD outlet design, commercial kitchen layout, recipe standardization &amp; SOPs.</p>
+        <div class="pillar-card-link">Develop Your Concept <span class="arw">&rarr;</span></div>
+      </a>
+
+      <!-- Pillar 3: GROW -->
+      <a href="develop-scale.html" class="home-pillar-card pillar-card--grow">
+        <div class="pillar-card-top">
+          <span class="pillar-step-num">03</span>
+          <span class="pillar-step-badge">EXPANSION FOCUS</span>
+        </div>
+        <div class="pillar-card-icon-box">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3 class="pillar-card-title"><span class="pillar-verb-accent">Grow</span> &amp; Scale</h3>
+        <p class="pillar-card-desc">Transform proven single outlets into multi-unit franchise empires with investor discovery, targeted marketing and legal frameworks.</p>
+        <div class="pillar-card-link">Scale Nationwide <span class="arw">&rarr;</span></div>
+      </a>
+
     </div>
   </div>
 </section>
