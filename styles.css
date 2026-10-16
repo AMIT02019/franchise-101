@@ -9760,39 +9760,52 @@ footer,
   transform: scale(1.15);
 }
 
-/* 7-Stage Process Ribbon */
+/* Process Pathway Pipeline Ribbon */
 .mkt-process-ribbon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px 12px;
   background: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  border: 1.5px solid #E2E8F0;
   border-radius: 999px;
-  padding: 8px 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  padding: 8px 22px;
+  box-shadow: 0 4px 14px -3px rgba(15, 23, 42, 0.05);
   margin: 16px auto 0;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.mkt-process-ribbon:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 6px 20px -4px rgba(15, 23, 42, 0.08);
 }
 .mkt-ribbon-pill {
   font-family: var(--font-body);
   font-size: 13.5px;
   font-weight: 700;
-  color: #0F172A;
+  color: #1E293B;
   letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+.mkt-ribbon-pill:hover {
+  color: #CF3C30;
 }
 .mkt-ribbon-sep {
   color: #CF3C30;
   font-weight: 800;
   font-size: 14px;
+  user-select: none;
 }
 @media (max-width: 640px) {
   .mkt-process-ribbon {
-    border-radius: 16px;
-    padding: 10px 14px;
-    gap: 6px;
+    border-radius: 18px;
+    padding: 10px 16px;
+    gap: 6px 8px;
   }
   .mkt-ribbon-pill {
+    font-size: 12.5px;
+  }
+  .mkt-ribbon-sep {
     font-size: 12px;
   }
 }
